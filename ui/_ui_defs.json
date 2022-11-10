@@ -1,0 +1,6 @@
+{
+  "ui_defs": [
+  "ui/inventory_screen/inventory_uikit.json",
+  "ui/inventory_screen/inventory_controls.json"
+  ]
+}
