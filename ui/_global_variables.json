@@ -1,0 +1,6 @@
+{
+  "$main_menu_button_default_color": [0.87, 0.87, 0.87],
+  "$main_menu_button_hover_color": [1.0, 1.0, 0.62],
+  "$main_menu_button_preesed_color": [0.87, 0.87, 0.87],
+  "$main_menu_button_locked_color": [0.62, 0.62, 0.62]
+}
