@@ -1,0 +1,31 @@
+{
+  "format_version": 2,
+  "header": {
+      "name": "UIPack Part",
+      "description": "UIPack brings exciting new UI to Minecraft.",
+      "uuid": "1a8a326d-d228-433f-a99c-3c0178202aae",
+      "version": [ 0, 4, 0 ],
+      "min_engine_version": [ 1, 17, 11 ]
+  },
+  "modules": [
+      {
+          "type": "resources",
+          "uuid": "efb28d6b-e1b3-4ecf-89e8-edb351b91cec",
+          "version": [ 0, 4, 0 ]
+      }
+  ],
+  "subpacks": [
+      {
+          "folder_name": "dark",
+          "name": "subpack.dark.name",
+          "memory_tier": 2
+      },
+      {
+          "folder_name": "light",
+          "name": "subpack.light.name",
+          "memory_tier": 1
+      }
+  ]
+}
+
+/*Designed by UIPack Team, Copyright © 2022 UIPack Team. All rights reserved.*/
