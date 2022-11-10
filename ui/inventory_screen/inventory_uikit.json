@@ -1,0 +1,413 @@
+{
+  "namespace": "inventory_uikit",
+  "items_number_test": {
+    "type": "panel",
+    "bindings": [
+      {
+        "binding_name": "#recipe_book_total_items",
+        "binding_name_override": "#maximum_grid_items",
+        "binding_condition": "visible",
+        "binding_type": "collection",
+        "binding_collection_name": "recipe_book"
+      },
+      {
+        "binding_name": "(#recipe_book_total_items = $total_recipe_items_number)",
+        "binding_name_override": "#visible",
+        "binding_type": "collection",
+        "binding_collection_name": "recipe_book"
+      }
+    ]
+  },
+  "common_toggle@common.toggle": {
+    "size": [22, 22],
+    "layer": 2,
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "$toggle_target",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "common_toggle_un@common_toggle": {
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "$toggle_target",
+        "source_property_name": "(not #toggle_state)",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "common_panel": {
+    "type": "panel",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "$toggle_target",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "common_panel_un@common_panel": {
+    "type": "panel",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "$toggle_target",
+        "source_property_name": "(not #toggle_state)",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "content_stack_panel": {
+    "type": "stack_panel",
+    "size": [326, 166],
+    "orientation": "horizontal",
+    "$content_tab_content|default": "inventory_controls.tab_content",
+    "$content_tab_content_2|default": "inventory_controls.tab_content",
+    "controls": [
+      {
+        "7_tab_content_panel@$content_tab_content": {
+          "layer": 2,
+          "size": [146, 166],
+          "$tabc_label": "$content_tabc_lael1",
+          "$scrolling_pane_control": "$content_scrolling_pane_control",
+          "bindings": [
+            {
+              "binding_type": "global",
+              "binding_name": "#is_recipe_book_layout",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "center_fold@crafting.center_fold": {
+          "size": [4, 166],
+          "bindings": [
+            {
+              "binding_type": "global",
+              "binding_name": "#is_recipe_book_layout",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "survival_padding": {
+          "type": "panel",
+          "size": ["fill", "100%"],
+          "bindings": [
+            {
+              "binding_type": "global",
+              "binding_name": "#is_survival_layout",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "17_tab_content_panel@$content_tab_content_2": {
+          "layer": 2,
+          "size": [326, 166],
+          "$tabc_label": "$content_tabc_lael2",
+          "$scrolling_pane_control": "$content_recipe_book_scroll_panel",
+          "bindings": [
+            {
+              "binding_type": "global",
+              "binding_name": "(not #is_recipe_book_layout)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "one_grid_content_stack_panel": {
+    "type": "stack_panel",
+    "size": [180, 18],
+    "orientation": "horizontal",
+    "$content_tab_content_2|default": "inventory_uikit.one_grid_tab_content",
+    "controls": [
+      {
+        "0@$content_tab_content_2": {
+          "layer": 3,
+          "size": [36, 18],
+          "$scrolling_pane_control": "$grid_1"
+        }
+      },
+      {
+        "empty": {
+          "type": "panel",
+          "size": [-5, 0]
+        }
+      },
+      {
+        "1@a_grid": { "$content_recipe_book_scroll_panel": "$grid_2" }
+      },
+      {
+        "2@a_grid": { "$content_recipe_book_scroll_panel": "$grid_3" }
+      },
+      {
+        "3@a_grid": { "$content_recipe_book_scroll_panel": "$grid_4" }
+      },
+      {
+        "4@a_grid": { "$content_recipe_book_scroll_panel": "$grid_5" }
+      },
+      {
+        "5@a_grid": { "$content_recipe_book_scroll_panel": "$grid_6" }
+      },
+      {
+        "6@a_grid": { "$content_recipe_book_scroll_panel": "$grid_7" }
+      },
+      {
+        "7@a_grid": { "$content_recipe_book_scroll_panel": "$grid_8" }
+      },
+      {
+        "8@a_grid": { "$content_recipe_book_scroll_panel": "$grid_9" }
+      }
+    ]
+  },
+  "a_grid": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [18, 18],
+    "controls": [
+      {
+        "empty": {
+          "type": "panel",
+          "size": [-13, 0]
+        }
+      },
+      {
+        "2@$content_tab_content_2": {
+          "layer": 2,
+          "size": [36, 18],
+          "$scrolling_pane_control": "$content_recipe_book_scroll_panel"
+        }
+      }
+    ]
+  },
+  "one_grid_tab_content": {
+    "type": "panel",
+    "layer": 1,
+    "controls": [
+      {
+        "tab_content_search_bar_panel": {
+          "type": "stack_panel",
+          "size": ["100% - 12px", "100% - 12px"],
+          "orientation": "vertical",
+
+          "controls": [
+            {
+              "scroll_pane@$scrolling_pane_control": {
+                "size": ["100%", 20] //决定网格大小
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "scroll_content": {
+    "type": "panel",
+    "size": ["100%", "100%c"],
+    "$scroll_main_panel_content|default": "common.empty_panel",
+    "controls": [
+      {
+        "content@$scroll_main_panel_content": {
+          "size": ["100%-2px", "100%c"],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle"
+        }
+      }
+    ]
+  },
+  "scroll_track": {
+    "type": "image",
+    "layer": 0,
+    "offset": [0, -3.5],
+    "size": ["100%", "100%-9px"],
+    "texture": "textures/ui/cell_image"
+  },
+  "scroll_box": {
+    "type": "image",
+    "size": ["100%", "100% - 10px"],
+    "texture": "textures/ui/ScrollBox"
+  },
+
+  "inventory_scrolling_panel@common.scrolling_panel": {
+    "layer": 1,
+    "$scrolling_pane_size": ["100%", "100%"],
+    "$scrolling_content": "inventory_uikit.scroll_content",
+    "$show_background": true,
+    //"$scroll_view_stack_panel_size":["100%","100%+12px"],
+    "$scroll_background_image_control": "common.empty_panel",
+    "$scroll_view_port_offset": [0, 0],
+    "$scroll_view_port_offset_touch": [0, 0],
+    "$scroll_view_port_size": ["100%", "100%"],
+    "$scroll_view_port_size_touch": ["100%", "100%"],
+    "$scroll_size": [14, "100%"],
+    "$scroll_track_image_control": "inventory_uikit.scroll_track",
+    "$scroll_box_mouse_image_control": "inventory_uikit.scroll_box",
+    "size": ["100%", "100%"],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "$scroll_view_port_size|default": ["100% - 8px", "100% -2px"],
+    "$scroll_view_port_offset|default": [1, 1],
+    "$scroll_view_port_size_touch|default": ["100% - 4px", "100% - 2px"],
+    "$scroll_view_port_offset_touch|default": [1, 1],
+    "controls": [
+      {
+        "scroll_mouse@common.scrolling_panel_base": {
+          "size": "$scrolling_pane_size",
+          "offset": "$scrolling_pane_offset"
+        }
+      }
+    ]
+  },
+  "default_back_toggle@inventory_uikit.common_toggle_un": {
+    "$unchecked_control": "inventory_uikit.toggle_kit",
+    "$checked_control": "inventory_uikit.toggle_kit",
+    "$unchecked_hover_control": "inventory_uikit.toggle_kit",
+    "$checked_hover_control": "inventory_uikit.toggle_kit",
+    "$unchecked_locked_control": "inventory_uikit.toggle_kit",
+    "$unchecked_locked_hover_control": "inventory_uikit.toggle_kit",
+    "$checked_locked_control": "inventory_uikit.toggle_kit",
+    "$checked_locked_hover_control": "inventory_uikit.toggle_kit",
+    "$toggle_target": "inventory_uikit.default_next_toggle"
+  },
+
+  "default_next_toggle@common.toggle": {
+    "size": [22, 22],
+    "layer": 2,
+    "$toggle_binding_type": "global",
+    "$tab_view_binding_name": "search_tab_toggle",
+    "$toggle_group_forced_index": "$search_index",
+    "$radio_toggle_group": false,
+    "$toggle_default_state": false,
+    "$toggle_group_default_selected": "$construction_index",
+
+    "$toggle_name": "navigation_tab",
+
+    "$unchecked_control": "inventory_uikit.toggle_kit",
+    "$checked_control": "inventory_uikit.toggle_kit",
+    "$unchecked_hover_control": "inventory_uikit.hover_toggle_kit",
+    "$checked_hover_control": "inventory_uikit.hover_toggle_kit",
+    "$unchecked_locked_control": "inventory_uikit.toggle_kit",
+    "$unchecked_locked_hover_control": "inventory_uikit.toggle_kit",
+    "$checked_locked_control": "inventory_uikit.toggle_kit",
+    "$checked_locked_hover_control": "inventory_uikit.toggle_kit",
+
+    "$unchecked_toggle_texture": "textures/ui/button_borderless_light",
+    "$toggle_img": "",
+    "$complex_imgv": true,
+    "$complex_img_1": "textures/ui/arrow_r_default",
+    "$complex_img_2": "textures/ui/arrow_l_default",
+    "$border_color|default": "$light_border_default_color"
+  },
+
+  "next_toggle@inventory_uikit.common_toggle": {
+    "$unchecked_control": "inventory_uikit.toggle_kit",
+    "$checked_control": "inventory_uikit.toggle_kit",
+    "$unchecked_hover_control": "inventory_uikit.toggle_kit",
+    "$checked_hover_control": "inventory_uikit.toggle_kit",
+    "$unchecked_locked_control": "inventory_uikit.toggle_kit",
+    "$unchecked_locked_hover_control": "inventory_uikit.toggle_kit",
+    "$checked_locked_control": "inventory_uikit.toggle_kit",
+    "$checked_locked_hover_control": "inventory_uikit.toggle_kit",
+    "$tab_view_binding_name": "third",
+    "$toggle_group_forced_index": 3,
+    "$toggle_img": "textures/ui/arrow_r_default",
+    "$toggle_target": "inventory_uikit.default_next_toggle"
+  },
+  "toggle_kit@common_buttons.new_ui_button_panel": {
+    "$unchecked_toggle_texture|default": "textures/ui/disabledButtonNoBorder",
+    "$toggle_texture|default": "",
+    "$toggle_img|default": "textures/ui/arrow_l_default",
+    "$border_color|default": "$light_border_locked_color",
+    "$button_color|default": [1, 1, 1],
+    "$complex_img_1|default": "",
+    "$complex_img_2|default": "",
+    "$complex_imgv|default": false,
+    "controls": [
+      {
+        "unchecked_texture": {
+          "type": "image",
+          "texture": "$unchecked_toggle_texture",
+          "size": ["100% - 2px", "100% - 2px"],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "color": "$button_color",
+          "layer": 1
+        }
+      },
+      {
+        "texture": {
+          "type": "image",
+          "texture": "$toggle_texture",
+          "size": ["100% - 2px", "100% - 2px"],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "color": "$button_color",
+          "layer": 2
+        }
+      },
+      {
+        "button_content": {
+          "type": "panel",
+          "size": ["100% - 6px", "100% - 6px"],
+          "layer": 3,
+          "controls": [
+            {
+              "img": {
+                "type": "image",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "texture": "$toggle_img",
+                "size": [10, 10]
+              }
+            },
+            {
+              "img_1@inventory_uikit.common_panel_un": {
+                "type": "image",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "texture": "$complex_img_1",
+                "visible": "$complex_imgv",
+                "size": [10, 10],
+                "$toggle_target": "inventory_uikit.default_next_toggle"
+              }
+            },
+            {
+              "img_2@inventory_uikit.common_panel": {
+                "type": "image",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "texture": "$complex_img_2",
+                "visible": "$complex_imgv",
+                "size": [10, 10],
+                "$toggle_target": "inventory_uikit.default_next_toggle"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "border@common_buttons.focus_border": {
+          "color": "$border_color",
+          "layer": 3
+        }
+      }
+    ]
+  },
+  "hover_toggle_kit@toggle_kit": {
+    "$toggle_texture|default": "textures/ui/button_borderless_lighthover",
+    "$toggle_img|default": "textures/ui/arrow_l_default",
+    "$border_color|default": "$light_border_hover_color"
+  }
+}
