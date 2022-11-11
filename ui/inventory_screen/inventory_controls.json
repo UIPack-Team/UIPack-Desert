@@ -22,20 +22,41 @@
     "offset": [0, -124],
     "text": "2/2"
   },
-  "top_tab@common_tabs.tab_top": {
-    "size": [28, "100%+3px"],
-    "$tab_content": "crafting.empty_tab_panel",
-    "$radio_toggle_group": true,
-    "$toggle_name": "second_tab",
-    "$toggle_default_state": false,
-    "$unchecked_default_image": "textures/ui/TabTopBack",
-    "$unchecked_hover_image": "textures/ui/TabTopBack",
-    "$unchecked_locked_image": "textures/ui/TabTopBack",
-    "$unchecked_locked_hover_image": "textures/ui/TabTopBack",
-    "$checked_default_image": "textures/ui/TabTopFront",
-    "$checked_hover_image": "textures/ui/TabTopFront",
-    "$checked_locked_image": "textures/ui/TabTopFront",
-    "$checked_locked_hover_image": "textures/ui/TabTopFront"
+  "topleft_tab_checked_complex": {
+    "type": "image",
+    "layer": 1300,
+    "offset": [-2.2, 16.5],
+    "size": [24, 4],
+    "uv": [0, 76],
+    "texture": "assets/minecraft/textures/gui/advancements/tabs",
+    "uv_size": [48, 8]
+  },
+  "topright_tab_checked_complex": {
+    "type": "image",
+    "layer": 1300,
+    "offset": [12, 16.5],
+    "size": [5, 5],
+    "uv": [158, 82],
+    "texture": "assets/minecraft/textures/gui/advancements/tabs",
+    "uv_size": [10, 10]
+  },
+  "bottomleft_tab_checked_complex": {
+    "type": "image",
+    "layer": -17,
+    "offset": [-2.5, -16.5],
+    "size": [24, 4],
+    "uv": [0, 76],
+    "texture": "assets/minecraft/textures/gui/advancements/tabs",
+    "uv_size": [48, 8]
+  },
+  "bottomright_tab_checked_complex": {
+    "type": "image",
+    "layer": -17,
+    "offset": [11, -16.5],
+    "size": [6.5, 12],
+    "uv": [155, 82],
+    "texture": "assets/minecraft/textures/gui/advancements/tabs",
+    "uv_size": [13, 24]
   },
   "fake_search@top_tab": {
     "$tab_icon": "crafting.search_icon"
@@ -52,28 +73,21 @@
           "size": [50, "100%"],
           "controls": [
             {
-              "建筑方块@top_tab": {
+              "建筑方块@inventory_uikit.top_tab": {
                 "$tab_view_binding_name": "tab_1",
+                "$is_top_left_most_tab": true,
                 "$toggle_group_forced_index": 21,
-                "$tab_icon": "common.empty_panel",
-                "$unchecked_default_image": "textures/ui/TabTopBackLeftMost",
-                "$unchecked_hover_image": "textures/ui/TabTopBackLeftMost",
-                "$unchecked_locked_image": "textures/ui/TabTopBackLeftMost",
-                "$unchecked_locked_hover_image": "textures/ui/TabTopBackLeftMost",
-                "$checked_default_image": "textures/ui/TabTopFrontLeftMost",
-                "$checked_hover_image": "textures/ui/TabTopFrontLeftMost",
-                "$checked_locked_image": "textures/ui/TabTopFrontLeftMost",
-                "$checked_locked_hover_image": "textures/ui/TabTopFrontLeftMost"
+                "$tab_icon": "common.empty_panel"
               }
             },
             {
               "space_0": {
                 "type": "panel",
-                "size": [1.5, 0]
+                "size": [4, 0]
               }
             },
             {
-              "自然方块@top_tab": {
+              "自然方块@inventory_uikit.top_tab": {
                 "$tab_view_binding_name": "tab_2",
                 "$toggle_group_forced_index": 22,
                 "$tab_icon": "common.empty_panel"
@@ -82,11 +96,11 @@
             {
               "space_1": {
                 "type": "panel",
-                "size": [1.5, 0]
+                "size": [4, 0]
               }
             },
             {
-              "Colored Blocked@top_tab": {
+              "Colored Blocked@inventory_uikit.top_tab": {
                 "$tab_view_binding_name": "tab_3",
                 "$toggle_group_forced_index": 23,
                 "$tab_icon": "common.empty_panel"
@@ -95,22 +109,113 @@
             {
               "space_2": {
                 "type": "panel",
-                "size": [1.5, 0]
+                "size": [4, 0]
               }
             },
             {
-              "功能方块@top_tab": {
+              "功能方块@inventory_uikit.top_tab": {
                 "$tab_icon": "common.empty_panel",
                 "$tab_view_binding_name": "tab_4",
                 "$toggle_group_forced_index": 24
               }
+            },
+            {
+              "space_3": {
+                "type": "panel",
+                "size": [42, 0]
+              }
+            },
+            {
+              "Search@inventory_uikit.top_tab": {
+                "$is_top_right_most_tab": true,
+                "$tab_view_binding_name": "tab_5",
+                "$toggle_group_forced_index": 25,
+                "$tab_icon": "common.empty_panel"
+              }
             }
           ]
         }
       }
     ]
   },
-  "119panel": {
+  "bottom_tabs": {
+    "type": "panel",
+    "size": [146, 23],
+    "controls": [
+      {
+        "选中第二个": {
+          "type": "stack_panel",
+          "offset": [-24, 89],
+          "orientation": "horizontal",
+          "size": [146, "100%"],
+          "controls": [
+            {
+              "建筑方块@inventory_uikit.bottom_tab": {
+                "$tab_view_binding_name": "tab_6",
+                "$is_top_left_most_tab": true,
+                "$toggle_group_forced_index": 26,
+                "$tab_icon": "common.empty_panel"
+              }
+            },
+            {
+              "space_0": {
+                "type": "panel",
+                "size": [4, 0]
+              }
+            },
+            {
+              "自然方块@inventory_uikit.bottom_tab": {
+                "$tab_view_binding_name": "tab_7",
+                "$toggle_group_forced_index": 27,
+                "$tab_icon": "common.empty_panel"
+              }
+            },
+            {
+              "space_1": {
+                "type": "panel",
+                "size": [4, 0]
+              }
+            },
+            {
+              "Colored Blocked@inventory_uikit.bottom_tab": {
+                "$tab_view_binding_name": "tab_8",
+                "$toggle_group_forced_index": 28,
+                "$tab_icon": "common.empty_panel"
+              }
+            },
+            {
+              "space_2": {
+                "type": "panel",
+                "size": [4, 0]
+              }
+            },
+            {
+              "功能方块@inventory_uikit.bottom_tab": {
+                "$tab_icon": "common.empty_panel",
+                "$tab_view_binding_name": "tab_9",
+                "$toggle_group_forced_index": 29
+              }
+            },
+            {
+              "space_3": {
+                "type": "panel",
+                "size": [38, 0]
+              }
+            },
+            {
+              "Search@inventory_uikit.bottom_tab": {
+                "$is_top_right_most_tab": true,
+                "$tab_view_binding_name": "tab_10",
+                "$toggle_group_forced_index": 30,
+                "$tab_icon": "common.empty_panel"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "反正就是非常厉害": {
     "type": "panel",
     "bindings": [
       {
@@ -120,11 +225,41 @@
     ],
     "controls": [
       {
-        "center_bg": {
+        "center_bg@inventory_uikit.common_panel": {
+          "$toggle_target": "inventory_uikit.default_next_toggle",
           "type": "image",
-          "layer": 2,
-          "texture": "textures/ui/background_image",
-          "size": [192, 152]
+          "layer": 12,
+          "offset": [-5, 3],
+          "uv": [14, 0],
+          "uv_size": [496, 332],
+          "tiled": true,
+          "tiled_scale": [0.6, 0.47],
+          "texture": "assets/minecraft/textures/gui/demo_background",
+          "size": [168, 156],
+          "controls": [
+            {
+              "left": {
+                "type": "image",
+                "layer": 1,
+                "offset": [-88.5, 0],
+                "uv": [0, 0],
+                "uv_size": [20, 332],
+                "texture": "assets/minecraft/textures/gui/demo_background",
+                "size": [20, 156]
+              }
+            },
+            {
+              "right": {
+                "type": "image",
+                "layer": 1,
+                "offset": [88.5, 0],
+                "uv": [476, 0],
+                "uv_size": [20, 332],
+                "texture": "assets/minecraft/textures/gui/demo_background",
+                "size": [20, 156]
+              }
+            }
+          ]
         }
       },
       {
@@ -138,9 +273,9 @@
                   {
                     "creative_label@inventory_uikit.common_panel": {
                       "type": "label",
-                      "offset": [-50, -67],
+                      //"offset": [-50, -67],
                       "font_scale_factor": 1.1,
-                      "text_alignment": "center",
+                      "text_alignment": "left",
                       "color": "$title_text_color",
                       "layer": 46,
                       "text": "Construction Blocks",
@@ -151,12 +286,13 @@
               }
             },
             {
-              "修改过的scrolling@inventory_uikit.inventory_scrolling_panel": {
+              "修改过的scrolling@common.scrolling_panel": {
                 "size": [189, 117],
                 "anchor_from": "center",
                 "anchor_to": "center",
                 "offset": [-4, -1],
-                "$scrolling_content": "inventory_controls.construction",
+                "$version_decision_scrolling|default": "common.empty_panel",
+                "$scrolling_content": "$version_decision_scrolling",
                 "$collection_name": "inventory_items",
                 "$show_background": false,
                 "$scrolling_pane_offset": [0, 0],
@@ -172,96 +308,24 @@
               "hotbar_panel": {
                 "type": "panel",
                 "size": [180, 24],
+                "layer": 30,
                 "controls": [
                   {
                     "hotbar_grid@common.hotbar_grid_template": {
                       "offset": [-9, 62.5],
+                      "$background_images": "inventory_uikit.cell_images",
                       "anchor_from": "center",
                       "anchor_to": "center",
-
                       "$button_ref": "crafting.creative_hotbar_container_slot_button"
                     }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-  "120panel": {
-    "type": "panel",
-    "bindings": [
-      {
-        "binding_name": "#is_creative_mode",
-        "binding_name_override": "#visible"
-      }
-    ],
-    "controls": [
-      {
-        "center_bg": {
-          "type": "image",
-          "layer": 2,
-          "texture": "textures/ui/background_image",
-          "size": [192, 152]
-        }
-      },
-      {
-        "tab_controls@inventory_uikit.common_panel": {
-          "$toggle_target": "inventory_uikit.default_next_toggle",
-          "controls": [
-            {
-              "labels@inventory_uikit.common_panel": {
-                "$toggle_target": "inventory_uikit.default_next_toggle",
-                "controls": [
-                  {
-                    "creative_label@inventory_uikit.common_panel": {
-                      "type": "label",
-                      "offset": [-50, -67],
-                      "font_scale_factor": 1.1,
-                      "text_alignment": "center",
-                      "color": "$title_text_color",
-                      "layer": 46,
-                      "text": "Construction Blocks",
-                      "$toggle_target": "tab_1"
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "修改过的scrolling@inventory_uikit.inventory_scrolling_panel": {
-                "size": [189, 117],
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "offset": [-4, -1],
-                "$scrolling_content": "inventory_controls.construction_120",
-                "$collection_name": "inventory_items",
-                "$show_background": false,
-                "$scrolling_pane_offset": [0, 0],
-                "$scroll_view_port_offset": [1, -6],
-                "$scroll_view_port_offset_touch": [0, -6],
-                "$scrolling_pane_size": ["100%", "100%"],
-                "$scroll_view_port_size": ["100% - 2px", "100% - 2px"],
-                "$scroll_view_port_size_touch": ["100% - 8px", "100% - 2px"],
-                "$scroll_bar_right_padding_size": [0, 0]
-              }
-            },
-            {
-              "hotbar_panel": {
-                "type": "panel",
-                "size": [180, 24],
-                "controls": [
+                  }/*
                   {
                     "hotbar_grid@common.hotbar_grid_template": {
-                      "offset": [-9, 62.5],
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-
-                      "$button_ref": "crafting.creative_hotbar_container_slot_button"
+                      "layer": 2,
+                      "$button_ref": "crafting.inventory_container_slot_button",
+                      "$background_images": "crafting.container_cell_images"
                     }
-                  }
+                  }*/
                 ]
               }
             }
@@ -272,7 +336,7 @@
   },
   "construction@inventory_uikit.common_panel": {
     "type": "stack_panel",
-    "size": [185.5, 18],
+    "size": [185.5, 180],
     "$toggle_target": "tab_1",
     "controls": [
       {
@@ -355,7 +419,21 @@
           "$grid_8": "inventory_controls.cell_grid_58_panel",
           "$grid_9": "inventory_controls.cell_grid_59_panel"
         }
-      }
+      }/*,
+      {
+        "line_6@inventory_uikit.one_grid_content_stack_panel": {
+          //木楼梯
+          "$grid_1": "inventory_controls.cell_grid_61_panel",
+          "$grid_2": "inventory_controls.cell_grid_62_panel",
+          "$grid_3": "inventory_controls.cell_grid_63_panel",
+          "$grid_4": "inventory_controls.cell_grid_64_panel",
+          "$grid_5": "inventory_controls.cell_grid_65_panel",
+          "$grid_6": "inventory_controls.cell_grid_66_panel",
+          "$grid_7": "inventory_controls.cell_grid_67_panel",
+          "$grid_8": "inventory_controls.cell_grid_68_panel",
+          "$grid_9": "inventory_controls.cell_grid_69_panel"
+        }
+      }*/
     ]
   },
   "construction_120@inventory_uikit.common_panel": {
@@ -633,6 +711,33 @@
   },
   "cell_grid_59_panel@cell_grid_1_panel": {
     "$scrolling_content": "inventory_controls.cell_grid_59"
+  },
+  "cell_grid_61_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_61"
+  },
+  "cell_grid_62_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_62"
+  },
+  "cell_grid_63_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_63"
+  },
+  "cell_grid_64_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_64"
+  },
+  "cell_grid_65_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_65"
+  },
+  "cell_grid_66_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_66"
+  },
+  "cell_grid_67_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_67"
+  },
+  "cell_grid_68_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_68"
+  },
+  "cell_grid_69_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_69"
   },
   "cell_grid_2_panel@cell_grid_1_panel": {
     "$scrolling_content": "inventory_controls.cell_grid_2"
@@ -976,6 +1081,33 @@
   "cell_grid_59@cell_grid_1": {
     "offset": [0, "-2916px - 54px"]
   },
+  "cell_grid_61@cell_grid_1": {
+    "offset": [0, "-954px-180px"]
+  },
+  "cell_grid_62@cell_grid_1": {
+    "offset": [0, "-954px-180px - 18px"]
+  },
+  "cell_grid_63@cell_grid_1": {
+    "offset": [0, "-954px-180px - 36px"]
+  },
+  "cell_grid_64@cell_grid_1": {
+    "offset": [0, "-954px-180px - 54px"]
+  },
+  "cell_grid_65@cell_grid_1": {
+    "offset": [0, "-954px-180px - 72px"]
+  },
+  "cell_grid_66@cell_grid_1": {
+    "offset": [0, "-2916px-180px - 72px"]
+  },
+  "cell_grid_67@cell_grid_1": {
+    "offset": [0, "-2916px - 18px-180px - 72px"]
+  },
+  "cell_grid_68@cell_grid_1": {
+    "offset": [0, "-2916px - 36px-180px - 72px"]
+  },
+  "cell_grid_69@cell_grid_1": {
+    "offset": [0, "-2916px - 54px-180px - 72px"]
+  },
 
   "120_cell_grid_1@cell_grid_1": {
     "offset": [0, "-7848px - 180px"]
@@ -1126,11 +1258,10 @@
     "$durability_bar_required": false,
     "$item_renderer_binding_condition": "visible",
     "$button_ref": "crafting.creative_no_coalesce_container_slot_button",
-    //"$background_images": "common.empty_panel",
-    "$background_images": "crafting.container_cell_images",
-
+    "$background_images": "inventory_uikit.cell_images",
+    "layer":30,
     "$slot_selected_binding_name": "#is_creative_selected_slot",
-
+    "$item_renderer_size":[16,16],
     "$stack_count_binding_name": "#recipe_craftable_count",
     "$item_collection_name": "recipe_book",
     "$scrolling_grid_item_size|default": [18, 18],
