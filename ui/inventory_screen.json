@@ -3,12 +3,25 @@
  * @Date: 2022-10-7
  */
 /**
- * @Date: 
+ * @Date:
  * @Made: Pricot制作
  * @LastEditTime: 2022-11-11
  */
 {
   "namespace": "crafting",
+
+  "inventory_screen@crafting.inventory_screen_base": {
+    "$screen_bg_content": "crafting.screen_background"
+  },
+
+  "screen_background": {
+    "type": "image",
+    "texture": "textures/ui/screen_background",
+    "layer": -10,
+    "ignored": "$is_holographic",
+    "$screen_background_alpha|default": 0.4,
+    "alpha": "$screen_background_alpha"
+  },
 
   "recipe_inventory_screen_content": {
     "modifications": [
@@ -16,11 +29,13 @@
         "array_name": "controls",
         "operation": "insert_front",
         "value": {
-          "1.19@inventory_uikit.items_number_test":{
-            "$total_recipe_items_number":1385, //1386,
-            "controls":[
+          "1.19@inventory_uikit.items_number_test": {
+            "$total_recipe_items_number": 1385, //1386,
+            "controls": [
               {
-                "contents@inventory_controls.119panel": {}
+                "contents@inventory_controls.反正就是非常厉害": {
+                  "$version_decision_scrolling": "inventory_controls.construction"
+                }
               }
             ]
           }
@@ -30,11 +45,13 @@
         "array_name": "controls",
         "operation": "insert_front",
         "value": {
-          "1.20@inventory_uikit.items_number_test":{
+          "1.20@inventory_uikit.items_number_test": {
             "$total_recipe_items_number": 1475,
-            "controls":[
+            "controls": [
               {
-                "contents@inventory_controls.120panel": {}
+                "contents@inventory_controls.反正就是非常厉害": {
+                  "$version_decision_scrolling": "inventory_controls.construction_120"
+                }
               }
             ]
           }
@@ -48,6 +65,19 @@
     "controls": [
       {
         "tabs@inventory_controls.top_tabs": {}
+      },
+      {
+        "bottom_tabs@inventory_controls.bottom_tabs": {
+          "layer": -4,
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "inventory_uikit.default_next_toggle",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
       },
       {
         "label2@inventory_controls.label2": {
@@ -88,8 +118,8 @@
       },
       {
         "gamepad_helper_bumpers@crafting.gamepad_helper_bumpers": {
-          "size": [ 146, 16 ],
-          "offset": [ 0, -5 ],
+          "size": [146, 16],
+          "offset": [0, -5],
           "anchor_from": "top_left",
           "anchor_to": "bottom_left",
           "bindings": [
@@ -104,7 +134,7 @@
       },
       {
         "tab_navigation_panel@crafting.tab_navigation_panel_layout": {
-          "size": [ 146, 23 ],
+          "size": [146, 23],
           "anchor_from": "top_left",
           "anchor_to": "bottom_left",
 
@@ -119,7 +149,7 @@
       },
       {
         "tab_content_panel@crafting.tab_content": {
-          "size": [ "100%", "100%" ],
+          "size": ["100%", "100%"],
           "layer": 2,
           "$scrolling_pane_control": "crafting.recipe_book_scroll_panel",
           "bindings": [
@@ -133,13 +163,13 @@
         }
       },
       {
-        "creative_hotbar_panel":{
-          "type":"panel",
-          "controls":[
+        "creative_hotbar_panel": {
+          "type": "panel",
+          "controls": [
             {
               "creative_hotbar_panel@crafting.creative_hotbar_panel": {
                 "layer": 3,
-                "offset": [ 0, -5 ],
+                "offset": [0, -5],
                 "anchor_from": "bottom_middle",
                 "anchor_to": "top_middle",
                 "bindings": [
@@ -162,11 +192,10 @@
           ]
         }
       }
-      
     ]
   },
 
-  "toolbar_panel":{
+  "toolbar_panel": {
     "bindings": [
       {
         "binding_type": "view",
@@ -176,7 +205,7 @@
       }
     ]
   },
-  
+
   "tab_navigation_panel_layout/navigation_tabs/content": {
     "controls": [
       {
