@@ -15,12 +15,37 @@
   },
 
   "screen_background": {
-    "type": "image",
-    "texture": "textures/ui/screen_background",
-    "layer": -10,
-    "ignored": "$is_holographic",
-    "$screen_background_alpha|default": 0.4,
-    "alpha": "$screen_background_alpha"
+    "type": "panel",
+    "controls":[
+      {
+        "java": {
+          "type": "image",
+          "texture": "textures/ui/screen_background",
+          "layer": -10,
+          "alpha": 0.4,
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "inventory_uikit.default_next_toggle",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "bedrock@common.screen_background": {
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "inventory_uikit.default_next_toggle",
+              "source_property_name": "(not #toggle_state)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
   },
 
   "recipe_inventory_screen_content": {
