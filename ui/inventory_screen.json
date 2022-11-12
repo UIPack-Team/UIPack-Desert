@@ -7,7 +7,7 @@
  * @Made: Pricot制作
  * @LastEditTime: 2022-11-11
  */
-{
+ {
   "namespace": "crafting",
 
   "inventory_screen@crafting.inventory_screen_base": {
@@ -54,31 +54,8 @@
         "array_name": "controls",
         "operation": "insert_front",
         "value": {
-          "1.19@inventory_uikit.items_number_test": {
-            "$total_recipe_items_number": 1385, //1386,
-            "controls": [
-              {
-                "contents@inventory_controls.反正就是非常厉害": {
-                  "$version_decision_scrolling": "inventory_controls.construction"
-                }
-              }
-            ]
-          }
-        }
-      },
-      {
-        "array_name": "controls",
-        "operation": "insert_front",
-        "value": {
-          "1.20@inventory_uikit.items_number_test": {
-            "$total_recipe_items_number": 1475,
-            "controls": [
-              {
-                "contents@inventory_controls.反正就是非常厉害": {
-                  "$version_decision_scrolling": "inventory_controls.construction_120"
-                }
-              }
-            ]
+          "contents@inventory_controls.118panel": {
+            "$version_decision_scrolling": "inventory_controls.construction"
           }
         }
       }
@@ -90,19 +67,6 @@
     "controls": [
       {
         "tabs@inventory_controls.top_tabs": {}
-      },
-      {
-        "bottom_tabs@inventory_controls.bottom_tabs": {
-          "layer": -4,
-          "bindings": [
-            {
-              "binding_type": "view",
-              "source_control_name": "inventory_uikit.default_next_toggle",
-              "source_property_name": "#toggle_state",
-              "target_property_name": "#visible"
-            }
-          ]
-        }
       },
       {
         "label2@inventory_controls.label2": {
