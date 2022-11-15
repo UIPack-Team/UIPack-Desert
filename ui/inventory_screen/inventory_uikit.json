@@ -1,241 +1,5 @@
 {
   "namespace": "inventory_uikit",
-  "cell_images": {
-    "type": "panel",
-    "controls": [
-      {
-        "img": {
-          "type": "image",
-          "texture": "assets/minecraft/textures/gui/container/creative_inventory/tab_items",
-          "uv":[16,33],
-          "uv_size":[34,35],
-          "$cell_image_size|default": [17,17],
-          "size": "$cell_image_size",
-          "bindings": [
-            {
-              "binding_type": "view",
-              "source_control_name": "$background_image_control_name",
-              "resolve_sibling_scope": true,
-              "source_property_name": "((#container_item_background = 0)or (#container_item_background = 1)or (#container_item_background = 2) or (#container_item_background = 3)or(#container_item_background = 4)or(#container_item_background = 7))",
-              "target_property_name": "#visible"
-            }
-          ]
-        }
-      }
-    ],
-    "bindings": [
-      {
-        "binding_name": "#container_item_background",
-        "binding_type": "collection",
-        "binding_collection_name": "$item_collection_name",
-        "binding_condition": "visible"
-      }
-    ]
-  },
-  "top_tab@common_tabs.base_tab": {
-    "$tab_unchecked_uv|default": [56, 2],
-    "$tab_unchecked_uv_size|default": [56, 62],
-    "$tab_checked_uv|default": [0, 64],
-    "$tab_checked_uv_size|default": [54, 65],
-    "size": [26, "100%+3px"],
-    "$tab_content": "crafting.empty_tab_panel",
-    "$radio_toggle_group": true,
-    "$toggle_name": "second_tab",
-    "$toggle_default_state": false,
-    "$tab_panel": "inventory_uikit.tab_panel",
-    "controls": [
-      {
-        "$tab_view_binding_name@common.toggle": {
-          "$toggle_tts_name": "$top_tab_tts_name",
-          "$toggle_tts_enabled_binding_type": "global",
-          "$toggle_reset_on_focus_lost|default": true,
-          "reset_on_focus_lost": "$toggle_reset_on_focus_lost",
-          "variables": [
-            {
-              "requires": "($is_top_left_most_tab and not $is_top_right_most_tab)",
-              "$tab_unchecked_uv": [0, 2],
-              "$tab_checked_complex": "inventory_controls.topleft_tab_checked_complex"
-            },
-            {
-              "requires": "($is_top_right_most_tab and not $is_top_left_most_tab)",
-              "$tab_unchecked_uv": [112, 2],
-              "$tab_checked_uv": [112, 64],
-              "$tab_checked_uv_size": [56, 64],
-              "$tab_checked_complex": "inventory_controls.topright_tab_checked_complex"
-            }
-          ],
-          "controls": [
-            {
-              "unchecked@$tab_panel": {
-                "$tab_uv": "$tab_unchecked_uv",
-                "$tav_uv_size": "$tab_unchecked_uv_size",
-                "$tab_state": "unchecked",
-                "layer": 1
-              }
-            },
-            {
-              "unchecked_hover@$tab_panel": {
-                "$tab_uv": "$tab_unchecked_uv",
-                "$tav_uv_size": "$tab_unchecked_uv_size",
-                "$tab_state": "unchecked_hover",
-                "$is_hover_state": true,
-                "layer": 1
-              }
-            },
-            {
-              "checked@$tab_panel": {
-                "$tab_offset": [0, -2],
-                "$tab_uv": "$tab_checked_uv",
-                "$tav_uv_size": "$tab_checked_uv_size",
-                "$tab_state": "checked",
-                "$tab_checked_complex|default": "common.empty_panel",
-                "$tab_complex": "$tab_checked_complex",
-                "$is_checked_state": true,
-                "layer": 20
-              }
-            },
-            {
-              "checked_hover@$tab_panel": {
-                "$tab_offset": [0, -2],
-                "$tab_uv": "$tab_checked_uv",
-                "$tav_uv_size": "$tab_checked_uv_size",
-                "$tab_state": "checked_hover",
-                "$is_checked_state": true,
-                "$tab_checked_complex|default": "common.empty_panel",
-                "$tab_complex": "$tab_checked_complex",
-                "$is_hover_state": true,
-                "layer": 20
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-  "bottom_tab@common_tabs.base_tab": {
-    "$tab_unchecked_uv|default": [224, 2],
-    "$tab_unchecked_uv_size|default": [56, 62],
-    "$tab_checked_uv|default": [223, 75],
-    "$tab_checked_uv_size|default": [56, 64],
-    "size": [26, "100%+3px"],
-    "$tab_content": "crafting.empty_tab_panel",
-    "$radio_toggle_group": true,
-    "$toggle_name": "second_tab",
-    "$toggle_default_state": false,
-    "$tab_panel": "inventory_uikit.tab_panel",
-    "controls": [
-      {
-        "$tab_view_binding_name@common.toggle": {
-          "$toggle_tts_name": "$top_tab_tts_name",
-          "$toggle_tts_enabled_binding_type": "global",
-          "$toggle_reset_on_focus_lost|default": true,
-          "reset_on_focus_lost": "$toggle_reset_on_focus_lost",
-          "variables": [
-            {
-              "requires": "($is_top_left_most_tab and not $is_top_right_most_tab)",
-              "$tab_unchecked_uv": [168, 0],
-              "$tab_checked_complex": "inventory_controls.bottomleft_tab_checked_complex"
-            },
-            {
-              "requires": "($is_top_right_most_tab and not $is_top_left_most_tab)",
-              "$tab_unchecked_uv": [280, 0],
-              "$tab_checked_uv": [280, 75],
-              "$tab_checked_complex": "inventory_controls.bottomright_tab_checked_complex"
-            }
-          ],
-          "controls": [
-            {
-              "unchecked@$tab_panel": {
-                "$tab_offset": [0, -0.5],
-                "$tab_uv": "$tab_unchecked_uv",
-                "$tav_uv_size": "$tab_unchecked_uv_size",
-                "$tab_state": "unchecked",
-                "layer": 1
-              }
-            },
-            {
-              "unchecked_hover@$tab_panel": {
-                "$tab_offset": [0, -0.5],
-                "$tab_uv": "$tab_unchecked_uv",
-                "$tav_uv_size": "$tab_unchecked_uv_size",
-                "$tab_state": "unchecked_hover",
-                "$is_hover_state": true,
-                "layer": 1
-              }
-            },
-            {
-              "checked@$tab_panel": {
-                "$tab_offset": [0, 5],
-                "$tab_uv": "$tab_checked_uv",
-                "$tav_uv_size": "$tab_checked_uv_size",
-                "$tab_state": "checked",
-                "$tab_checked_complex|default": "common.empty_panel",
-                "$tab_complex": "$tab_checked_complex",
-                "$is_checked_state": true,
-                "layer": 20
-              }
-            },
-            {
-              "checked_hover@$tab_panel": {
-                "$tab_offset": [0, 5],
-                "$tab_uv": "$tab_checked_uv",
-                "$tav_uv_size": "$tab_checked_uv_size",
-                "$tab_state": "checked_hover",
-                "$is_checked_state": true,
-                "$tab_checked_complex|default": "common.empty_panel",
-                "$tab_complex": "$tab_checked_complex",
-                "$is_hover_state": true,
-                "layer": 20
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-  "tab_panel": {
-    "type": "panel",
-    "$tab_content|default": "common_tabs.empty_tab_content",
-    "$tab_image|default": "common_tabs.tab_image",
-    "$is_top_left_most_tab|default": false,
-    "$is_top_right_most_tab|default": false,
-    "$tab_complex|default": "common.empty_panel",
-    "controls": [
-      {
-        "tab_image": {
-          "type": "image",
-          "$tab_offset|default": [0, 0.5],
-          "offset": "$tab_offset",
-          "texture": "assets/minecraft/textures/gui/advancements/tabs",
-          "uv": "$tab_uv",
-          "uv_size": "$tav_uv_size",
-          "tiled": "y",
-          "tiled_scale": [0, 0.55],
-          "size": ["100%+3px", "100%+3px"], // We need to explicitly set the size here.
-          "layer": 2,
-          "controls": [
-            {
-              "a@$tab_complex": {}
-            }
-          ]
-        }
-      },
-      {
-        "tab_content_sizer": {
-          "type": "panel",
-          "$tab_content_size|default": ["100% - 4px", "100% - 4px"],
-          "size": "$tab_content_size",
-          "controls": [
-            {
-              "tab_content@$tab_content": {
-                "layer": 3
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
   "items_number_test": {
     "type": "panel",
     "bindings": [
@@ -449,20 +213,6 @@
       }
     ]
   },
-  "scroll_content": {
-    "type": "panel",
-    "size": ["100%", "100%c"],
-    "$scroll_main_panel_content|default": "common.empty_panel",
-    "controls": [
-      {
-        "content@$scroll_main_panel_content": {
-          "size": ["100%-2px", "100%c"],
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle"
-        }
-      }
-    ]
-  },
   "scroll_track": {
     "type": "image",
     "layer": 0,
@@ -476,32 +226,154 @@
     "texture": "textures/ui/ScrollBox"
   },
 
+  "grids_scrolling_panel@common.scrolling_panel": {
+    "controls": [
+      {
+        "$scroll_view_name@common.scroll_view_control": {
+          "type": "scroll_view",
+          "scroll_speed": 15,
+          "scrollbar_track_button": "button.scrollbar_skip_track",
+          "scrollbar_touch_button": "button.scrollbar_touch",
+          "touch_mode": "$use_touch_mode",
+          "always_listen_to_input": true,
+          "always_handle_pointer": true,
+          "$always_handle_scrolling|default": false,
+          "always_handle_scrolling": "$always_handle_scrolling",
+          "scrollbar_track": "track",
+          "scrollbar_box": "box",
+          "scroll_content": "scrolling_content",
+          "scroll_view_port": "scrolling_view_port",
+          "scroll_box_and_track_panel": "bar_and_track",
+          "$jump_to_bottom_on_update|default": false,
+          "jump_to_bottom_on_update": "$jump_to_bottom_on_update",
+          "$scroll_background_image_control|default": "common.scroll_indent_image",
+          "$scroll_track_image_control|default": "common.scroll_indent_image",
+          "button_mappings": []
+        }
+      }
+    ]
+  },
+
   "inventory_scrolling_panel@common.scrolling_panel": {
     "layer": 1,
-    "$scrolling_pane_size": ["100%", "100%"],
-    "$scrolling_content": "inventory_uikit.scroll_content",
-    "$show_background": true,
-    //"$scroll_view_stack_panel_size":["100%","100%+12px"],
-    "$scroll_background_image_control": "common.empty_panel",
-    "$scroll_view_port_offset": [0, 0],
-    "$scroll_view_port_offset_touch": [0, 0],
-    "$scroll_view_port_size": ["100%", "100%"],
-    "$scroll_view_port_size_touch": ["100%", "100%"],
+    "$show_background": false,
     "$scroll_size": [14, "100%"],
     "$scroll_track_image_control": "inventory_uikit.scroll_track",
     "$scroll_box_mouse_image_control": "inventory_uikit.scroll_box",
-    "size": ["100%", "100%"],
-    "anchor_from": "top_middle",
-    "anchor_to": "top_middle",
     "$scroll_view_port_size|default": ["100% - 8px", "100% -2px"],
-    "$scroll_view_port_offset|default": [1, 1],
     "$scroll_view_port_size_touch|default": ["100% - 4px", "100% - 2px"],
-    "$scroll_view_port_offset_touch|default": [1, 1],
     "controls": [
       {
-        "scroll_mouse@common.scrolling_panel_base": {
-          "size": "$scrolling_pane_size",
-          "offset": "$scrolling_pane_offset"
+        "$scroll_view_name@common.scroll_view_control": {
+          "type": "scroll_view",
+          "scroll_speed": 15,
+          "scrollbar_track_button": "button.scrollbar_skip_track",
+          "scrollbar_touch_button": "button.scrollbar_touch",
+          "touch_mode": "$use_touch_mode",
+          "always_listen_to_input": true,
+          "always_handle_pointer": true,
+          "$always_handle_scrolling|default": false,
+          "always_handle_scrolling": "$always_handle_scrolling",
+          "scrollbar_track": "track",
+          "scrollbar_box": "box",
+          "scroll_content": "scrolling_content",
+          "scroll_view_port": "scrolling_view_port",
+          "scroll_box_and_track_panel": "bar_and_track",
+          "$jump_to_bottom_on_update|default": false,
+          "jump_to_bottom_on_update": "$jump_to_bottom_on_update",
+          "$scroll_background_image_control|default": "common.scroll_indent_image",
+          "$scroll_track_image_control|default": "common.scroll_indent_image",
+          "button_mappings": []
+        }
+      }
+    ]
+  },
+  "scroll_bar_and_track": {
+    "type": "panel",
+    "size": ["100%c", "100%"],
+    "clips_children": true,
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+
+    "controls": [
+      {
+        "stack_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": ["default", "100%"],
+          "controls": [
+            {
+              "panel": {
+                "type": "panel",
+                "size": ["100%c", "100%"],
+
+                "controls": [
+                  {
+                    "centered_panel": {
+                      "type": "panel",
+                      "size": "$scroll_size",
+                      "$scroll_track_anchor|default": "center",
+                      "anchor_from": "$scroll_track_anchor",
+                      "anchor_to": "$scroll_track_anchor",
+                      "$scroll_track_offset|default": [0, 0],
+                      "offset": "$scroll_track_offset",
+                      "controls": [
+                        {
+                          "track@common.scrollbar_track": {
+                            "layer": 2,
+                            "anchor_from": "center",
+                            "anchor_to": "center"
+                          }
+                        },
+                        {
+                          "scroll_box": {
+                            "layer": 5,
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "type": "panel",
+                            "controls": [
+                              {
+                                "box": {
+                                  "type": "scrollbar_box",
+                                  "anchor_to": "top_left",
+                                  "anchor_from": "top_left",
+                                  "layer": 1,
+                                  "visible": "$scroll_box_visible",
+                                  "contained": true,
+                                  "draggable": "vertical",
+
+                                  "$scroll_box_mouse_image_control|default": "common.scrollbar_box_image",
+                                  "$scroll_box_touch_image_control|default": "common.touch_scrollbar_box_image",
+
+                                  "button_mappings": [
+                                    {
+                                      "from_button_id": "button.menu_select",
+                                      "to_button_id": "button.menu_select",
+                                      "mapping_type": "pressed",
+                                      "button_up_right_of_first_refusal": true
+                                    }
+                                  ],
+                                  "controls": [
+                                    {
+                                      "mouse_box@$scroll_box_mouse_image_control": {
+                                        //"ignored": "$touch"
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
         }
       }
     ]
