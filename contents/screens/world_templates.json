@@ -1,0 +1,350 @@
+{
+  "namespace": "worldtemplates_uikit",
+  "anim_0": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.4,
+    "from": [0, 0],
+    "to": [0, 200],
+    "next": "@worldtemplates_uikit.anim_1",
+    "play_event": "button.more_custom_templates"
+  },
+  "anim_1": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.4,
+    "from": [0, 0],
+    "to": [0, 0]
+  },
+  "world_templates_picker_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "common_panel@screen_uikit.uikit_screen": {
+          "anims": ["@worldtemplates_uikit.anim_0"],
+          "$screen_type": "screen_uikit.include_cards_screen",
+          "$card_screen": "worldtemplates_uikit.world_templates_picker_panel",
+          "$modern_screen_size": [424, 192],
+          "$shadow_offset": [0, 1],
+          "$cards_offset": [0, 1],
+          "$shadow_anchor": "bottom_middle"
+        }
+      },
+      {
+        "all_bg": {
+          "type": "image",
+          "anims": [
+            "@common.screen_exit_animation_push_alpha",
+            "@common.screen_exit_animation_pop_alpha",
+            "@common.screen_entrance_animation_push_alpha",
+            "@common.screen_entrance_animation_pop_alpha"
+          ],
+          "layer": -1,
+          "size": ["150%", "150%"],
+          "color": [0.8, 0.8, 0.8],
+          "texture": "textures/ui/bg",
+          "alpha": 0.7,
+          "controls": [
+            {
+              "back@screen_uikit.bgback": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "world_templates_picker_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "root_panel@screen_uikit.standard_scrolling": {
+          "$scrolling_pane_size": ["100%+2px", "100%"],
+          "$show_background":false,
+          "size": ["100%", "100%"],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "layer": 1,
+          "$scrolling_content": "worldtemplates_uikit.world_templates_panel"
+        }
+      }
+    ]
+  },
+  "1_icon": {
+    "type": "image",
+    "texture": "textures/ui/worldsIcon",
+    "size": ["default", 17]
+  },
+  "2_icon": {
+    "type": "image",
+    "texture": "textures/ui/inventory_icon",
+    "size": ["default", 24]
+  },
+  "world_templates_panel@world_templates.common_scroll_pane": {
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "world_template_screen_content_stack_panel@world_templates.world_template_screen_content_stack_panel": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "controls": [
+            {
+              "top_padding": {
+                "type": "panel",
+                "size": ["100%", 4]
+              }
+            },
+            {
+              "top_buttons": {
+                "type": "stack_panel",
+                "size": ["100%", 30],
+                "$grid_size_0": [133, 84],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@ui.Snowfirewolf_button": {
+                      "size": [362, 30],
+                      "$pressed_button_name": "button.generate_random",
+                      "$button_text": "Create A Custom ADD-ON World"
+                    }
+                  },
+                  {
+                    "padding_0": {
+                      "type": "panel",
+                      "size": [-1, 0]
+                    }
+                  },
+                  {
+                    "1@ui.modern_white_content_button": {
+                      "size": [30, 30],
+                      "$pressed_button_name": "button.more_custom_templates",
+                      "$button_text": "selectTemplate.seeMore",
+                      "$button_content": "worldtemplates_uikit.1_icon"
+                    }
+                  },
+                  {
+                    "padding_1": {
+                      "type": "panel",
+                      "size": [-1, 0]
+                    }
+                  },
+                  {
+                    "2@ui.modern_white_content_button": {
+                      "size": [30, 30],
+                      "$pressed_button_name": "button.inventory",
+                      "$button_content": "worldtemplates_uikit.2_icon"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "afterbuttons": {
+                "type": "panel",
+                "size": [0, 6]
+              }
+            },
+            {
+              "custom_world_template_item_grid@worldtemplates_uikit.custom_world_template_item_grid": {}
+            },
+            {
+              "custom_world_template_padding": {
+                "type": "panel",
+                "size": [0, -151]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "world_template_item_grid@worldtemplates_uikit.world_template_item_grid": {}
+      }
+    ]
+  },
+  "custom_world_template_item_grid": {
+    "type": "grid",
+    "size": ["100%", "default"],
+    "layer": 1,
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "grid_item_template": "worldtemplates_uikit.world_template_item_panel",
+    "grid_dimension_binding": "#custom_world_template_item_grid_dimension",
+    "collection_name": "custom_world_templates",
+    "$collection_name": "custom_world_templates",
+    "$pressed_button_name": "button.menu_custom_world_template_clicked",
+    "ttsSectionContainer": true,
+    "bindings": [
+      {
+        "binding_name": "#custom_world_template_item_grid_dimension"
+      },
+      {
+        "binding_name": "#custom_template_list_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+  "world_template_item_grid": {
+    "type": "grid",
+    "offset":[0,152],
+    "size": ["100%", "default"],
+    "layer": 1,
+    "anchor_to": "bottom_left",
+    "anchor_from": "bottom_left",
+    "grid_item_template": "worldtemplates_uikit.world_template_item_panel",
+    "grid_dimension_binding": "#world_template_item_grid_dimension",
+    "collection_name": "world_templates",
+    "$collection_name": "world_templates",
+    "$collection_prefix|default": "",
+    "$pressed_button_name": "button.menu_world_template_clicked",
+    "ttsSectionContainer": true,
+    "bindings": [
+      {
+        "binding_name": "#world_template_item_grid_dimension"
+      },
+      {
+        "binding_name": "#template_list_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+
+  "world_template_item_panel": {
+    "type": "stack_panel",
+    "size": ["33%", 75.5],
+    "$grid_size_0": [139, 74],
+    "orientation": "horizontal",
+    "controls": [
+      {
+        "-": {
+          "type": "panel",
+          "size": [0.5, 0]
+        }
+      },
+      {
+        "local_item_0@ui.modern_white_content_button": {
+          "size": "$grid_size_0",
+          "$button_content": "worldtemplates_uikit.world_template_content_panel",
+          "bindings": [
+            {
+              "binding_type": "collection_details",
+              "binding_collection_name": "custom_world_templates",
+              "binding_collection_prefix": ""
+            }
+          ]
+        }
+      },
+      {
+        "padding_0": {
+          "type": "panel",
+          "size": [-421, 0]
+        }
+      },
+      {
+        "local_item_1@ui.modern_white_content_button": {
+          "size": "$grid_size_0",
+          "$button_content": "worldtemplates_uikit.world_template_content_panel",
+          "bindings": [
+            {
+              "binding_type": "collection_details",
+              "binding_collection_name": "custom_world_templates",
+              "binding_collection_prefix": ""
+            }
+          ]
+        }
+      },
+      {
+        "padding_1": {
+          "type": "panel",
+          "size": [-421, 0]
+        }
+      },
+      {
+        "local_item_2@ui.modern_white_content_button": {
+          "size": "$grid_size_0",
+          "$button_content": "worldtemplates_uikit.world_template_content_panel",
+          "bindings": [
+            {
+              "binding_type": "collection_details",
+              "binding_collection_name": "$collection_name",
+              "binding_collection_prefix": "$collection_prefix"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "world_template_content_panel": {
+    "size": ["100%", "100%"],
+    "type": "panel",
+    "bindings": [
+      {
+        "binding_type": "collection_details",
+        "binding_collection_name": "custom_world_templates",
+        "binding_collection_prefix": ""
+      }
+    ],
+    "controls": [
+      {
+        "screenshot_picture": {
+          "type": "image",
+          "layer": 1,
+          "texture": "#screenshot_texture",
+          "zip_folder": "#screenshot_zip_folder",
+          "texture_file_system": "#screenshot_file_system",
+          "force_texture_reload": true,
+          "size": ["100%+4px", "100%+4px"],
+          "offset": [-2, -2],
+          "fill": true,
+          "keep_ratio": true,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$screenshot_texture_name|default": "#screenshot_texture",
+          "$screenshot_zip_folder|default": "#screenshot_zip_folder",
+          "$screenshot_zip_folder_binding_type|default": "collection",
+          "$screenshot_file_system|default": "#screenshot_file_system",
+          "bindings": [
+            {
+              "binding_collection_name": "$collection_name",
+              "binding_name": "$screenshot_texture_name",
+              "binding_name_override": "#texture",
+              "binding_type": "collection"
+            },
+            {
+              "binding_collection_name": "$collection_name",
+              "binding_name": "$screenshot_zip_folder",
+              "binding_name_override": "#zip_folder",
+              "binding_type": "$screenshot_zip_folder_binding_type"
+            },
+            {
+              "binding_collection_name": "$collection_name",
+              "binding_name": "$screenshot_file_system",
+              "binding_name_override": "#texture_file_system",
+              "binding_type": "collection"
+            }
+          ]
+        }
+      },
+      {
+        "world_template_name@world_templates.world_template_name": {
+          "offset": [1, 1],
+          "color": "white",
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "size": ["default", 10],
+          "layer": 9
+        }
+      },
+      {
+        "world_template_version@world_templates.world_template_version": {
+          "offset": [1, -7],
+          "color": "white",
+          "font_scale_factor": 0.8,
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "size": ["default", 10],
+          "layer": 9
+        }
+      }
+    ]
+  }
+}

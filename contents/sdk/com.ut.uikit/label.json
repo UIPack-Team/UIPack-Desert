@@ -1,0 +1,75 @@
+{
+  "namespace": "ui",
+
+  "largetitle_label": {
+    "type": "label",
+    "text": "$label_text",
+    "color": "$text_color",
+    "$text_color|default": [0, 0, 0],
+    "font_type": "default",
+    "font_size": 2.0,
+    "shadow": false,
+    "size": ["default", "default"],
+    "max_size": "$text_max_size",
+    "$text_max_size|default": ["100%", 10],
+    "text_alignment": "$text_alignment",
+    "$text_alignment|default": "center",
+    "bindings": [
+      {
+        "binding_type": "$label_text_binding_type",
+        "binding_condition": "$label_binding_condition",
+        "binding_collection_name": "$label_text_grid_collection_name",
+        "binding_name": "$label_text",
+        "binding_name_override": "$label_text"
+      }
+    ]
+  },
+
+  "title_label": {
+    "type": "label",
+    "text": "$label_text",
+    "color": "$text_color",
+    "$text_color|default": [0, 0, 0],
+    "font_type": "default",
+    "font_size": 1.5,
+    "shadow": false,
+    "size": ["default", "default"],
+    "max_size": "$text_max_size",
+    "$text_max_size|default": ["100%", 10],
+    "text_alignment": "$text_alignment",
+    "$text_alignment|default": "center",
+    "bindings": [
+      {
+        "binding_type": "$label_text_binding_type",
+        "binding_condition": "$label_binding_condition",
+        "binding_collection_name": "$label_text_grid_collection_name",
+        "binding_name": "$label_text",
+        "binding_name_override": "$label_text"
+      }
+    ]
+  },
+
+  "text_label": {
+    "type": "label",
+    "text": "$label_text",
+    "color": "$text_color",
+    "$text_color|default": [0, 0, 0],
+    "font_type": "default",
+    "font_size": 1.0,
+    "shadow": false,
+    "size": ["default", "default"],
+    "max_size": "$text_max_size",
+    "$text_max_size|default": ["100%", 10],
+    "text_alignment": "$text_alignment",
+    "$text_alignment|default": "center",
+    "bindings": [
+      {
+        "binding_type": "$label_text_binding_type",
+        "binding_condition": "$label_binding_condition",
+        "binding_collection_name": "$label_text_grid_collection_name",
+        "binding_name": "$label_text",
+        "binding_name_override": "$label_text"
+      }
+    ]
+  }
+}

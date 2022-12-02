@@ -1,0 +1,786 @@
+/*
+ * @Designed: By UIPack Team
+WeiTzeng制作
+ * @Date: 2018-12-08 22:54:33
+ */
+
+{
+  "namespace": "icon_button",
+  
+  "light_glyph_button@common.button": {
+    "$default_button_texture|default": "textures/ui/buttons/icon/bug_icon",
+    "$hover_button_texture|default": "textures/ui/buttons/icon/bug_icon",
+    "$pressed_button_texture|default": "textures/ui/buttons/icon/bug_icon",
+    "$locked_button_texture|default": "textures/ui/buttons/icon/bug_icon",
+    "$button_type_panel": "icon_button.glyph_content_panel",
+    "controls": [
+      {
+        "default@icon_button.icon_button_panel": {
+          "layer": 1,
+          "$new_ui_button_texture": "$default_button_texture",
+          "$content_alpha": 1,
+          "$border_color": "$light_border_default_color",
+          "$border_layer": 2,
+          "$default_state": true,
+          "$button_press_offset": "$button_default_offset"
+        }
+      },
+      {
+        "hover@icon_button.hover_icon_button_panel": {
+          "layer": 2,
+          "offset": "@icon_button.anim_A",
+          "$new_ui_button_texture": "$hover_button_texture",
+          "$content_alpha": 1,
+          "$border_color": "$light_border_hover_color",
+          "$border_layer": 3,
+          "$hover_state": true,
+          "$button_press_offset": "$button_hover_offset"
+        }
+      },
+      {
+        "pressed@icon_button.icon_button_panel": {
+          "layer": 3,
+		  "offset": "@icon_button.anim_A",
+          "$new_ui_button_texture": "$pressed_button_texture",
+          "$glyph_color": "$light_glyph_default_color",
+          "$content_alpha": "$pressed_alpha",
+          "$border_color": "$light_border_pressed_color",
+          "$border_layer": 3,
+          "$pressed_state": true,
+          "$button_press_offset": "$button_pressed_offset"
+        }
+      },
+      {
+        "locked@icon_button.icon_button_panel": {
+          "$new_ui_button_texture": "$locked_button_texture",
+          "$glyph_color": "$light_glyph_locked_color",
+          "$content_alpha": "$locked_alpha",
+          "$border_color": "$light_border_locked_color",
+          "$button_image": "common_buttons.locked_button_image",
+          "$border_layer": 1,
+          "$button_press_offset": "$button_locked_offset",
+          "$locked_state": true,
+          "layer": 1
+        }
+      }
+    ]
+  },
+  
+  "focus_border": {
+    "type": "image",
+	"nineslice_size": 2,
+    "texture": "textures/ui/buttons/icons/focus_border"
+  },
+  
+  "focus_notice_border": {
+    "type": "image",
+    "texture": "textures/ui/focus_notice_border",
+	"layer": 13,
+	"anchor_from": "top_right",
+    "anchor_to": "top_right",
+	"size": [ 8, 8 ]
+  },
+  
+  "new_offers_icon": {
+    "type": "image",
+	"size": "$notice_size",
+	"nineslice_size": 2,
+    "texture": "textures/ui/new_notice",
+    "layer": 11
+  },
+  
+  "update_prompt_icon": {
+    "type": "image",
+	"size": "$notice_size",
+	"nineslice_size": 2,
+    "texture": "textures/ui/update_notice",
+    "layer": 12
+  },
+  
+  "anim_A": {
+    "anim_type": "offset",
+    "duration": 0.4,
+	"from": [ 0, 0 ],
+    "to": [ 0, -3 ],
+    "next": "@icon_button.anim_B"
+  },
+  
+  "anim_B": {
+    "anim_type": "offset",
+    "duration": 0.2,
+	"from": [ 0, -3 ],
+    "to": [ 0, 0 ],
+    "next": "@icon_button.anim_A"
+  },
+  
+  //---------------------------------------------------------------------------
+  // xbox live icon button
+  //---------------------------------------------------------------------------
+  
+  "xbox_live_icon_button_panel": {
+    "type": "panel",
+    "layer": 1,
+	
+	"$hide_button_texture_default|default": false,
+	"$hide_button_texture_hover|default": false,
+	"$hide_button_texture_pressed|default": false,
+	
+    "$button_size_override|default": [ "100%", "100%" ],
+    "size": "$button_size_override",
+    "$content_alpha|default": 1,
+    "$button_image|default": "common_buttons.button_image",
+    "$button_image_visible|default": true,
+    "$image_anchor|default": "center",
+    "$image_offset|default": [ 0, 0 ],
+    "$border_visible|default": true,
+    "controls": [
+	  {
+        "glyph": {
+          "type": "image",
+          "anchor_from": "$glyph_anchor_from",
+          "anchor_to": "$glyph_anchor_to",
+          "offset": "$glyph_offset",
+          "texture": "$glyph_texture",
+          "size": "$glyph_size",
+          "layer": 2,
+          "alpha": "$content_alpha",
+
+          "$glyph_bindings|default": [],
+          "bindings": "$glyph_bindings"
+        }
+      },
+	  {
+        "button_texture_default": {
+          "type": "image",
+		  "ignored": "$hide_button_texture_default",
+          "texture": "textures/ui/buttons/default_button_2",
+          "size": [ "100%", "100%" ],
+          "layer": "$button_texture_default_layer"
+        }
+      },
+      {
+        "button_texture_hover": {
+          "type": "image",
+		  "ignored": "$hide_button_texture_hover",
+          "texture": "textures/ui/buttons/hover_button_2",
+          "size": [ "100%", "100%" ],
+          "layer": "$button_texture_hover_layer"
+        }
+      },
+	  {
+        "button_texture_pressed": {
+          "type": "image",
+		  "ignored": "$hide_button_texture_pressed",
+          "texture": "textures/ui/buttons/pressed_button_2",
+          "size": [ "100%", "100%" ],
+          "layer": "$button_texture_pressed_layer"
+        }
+      },
+      {
+        "button_content": {
+          "type": "panel",
+          "$button_content_size|default": [ "100% - 6px", "100% - 6px" ],
+          "size": "$button_content_size",
+
+          "controls": [
+            {
+              "$button_type_panel@$button_type_panel": {
+                "layer": 3
+              }
+            }
+          ]
+        }
+      },
+      {
+        "border@text_button_with_icon.focus_border": {
+          "color": "$border_color",
+          "layer": "$border_layer",
+          "ignored": "(not $border_visible)"
+        }
+      }
+    ]
+  },
+  
+  "xbox_live_icon_button@icon_button_assets": {
+
+    "$button_content|default": "common.empty_panel",
+    "$button_content_offset|default": [ 0, 0 ],
+    "$pressed_alpha|default": 1,
+    "$button_type_panel": "icon_button.glyph_content_panel",
+
+    // These states are for passing the button state to the button content - do not set these in a parent!
+    "$default_state|default": false,
+    "$hover_state|default": false,
+    "$pressed_state|default": false,
+    "$locked_state|default": false,
+
+    "$button_default_offset|default": [ 0, 0 ],
+    "$button_hover_offset|default": [ 0, 0 ],
+    "$button_pressed_offset|default": [ 0, 0 ],
+    "$button_locked_offset|default": [ 0, 0 ],
+
+    "controls": [
+      {
+        "default@icon_button.xbox_live_icon_button_panel": {
+          "layer": 1,
+          "$new_ui_button_texture": "$default_button_texture",
+          "$content_alpha": 1,
+          "$border_color": "$light_border_default_color",
+          "$border_layer": 2,
+          "$default_state": true,
+		  "$hide_button_texture_default": false,
+	      "$hide_button_texture_hover": true,
+	      "$hide_button_texture_pressed": true,
+          "$button_press_offset": "$button_default_offset"
+        }
+      },
+      {
+        "hover@icon_button.xbox_live_icon_button_panel": {
+          "layer": 2,
+          "$new_ui_button_texture": "$hover_button_texture",
+          "$content_alpha": 1,
+          "$border_color": "$light_border_hover_color",
+          "$border_layer": 3,
+          "$hover_state": true,
+		  "$hide_button_texture_default": true,
+	      "$hide_button_texture_hover": false,
+	      "$hide_button_texture_pressed": true,
+          "$button_press_offset": "$button_hover_offset"
+        }
+      },
+      {
+        "pressed@icon_button.xbox_live_icon_button_panel": {
+          "layer": 3,
+          "$new_ui_button_texture": "$pressed_button_texture",
+          "$glyph_color": "$light_glyph_default_color",
+          "$content_alpha": "$pressed_alpha",
+          "$border_color": "$light_border_pressed_color",
+          "$border_layer": 3,
+		  "$glyph_offset": [ 0, 1 ],
+          "$pressed_state": true,
+		  "$hide_button_texture_default": true,
+	      "$hide_button_texture_hover": true,
+	      "$hide_button_texture_pressed": false,
+          "$button_press_offset": "$button_pressed_offset"
+        }
+      },
+      {
+        "locked@icon_button.xbox_live_icon_button_panel": {
+          "$new_ui_button_texture": "$locked_button_texture",
+          "$glyph_color": "$light_glyph_locked_color",
+          "$content_alpha": "$locked_alpha",
+          "$border_color": "$light_border_locked_color",
+          "$button_image": "common_buttons.locked_button_image",
+          "$border_layer": 1,
+          "$button_press_offset": "$button_locked_offset",
+          "$locked_state": true,
+          "layer": 1
+        }
+      }
+    ]
+  },
+  
+  "xbox_live_hyperlink_button@icon_button.xbox_live_icon_button": {
+    "$pressed_button_name": "button.menu_open_uri",
+    "property_bag": {
+      "#hyperlink": ""
+    }
+  },
+  
+  //---------------------------------------------------------------------------
+  // exit icon button
+  //---------------------------------------------------------------------------
+  
+  "exit_icon_button_panel": {
+    "type": "panel",
+    "layer": 1,
+    "$button_size_override|default": [ "100%", "100%" ],
+    "size": "$button_size_override",
+    "$content_alpha|default": 1,
+    "$button_image|default": "common_buttons.button_image",
+    "$button_image_visible|default": true,
+    "$image_anchor|default": "center",
+    "$image_offset|default": [ 0, 0 ],
+	"$glyph_offset|default": [ 0, 0 ],
+    "$glyph_anchor_from|default": "center",
+    "$glyph_anchor_to|default": "center",
+    "$border_visible|default": true,
+    "controls": [
+	  {
+        "glyph": {
+          "type": "image",
+          "anchor_from": "$glyph_anchor_from",
+          "anchor_to": "$glyph_anchor_to",
+          "offset": "$glyph_offset",
+          "texture": "$glyph_texture",
+		  "nineslice_size": 2,
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "layer": "$glyph_layer",
+          "color": "$glyph_color",
+          "alpha": "$content_alpha",
+
+          "$glyph_bindings|default": [],
+          "bindings": "$glyph_bindings"
+        }
+      },
+      {
+        "glyph_color": {
+          "type": "image",
+          "anchor_from": "$glyph_anchor_from",
+          "anchor_to": "$glyph_anchor_to",
+          "offset": "$glyph_offset",
+          "texture": "$glyph_color_texture",
+		  "nineslice_size": 2,
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "layer": "$glyph_color_layer",
+          "alpha": "$content_alpha",
+
+          "$glyph_color_bindings|default": [],
+          "bindings": "$glyph_color_bindings"
+        }
+      },
+	  {
+        "glyph_pressed": {
+          "type": "image",
+          "anchor_from": "$glyph_anchor_from",
+          "anchor_to": "$glyph_anchor_to",
+          "offset": "$glyph_offset",
+          "texture": "$glyph_pressed_texture",
+		  "nineslice_size": 2,
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "layer": "$glyph_pressed_layer",
+          "alpha": "$content_alpha",
+
+          "$glyph_color_bindings|default": [],
+          "bindings": "$glyph_color_bindings"
+        }
+      },
+      {
+        "button_content": {
+          "type": "panel",
+          "$button_content_size|default": [ "100% - 6px", "100% - 6px" ],
+          "size": "$button_content_size",
+
+          "controls": [
+            {
+              "$button_type_panel@$button_type_panel": {
+                "layer": 3
+              }
+            }
+          ]
+        }
+      },
+      {
+        "border@icon_button.focus_border": {
+          "color": "$border_color",
+          "layer": "$border_layer",
+          "ignored": "(not $border_visible)"
+        }
+      }
+    ]
+  },
+ 
+  "exit_icon_button@icon_button_assets": {
+
+    "$button_content|default": "common.empty_panel",
+    "$button_content_offset|default": [ 0, 0 ],
+    "$pressed_alpha|default": 1,
+
+    // These states are for passing the button state to the button content - do not set these in a parent!
+    "$default_state|default": false,
+    "$hover_state|default": false,
+    "$pressed_state|default": false,
+    "$locked_state|default": false,
+
+    "$button_default_offset|default": [ 0, 0 ],
+    "$button_hover_offset|default": [ 0, 0 ],
+    "$button_pressed_offset|default": [ 0, 0 ],
+    "$button_locked_offset|default": [ 0, 0 ],
+	
+	"$button_state_panel|default": "icon_button.exit_icon_button_panel",
+
+    "controls": [
+      {
+        "default@icon_button.exit_icon_button_panel": {
+          "layer": 1,
+          "$new_ui_button_texture": "$default_button_texture",
+          "$glyph_color": "$light_glyph_default_color",
+          "$content_alpha": 1,
+          "$border_color": "$light_border_default_color",
+          "$border_layer": 5,
+		  "$glyph_color_layer": 4,
+		  "$glyph_layer": 3,
+		  "$glyph_pressed_layer": 2,
+          "$default_state": true,
+          "$button_press_offset": "$button_default_offset"
+        }
+      },
+      {
+        "hover@icon_button.exit_icon_button_panel": {
+          "layer": 2,
+		  "offset": "@icon_button.anim_A",
+          "$new_ui_button_texture": "$hover_button_texture",
+          "$glyph_color": "$light_glyph_hover_color",
+          "$content_alpha": 1,
+          "$border_color": "$light_border_hover_color",
+          "$border_layer": 5,
+		  "$glyph_layer": 4,
+		  "$glyph_color_layer": 3,
+		  "$glyph_pressed_layer": 2,
+          "$hover_state": true,
+          "$button_press_offset": "$button_hover_offset"
+        }
+      },
+      {
+        "pressed@icon_button.exit_icon_button_panel": {
+          "layer": 3,
+		  "offset": "@icon_button.anim_A",
+          "$new_ui_button_texture": "$pressed_button_texture",
+          "$glyph_color": "$light_glyph_pressed_color",
+          "$content_alpha": "$pressed_alpha",
+          "$border_color": "$light_border_pressed_color",
+          "$border_layer": 5,
+		  "$glyph_layer": 2,
+		  "$glyph_color_layer": 3,
+		  "$glyph_pressed_layer": 4,
+          "$pressed_state": true,
+          "$button_press_offset": "$button_pressed_offset"
+        }
+      },
+      {
+        "locked@icon_button.exit_icon_button_panel": {
+          "$new_ui_button_texture": "$locked_button_texture",
+          "$glyph_color": "$light_glyph_locked_color",
+          "$content_alpha": "$locked_alpha",
+          "$border_color": "$light_border_locked_color",
+          "$button_image": "common_buttons.locked_button_image",
+          "$border_layer": 1,
+          "$button_press_offset": "$button_locked_offset",
+          "$locked_state": true,
+          "layer": 1
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // icon button
+  //---------------------------------------------------------------------------
+  
+  "icon_button_panel": {
+    "type": "panel",
+    "layer": 1,
+    "$button_size_override|default": [ "100%", "100%" ],
+    "size": "$button_size_override",
+    "$content_alpha|default": 1,
+    "$button_image|default": "common_buttons.button_image",
+    "$button_image_visible|default": true,
+    "$image_anchor|default": "center",
+    "$image_offset|default": [ 0, 0 ],
+    "$border_visible|default": true,
+	"$store_notice|default": true,
+    "controls": [
+	  {
+        "glyph": {
+          "type": "image",
+          "anchor_from": "$glyph_anchor_from",
+          "anchor_to": "$glyph_anchor_to",
+          "offset": "$glyph_offset",
+          "texture": "$glyph_texture",
+		  "nineslice_size": 2,
+          "size": [ "100%", "100%" ],
+          "layer": "$glyph_layer",
+          "color": "$glyph_color",
+          "alpha": "$content_alpha",
+
+          "$glyph_bindings|default": [],
+          "bindings": "$glyph_bindings"
+        }
+      },
+      {
+          "store_notice": {
+              "type": "panel",
+              "offset": [ 2.5, -2.5 ],
+              "size": [ 7.5, 7.5 ],
+              "anchor_from": "top_right",
+              "anchor_to": "top_right",
+              "ignored": "$store_notice",
+              "controls": [
+                  {
+                      "new_offers_icon@ui.all_bg":{
+                          "$all_bg_color": [ 0.667, 0.0, 0.0 ],
+                          "$all_bg_alpha": 0.95,
+                          "bindings": [
+                              {
+                                  "binding_name": "#new_offers",
+                                  "binding_name_override": "#visible"
+                              }
+                          ]
+                      }
+                  }
+              ]
+          }
+      },
+      {
+        "button_content": {
+          "type": "panel",
+          "$button_content_size|default": [ "100% - 6px", "100% - 6px" ],
+          "size": "$button_content_size",
+
+          "controls": [
+            {
+              "$button_type_panel@$button_type_panel": {
+                "layer": 3
+              }
+            }
+          ]
+        }
+      }/*,
+      {
+          "border": {
+              "type": "image",
+              "texture": "$glyph_border_texture",
+              "color": "$border_color",
+              "layer": "$border_layer",
+              "ignored": "(not $border_visible)"
+          }
+      }*/
+    ]
+  },
+  
+  "button_name_bg_1": {
+      "type": "image",
+      "texture": "textures/ui/tooltip_default_background"
+  },
+  
+  "button_name_bg_2": {
+      "type": "image",
+      "texture": "textures/ui/button_tooltip_default_chevron.png"
+  },
+  
+  "button_name_bg": {
+      "type": "panel",
+      "size": [ "100px", "23px" ],
+      "controls": [
+          {
+              "button_name_bg_1@icon_button.button_name_bg_1": {
+                  "size": [ "100%c+10px", "18px" ],
+                  "layer": 1,
+                  "anchor_from": "top_middle",
+                  "anchor_to": "top_middle",
+                  "controls": [
+                      {
+                          "text_label":{
+                              "type": "label",
+                              "layer": 2,
+                              "text": "$button_name"
+                          }
+                      }
+                  ]
+              }
+          },
+          {
+              "button_name_bg_2@icon_button.button_name_bg_2": {
+                  "layer": 2,
+                  "size": [ "100%", "8px" ],
+                  "anchor_from": "bottom_middle",
+                  "anchor_to": "bottom_middle"
+              }
+          }
+      ]
+  },
+  
+  "hover_icon_button_panel": {
+      "type": "panel",
+      "layer": 1,
+      "$button_size_override|default": [ "100%", "100%" ],
+      "size": "$button_size_override",
+      "$content_alpha|default": 1,
+      "$button_image|default": "common_buttons.button_image",
+      "$button_image_visible|default": true,
+      "$image_anchor|default": "center",
+      "$image_offset|default": [ 0, 0 ],
+      "$border_visible|default": true,
+      "$store_notice|default": true,
+      "controls": [
+          {
+              "glyph": {
+                  "type": "image",
+                  "anchor_from": "$glyph_anchor_from",
+                  "anchor_to": "$glyph_anchor_to",
+                  "offset": "$glyph_offset",
+                  "texture": "$glyph_texture",
+                  "nineslice_size": 2,
+                  "size": [ "100%", "100%" ],
+                  "layer": "$glyph_layer",
+                  "color": "$glyph_color",
+                  "alpha": "$content_alpha",
+                  
+                  "$glyph_bindings|default": [],
+                  "bindings": "$glyph_bindings"
+              }
+          },
+          {
+              "store_notice": {
+                  "type": "panel",
+                  "offset": [ 2.5, -2.5 ],
+                  "size": [ 7.5, 7.5 ],
+                  "anchor_from": "top_right",
+                  "anchor_to": "top_right",
+                  "ignored": "$store_notice",
+                  "controls": [
+                      {
+                          "new_offers_icon@ui.all_bg":{
+                              "$all_bg_color": [ 0.667, 0.0, 0.0 ],
+                              "$all_bg_alpha": 1.0,
+                              "bindings": [
+                                  {
+                                      "binding_name": "#new_offers",
+                                      "binding_name_override": "#visible"
+                                  }
+                              ]
+                          }
+                      }
+                  ]
+              }
+          },
+          {
+              "button_name@icon_button.button_name_bg": {
+                  "anchor_from": "top_middle",
+                  "anchor_to": "top_middle",
+                  "offset": [ 0, "- 25px" ]
+              }
+          },
+          {
+              "button_content": {
+                  "type": "panel",
+                  "$button_content_size|default": [ "100% - 6px", "100% - 6px" ],
+                  "size": "$button_content_size",
+                  
+                  "controls": [
+                      {
+                          "$button_type_panel@$button_type_panel": {
+                              "layer": 3
+                          }
+                      }
+                  ]
+              }
+          }/*,
+          {
+              "border": {
+                  "type": "image",
+                  "texture": "$glyph_border_texture",
+                  "color": "$border_color",
+                  "layer": "$border_layer",
+                  "ignored": "(not $border_visible)"
+              }
+          }*/
+      ]
+  },
+  
+  "general_icon_button@icon_button_assets": {
+
+    "$button_content|default": "common.empty_panel",
+    "$button_content_offset|default": [ 0, 0 ],
+    "$pressed_alpha|default": 1,
+    "$button_type_panel": "icon_button.glyph_content_panel",
+
+    // These states are for passing the button state to the button content - do not set these in a parent!
+    "$default_state|default": false,
+    "$hover_state|default": false,
+    "$pressed_state|default": false,
+    "$locked_state|default": false,
+
+    "$button_default_offset|default": [ 0, 0 ],
+    "$button_hover_offset|default": [ 0, 0 ],
+    "$button_pressed_offset|default": [ 0, 0 ],
+    "$button_locked_offset|default": [ 0, 0 ],
+
+    "controls": [
+      {
+        "default@icon_button.icon_button_panel": {
+          "layer": 1,
+          "$new_ui_button_texture": "$default_button_texture",
+          "$content_alpha": 1,
+          "$border_color": "$light_border_default_color",
+          "$border_layer": 2,
+          "$default_state": true,
+          "$button_press_offset": "$button_default_offset"
+        }
+      },
+      {
+        "hover@icon_button.hover_icon_button_panel": {
+          "layer": 2,
+		  "offset": "@icon_button.anim_A",
+          "$new_ui_button_texture": "$hover_button_texture",
+          "$content_alpha": 1,
+          "$border_color": "$light_border_hover_color",
+          "$border_layer": 3,
+          "$hover_state": true,
+          "$button_press_offset": "$button_hover_offset"
+        }
+      },
+      {
+        "pressed@icon_button.icon_button_panel": {
+          "layer": 3,
+		  "offset": "@icon_button.anim_A",
+          "$new_ui_button_texture": "$pressed_button_texture",
+          "$glyph_color": "$light_glyph_default_color",
+          "$content_alpha": "$pressed_alpha",
+          "$border_color": "$light_border_pressed_color",
+          "$border_layer": 3,
+          "$pressed_state": true,
+          "$button_press_offset": "$button_pressed_offset"
+        }
+      },
+      {
+        "locked@icon_button.icon_button_panel": {
+          "$new_ui_button_texture": "$locked_button_texture",
+          "$glyph_color": "$light_glyph_locked_color",
+          "$content_alpha": "$locked_alpha",
+          "$border_color": "$light_border_locked_color",
+          "$button_image": "common_buttons.locked_button_image",
+          "$border_layer": 1,
+          "$button_press_offset": "$button_locked_offset",
+          "$locked_state": true,
+          "layer": 1
+        }
+      }
+    ]
+  },
+  
+  "icon_button_assets@common.button": {
+    "$default_button_texture|default": "textures/ui/buttons/icon/bug_icon",
+    "$hover_button_texture|default": "textures/ui/buttons/icon/bug_icon",
+    "$pressed_button_texture|default": "textures/ui/buttons/icon/bug_icon",
+    "$locked_button_texture|default": "textures/ui/buttons/icon/bug_icon",
+
+    "locked_control": "locked",
+
+    "$locked_alpha": 1
+  },
+  
+  "glyph_content_panel": {
+    "type": "panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "offset": "$button_content_offset",
+    "controls": [
+      {
+        "glyph_button_content@$button_content": {
+          "color": "$glyph_color",
+          "layer": 3,
+          "offset": "$button_press_offset",
+          "alpha": "$content_alpha"
+        }
+      }
+    ]
+  },
+  
+  "hyperlink_button@icon_button.general_icon_button": {
+    "$pressed_button_name": "button.menu_open_uri",
+    "property_bag": {
+      "#hyperlink": ""
+    }
+  }
+}

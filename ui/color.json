@@ -1,0 +1,105 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2018-12-27
+ */
+{
+"namespace":"colorful",
+
+"button@pause_button.pause_button_assets": {
+    "$button_state_panel|default": "pause_button.new_ui_button_panel",
+	
+	// For text bindings
+    "$button_text_binding_type|default": "none",
+    "$button_binding_condition|default": "none",
+    "$button_text_grid_collection_name|default": "",
+    
+    // These states are for passing the button state to the button content - do not set these in a parent!
+    "$default_state|default": false,
+    "$hover_state|default": false,
+    "$pressed_state|default": false,
+    "$locked_state|default": false,
+
+    "controls": [
+      {
+        "default@$button_state_panel": {
+          "$new_ui_button_texture": "$default_button_texture",
+          "$content_alpha": 0.5,
+          "$border_color": "@colorful.base",
+          "$border_layer": 2,
+		  "$button_icon_color": "$light_border_hover_color",
+          "$default_state": true,
+          "layer": 1
+        }
+      },
+      {
+        "hover@$button_state_panel": {
+          "$new_ui_button_texture": "$hover_button_texture",
+          "$content_alpha": 1,
+          "$border_color": "@colorful.base",
+          "$border_layer": 4,
+		  "$button_icon_color": "$button_icon_hover_color",
+          "$hover_state": true,
+          "layer": 4 // This is several layers higher than default in case two buttons share a border and that shared border needs to turn with with either button hover/press state
+        }
+      },
+      {
+        "pressed@$button_state_panel": {
+          "$new_ui_button_texture": "$pressed_button_texture",
+          "$content_alpha": 1,
+          "$border_color": "@colorful.base",
+          "$border_layer": 5,
+		  "$button_icon_color": "$button_icon_hover_color",
+          "$pressed_state": true,
+          "layer": 5
+        }
+      },
+      {
+        "locked@$button_state_panel": {
+          "$new_ui_button_texture": "$locked_button_texture",
+          "$content_alpha": "$locked_alpha",
+          "$border_color": "@colorful.base",
+          "$button_image": "common_buttons.locked_button_image",
+          "$border_layer": 1,
+          "$locked_state": true,
+          "layer": 1
+        }
+      }
+    ]
+  },
+
+  "color_anim": {
+    "anim_type": "color",
+    "easing": "in_out_back",
+    "duration": 1,
+    "$red": [0,0.5,1.0],
+    "$orange": [0,0.5,1.0],
+    "$yellow": [0, 0, 0],
+    "$01": [0, 0.96, 0.2],
+    "$02": [0, 0, 0.1],
+    "$03": [0, 1, 0.8],
+    "$04": [0, 0, 0.1],
+    "$05": "$light_border_default_color",
+    "$06": "black"
+  },
+
+  "base@colorful.color_anim": {
+    "from": "$05",
+    "to": "$06",
+    "next": "@colorful.b"
+  },
+"b@colorful.color_anim": {
+    "from": "$06",
+    "to": "$06",
+    "next": "@colorful.a"
+  },
+  "a@colorful.color_anim": {
+    "from": "$06",
+    "to": "$05",
+    "next": "@colorful.s"
+  },
+  "s@colorful.color_anim": {
+    "from": "$05",
+    "to": "$05",
+    "next": "@colorful.base"
+  }
+ }

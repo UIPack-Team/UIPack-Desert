@@ -1,0 +1,339 @@
+{
+  "namespace": "slide",
+
+  //Slide Kernel
+
+  "slide_view": {
+    "type": "panel",
+    "controls": [
+      {
+        "slide_A@slide.slide_and_text_panel": {
+          "propagate_alpha": true,
+          "disable_anim_fast_forward": true,
+          "alpha": "@slide.anim_slide_A_wait_1",
+          "$slide_image": "textures/view/view_1",
+          "$slide_title": "$slide_A_title",
+          "$slide_label": "$slide_A_label",
+          "$is_official": false, //Only UIPack
+          "$slide_A_title": "UIPack Beta 7",
+          "$slide_A_label": "This is just a test version,more features are coming..."
+        }
+      },
+      {
+        "slide_B@slide.slide_and_text_panel": {
+          "propagate_alpha": true,
+          "disable_anim_fast_forward": true,
+          "alpha": "@slide.anim_slide_B_wait_1",
+          "$slide_image": "textures/view/view_2",
+          "$slide_title": "$slide_B_title",
+          "$slide_label": "$slide_B_label",
+          "$is_official": false, //Only UIPack
+          "$slide_B_title": "Welcome to feedback bugs in twitter & MCPE DL",
+          "$slide_B_label": "We are sorry that there are still bugs,you can report."
+        }
+      },
+      {
+        "slide_C@slide.slide_and_text_panel": {
+          "propagate_alpha": true,
+          "disable_anim_fast_forward": true,
+          "alpha": "@slide.anim_slide_C_wait_1",
+          "$slide_image": "textures/view/view_3",
+          "$slide_title": "$slide_C_title",
+          "$slide_label": "$slide_C_label",
+          "$is_official": true, //Only UIPack
+          "$slide_C_title": "Minecraft 1.20 is pre-release",
+          "$slide_C_label": "Bamboo and bookshief are more useful"
+        }
+      }
+    ]
+  },
+
+  "slide_and_text_panel": {
+    "type": "panel",
+    "size": ["50%", "50%"],
+    "controls": [
+      {
+        "slide_section": {
+          "type": "panel",
+          "controls": [
+            {
+              "slide_image": {
+                "type": "panel",
+                "size": ["100%", "100%c"],
+                "controls": [
+                  {
+                    "default_indent@common.default_indent": {
+                      "size": ["100% - 2px", "100%c + 2px"],
+                      "anchor_from": "top_middle",
+                      "anchor_to": "top_middle",
+                      "controls": [
+                        {
+                          "thumbnail": {
+                            "type": "image",
+                            "force_texture_reload": true,
+                            "size": ["100%", "56.325%x"],
+                            "layer": 2,
+                            "controls": [
+                              {
+                                "slide_bg": {
+                                  "type": "image",
+                                  "layer": 1,
+                                  "size": ["100% + 2px", "100% + 2px"],
+                                  "nineslice_size": 1,
+                                  "base_size": [2, 2],
+                                  "color": [0, 0, 0],
+                                  "texture": "textures/ui/bg"
+                                }
+                              },
+                              {
+                                "slide_texture": {
+                                  "type": "image",
+                                  "layer": 2,
+                                  "texture": "$slide_image",
+                                  "size": ["100%", "100%"]
+                                }
+                              },
+                              {
+                                "slide_text": {
+                                  "type": "panel",
+                                  "layer": 3,
+                                  "anchor_from": "bottom_middle",
+                                  "anchor_to": "bottom_middle",
+                                  "size": ["100%", 24],
+                                  "controls": [
+                                    {
+                                      "bg": {
+                                        "type": "image",
+                                        "color": [0, 0, 0],
+                                        "alpha": 0.75,
+                                        "nineslice_size": 1,
+                                        "base_size": [2, 2],
+                                        "texture": "textures/ui/bg"
+                                      }
+                                    },
+
+                                    {
+                                      "slide_text_and_source_icon": {
+                                        "type": "stack_panel",
+                                        "orientation": "horizontal",
+                                        "layer": 3,
+                                        "size": ["100% - 4px", 20],
+                                        "controls": [
+                                          {
+                                            "slide_text@slide.slide_text": {
+                                              "$slide_title|default": "No Title",
+                                              "$slide_label|default": "No Label"
+                                            }
+                                          },
+                                          {
+                                            "slide_icon@slide.slide_source_icon": {
+                                              //Only UIPack
+                                              "visible": true
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "frame": {
+                                  "type": "image",
+                                  "layer": 4,
+                                  "nineslice_size": 1,
+                                  "base_size": [4, 4],
+                                  "size": ["100% + 2px", "100% + 2px"],
+                                  "texture": "textures/ui/Frame"
+                                }
+                              },
+                              {
+                                "shadow_texture": {
+                                  "type": "image",
+                                  "layer": 1,
+                                  "nineslice_size": 20,
+                                  "base_size": [100, 100],
+                                  "texture": "textures/ui/window_shadow",
+                                  "size": ["100% + 22px", "100% + 22px"]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "slide_text": {
+    "type": "stack_panel",
+    "size": ["fill", "20px"],
+    "controls": [
+      {
+        "slide_title": {
+          "type": "label",
+          "size": ["100%", "10px"],
+          "max_size": ["100%", "10px"],
+          "text_alignment": "left",
+          "color": [0.8, 0.8, 0],
+          "font_type": "smooth",
+          "text": "$slide_title"
+        }
+      },
+      {
+        "slide_label": {
+          "type": "label",
+          "size": ["100%", "10px"],
+          "max_size": ["100%", "10px"],
+          "text_alignment": "left",
+          "font_type": "smooth",
+          "text": "$slide_label"
+        }
+      }
+    ]
+  },
+
+  "slide_source_icon": {
+    //Only UIPack
+    "type": "panel",
+    "size": ["20px", "20px"],
+    "$is_official|default": true,
+    "controls": [
+      {
+        "official": {
+          "type": "image",
+          "size": [10, 10],
+          "visible": "$is_official",
+          "texture": "contents/sdk/com.ut.slidekit/resources/news_official_icon"
+        }
+      },
+      {
+        "unofficial": {
+          "type": "image",
+          "size": [10, 10],
+          "nineslice_size": 1,
+          "base_size": [11, 11],
+          "visible": "(not $is_official)",
+          "texture": "contents/sdk/com.ut.slidekit/resources/news_unofficial_icon"
+        }
+      }
+    ]
+  },
+
+  //Slide A
+
+  "anim_slide_A_wait_1": {
+    "anim_type": "alpha",
+    "duration": 0.25,
+    "from": 0.75,
+    "to": 1,
+    "next": "@slide.anim_slide_A_wait_2"
+  },
+
+  "anim_slide_A_wait_2": {
+    "anim_type": "alpha",
+    "duration": 3.5,
+    "from": 1,
+    "to": 1,
+    "next": "@slide.anim_slide_A_wait_3"
+  },
+
+  "anim_slide_A_wait_3": {
+    "anim_type": "alpha",
+    "duration": 0.25,
+    "from": 1,
+    "to": 0.75,
+    "next": "@slide.anim_slide_A_wait_4"
+  },
+
+  "anim_slide_A_wait_4": {
+    "anim_type": "alpha",
+    "duration": 8,
+    "from": 0,
+    "to": 0,
+    "next": "@slide.anim_slide_A_wait_1"
+  },
+
+  //Slide B
+
+  "anim_slide_B_wait_1": {
+    "anim_type": "alpha",
+    "duration": 4,
+    "from": 0,
+    "to": 0,
+    "next": "@slide.anim_slide_B_wait_2"
+  },
+
+  "anim_slide_B_wait_2": {
+    "anim_type": "alpha",
+    "duration": 0.25,
+    "from": 0.75,
+    "to": 1,
+    "next": "@slide.anim_slide_B_wait_3"
+  },
+
+  "anim_slide_B_wait_3": {
+    "anim_type": "alpha",
+    "duration": 3.5,
+    "from": 1,
+    "to": 1,
+    "next": "@slide.anim_slide_B_wait_4"
+  },
+
+  "anim_slide_B_wait_4": {
+    "anim_type": "alpha",
+    "duration": 0.25,
+    "from": 1,
+    "to": 0.75,
+    "next": "@slide.anim_slide_B_wait_5"
+  },
+
+  "anim_slide_B_wait_5": {
+    "anim_type": "alpha",
+    "duration": 4,
+    "from": 0,
+    "to": 0,
+    "next": "@slide.anim_slide_B_wait_1"
+  },
+
+  //Slide C
+
+  "anim_slide_C_wait_1": {
+    "anim_type": "alpha",
+    "duration": 8,
+    "from": 0,
+    "to": 0,
+    "next": "@slide.anim_slide_C_wait_2"
+  },
+
+  "anim_slide_C_wait_2": {
+    "anim_type": "alpha",
+    "duration": 0.25,
+    "from": 0.75,
+    "to": 1,
+    "next": "@slide.anim_slide_C_wait_3"
+  },
+
+  "anim_slide_C_wait_3": {
+    "anim_type": "alpha",
+    "duration": 3.5,
+    "from": 1,
+    "to": 1,
+    "next": "@slide.anim_slide_C_wait_4"
+  },
+
+  "anim_slide_C_wait_4": {
+    "anim_type": "alpha",
+    "duration": 0.25,
+    "from": 1,
+    "to": 0.75,
+    "next": "@slide.anim_slide_C_wait_1"
+  }
+}

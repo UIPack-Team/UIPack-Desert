@@ -1,0 +1,21 @@
+{
+  "namespace": "start",
+
+  "start_screen@common.base_screen": {
+    "$screen_animations": [
+      "@common.screen_exit_animation_push_alpha",
+      "@common.screen_exit_animation_pop_alpha",
+      "@common.screen_entrance_animation_push_alpha",
+      "@common.screen_entrance_animation_pop_alpha"
+    ],
+    "button_mappings": [
+      {
+        "ignored": "(not $nx_os)",
+        "from_button_id": "button.controller_select",
+        "to_button_id": "button.menu_offline",
+        "mapping_type": "global"
+      }
+    ],
+    "$screen_content": "start_kit.start_screen_content"
+  }
+}

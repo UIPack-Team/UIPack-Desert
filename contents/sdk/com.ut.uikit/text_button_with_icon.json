@@ -1,0 +1,267 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2018-12-08 22:55:00
+ WeiTzeng制作
+ */
+
+{
+  "namespace": "text_button_with_icon",
+  
+  //---------------------------------------------------------------------------
+  // icon button
+  //---------------------------------------------------------------------------
+  
+  "focus_border": {
+    "type": "image",
+    "texture": "textures/ui/buttons/focus_border"
+  },
+  
+  "new_ui_button_panel": {
+    "type": "panel",
+    "layer": 1,
+	
+	"$hide_glyph_default|default": true,
+	"$hide_glyph_color|default": true,
+	"$hide_glyph_pressed|default": true,
+
+    "$button_size_override|default": [ "100%", "100%" ],
+    "size": "$button_size_override",
+    "$content_alpha|default": 1,
+    "$button_image|default": "common_buttons.button_image",
+    "$button_image_visible|default": true,
+    "$image_anchor|default": "center",
+    "$border_visible|default": true,
+	"$glyph_offset|default": [ 6, 0 ],
+    "$glyph_anchor_from|default": "left_middle",
+    "$glyph_anchor_to|default": "left_middle",
+    "controls": [
+      {
+        "$button_image@$button_image": {
+          "ignored": "(not $button_image_visible)",
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "offset": "$image_offset",
+          "anchor_from": "$image_anchor",
+          "anchor_to": "$image_anchor",
+          "layer": 1
+        }
+      },
+	  {
+        "glyph_default": {
+          "type": "image",
+		  "ignored": "$hide_glyph_default",
+          "anchor_from": "$glyph_anchor_from",
+          "anchor_to": "$glyph_anchor_to",
+          "offset": "$glyph_offset",
+          "texture": "$glyph_texture",
+          "size": "$glyph_size",
+          "color": "$glyph_color",
+          "alpha": "$content_alpha",
+		  "layer": 2,
+
+          "$glyph_bindings|default": [],
+          "bindings": "$glyph_bindings"
+        }
+      },
+      {
+        "glyph_color": {
+          "type": "image",
+		  "ignored": "$hide_glyph_color",
+          "anchor_from": "$glyph_anchor_from",
+          "anchor_to": "$glyph_anchor_to",
+          "offset": "$glyph_offset",
+          "texture": "$glyph_color_texture",
+          "size": "$glyph_size",
+          "alpha": "$content_alpha",
+		  "layer": 2,
+
+          "$glyph_color_bindings|default": [],
+          "bindings": "$glyph_color_bindings"
+        }
+      },
+	  {
+        "glyph_pressed": {
+          "type": "image",
+		  "ignored": "$hide_glyph_pressed",
+          "anchor_from": "$glyph_anchor_from",
+          "anchor_to": "$glyph_anchor_to",
+          "offset": "$glyph_offset",
+          "texture": "$glyph_pressed_texture",
+          "size": "$glyph_size",
+          "alpha": "$content_alpha",
+		  "layer": 2,
+
+          "$glyph_color_bindings|default": [],
+          "bindings": "$glyph_color_bindings"
+        }
+      },
+      {
+        "progress_loading_bars@progress.progress_loading_bars": {
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "color": "$glyph_color",
+          "offset": [ 5, 0 ],
+          "layer": 5,
+          "size": "$glyph_size",
+          "visible": false,
+          "$glyph_progress_bindings|default": [],
+          "bindings": "$glyph_progress_bindings"
+        }
+      },
+      {
+        "tab_button_text": {
+          "type": "label",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "offset": "$button_label_offset",
+          "text": "$button_text",
+          "layer": 3,
+          "color": "$text_color",
+          "alpha": "$content_alpha",
+
+          "$button_text_binding_type|default": "none",
+          "$button_text_grid_collection_name|default": "",
+          "$button_text_binding_condition|default": "none",
+
+          "bindings": [
+            {
+              "binding_type": "$button_text_binding_type",
+              "binding_condition": "$button_text_binding_condition",
+              "binding_collection_name": "$button_text_grid_collection_name",
+              "binding_name": "$button_text",
+              "binding_name_override": "$button_text"
+            }
+          ]
+        }
+      },
+      {
+        "button_content": {
+          "type": "panel",
+          "$button_content_size|default": [ "100% - 6px", "100% - 6px" ],
+          "size": "$button_content_size",
+
+          "controls": [
+            {
+              "$button_type_panel@$button_type_panel": {
+                "layer": 3
+              }
+            }
+          ]
+        }
+      },
+      {
+        "border@text_button_with_icon.focus_border": {
+          "color": "$border_color",
+          "layer": "$border_layer",
+          "ignored": "(not $border_visible)"
+        }
+      }
+    ]
+  },
+
+  "light_text_form_fitting_button@text_button_with_icon.default_button": {
+    "size": [ "100%c", "100%c" ],
+    "$button_state_panel|default": "common_buttons.new_ui_form_fitting_button_panel",
+    "$anchor": "top_left", // Cannot override this or will cause unsolvable layout!
+    "$button_offset|default": [ 3, 3 ],
+    "$button_pressed_offset|default": [ 3, 4 ],
+    "$button_text_max_size": [ "100%c", 10 ]
+  },
+  
+  "default_button@light_button_assets": {
+    "$button_label_offset|default": [ 0, 0 ],//34
+    "$button_label_pressed_offset|default": [ 0, 1 ],//34
+	"$glyph_offset|default": [ 6, 0 ],
+	"$glyph_pressed_offset": [ 6, 1 ],
+    "$button_text|default": "",
+    "$pressed_alpha|default": 1,
+
+    // For text bindings
+    "$button_text_binding_type|default": "none",
+    "$button_binding_condition|default": "none",
+    "$button_text_grid_collection_name|default": "",
+
+    
+    "$button_state_panel|default": "text_button_with_icon.new_ui_button_panel",
+
+    // These states are for passing the button state to the button content - do not set these in a parent!
+    "$default_state|default": false,
+    "$hover_state|default": false,
+    "$pressed_state|default": false,
+    "$locked_state|default": false,
+
+    "controls": [
+      {
+        "default@$button_state_panel": {
+          "$new_ui_button_texture": "$default_button_texture",
+          "$text_color": "$light_button_default_text_color",
+          "$secondary_text_color": "$light_button_secondary_default_text_color",
+          "$content_alpha": 1,
+          "$border_color": "$light_border_default_color",
+          "$border_layer": 2,
+		  "$hide_glyph_color": false,
+          "$default_state": true,
+          "layer": 1
+        }
+      },
+      {
+        "hover@$button_state_panel": {
+          "$new_ui_button_texture": "$hover_button_texture",
+          "$text_color": "$light_button_hover_text_color",
+          "$secondary_text_color": "$light_button_secondary_hover_text_color",
+          "$content_alpha": 1,
+          "$border_color": "$light_border_hover_color",
+          "$border_layer": 4,
+	      "$hide_glyph_default": false,
+          "$hover_state": true,
+          "layer": 4 // This is several layers higher than default in case two buttons share a border and that shared border needs to turn with with either button hover/press state
+        }
+      },
+      {
+        "pressed@$button_state_panel": {
+          "$new_ui_button_texture": "$pressed_button_texture",
+          "$text_color": "$light_button_pressed_text_color",
+          "$secondary_text_color": "$light_button_secondary_pressed_text_color",
+          "$button_label_offset|default": "$button_label_pressed_offset",
+		  "$glyph_offset|default": "$glyph_pressed_offset",
+          "$content_alpha": "$pressed_alpha",
+          "$border_color": "$light_border_pressed_color",
+          "$border_layer": 5,
+	      "$hide_glyph_pressed": false,
+          "$pressed_state": true,
+          "layer": 5
+        }
+      },
+      {
+        "locked@$button_state_panel": {
+          "$new_ui_button_texture": "$locked_button_texture",
+          "$text_color": "$light_button_locked_text_color",
+          "$secondary_text_color": "$light_button_secondary_locked_text_color",
+          "$content_alpha": "$locked_alpha",
+          "$border_color": "$light_border_locked_color",
+          "$button_image": "common_buttons.locked_button_image",
+          "$border_layer": 1,
+          "$locked_state": true,
+          "layer": 1
+        }
+      }
+    ]
+  },
+  
+  "light_button_assets@common.button": {
+    "$default_button_texture|default": "textures/ui/buttons/default_button",
+    "$hover_button_texture|default": "textures/ui/buttons/hover_button",
+    "$pressed_button_texture|default": "textures/ui/buttons/pressed_button",
+    "$locked_button_texture|default": "",
+
+    "locked_control": "locked",
+
+    "$locked_alpha": 1
+  },
+  
+  "hyperlink_button@text_button_with_icon.default_button": {
+    "$pressed_button_name": "button.menu_open_uri",
+    "property_bag": {
+      "#hyperlink": ""
+    }
+  }
+}

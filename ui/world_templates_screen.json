@@ -1,0 +1,29 @@
+{
+  "world_templates_screen@common.base_screen": {
+    "force_render_below": true,
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.menu_select",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ],
+    "$screen_background_control":"common.empty_panel",
+    "$screen_animations": [
+      "@common.container_screen_exit_animation_push",
+      "@common.container_screen_exit_animation_pop",
+      "@common.container_screen_entrance_animation_push",
+      "@common.container_screen_entrance_animation_pop",
+      "@common.screen_exit_animation_push_fade",
+      "@common.screen_exit_animation_pop_fade",
+      "@common.screen_entrance_animation_push_fade",
+      "@common.screen_entrance_animation_pop_fade"
+    ],
+    "$screen_content": "worldtemplates_uikit.world_templates_picker_content"
+  }
+}

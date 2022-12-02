@@ -1,0 +1,301 @@
+/*
+ * @Designed: By UIPack Team
+ Weitzeng制作
+ * @Date: 2018-12-08 22:54:56
+ */
+
+
+{
+  "namespace": "show_toggle",
+  
+  "option_generic": {
+    "type": "panel",
+    "size": [ "100%", "100%c" ],
+    "$enabled|default": true,
+    "$option_enabled_binding_name|default": "",
+    "controls": [
+      { "option_generic_core@show_toggle.option_generic_core": {} }
+    ]
+  },
+  
+  // option_generic and option_generic_core are separated so that $enabled and
+  // $option_enabled_binding_name are guaranteed to be defined - otherwise, the
+  // variables section now in option_generic_core chokes.
+  "option_generic_core": {
+    "$allow_data_binding|default": true,
+    "$option_label|default": "",
+    "$show_option_label|default": true,
+    "$label_bindings|default": [],
+    "$one_line_layout|default": false,
+    "$option_enabled_binding_type|default": "global",
+	"$label_offset|default": [ 12, 18.5 ],
+    "type": "stack_panel",
+    "size": [ "100%", "100%c" ],
+    "enabled": "$enabled",
+    "variables": [
+      {
+        "requires": "(not $enabled or not $option_enabled_binding_name)",
+        "$option_enabled_binding_type": "none",
+        "$option_enabled_binding_name": "#not_data_bound"
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "$option_enabled_binding_type",
+        "binding_name": "$option_enabled_binding_name",
+        "binding_name_override": "#enabled"
+      }
+    ],
+    "controls": [
+      {
+        "two_line_layout": {
+          "ignored": "($one_line_layout)",
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "spacer": {
+                "type": "panel",
+                "visible": "$show_option_label",
+                "size": [ 0, 1 ]
+              }
+            },
+            {
+              "$control_name@$control_name": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "one_line_layout": {
+          "ignored": "(not $one_line_layout)",
+          "type": "panel",
+          "$line_size|default": [ "100%", "100%c - 16px" ],
+          "$line_min_size|default": [ "100%", "16px" ],
+          "size": "$line_size",
+          "min_size": "$line_min_size",
+          "$label_size|default": [ "100% - 34px", "default" ],
+          "$label_offset|default": [ 12, 3.5 ],
+          "controls": [
+            {
+              "$control_name@$control_name": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "spacer": {
+          "type": "panel",
+          "size": [ 0, 4 ]
+        }
+      }
+    ]
+  },
+  
+  //---------------------------------------------------------------------------
+  // show_dock_bar_toggle
+  //---------------------------------------------------------------------------
+  
+  "option_toggle@show_toggle.option_generic": {
+    "$control_name": "show_toggle.option_toggle_control",
+    "variables": [
+      {
+        "requires": "$desktop_screen",
+        "$one_line_layout": true
+      }
+    ]
+  },
+  
+  "option_toggle_state_template": {
+    "type": "image",
+    "size": [ 40, 14 ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left"
+  },
+  
+  "option_on": {
+    "type": "panel",
+	"size": [ 40, 14 ],
+	"anchor_from": "top_left",
+    "anchor_to": "top_left",
+	"offset": "$option_on_offset",
+	"$label_offset|default": [ 10, 1 ],
+	"$option_label_color": "$option_on_color",
+    "controls": [
+	  {
+        "option_toggle_on@option_toggle_on": {     
+        }
+      },
+	  {
+        "option_label": {
+          "type": "label",
+          "layer": 1000,
+          "size": [ "default", "default" ],
+          "offset": "$label_offset",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "text": "$option_label_on",
+	      "color": "$option_label_color",
+          "visible": "$show_option_label",
+          "bindings": "$label_bindings",
+          "locked_alpha": 0.5
+        }
+      }
+    ]
+  },
+
+  "option_toggle_on@show_toggle.option_toggle_state_template": {
+    "texture": "textures/ui/option_toggle/on_default",
+	"color": "$option_on_color"
+  },
+  
+  "option_off": {
+    "type": "panel",
+	"size": [ 40, 14 ],
+	"anchor_from": "top_left",
+    "anchor_to": "top_left",
+	"$label_offset|default": [ 10, 1 ],
+	"$option_label_color": "$option_off_color",
+    "controls": [
+	  {
+        "option_toggle_off@option_toggle_off": {     
+        }
+      },
+	  {
+        "option_label": {
+          "type": "label",
+          "layer": 1000,
+          "size": [ "default", "default" ],
+          "offset": "$label_offset",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "text": "$option_label",
+	      "color": "$option_label_color",
+          "visible": "$show_option_label",
+          "bindings": "$label_bindings",
+          "locked_alpha": 0.5
+        }
+      }
+    ]
+  },
+
+  "option_toggle_off@show_toggle.option_toggle_state_template": {
+    "texture": "textures/ui/option_toggle/off_default",
+	"color": "$option_off_color"
+  },
+  
+  "option_on_hover": {
+    "type": "panel",
+	"size": [ 40, 14 ],
+	"anchor_from": "top_left",
+    "anchor_to": "top_left",
+	"offset": "$option_on_offset",
+	"$label_offset|default": [ 10, 1 ],
+	"$option_label_color": "$option_on_color",
+    "controls": [
+	  {
+        "option_toggle_on_hover@option_toggle_on_hover": {     
+        }
+      },
+	  {
+        "option_label": {
+          "type": "label",
+          "layer": 1000,
+          "size": [ "default", "default" ],
+          "offset": "$label_offset",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "text": "$option_label_on",
+	      "color": "$option_label_color",
+          "visible": "$show_option_label",
+          "bindings": "$label_bindings",
+          "locked_alpha": 0.5
+        }
+      }
+    ]
+  },
+
+  "option_toggle_on_hover@show_toggle.option_toggle_state_template": {
+    "texture": "textures/ui/option_toggle/on_hover",
+	"color": "$option_on_color"
+  },
+  
+  "option_off_hover": {
+    "type": "panel",
+	"size": [ 40, 14 ],
+	"anchor_from": "top_left",
+    "anchor_to": "top_left",
+	"$label_offset|default": [ 10, 1 ],
+	"$option_label_color": "$option_off_color",
+    "controls": [
+	  {
+        "option_toggle_off_hover@option_toggle_off_hover": {     
+        }
+      },
+	  {
+        "option_label": {
+          "type": "label",
+          "layer": 1000,
+          "size": [ "default", "default" ],
+          "offset": "$label_offset",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "text": "$option_label",
+	      "color": "$option_label_color",
+          "visible": "$show_option_label",
+          "bindings": "$label_bindings",
+          "locked_alpha": 0.5
+        }
+      }
+    ]
+  },
+
+  "option_toggle_off_hover@show_toggle.option_toggle_state_template": {
+    "texture": "textures/ui/option_toggle/off_hover",
+	"color": "$option_off_color"
+  },
+
+  "option_toggle_on_locked@show_toggle.option_toggle_on": {
+    "alpha": 0.5
+  },
+
+  "option_toggle_off_locked@show_toggle.option_toggle_off": {
+    "alpha": 0.5
+  },
+
+  "option_toggle_control@common.toggle": {
+    "layer": 2,
+    "$toggle_state_binding_name": "$option_binding_name",
+    "$toggle_enabled_binding_name": "$option_enabled_binding_name",
+    "$toggle_enabled_binding_type": "global",
+    "size": [ 47, 20 ],
+    "$binding_type": "global",
+    "$binding_condition": "once",
+    "$unchecked_control": "show_toggle.option_off",
+    "$checked_control": "show_toggle.option_on",
+    "$unchecked_hover_control": "show_toggle.option_off_hover",
+    "$checked_hover_control": "show_toggle.option_on_hover",
+    "$unchecked_locked_control": "show_toggle.option_toggle_off_locked",
+    "$unchecked_locked_hover_control": "show_toggle.option_toggle_off_locked",
+    "$checked_locked_control": "show_toggle.option_toggle_on_locked",
+    "$checked_locked_hover_control": "show_toggle.option_toggle_on_locked",
+    
+    "$enable_directional_toggling": true,
+
+    "enabled": "$enabled",
+    "variables": [
+      {
+        "requires": "(not $option_enabled_binding_name or not $enabled)",
+        "$toggle_enabled_binding_name": "#not_data_bound",
+        "$toggle_enabled_binding_type": "none"
+      }
+    ]
+  }
+}

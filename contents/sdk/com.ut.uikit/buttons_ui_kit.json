@@ -1,0 +1,130 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2018-12-08 22:54:25
+ */
+{
+  "namespace": "buttons_ui",
+  
+  "no_background_content_button@common.button": {
+
+    "size": [ "100%c", "100%c" ],
+    "$button_state_panel": "buttons_ui.borderless_form_fitting_button_panel",
+    "$anchor": "top_left", // Cannot override this or will cause unsolvable layout!
+    "$button_text_max_size": [ "100%c", 10 ],
+
+    "$button_offset|default": [ 0, 3 ],
+    "$pressed_button_offset|default": [ 0, 4 ],
+    "$pressed_alpha|default": 0.5,
+    "$locked_alpha": 1,
+
+    // text color
+    "$default_text_color|default": "$light_button_default_text_color",
+    "$hover_text_color|default": "$light_button_hover_text_color",
+    "$pressed_text_color|default": "$light_button_pressed_text_color",
+
+    // For text bindings
+    "$button_text_binding_type|default": "none",
+    "$button_binding_condition|default": "none",
+    "$button_text_grid_collection_name|default": "", 
+    "$border_visible": false,
+    "$button_image_visible": false,
+    "$button_content|default": "common.empty_panel",
+    "$button_image|default": "common.empty_panel",
+
+    // These states are for passing the button state to the button content - do not set these in a parent!
+    "$default_state|default": false,
+    "$hover_state|default": false,
+    "$pressed_state|default": false,
+    "$locked_state|default": false,
+
+    "locked_control": "locked",
+
+    "$default_button_texture|default": "",
+    "$locked_button_texture|default": "textures/ui/disabledButtonNoBorder",
+
+    "controls": [
+      {
+        "default@$button_state_panel": {
+          "$new_ui_button_texture": "$default_button_texture",
+          "$text_color": "$default_text_color",
+          "$secondary_text_color": "$light_button_secondary_default_text_color",
+          "$glyph_color": "$light_glyph_default_color",
+          "$button_image_visible": false,
+          "$content_alpha": 1,
+          "$border_color": "$light_border_default_color",
+          "$border_layer": 2,
+          "$default_state": true,
+          "layer": 1
+        }
+      },
+      {
+        "hover@$button_state_panel": {
+          "$text_color": "$hover_text_color",
+          "$secondary_text_color": "$light_button_secondary_hover_text_color",
+          "$glyph_color": "$light_glyph_hover_color",
+          "$content_alpha": 1,
+          "$button_image": "common_buttons.background_button_image",
+          "$border_color": "$light_border_hover_color",
+          "$border_layer": 3,
+          "$hover_state": true,
+          "layer": 2
+        }
+      },
+      {
+        "pressed@$button_state_panel": {
+          "$text_color": "$pressed_text_color",
+          "$secondary_text_color": "$light_button_secondary_pressed_text_color",
+          "$glyph_color": "$light_glyph_pressed_color",
+          "$content_alpha": "$pressed_alpha",
+          "$button_image": "common_buttons.background_button_image",
+          "$button_offset": "$pressed_button_offset",
+          "$border_color": "$light_border_pressed_color",
+          "$border_layer": 3,
+          "$pressed_state": true,
+          "layer": 3
+        }
+      },
+      {
+        "locked@$button_state_panel": {
+          "$new_ui_button_texture": "$locked_button_texture",
+          "$text_color": "$light_button_locked_text_color",
+          "$secondary_text_color": "$light_button_secondary_locked_text_color",
+          "$glyph_color": "$light_glyph_locked_color",
+          "$content_alpha": "$locked_alpha",
+          "$button_image": "common_buttons.locked_button_image",
+          "$border_color": "$light_border_locked_color",
+          "$border_layer": 1,
+          "$locked_state": true,
+          "layer": 1
+        }
+      }
+    ]
+  },
+  
+  "borderless_form_fitting_button_panel": {
+    "type": "panel",
+    "layer": 1,
+    "$button_content|default":"common.empty_panel",
+    "$button_size_override|default": [ "100%c", "100%c" ],
+    "$button_image|default": "common_buttons.button_image",
+    "size": "$button_size_override",
+    "$content_alpha|default": 1,
+    "anchor_from": "$anchor",
+    "anchor_to": "$anchor",
+    "controls": [
+      {
+        "$button_image@$button_image": {
+          "size": [ "100%c + 4px", "100%c" ],
+          "layer": 1,
+          "controls": [
+            {
+              "$button_content@$button_content": {
+                "layer": 3
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}  

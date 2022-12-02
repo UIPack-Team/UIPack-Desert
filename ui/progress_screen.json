@@ -1,0 +1,253 @@
+{
+  "namespace": "progress",
+  
+    "progress_screen@common.base_screen": {
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ]
+  },
+  
+  "title_text": {
+    "type": "label",
+    "layer": 3,
+    "size": [
+      "default",
+      10
+    ],
+    "max_size": [
+      "100% - 14px",
+      10
+    ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "color": "$title_text_color",
+    "text": "#title_text",
+    "bindings": [
+      {
+        "binding_name": "#title_text"
+      }
+    ]
+  },
+  
+  "bar_text": {
+    "type": "label",
+    "layer": 3,
+    "size": [
+      "default",
+      40
+    ],
+    "max_size": [
+      "100% - 8px",
+      40
+    ],
+    "text": "#progress_text",
+    "bindings": [
+      {
+        "binding_name": "#progress_text"
+      }
+    ]
+  },
+  
+  "bottom_cancel_button@common_buttons.light_text_button": {
+    "$pressed_button_name": "button.menu_exit",
+    "$button_text": "gui.cancel",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "bindings": [
+      {
+        "binding_name": "#cancel_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+  
+  "world_convert_modal_progress_screen_content": {
+    "type": "panel",
+    "layer": 3,
+    "controls": [
+      {
+        "world_modal_progress_panel@progress.world_modal_progress_panel": {}
+      },
+      {
+        "popup_dialog_factory@progress.popup_dialog_factory": {}
+      }
+    ]
+  },
+  
+  "world_save_modal_progress_screen_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "world_modal_progress_panel@progress.world_modal_progress_panel": {}
+      },
+      {
+        "save_icon@progress.auto_save": {
+          "offset": [
+            0,
+            60
+          ]
+        }
+      },
+      {
+        "popup_dialog_factory@progress.popup_dialog_factory": {}
+      }
+    ]
+  },
+  
+  "world_modal_progress_panel": {
+      "type": "panel",
+      "size": [
+          "100%",
+          "100%"
+      ],
+      "variables": [
+          {
+              "requires": "$desktop_screen",
+              "$button_state_default_base": "common.button_state_default",
+              "$button_state_hover_base": "common.button_state_hover",
+              "$button_state_pressed_base": "common.button_state_pressed"
+          },
+          {
+              "requires": "$pocket_screen",
+              "$button_state_default_base": "common-classic.button_state_default",
+              "$button_state_hover_base": "common-classic.button_state_hover",
+              "$button_state_pressed_base": "common-classic.button_state_pressed"
+          }
+      ],
+      "controls": [
+          {
+        "bg@ui.all_bg": {
+          "$all_bg_color": [
+            0,
+            0,
+            0
+          ],
+          "$all_bg_alpha": 0.5
+        }
+      },
+          {
+              "main_control": {
+                  "type": "stack_panel",
+                  "size": [
+                      "100%",
+                      "100%c"
+                  ],
+                  "controls": [
+                      {
+                          "screen_title": {
+                              "type": "panel",
+                              "size": [
+                                  "100%",
+                                  "100%c"
+                              ],
+                              "controls": [
+                                  {
+                                      "title": {
+                                          "type": "label",
+                                          "layer": 2,
+                                          "font_scale_factor": 2,
+                                          "text": "#title_text",
+                                          "size": [
+                                              "default",
+                                              "default"
+                                          ],
+                                          "bindings": [
+                                              {
+                                                  "binding_name": "#title_text"
+                                              }
+                                          ]
+                                      }
+                                  }
+                              ]
+                          }
+                      },
+                      {
+                          "screen_message": {
+                              "type": "panel",
+                              "size": [
+                                  "100%",
+                                  "100%c"
+                              ],
+                              "controls": [
+                                  {
+                                      "message": {
+                                          "type": "label",
+                                          "layer": 2,
+                                          "text_alignment": "center",
+                                          "size": [
+                                              "50%",
+                                              "default"
+                                          ],
+                                          "font_type": "smooth",
+                                          "text": "#progress_text",
+                                          "bindings": [
+                                              {
+                                                  "binding_name": "#progress_text"
+                                              }
+                                          ]
+                                      }
+                                  }
+                              ]
+                          }
+                      },
+                      {
+                          "spacer_0": {
+                              "type": "panel",
+                              "size": [
+                                  0,
+                                  5
+                              ]
+                          }
+                      },
+                      {
+                          "spacer_1": {
+                              "type": "panel",
+                              "size": [
+                                  0,
+                                  5
+                              ],
+                              "bindings": [
+                                  {
+                                      "binding_name": "#cancel_visible",
+                                      "binding_name_override": "#visible"
+                                  }
+                              ]
+                          }
+                      },
+                      {
+                          "cancel_button": {
+                              "type": "panel",
+                              "size": [
+                                  "100%",
+                                  "100%c"
+                              ],
+                              "controls": [
+                                  {
+                                      "modal_button_panel@progress.bottom_cancel_button": {
+                                          "size": [
+                                              100,
+                                              30
+                                          ]/*,
+                                          "bindings": [
+                                              {
+                                                  "binding_name": "#cancel_visible",
+                                                  "binding_name_override": "#visible"
+                                              }
+                                          ]*/
+                                      }
+                                  }
+                              ]
+                          }
+                      }
+                  ]
+              }
+          }
+      ]
+  }
+}

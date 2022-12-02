@@ -1,0 +1,1016 @@
+{
+  "namespace": "modern_settings",
+
+  "modal_dialog_popup@popup_dialog.modal_dialog_popup": {
+    "controls": [
+      {
+        "achievement": {
+          "type": "input_panel",
+          "size": ["100%", "100%"],
+          "controls": [
+            {
+              "all_bg": {
+                "type": "image",
+                "layer": 1001,
+                "size": ["150%", "150%"],
+                "color": [0.8, 0.8, 0.8],
+                "texture": "textures/ui/Black",
+                "alpha": 0.5,
+                "controls": [
+                  {
+                    "a@common.button": {
+                      "size": ["100%", "100%"],
+                      "default_control": "default",
+                      "hover_control": "default",
+                      "pressed_control": "default",
+                      "button_mappings": [
+                        {
+                          "from_button_id": "button.menu_select",
+                          "to_button_id": "popup_dialog.left_button",
+                          "mapping_type": "pressed"
+                        }
+                      ],
+                      "controls": [{ "default@common.empty_panel": {} }]
+                    }
+                  },
+                  {
+                    "label": {
+                      "type": "label",
+                      "offset": [0, -40],
+                      "text_alignment": "center",
+                      "text": "点按屏幕任意位置开启作弊并关闭成就\n或点击按钮返回",
+                      "font_scale_factor": 2
+                    }
+                  },
+                  {
+                    "b@ui.Snowfirewolf_button": {
+                      "size": [120, 40],
+                      "layer": 3,
+                      "offset": [0, 30],
+                      "$button_text": "Cancel",
+                      "button_mappings": [
+                        {
+                          "from_button_id": "button.menu_select",
+                          "to_button_id": "popup_dialog.rightcancel_button",
+                          "mapping_type": "pressed"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "modal_bg_buttons",
+              "source_property_name": "#modal_title_text",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#text = '关闭成就？')",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "experiment": {
+          "type": "input_panel",
+          "size": ["100%", "100%"],
+          "controls": [
+            {
+              "all_bg": {
+                "type": "image",
+                "layer": 1001,
+                "size": ["150%", "150%"],
+                "color": [0.8, 0.8, 0.8],
+                "texture": "textures/ui/Black",
+                "alpha": 0.5,
+                "controls": [
+                  {
+                    "a@common.button": {
+                      "size": ["100%", "100%"],
+                      "default_control": "default",
+                      "hover_control": "default",
+                      "pressed_control": "default",
+                      "button_mappings": [
+                        {
+                          "from_button_id": "button.menu_select",
+                          "to_button_id": "popup_dialog.left_button",
+                          "mapping_type": "pressed"
+                        }
+                      ],
+                      "controls": [{ "default@common.empty_panel": {} }]
+                    }
+                  },
+                  {
+                    "label": {
+                      "type": "label",
+                      "offset": [0, -40],
+                      "text_alignment": "center",
+                      "text": "点按屏幕任意位置确认开启实验性玩法\n或点击按钮返回",
+                      "font_scale_factor": 2
+                    }
+                  },
+                  {
+                    "label2": {
+                      "type": "label",
+                      "offset": [0, -10],
+                      "text_alignment": "center",
+                      "text": "（此提示只会出现一次）",
+                      "font_scale_factor": 1
+                    }
+                  },
+                  {
+                    "b@ui.Snowfirewolf_button": {
+                      "size": [120, 40],
+                      "layer": 3,
+                      "offset": [0, 30],
+                      "$button_text": "Cancel",
+                      "button_mappings": [
+                        {
+                          "from_button_id": "button.menu_select",
+                          "to_button_id": "popup_dialog.rightcancel_button",
+                          "mapping_type": "pressed"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "modal_bg_buttons",
+              "source_property_name": "#modal_title_text",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#text = '开启实验性玩法？')",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "3": {
+          "type": "input_panel",
+          "size": ["100%", "100%"],
+          "controls": [
+            {
+              "all_bg": {
+                "type": "image",
+                "layer": 1001,
+                "size": ["150%", "150%"],
+                "color": [0.8, 0.8, 0.8],
+                "texture": "textures/ui/Black",
+                "alpha": 0.5,
+                "controls": [
+                  {
+                    "a@common.button": {
+                      "size": ["100%", "100%"],
+                      "default_control": "default",
+                      "hover_control": "default",
+                      "pressed_control": "default",
+                      "button_mappings": [
+                        {
+                          "from_button_id": "button.menu_select",
+                          "to_button_id": "popup_dialog.left_button",
+                          "mapping_type": "pressed"
+                        }
+                      ],
+                      "controls": [{ "default@common.empty_panel": {} }]
+                    }
+                  },
+                  {
+                    "label": {
+                      "type": "label",
+                      "offset": [0, -40],
+                      "text_alignment": "center",
+                      "text": "点按屏幕任意位置会解锁该模板的全部设置项\n如果你不想这么做就请点击返回键",
+                      "font_scale_factor": 2
+                    }
+                  },
+                  {
+                    "b@ui.Snowfirewolf_button": {
+                      "size": [120, 40],
+                      "layer": 3,
+                      "offset": [0, 30],
+                      "$button_text": "Cancel",
+                      "button_mappings": [
+                        {
+                          "from_button_id": "button.menu_select",
+                          "to_button_id": "popup_dialog.rightcancel_button",
+                          "mapping_type": "pressed"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "modal_bg_buttons",
+              "source_property_name": "#modal_title_text",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#text = '解锁作者的设置？')",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "行为包卸载警告": {
+          "type": "input_panel",
+          "size": ["100%", "100%"],
+          "controls": [
+            {
+              "all_bg": {
+                "type": "image",
+                "layer": 1001,
+                "size": ["150%", "150%"],
+                "color": [0.8, 0.8, 0.8],
+                "texture": "textures/ui/Black",
+                "alpha": 0.5,
+                "controls": [
+                  {
+                    "a@common.button": {
+                      "size": ["100%", "100%"],
+                      "default_control": "default",
+                      "hover_control": "default",
+                      "pressed_control": "default",
+                      "button_mappings": [
+                        {
+                          "from_button_id": "button.menu_select",
+                          "to_button_id": "popup_dialog.left_button",
+                          "mapping_type": "pressed"
+                        }
+                      ],
+                      "controls": [{ "default@common.empty_panel": {} }]
+                    }
+                  },
+                  {
+                    "label": {
+                      "type": "label",
+                      "offset": [0, -40],
+                      "text_alignment": "center",
+                      "text": "点按屏幕任意位置会卸下此资源包/行为包\n请放心，此次操作后你依然能重新装载",
+                      "font_scale_factor": 2
+                    }
+                  },
+                  {
+                    "label2": {
+                      "type": "label",
+                      "offset": [0, -10],
+                      "text_alignment": "center",
+                      "text": "（尽管如此依然不建议随意更改必要的加载项）",
+                      "font_scale_factor": 1
+                    }
+                  },
+                  {
+                    "b@ui.Snowfirewolf_button": {
+                      "size": [120, 40],
+                      "layer": 3,
+                      "offset": [0, 30],
+                      "$button_text": "Cancel",
+                      "button_mappings": [
+                        {
+                          "from_button_id": "button.menu_select",
+                          "to_button_id": "popup_dialog.rightcancel_button",
+                          "mapping_type": "pressed"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "modal_bg_buttons",
+              "source_property_name": "#modal_title_text",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#text = '这很危险！')",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "永久删除世界": {
+          "type": "input_panel",
+          "size": ["100%", "100%"],
+          "controls": [
+            {
+              "all_bg": {
+                "type": "image",
+                "layer": 1001,
+                "size": ["150%", "150%"],
+                "color": [0.8, 0.8, 0.8],
+                "texture": "textures/ui/Black",
+                "alpha": 0.5,
+                "controls": [
+                  {
+                    "a@common.button": {
+                      "size": ["100%", "100%"],
+                      "default_control": "default",
+                      "hover_control": "default",
+                      "pressed_control": "default",
+                      "button_mappings": [
+                        {
+                          "from_button_id": "button.menu_select",
+                          "to_button_id": "popup_dialog.rightcancel_button",
+                          "mapping_type": "pressed"
+                        }
+                      ],
+                      "controls": [{ "default@common.empty_panel": {} }]
+                    }
+                  },
+                  {
+                    "label": {
+                      "type": "label",
+                      "offset": [0, -40],
+                      "text_alignment": "center",
+                      "text": "你真的要删除这个世界？\n如果你是认真的，请点击下面的确认按钮，否则点按屏幕其他位置返回",
+                      "font_scale_factor": 2
+                    }
+                  },
+                  {
+                    "b@ui.Snowfirewolf_button": {
+                      "size": [140, 40],
+                      "layer": 3,
+                      "offset": [0, 30],
+                      "$button_text": "Comfirm Delete",
+                      "button_mappings": [
+                        {
+                          "from_button_id": "button.menu_select",
+                          "to_button_id": "popup_dialog.left_button",
+                          "mapping_type": "pressed"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "modal_bg_buttons",
+              "source_property_name": "#modal_title_text",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#text = '永久删除世界？')",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "从世界清除玩家数据？": {
+          "type": "input_panel",
+          "size": ["100%", "100%"],
+          "controls": [
+            {
+              "all_bg": {
+                "type": "image",
+                "layer": 1001,
+                "size": ["150%", "150%"],
+                "color": [0.8, 0.8, 0.8],
+                "texture": "textures/ui/Black",
+                "alpha": 0.5,
+                "controls": [
+                  {
+                    "a@common.button": {
+                      "size": ["100%", "100%"],
+                      "default_control": "default",
+                      "hover_control": "default",
+                      "pressed_control": "default",
+                      "button_mappings": [
+                        {
+                          "from_button_id": "button.menu_select",
+                          "to_button_id": "popup_dialog.rightcancel_button",
+                          "mapping_type": "pressed"
+                        }
+                      ],
+                      "controls": [{ "default@common.empty_panel": {} }]
+                    }
+                  },
+                  {
+                    "label": {
+                      "type": "label",
+                      "offset": [0, -60],
+                      "text_alignment": "center",
+                      "text": "你真的要清除这个世界的玩家数据\n如果你真想这么做，这里有两种清除的选择，请谨慎考虑。",
+                      "font_scale_factor": 2
+                    }
+                  },
+                  {
+                    "label3": {
+                      "type": "label",
+                      "offset": [0, 106],
+                      "text_alignment": "center",
+                      "text": "如果你想撤销本次操作，轻触屏幕其他区域即可.",
+                      "font_scale_factor": 2
+                    }
+                  },
+                  {
+                    "stack_panel": {
+                      "type": "stack_panel",
+                      "offset": [14, 80],
+                      "orientation": "horizontal",
+                      "size": [300, "100%c"],
+                      "controls": [
+                        {
+                          "stack_panel_1": {
+                            "type": "stack_panel",
+                            "size": [120, 100],
+                            "controls": [
+                              {
+                                "label1": {
+                                  "type": "panel",
+                                  "size": [120, 54],
+                                  "controls": [
+                                    {
+                                      "label1": {
+                                        "type": "label",
+                                        // "offset": [90, 0],
+                                        "size": ["default", 50],
+                                        "text": "选择“保持拥有玩家数据”\n将保留您或相关 Realm\n拥有者的数据，同时将所有\n其他玩家的数据将格式化",
+                                        "font_scale_factor": 1.1
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "button_1": {
+                                  "type": "panel",
+                                  "size": [126, 33],
+                                  "controls": [
+                                    {
+                                      "c@ui.Snowfirewolf_button": {
+                                        "offset": [-6, 0],
+                                        "size": [126, 33],
+                                        "layer": 3,
+                                        "$button_text": "Keep Only Owner Data",
+                                        "button_mappings": [
+                                          {
+                                            "from_button_id": "button.menu_select",
+                                            "to_button_id": "popup_dialog.middle_button",
+                                            "mapping_type": "pressed"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "padding": {
+                            "type": "panel",
+                            "size": [-60, 0]
+                          }
+                        },
+                        {
+                          "stack_panel": {
+                            "type": "stack_panel",
+                            "size": [120, 100],
+                            "controls": [
+                              {
+                                "padding_0": {
+                                  "type": "panel",
+                                  "size": [0, 12]
+                                }
+                              },
+                              {
+                                "label2": {
+                                  "type": "panel",
+                                  "size": [120, 29],
+                                  "controls": [
+                                    {
+                                      "label2": {
+                                        "type": "label",
+                                        "offset": [90, 0],
+                                        "text": "选择“全部玩家数据”将从\n世界上删除所有玩家数据\n任何玩家进入此世界都将\n会恢复到默认数据来游玩",
+                                        "font_scale_factor": 1.1
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "padding_2": {
+                                  "type": "panel",
+                                  "size": [0, 13]
+                                }
+                              },
+                              {
+                                "button_2": {
+                                  "type": "panel",
+                                  "size": [126, 33],
+                                  "controls": [
+                                    {
+                                      "c@ui.Snowfirewolf_button": {
+                                        "offset": [90, 0],
+                                        "size": [126, 33],
+                                        "layer": 3,
+                                        "$button_text": "Clear All Player Data",
+                                        "button_mappings": [
+                                          {
+                                            "from_button_id": "button.menu_select",
+                                            "to_button_id": "popup_dialog.left_button",
+                                            "mapping_type": "pressed"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "modal_bg_buttons",
+              "source_property_name": "#modal_title_text",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#text = '从世界清除玩家数据？')",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "modal_input@popup_dialog.modal_input_panel": {
+          "$show_black_background|default": false,
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "modal_bg_buttons",
+              "source_property_name": "#modal_title_text",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "((not (#text = '关闭成就？') and not (#text = '开启实验性玩法？') and not (#text = '解锁作者的设置？') and not (#text = '永久删除世界？')and not (#text = '从世界清除玩家数据？')and not (#text = '这很危险！'))",
+              "target_property_name": "#visible"
+            }
+          ],
+          "controls": [
+            {
+              "modal_bg_buttons@popup_dialog.modal_dialog_with_buttons": {
+                "$visibility_source_control_name|default": "modal_bg_buttons",
+                "layer": 2
+              }
+            },
+            {
+              "black_background": {
+                "type": "image",
+                "texture": "textures/ui/realms_text_background",
+                "ignored": "(not $show_black_background)",
+                "layer": 1
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "toggle_button_control": {
+    "type": "panel",
+    "$glyph_offset|default": [5, 0],
+    "$glyph_anchor_from|default": "left_middle",
+    "$glyph_anchor_to|default": "left_middle",
+    "$button_label_offset|default": [34, 0],
+    "layer": 2,
+    "controls": [
+      {
+        "glyph": {
+          "type": "image",
+          "anchor_from": "$glyph_anchor_from",
+          "anchor_to": "$glyph_anchor_to",
+          "offset": "$glyph_offset",
+          "texture": "$glyph_texture",
+          "size": "$glyph_size",
+          "layer": 3,
+          "color": "$glyph_color"
+        }
+      },
+      {
+        "tab_button_text": {
+          "type": "label",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": ["100% - 38px", "default"],
+          "max_size": ["100% - 38px", "100% - 4px"],
+          "offset": "$button_label_offset",
+          "text": "$button_text",
+          "layer": 3,
+          "color": "$text_color",
+          "alpha": "$content_alpha",
+
+          "$button_text_binding_type|default": "none",
+          "$button_text_grid_collection_name|default": "",
+          "$button_text_binding_condition|default": "none",
+
+          "bindings": [
+            {
+              "binding_type": "$button_text_binding_type",
+              "binding_condition": "$button_text_binding_condition",
+              "binding_collection_name": "$button_text_grid_collection_name",
+              "binding_name": "$button_text",
+              "binding_name_override": "$button_text"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "screen_content_with_screen_overlay": {
+    "type": "panel",
+    "controls": [
+      {
+        "game_button@modern_edit_worlds.test": {
+          "anchor_from":"bottom_middle",
+          "anchor_to":"bottom_middle"
+        }
+      }
+    ]
+  },
+
+  "content_switcher_toggle_content": {
+    "type": "image",
+    "texture": "textures/ui/gui_button_bg_entry",
+    "size": [18, 18],
+    "bindings": [
+      {
+        "binding_name": "(not #hide_hud)",
+        "binding_name_override": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "icon": {
+          "type": "image",
+          "texture": "textures/ui/gear",
+          "size": [12, 12],
+          "layer": 1
+        }
+      }
+    ]
+  },
+  "gui_button_quit_settings_content": {
+    "type": "image",
+    "texture": "textures/ui/gui_button_bg_entry",
+    "size": [18, 18],
+    "bindings": [
+      {
+        "binding_name": "(not #hide_hud)",
+        "binding_name_override": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "icon": {
+          "type": "label",
+          "text": "x",
+          "shadow": true,
+          "localize": false,
+          "layer": 1
+        }
+      }
+    ]
+  },
+
+  "default_settings_screen": {
+    "type": "panel",
+    "$back_content": "screen_uikit.menu_back_button_content",
+    "$screen_type|default":"screen_uikit.include_small_tabs_screen",
+    "controls": [
+      {
+        "common_panel": {
+          "type": "panel",
+          "$modern_screen_size": [370, 260],
+          //Colors
+          "$right_side_title": "World Settings",
+          "$title_bar_color1": [0.9, 0.9, 0.9, 1],
+          "$title_bar_color2": [0.8, 0.8, 0.8, 1],
+          "$title_color": [0.3, 0.3, 0.3],
+          "$menu_title_color": [0.3, 0.3, 0.3],
+          "$divider_color": [0.3, 0.3, 0.3],
+          "$sidebar_color": [0.9, 0.9, 0.9],
+          "$content_color": [0.5, 0.5, 0.5],
+          "controls": [
+            {
+              "screen_5@$screen_type": {
+                "layer": 1,
+
+                "size": "$modern_screen_size"
+              }
+            },
+            {
+              "screen_shadow_5": {
+                "type": "panel",
+                "layer": 1,
+                "size": "$modern_screen_size",
+                "controls": [
+                  {
+                    "shadow_TEXTURE": {
+                      "type": "image",
+                      "layer": 2,
+                      "texture": "textures/ui/window_shadow",
+                      "size": ["100% + 22px", "100% + 22px"]
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          // "offset": [0, -30],
+          "$left_screen": "modern_settings.selector_area",
+          "$right_screen": "modern_settings.contents_area"
+        }
+      },
+      {
+        "back@screen_uikit.bgback": {}
+      }
+    ]
+  },
+
+  "selector_area": {
+    "type": "panel",
+    "offset": [1, 0],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "layer": 2,
+    "focus_container": true,
+    "use_last_focus": true,
+    "$focus_nagivation_mode_override_down|default": "contained",
+    "$focus_nagivation_mode_override_up|default": "contained",
+    "$focus_nagivation_mode_override_left|default": "",
+    "$focus_nagivation_mode_override_right|default": "",
+    "focus_nagivation_mode_down": "$focus_nagivation_mode_override_down",
+    "focus_nagivation_mode_up": "$focus_nagivation_mode_override_up",
+    "focus_nagivation_mode_left": "$focus_nagivation_mode_override_left",
+    "focus_nagivation_mode_right": "$focus_nagivation_mode_override_right",
+    "controls": [
+      {
+        "scrolling_panel@common.scrolling_panel": {
+          "$scrolling_content": "modern_settings.选项卡",
+          "$show_background": false,
+          "size": ["100%-4px", "100%+4px"],
+          "$scroll_size": ["5px", "100%"],
+          "$scroll_bar_left_padding_size": [1, 0]
+        }
+      }
+    ]
+  },
+
+  "选项卡": {
+    "type": "stack_panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "orientation": "vertical",
+    "$default_selector_toggle_index": "$game_forced_index",
+    "controls": [
+      {
+        "world_selector_pane": {
+          "type": "stack_panel",
+
+          "$tts_section_header": "realmsSettingsScreen.worldSectionTitle",
+          "variables": {
+            "requires": "$is_pregame",
+            "$tts_section_header": "options.editSettings"
+          },
+          "controls": [
+            {
+              "world_snapshot_image": {
+                "ignored": "(not $is_pregame)",
+                "type": "panel",
+                "size": ["100%", "100%c + 2px"],
+                "controls": [
+                  {
+                    "thumbnail": {
+                      "type": "image",
+                      "offset": [-1, 1],
+                      "force_texture_reload": true,
+                      "size": ["100% - 3px", "56.25%x"],
+                      //"bilinear": true,
+                      "layer": 2,
+                      "anchor_from": "top_middle",
+                      "anchor_to": "top_middle",
+                      "fill": true,
+                      "controls": [
+                        {
+                          "border": {
+                            "type": "image",
+                            "color": "$light_border_locked_color",
+                            "size": ["100%+2px", "100%+2px"],
+                            "texture": "textures/ui/focus_border_white",
+                            "layer": 1
+                          }
+                        }
+                      ],
+                      "bindings": [
+                        {
+                          "binding_name": "#world_texture_name",
+                          "binding_name_override": "#texture"
+                        },
+                        {
+                          "binding_name": "#world_texture_locationtype",
+                          "binding_name_override": "#texture_file_system"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "padding-": {
+                "type": "panel",
+                "size": [0, 2]
+              }
+            },
+            {
+              "create_or_play_button@ui.Snowfirewolf_button": {
+                "size": ["100%-2px", 29],
+                "$button_text": "Play",
+                "$pressed_button_name": "play_world_button",
+                "$focus_override_up": "FOCUS_OVERRIDE_STOP",
+                "variables": {
+                  "requires": "(not $is_world_edit)",
+                  "$button_text": "CREATE NOW!",
+                  "$pressed_button_name": "create_world_button"
+                }
+              }
+            },
+            {
+              "spacer": {
+                "type": "panel",
+                "size": [0, -1]
+              }
+            },
+            {
+              "relam_button@ui.Snowfirewolf_button": {
+                "size": ["100%-2px", 29],
+                "$pressed_button_name": "play_world_on_realm_button",
+                "$button_text": "Play on Relam",
+                "variables": [
+                  {
+                    "requires": "(not $is_world_edit)",
+                    "$button_text": "Create on Relam",
+                    "$pressed_button_name": "create_world_on_realm_button"
+                  },
+                  {
+                    "requires": "$realms_plus_on",
+                    "$default_button_texture": "textures/ui/realmsContent",
+                    "$hover_button_texture": "textures/ui/realmsContentHover",
+                    "$pressed_button_texture": "textures/ui/realmsContentPressed"
+                  }
+                ]
+              }
+            },
+            {
+              "spacer--": {
+                "type": "panel",
+                "size": [0, 1]
+              }
+            },
+            {
+              "selector_group_label_1@settings_common.selector_group_label": {
+                "text": "$tts_section_header"
+              }
+            },
+            {
+              "game_button@modern_create_worlds.game_button": {
+                "$toggle_group_forced_index": "$game_forced_index"
+              }
+            },
+            {
+              "padding_0": {
+                "type": "panel",
+                "size": [0, -1]
+              }
+            },
+            {
+              "cheat_button@modern_create_worlds.cheat_button": {}
+            },
+            {
+              "padding_1": {
+                "type": "panel",
+                "size": [0, -1]
+              }
+            },
+            {
+              "exp_button@modern_create_worlds.experiment_button": {
+                "$toggle_group_forced_index": "$multiplayer_forced_index"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "contents_area": {
+    "type": "stack_panel",
+    "offset": [2, 0],
+    "size": ["100%", "100%"],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "controls": [
+      {
+        "scrolling_panel@common.scrolling_panel": {
+          "size": ["100%", "fill"],
+          "$scrolling_content": "modern_settings.section_content_panels",
+          "$scroll_track_offset": [-2, 0],
+          "$show_background": false,
+          "$scroll_size": ["5px", "100% - 4px"],
+          "$scroll_bar_left_padding_size": [3, 0]
+        }
+      }
+    ]
+  },
+
+  "section_content_panels": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": ["100% - 5px", "100%c"],
+    "offset": [0, 0],
+    "controls": [
+      {
+        "general_and_controls_sections": {
+          "type": "stack_panel",
+          "controls": [
+            {
+              "world_sections": {
+                "type": "stack_panel",
+                "ignored": "(not $include_world_section)",
+                "controls": [
+                  { "game_section@modern_create_worlds.game_section": {} },
+                  {
+                    "cheat_section@modern_create_worlds.cheat_section": {}
+                  },
+                  {
+                    "exp_section@modern_create_worlds.experience_section": {}
+                  }
+                ]
+              }
+            },
+            {
+              "packs_sections": {
+                "type": "stack_panel",
+                "ignored": "(not $include_world_section and (not $include_realm_section or not $realms_pack_feature_enabled))",
+                "controls": [
+                  {
+                    "level_texture_pack_section@world_section.level_texture_pack_section": {}
+                  },
+                  { "addon_section@world_section.addon_section": {} }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

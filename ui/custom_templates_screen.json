@@ -1,0 +1,17 @@
+{
+
+  "custom_templates_screen@common.base_screen": {
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ],
+    "$screen_animations": [
+    ],
+    "force_render_below": true,
+    "$screen_content": "custom_templates_uikit.custom_templates_screen_content",
+    "$screen_background_control": "common.empty_panel"
+  }
+}

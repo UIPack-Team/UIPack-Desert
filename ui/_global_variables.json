@@ -1,6 +1,27 @@
 {
-  "$main_menu_button_default_color": [0.87, 0.87, 0.87],
-  "$main_menu_button_hover_color": [1.0, 1.0, 0.62],
-  "$main_menu_button_preesed_color": [0.87, 0.87, 0.87],
-  "$main_menu_button_locked_color": [0.62, 0.62, 0.62]
+  "$title_bar_color1": [ 0.9, 0.9, 0.9, 1 ],
+  "$title_bar_color2": [ 0.7, 0.7, 0.7, 1 ],
+  "$title_color": [ 0.3, 0.3, 0.3 ],
+  "$menu_title_color": [ 0.3, 0.3, 0.3 ],
+  "$divider_color": [ 0.3, 0.3, 0.3 ],
+  "$divider_color_l": [ 0.2, 0.2, 0.2 ],
+  "$sidebar_color": [ 0.9, 0.9, 0.9 ],
+  "$content_title_bar_color": [ 0.8, 0.8, 0.8 ],
+  "$content_color": [ 0.5, 0.5, 0.5 ],
+  
+  "$accent_color": [ 0.064, 0.428, 1.0 ],
+  
+  "$dock_color": [ 0.6, 0.6, 0.6 ],
+  
+  "$menu_bar_alpha": 0.85,
+  "$menu_bar_color": [ 0.85, 0.85, 0.85 ],
+  "$menu_bar_color1": [ 0.9, 0.9, 0.9, 0.85 ],
+  "$menu_bar_color2": [ 0.8, 0.8, 0.8, 0.85 ],
+  
+  "$screen_bg_color": [ 0.5, 0.5, 0.5 ],
+  
+  "$play_toggle_default_color": [ 0.3, 0.3, 0.3 ],
+  "$play_toggle_default_text_color": [ 0.3, 0.3, 0.3 ],
+  "$play_toggle_hover_color": [ 1.0, 1.0, 1.0 ],
+  "$play_toggle_hover_text_color": [ 1.0, 1.0, 1.0 ]
 }

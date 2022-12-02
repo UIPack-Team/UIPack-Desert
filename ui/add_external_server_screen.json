@@ -1,0 +1,376 @@
+{
+  "namespace": "add_external_server",
+
+  "add_external_server_screen_new@add_external_server_screen": {},
+
+  "add_external_server_screen_edit@add_external_server_screen": {},
+
+  "add_external_server_screen@common.base_screen": {
+    "$dialog_size": [316, 179],
+    "force_render_below": true,
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ],
+    "$screen_animations": [
+      "@common.container_screen_exit_animation_push",
+      "@common.container_screen_exit_animation_pop",
+      "@common.container_screen_entrance_animation_push",
+      "@common.container_screen_entrance_animation_pop",
+      "@common.screen_exit_animation_push_fade",
+      "@common.screen_exit_animation_pop_fade",
+      "@common.screen_entrance_animation_push_fade",
+      "@common.screen_entrance_animation_pop_fade"
+    ],
+    "$screen_content": "add_external_server.add_external_server_screen_content"
+  },
+  "add_external_server_screen_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "common_panel@screen_uikit.uikit_screen": {
+          "$modern_screen_size": [276, 166],
+          "$shadow_offset": [0, 24],
+          "$cards_offset":[0,24],
+          "$screen_type": "screen_uikit.include_cards_screen",
+          "$card_screen": "add_external_server.add_external_server_screen_panel"
+        }
+      },
+      {
+        "all_bg": {
+          "type": "image",
+          "anims":[
+            "@common.screen_exit_animation_push_alpha",
+            "@common.screen_exit_animation_pop_alpha",
+            "@common.screen_entrance_animation_push_alpha",
+            "@common.screen_entrance_animation_pop_alpha"
+          ],
+          "layer": -1,
+          "size": ["150%", "150%"],
+          "color": [0.8, 0.8, 0.8],
+          "texture": "textures/ui/bg",
+          "alpha": 0.7,
+          "controls":[
+            {
+              "back@screen_uikit.bgback": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "add_external_server_screen_panel": {
+    "type": "panel",
+    "offset":[4,0],
+    "controls": [
+      {
+        "root_panel@common.scrolling_panel": {
+          "size": ["100%", "100%"],
+          "$show_background": false,
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "layer": 1,
+          "$scrolling_content": "add_external_server.add_external_server_panel"
+        }
+      }
+    ]
+  },
+  "add_external_server_panel": {
+    "type": "stack_panel",
+    "controls": [
+      {
+        "space": {
+          "type": "panel",
+          "size": ["100%", "20px"]
+        }
+      },
+      {
+        "add_server_title_panel": {
+          "type": "panel",
+          "size": ["100%", "100%c"],
+          "controls": [
+            {
+              "title": {
+                "type": "label",
+                "offset":[-4,0],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "text_alignment": "center",
+                "font_scale_factor": 1.5,
+                "color": "$title_color",
+                "text": "#title_text",
+                "size": ["default", "default"],
+                "max_size": ["100% - 10px", "30px"],
+                "bindings": [
+                  {
+                    "binding_name": "#title_text",
+                    "binding_condition": "once"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "panel_0": {
+          "type": "panel",
+          "size": ["100%", "2px"]
+        }
+      },
+      {
+        "add_server_tips_panel": {
+          "type": "panel",
+          "size": ["100%", "100%c"],
+          "controls": [
+            {
+              "text_1": {
+                "type": "label",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "offset":[-4,0],"visible": "(not $edit_mode)",
+                "text_alignment": "center",
+                "color": "$title_color",
+                "text": "Enter the name, address and IP of the external server to choose to join the game",
+                "size": ["default", "default"],
+                "max_size": ["100% - 10px", "30px"]
+              }
+            },
+            {
+              "text_2": {
+                "type": "label",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "offset":[-4,0],"visible": "($edit_mode)",
+                "text_alignment": "center",
+                "color": "$title_color",
+                "text": "Enter the name, address and IP of the external server to choose to join the game",
+                "size": ["default", "default"],
+                "max_size": ["100% - 10px", "30px"]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "panel_1": {
+          "type": "panel",
+          "size": ["100%", "10px"]
+        }
+      },
+      {
+        "edit_box_panel": {
+          "size": ["100%-12px", "52px"],
+          "type": "stack_panel",
+          "controls": [
+            {
+              "name_edit@screen_uikit.text_edit_box": {
+                "$text_box_name": "#name_text_box",
+                "$text_edit_box_content_binding_name": "#name_text_box_content",
+                "max_length": 16,
+                "text_type": "ExtendedASCII",
+                "$place_holder_text": "addExternalServerScreen.namePlaceholder",
+                "$text_edit_box_binding_condition": "once",
+                "size": ["100%", 25]
+              }
+            },
+            {
+              "panel": {
+                "type": "panel",
+                "size": ["100%", "2px"]
+              }
+            },
+            {
+              "ip_box_panel": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": ["100%", 25],
+                "controls": [
+                  {
+                    "ip_edit@screen_uikit.text_edit_box": {
+                      "$text_box_name": "#ip_text_box",
+                      "$text_edit_box_content_binding_name": "#ip_text_box_content",
+                      "max_length": 256,
+                      "text_type": "ExtendedASCII",
+                      "$place_holder_text": "addExternalServerScreen.ipPlaceholder",
+                      "$text_edit_box_binding_condition": "once",
+                      "size": ["fill", "100%"]
+                    }
+                  },
+                  {
+                    "panel_0": {
+                      "type": "panel",
+                      "size": ["2px", "100%"]
+                    }
+                  },
+                  {
+                    "label": {
+                      "type": "panel",
+                      "size": [2, "100%"],
+                      "controls": [
+                        {
+                          "label": {
+                            "type": "label",
+                            "color": "$title_color",
+                            "text": ":"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "panel_1": {
+                      "type": "panel",
+                      "size": ["1px", "100%"]
+                    }
+                  },
+                  {
+                    "port_edit@screen_uikit.text_edit_box": {
+                      "$text_box_name": "#port_text_box",
+                      "$text_edit_box_content_binding_name": "#port_text_box_content",
+                      "max_length": 6,
+                      "text_type": "NumberChars",
+                      "$place_holder_text": "",
+                      "$text_edit_box_binding_condition": "once",
+                      "size": ["42px", "100%"]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "panel_2": {
+          "type": "panel",
+          "size": ["100%", "10px"]
+        }
+      },
+      {
+        "button_panel@button_panel": {
+          "size": ["100%", "30px"]
+        }
+      },
+      {
+        "panel_3": {
+          "type": "panel",
+          "size": ["100%", "2px"]
+        }
+      }
+    ]
+  },
+  "button_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "controls": [
+      {
+        "+": {
+          "type": "panel",
+          "size": [1, 0]
+        }
+      },
+      {
+        "play_button_panel": {
+          "type": "panel",
+          "size": ["50% - 9px", "100%"],
+          "controls": [
+            {
+              "play_button@ui.Snowfirewolf_button": {
+                "$pressed_button_name": "button.play_button",
+                "$button_text": "addExternalServerScreen.playButtonLabel",
+                "ignored": "$edit_mode",
+                "bindings": [
+                  {
+                    "binding_name": "#play_button_enabled",
+                    "binding_name_override": "#enabled"
+                  }
+                ],
+                "size": ["100%", 30]
+              }
+            },
+            {
+              "play_disabled_button@ui.Snowfirewolf_button": {
+                "$pressed_button_name": "button.play_button",
+                "$button_text": "addExternalServerScreen.playButtonLabel",
+                "ignored": "$edit_mode",
+                "$text_color": "$light_button_locked_text_color",
+                "bindings": [
+                  {
+                    "binding_name": "#play_button_disabled",
+                    "binding_name_override": "#visible"
+                  },
+                  {
+                    "binding_name": "#play_button_enabled",
+                    "binding_name_override": "#enabled"
+                  }
+                ],
+                "size": ["100%", 30]
+              }
+            },
+            {
+              "remove_button@ui.Snowfirewolf_button": {
+                "$pressed_button_name": "button.remove_button",
+                "$button_text": "addExternalServerScreen.removeButtonLabel",
+                "visible": "($edit_mode)",
+                "size": ["100%", 30]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "panel": {
+          "type": "panel",
+          "size": ["5px", "100%"]
+        }
+      },
+      {
+        "save_button_panel": {
+          "type": "panel",
+          "size": ["50% - 9px", "100%"],
+          "controls": [
+            {
+              "save_button@ui.Snowfirewolf_button": {
+                "$pressed_button_name": "button.save_button",
+                "$button_text": "addExternalServerScreen.saveButtonLabel",
+                "bindings": [
+                  {
+                    "binding_name": "#save_button_enabled",
+                    "binding_name_override": "#visible"
+                  },
+                  {
+                    "binding_name": "#save_button_enabled",
+                    "binding_name_override": "#enabled"
+                  }
+                ],
+                "size": ["100%", 30]
+              }
+            },
+            {
+              "save_disabled_button@ui.Snowfirewolf_button": {
+                "$pressed_button_name": "button.save_button",
+                "$button_text": "addExternalServerScreen.saveButtonLabel",
+                "$text_color": "$light_button_locked_text_color",
+                "bindings": [
+                  {
+                    "binding_name": "#save_button_disabled",
+                    "binding_name_override": "#visible"
+                  },
+                  {
+                    "binding_name": "#save_button_enabled",
+                    "binding_name_override": "#enabled"
+                  }
+                ],
+                "size": ["100%", 30]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

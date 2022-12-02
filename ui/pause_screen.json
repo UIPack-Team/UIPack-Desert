@@ -1,0 +1,100 @@
+/*
+ * @Designed: By UIPack Team
+ * @Date: 2018-12-08 23:28:04
+ */
+//--------------------------------------------------------------------------
+//   由 Wei-Jin Tzeng 獨自製作，由 TechPlayer 監製
+//--------------------------------------------------------------------------
+
+{
+  "namespace": "pause",
+
+  "focus_border_button@common.button": {
+    "size": ["100%", "100%"],
+    "sound_volume": 0.0,
+    "$pressed_button_name": "button.pause_focus_filler",
+    "$button_tts_name": "",
+    "controls": [
+      { "default@pause.filler_panel": {} },
+      { "hover@pause.focus_border": {} },
+      { "pressed@pause.focus_border": {} }
+    ]
+  },
+
+  "pause_screen@common.base_screen": {
+    
+    "$screen_animations": [
+      "@ui.container_screen_exit_animation_push",
+      "@ui.container_screen_exit_animation_pop",
+      "@ui.container_screen_entrance_animation_push",
+      "@ui.container_screen_entrance_animation_pop"
+    ],
+
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_continue",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.controller_start",
+        "to_button_id": "button.menu_continue",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_vr_realign",
+        "to_button_id": "button.menu_vr_realign",
+        "mapping_type": "global",
+        "scope": "controller"
+      },
+      {
+        "from_button_id": "button.controller_select",
+        "to_button_id": "button.menu_skins",
+        "mapping_type": "global",
+        "scope": "controller"
+      }
+    ],
+    "$screen_content": "pause.pause_screen_content",
+    "$screen_bg_content": "common.empty_panel"
+  },
+
+  "player_list_scrolling_panel@common.scrolling_panel": {
+    "size": ["100%", "100%"],
+    "offset": [0, 0],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "$show_background": false,
+    "$scroll_size": [5, "100% - 10px"],
+    "$scroll_track_size": [5, "100% - 10px"],
+    "$scroll_track_offset": [0, 0],
+    "$scrolling_content": "pause.player_list"
+  },
+
+  "pause_screen_content": {
+    "type": "panel",
+    "size": ["100%", "100%"],
+    "layer": 1,
+    "controls": [
+      {
+        "back@ui.bgback": {
+          "layer": 2
+        }
+      },
+      {
+        "offers@common.scrolling_panel": {
+          "$scrolling_pane_size": ["100%", "100%"],
+          "$scrolling_pane_offset": [0, 0],
+          "$scroll_size": [0, "100%"],
+          "$scroll_bar_and_track_offset": [0, 0],
+          "$scrolling_content": "pause_widgets.scrolling_content_stack",
+          "$scroll_bar_left_padding_size": [0, 0],
+          "$scroll_bar_right_padding_size": [0, 0],
+          "$show_background": false,
+          "$bar_visible": false
+        }
+      },
+      { "gamepad_helpers@gamepad_helpers": {} },
+      { "keyboard_helpers@keyboard_helpers": {} }
+    ]
+  }
+}

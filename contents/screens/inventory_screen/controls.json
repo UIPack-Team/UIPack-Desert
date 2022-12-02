@@ -1,0 +1,1025 @@
+{
+  "namespace": "inventory_controls",
+  "label1@crafting.creative_label": {
+    "size": ["default", 10],
+    "type": "label",
+    "shadow": true,
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "color": "white",
+    "layer": 7,
+    "offset": [0, -124],
+    "text": "1/2"
+  },
+  "label2@crafting.creative_label": {
+    "size": ["default", 10],
+    "type": "label",
+    "shadow": true,
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "color": "white",
+    "layer": 7,
+    "offset": [0, -124],
+    "text": "2/2"
+  },
+  "top_tab@common_tabs.tab_top": {
+    "size": [28, "100%+3px"],
+    "$tab_content": "crafting.empty_tab_panel",
+    "$radio_toggle_group": true,
+    "$toggle_name": "second_tab",
+    "$toggle_default_state": false,
+    "$unchecked_default_image": "textures/ui/TabTopBack",
+    "$unchecked_hover_image": "textures/ui/TabTopBack",
+    "$unchecked_locked_image": "textures/ui/TabTopBack",
+    "$unchecked_locked_hover_image": "textures/ui/TabTopBack",
+    "$checked_default_image": "textures/ui/TabTopFront",
+    "$checked_hover_image": "textures/ui/TabTopFront",
+    "$checked_locked_image": "textures/ui/TabTopFront",
+    "$checked_locked_hover_image": "textures/ui/TabTopFront"
+  },
+  "fake_search@top_tab": {
+    "$tab_icon": "crafting.search_icon"
+  },
+  "tabs": {
+    "type": "panel",
+    "size": [50, "100%"],
+    "controls": [
+      {
+        "选中第二个": {
+          "type": "stack_panel",
+          "offset": [66, 4],
+          "orientation": "horizontal",
+          "size": [50, "100%"],
+          "controls": [
+            {
+              "建筑方块@top_tab": {
+                "$tab_view_binding_name": "tab_1",
+                "$toggle_group_forced_index": 21,
+                "$tab_icon": "common.empty_panel",
+                "$unchecked_default_image": "textures/ui/TabTopBackLeftMost",
+                "$unchecked_hover_image": "textures/ui/TabTopBackLeftMost",
+                "$unchecked_locked_image": "textures/ui/TabTopBackLeftMost",
+                "$unchecked_locked_hover_image": "textures/ui/TabTopBackLeftMost",
+                "$checked_default_image": "textures/ui/TabTopFrontLeftMost",
+                "$checked_hover_image": "textures/ui/TabTopFrontLeftMost",
+                "$checked_locked_image": "textures/ui/TabTopFrontLeftMost",
+                "$checked_locked_hover_image": "textures/ui/TabTopFrontLeftMost"
+              }
+            },
+            {
+              "space_0": {
+                "type": "panel",
+                "size": [1.5, 0]
+              }
+            },
+            {
+              "自然方块@top_tab": {
+                "$tab_view_binding_name": "tab_2",
+                "$toggle_group_forced_index": 22,
+                "$tab_icon": "common.empty_panel"
+              }
+            },
+            {
+              "space_1": {
+                "type": "panel",
+                "size": [1.5, 0]
+              }
+            },
+            {
+              "Colored Blocked@top_tab": {
+                "$tab_view_binding_name": "tab_3",
+                "$toggle_group_forced_index": 23,
+                "$tab_icon": "common.empty_panel"
+              }
+            },
+            {
+              "space_2": {
+                "type": "panel",
+                "size": [1.5, 0]
+              }
+            },
+            {
+              "功能方块@top_tab": {
+                "$tab_icon": "common.empty_panel",
+                "$tab_view_binding_name": "tab_4",
+                "$toggle_group_forced_index": 24
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "118panel": {
+    "type": "panel",
+    "bindings": [
+      {
+        "binding_name": "#is_creative_mode",
+        "binding_name_override": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "center_bg": {
+          "type": "image",
+          "layer": 2,
+          "texture": "textures/ui/background_image",
+          "size": [192, 152]
+        }
+      },
+      {
+        "tab_controls@inventory_uikit.common_panel": {
+          "$toggle_target": "inventory_uikit.default_next_toggle",
+          "controls": [
+            {
+              "labels@inventory_uikit.common_panel": {
+                "$toggle_target": "inventory_uikit.default_next_toggle",
+                "controls": [
+                  {
+                    "creative_label@inventory_uikit.common_panel": {
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "offset": [-1, 6],
+                      "font_scale_factor": 1.1,
+                      "text_alignment": "left",
+                      "color": "$title_text_color",
+                      "layer": 46,
+                      "text": "Construction Blocks",
+                      "$toggle_target": "tab_1"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "修改过的scrolling@inventory_uikit.inventory_scrolling_panel": {
+                "size": [190, 117],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "offset": [-3, -7],
+                "$scrolling_content": "inventory_controls.construction"
+              }
+            },
+            {
+              "hotbar_panel": {
+                "type": "panel",
+                "size": [180, 24],
+                "controls": [
+                  {
+                    "hotbar_grid@common.hotbar_grid_template": {
+                      "offset": [-9, 62.5],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+
+                      "$button_ref": "crafting.creative_hotbar_container_slot_button"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "construction@inventory_uikit.common_panel": {
+    "type": "stack_panel",
+    "size": [185.5, 360],
+    "$toggle_target": "tab_1",
+    "controls": [
+      {
+        "line_1@inventory_uikit.one_grid_content_stack_panel": {
+          "$grid_1": "inventory_controls.cell_grid_1_panel",
+          "$grid_2": "inventory_controls.cell_grid_2_panel",
+          "$grid_3": "inventory_controls.cell_grid_3_panel",
+          "$grid_4": "inventory_controls.cell_grid_4_panel",
+          "$grid_5": "inventory_controls.cell_grid_5_panel",
+          "$grid_6": "inventory_controls.cell_grid_6_panel",
+          "$grid_7": "inventory_controls.cell_grid_7_panel",
+          "$grid_8": "inventory_controls.cell_grid_8_panel",
+          "$grid_9": "inventory_controls.cell_grid_9_panel"
+        }
+      },
+      {
+        "line_2@inventory_uikit.one_grid_content_stack_panel": {
+          "$grid_1": "inventory_controls.cell_grid_11_panel",
+          "$grid_2": "inventory_controls.cell_grid_12_panel",
+          "$grid_3": "inventory_controls.cell_grid_13_panel",
+          "$grid_4": "inventory_controls.cell_grid_14_panel",
+          "$grid_5": "inventory_controls.cell_grid_15_panel",
+          "$grid_6": "inventory_controls.cell_grid_16_panel",
+          "$grid_7": "inventory_controls.cell_grid_17_panel",
+          "$grid_8": "inventory_controls.cell_grid_18_panel",
+          "$grid_9": "inventory_controls.cell_grid_19_panel"
+        }
+      },
+      {
+        "line_3@inventory_uikit.one_grid_content_stack_panel": {
+          "$grid_1": "inventory_controls.cell_grid_21_panel",
+          "$grid_2": "inventory_controls.cell_grid_22_panel",
+          "$grid_3": "inventory_controls.cell_grid_23_panel",
+          "$grid_4": "inventory_controls.cell_grid_24_panel",
+          "$grid_5": "inventory_controls.cell_grid_25_panel",
+          "$grid_6": "inventory_controls.cell_grid_26_panel",
+          "$grid_7": "inventory_controls.cell_grid_27_panel",
+          "$grid_8": "inventory_controls.cell_grid_28_panel",
+          "$grid_9": "inventory_controls.cell_grid_29_panel"
+        }
+      },
+      {
+        "line_4@inventory_uikit.one_grid_content_stack_panel": {
+          "$grid_1": "inventory_controls.cell_grid_31_panel",
+          "$grid_2": "inventory_controls.cell_grid_32_panel",
+          "$grid_3": "inventory_controls.cell_grid_33_panel",
+          "$grid_4": "inventory_controls.cell_grid_34_panel",
+          "$grid_5": "inventory_controls.cell_grid_35_panel",
+          "$grid_6": "inventory_controls.cell_grid_36_panel",
+          "$grid_7": "inventory_controls.cell_grid_37_panel",
+          "$grid_8": "inventory_controls.cell_grid_38_panel",
+          "$grid_9": "inventory_controls.cell_grid_39_panel"
+        }
+      },
+
+      {
+        "line_5@inventory_uikit.one_grid_content_stack_panel": {
+          //木板
+          "$grid_1": "inventory_controls.cell_grid_41_panel",
+          "$grid_2": "inventory_controls.cell_grid_42_panel",
+          "$grid_3": "inventory_controls.cell_grid_43_panel",
+          "$grid_4": "inventory_controls.cell_grid_44_panel",
+          "$grid_5": "inventory_controls.cell_grid_45_panel",
+          "$grid_6": "inventory_controls.cell_grid_46_panel",
+          "$grid_7": "inventory_controls.cell_grid_47_panel",
+          "$grid_8": "inventory_controls.cell_grid_48_panel",
+          "$grid_9": "inventory_controls.cell_grid_49_panel"
+        }
+      },
+      {
+        "line_6@inventory_uikit.one_grid_content_stack_panel": {
+          //木楼梯
+          "$grid_1": "inventory_controls.cell_grid_51_panel",
+          "$grid_2": "inventory_controls.cell_grid_52_panel",
+          "$grid_3": "inventory_controls.cell_grid_53_panel",
+          "$grid_4": "inventory_controls.cell_grid_54_panel",
+          "$grid_5": "inventory_controls.cell_grid_55_panel",
+          "$grid_6": "inventory_controls.cell_grid_56_panel",
+          "$grid_7": "inventory_controls.cell_grid_57_panel",
+          "$grid_8": "inventory_controls.cell_grid_58_panel",
+          "$grid_9": "inventory_controls.cell_grid_59_panel"
+        }
+      },
+      {
+        "line_7@inventory_uikit.one_grid_content_stack_panel": {
+          //木楼梯
+          "$grid_1": "inventory_controls.120_cell_grid_51_panel",
+          "$grid_2": "inventory_controls.120_cell_grid_52_panel",
+          "$grid_3": "inventory_controls.120_cell_grid_53_panel",
+          "$grid_4": "inventory_controls.120_cell_grid_54_panel",
+          "$grid_5": "inventory_controls.120_cell_grid_55_panel",
+          "$grid_6": "inventory_controls.120_cell_grid_56_panel",
+          "$grid_7": "inventory_controls.120_cell_grid_57_panel",
+          "$grid_8": "inventory_controls.120_cell_grid_58_panel",
+          "$grid_9": "inventory_controls.120_cell_grid_59_panel"
+        }
+      },{
+        "line_8@inventory_uikit.one_grid_content_stack_panel": {
+          //木楼梯
+          "$grid_1": "inventory_controls.120_cell_grid_1_panel",
+          "$grid_2": "inventory_controls.120_cell_grid_2_panel",
+          "$grid_3": "inventory_controls.120_cell_grid_3_panel",
+          "$grid_4": "inventory_controls.120_cell_grid_4_panel",
+          "$grid_5": "inventory_controls.120_cell_grid_5_panel",
+          "$grid_6": "inventory_controls.120_cell_grid_6_panel",
+          "$grid_7": "inventory_controls.120_cell_grid_7_panel",
+          "$grid_8": "inventory_controls.120_cell_grid_8_panel",
+          "$grid_9": "inventory_controls.120_cell_grid_9_panel"
+        }
+      },{
+        "line_9@inventory_uikit.one_grid_content_stack_panel": {
+          //木楼梯
+          "$grid_1": "inventory_controls.120_cell_grid_21_panel",
+          "$grid_2": "inventory_controls.120_cell_grid_22_panel",
+          "$grid_3": "inventory_controls.120_cell_grid_23_panel",
+          "$grid_4": "inventory_controls.120_cell_grid_24_panel",
+          "$grid_5": "inventory_controls.120_cell_grid_25_panel",
+          "$grid_6": "inventory_controls.120_cell_grid_26_panel",
+          "$grid_7": "inventory_controls.120_cell_grid_27_panel",
+          "$grid_8": "inventory_controls.120_cell_grid_28_panel",
+          "$grid_9": "inventory_controls.120_cell_grid_29_panel"
+        }
+      },
+      {
+        "line_10@inventory_uikit.one_grid_content_stack_panel": {
+          //木楼梯
+          "$grid_1": "inventory_controls.120_cell_grid_31_panel",
+          "$grid_2": "inventory_controls.120_cell_grid_32_panel",
+          "$grid_3": "inventory_controls.120_cell_grid_33_panel",
+          "$grid_4": "inventory_controls.120_cell_grid_34_panel",
+          "$grid_5": "inventory_controls.120_cell_grid_35_panel",
+          "$grid_6": "inventory_controls.120_cell_grid_36_panel",
+          "$grid_7": "inventory_controls.120_cell_grid_37_panel",
+          "$grid_8": "inventory_controls.120_cell_grid_38_panel",
+          "$grid_9": "inventory_controls.120_cell_grid_39_panel"
+        }
+      }
+    ]
+  },
+  "cell_grid_1_panel@inventory_uikit.grids_scrolling_panel": {
+    "type": "input_panel",
+    "$scrolling_content": "inventory_controls.cell_grid_1",
+    "$collection_name": "recipe_book"
+  },
+  "cell_grid_11_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_11"
+  },
+  "cell_grid_12_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_12"
+  },
+  "cell_grid_13_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_13"
+  },
+  "cell_grid_14_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_14"
+  },
+  "cell_grid_15_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_15"
+  },
+  "cell_grid_16_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_16"
+  },
+  "cell_grid_17_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_17"
+  },
+  "cell_grid_18_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_18"
+  },
+  "cell_grid_19_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_19"
+  },
+  "cell_grid_21_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_21"
+  },
+  "cell_grid_22_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_22"
+  },
+  "cell_grid_23_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_23"
+  },
+  "cell_grid_24_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_24"
+  },
+  "cell_grid_25_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_25"
+  },
+  "cell_grid_26_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_26"
+  },
+  "cell_grid_27_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_27"
+  },
+  "cell_grid_28_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_28"
+  },
+  "cell_grid_29_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_29"
+  },
+  "cell_grid_31_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_31"
+  },
+  "cell_grid_32_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_32"
+  },
+  "cell_grid_33_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_33"
+  },
+  "cell_grid_34_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_34"
+  },
+  "cell_grid_35_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_35"
+  },
+  "cell_grid_36_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_36"
+  },
+  "cell_grid_37_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_37"
+  },
+  "cell_grid_38_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_38"
+  },
+  "cell_grid_39_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_39"
+  },
+  "cell_grid_41_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_41"
+  },
+  "cell_grid_42_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_42"
+  },
+  "cell_grid_43_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_43"
+  },
+  "cell_grid_44_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_44"
+  },
+  "cell_grid_45_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_45"
+  },
+  "cell_grid_46_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_46"
+  },
+  "cell_grid_47_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_47"
+  },
+  "cell_grid_48_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_48"
+  },
+  "cell_grid_49_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_49"
+  },
+  "cell_grid_51_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_51"
+  },
+  "cell_grid_52_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_52"
+  },
+  "cell_grid_53_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_53"
+  },
+  "cell_grid_54_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_54"
+  },
+  "cell_grid_55_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_55"
+  },
+  "cell_grid_56_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_56"
+  },
+  "cell_grid_57_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_57"
+  },
+  "cell_grid_58_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_58"
+  },
+  "cell_grid_59_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_59"
+  },
+  "cell_grid_2_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_2"
+  },
+  "cell_grid_3_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_3"
+  },
+  "cell_grid_4_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_4"
+  },
+  "cell_grid_5_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_5"
+  },
+  "cell_grid_6_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_6"
+  },
+  "cell_grid_7_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_7"
+  },
+  "cell_grid_8_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_8"
+  },
+  "cell_grid_9_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.cell_grid_9"
+  },
+
+  "120_cell_grid_1_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_1"
+  },
+  "120_cell_grid_2_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_2"
+  },
+  "120_cell_grid_3_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_3"
+  },
+  "120_cell_grid_4_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_4"
+  },
+  "120_cell_grid_5_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_5"
+  },
+  "120_cell_grid_6_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_6"
+  },
+  "120_cell_grid_7_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_7"
+  },
+  "120_cell_grid_8_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_8"
+  },
+  "120_cell_grid_9_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_9"
+  },
+  "120_cell_grid_11_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_11"
+  },
+  "120_cell_grid_12_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_12"
+  },
+  "120_cell_grid_13_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_13"
+  },
+  "120_cell_grid_14_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_14"
+  },
+  "120_cell_grid_15_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_15"
+  },
+  "120_cell_grid_16_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_16"
+  },
+  "120_cell_grid_17_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_17"
+  },
+  "120_cell_grid_18_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_18"
+  },
+  "120_cell_grid_19_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_19"
+  },
+  "120_cell_grid_21_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_21"
+  },
+  "120_cell_grid_22_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_22"
+  },
+  "120_cell_grid_23_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_23"
+  },
+  "120_cell_grid_24_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_24"
+  },
+  "120_cell_grid_25_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_25"
+  },
+  "120_cell_grid_26_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_26"
+  },
+  "120_cell_grid_27_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_27"
+  },
+  "120_cell_grid_28_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_28"
+  },
+  "120_cell_grid_29_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_29"
+  },
+  "120_cell_grid_31_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_31"
+  },
+  "120_cell_grid_32_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_32"
+  },
+  "120_cell_grid_33_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_33"
+  },
+  "120_cell_grid_34_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_34"
+  },
+  "120_cell_grid_35_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_35"
+  },
+  "120_cell_grid_36_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_36"
+  },
+  "120_cell_grid_37_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_37"
+  },
+  "120_cell_grid_38_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_38"
+  },
+  "120_cell_grid_39_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_39"
+  },
+  "120_cell_grid_48_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_48"
+  },
+  "120_cell_grid_49_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_49"
+  },
+  "120_cell_grid_51_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_51"
+  },
+  "120_cell_grid_52_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_52"
+  },
+  "120_cell_grid_53_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_53"
+  },
+  "120_cell_grid_54_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_54"
+  },
+  "120_cell_grid_55_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_55"
+  },
+  "120_cell_grid_56_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_56"
+  },
+  "120_cell_grid_57_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_57"
+  },
+  "120_cell_grid_58_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_58"
+  },
+  "120_cell_grid_59_panel@cell_grid_1_panel": {
+    "$scrolling_content": "inventory_controls.120_cell_grid_59"
+  },
+  "cell_grid_1@crafting.crafting_root_panel": {
+    "type": "input_panel",
+    "offset": [0, "-7848px"],
+    "size": [20, 18],
+    "controls": [
+      {
+        "grid@crafting.scroll_grid": {
+          "$grid_item_template|default": "inventory_controls.grid_item_for_recipe_book"
+        }
+      }
+    ]
+  },
+  "cell_grid_2@cell_grid_1": {
+    "offset": [0, "-7848px - 18px"]
+  },
+  "cell_grid_3@cell_grid_1": {
+    "offset": [0, "-7848px - 36px"]
+  },
+  "cell_grid_4@cell_grid_1": {
+    "offset": [0, "-7848px - 54px"]
+  },
+  "cell_grid_5@cell_grid_1": {
+    "offset": [0, "-7848px - 72px"]
+  },
+  "cell_grid_6@cell_grid_1": {
+    "offset": [0, "-7848px - 90px"]
+  },
+  "cell_grid_7@cell_grid_1": {
+    "offset": [0, "-7848px - 108px"]
+  },
+  "cell_grid_8@cell_grid_1": {
+    "offset": [0, "-7848px - 126px"]
+  },
+  "cell_grid_9@cell_grid_1": {
+    "offset": [0, "-7848px - 144px"]
+  },
+
+  "cell_grid_11@cell_grid_1": {
+    "offset": [0, "-8010px"]
+  },
+  "cell_grid_12@cell_grid_1": {
+    "offset": [0, "-8010px - 18px"]
+  },
+  "cell_grid_13@cell_grid_1": {
+    "offset": [0, "-8010px - 36px"]
+  },
+  "cell_grid_14@cell_grid_1": {
+    "offset": [0, "-8010px - 54px"]
+  },
+  "cell_grid_15@cell_grid_1": {
+    "offset": [0, "-8010px - 72px"]
+  },
+  "cell_grid_16@cell_grid_1": {
+    "offset": [0, "-8010px - 90px"]
+  },
+  "cell_grid_17@cell_grid_1": {
+    "offset": [0, "-8010px - 108px"]
+  },
+  "cell_grid_18@cell_grid_1": {
+    "offset": [0, "-8010px - 126px"]
+  },
+  "cell_grid_19@cell_grid_1": {
+    "offset": [0, "-8010px - 144px"]
+  },
+
+  "cell_grid_21@cell_grid_1": {
+    "offset": [0, "-8172px"]
+  },
+  "cell_grid_22@cell_grid_1": {
+    "offset": [0, "-8172px - 18px"]
+  },
+  "cell_grid_23@cell_grid_1": {
+    "offset": [0, "-8172px - 36px"]
+  },
+  "cell_grid_24@cell_grid_1": {
+    "offset": [0, "-8172px - 54px"]
+  },
+  "cell_grid_25@cell_grid_1": {
+    "offset": [0, "-8172px - 72px"]
+  },
+  "cell_grid_26@cell_grid_1": {
+    "offset": [0, "-8172px - 90px"]
+  },
+  "cell_grid_27@cell_grid_1": {
+    "offset": [0, "-8172px - 108px"]
+  },
+  "cell_grid_28@cell_grid_1": {
+    "offset": [0, "-8172px - 126px"]
+  },
+  "cell_grid_29@cell_grid_1": {
+    "offset": [0, "-8172px - 144px"]
+  },
+
+  "cell_grid_31@cell_grid_1": {
+    "offset": [0, "-8334px"]
+  },
+  "cell_grid_32@cell_grid_1": {
+    "offset": [0, "-8334px - 18px"]
+  },
+  "cell_grid_33@cell_grid_1": {
+    "offset": [0, "-8334px - 36px"]
+  },
+  "cell_grid_34@cell_grid_1": {
+    "offset": [0, "-8334px - 54px"]
+  },
+  "cell_grid_35@cell_grid_1": {
+    "offset": [0, "-8334px - 72px"]
+  },
+  "cell_grid_36@cell_grid_1": {
+    "offset": [0, "-8334px - 90px"]
+  },
+  "cell_grid_37@cell_grid_1": {
+    "offset": [0, "-8334px - 108px"]
+  },
+  "cell_grid_38@cell_grid_1": {
+    "offset": [0, "-8334px - 126px"]
+  },
+  "cell_grid_39@cell_grid_1": {
+    "offset": [0, "-8334px - 144px"]
+  },
+
+  "cell_grid_41@cell_grid_1": {
+    "offset": [0, "0px"]
+  },
+  "cell_grid_42@cell_grid_1": {
+    "offset": [0, "0px - 18px"]
+  },
+  "cell_grid_43@cell_grid_1": {
+    "offset": [0, "0px - 36px"]
+  },
+  "cell_grid_44@cell_grid_1": {
+    "offset": [0, "0px - 54px"]
+  },
+  "cell_grid_45@cell_grid_1": {
+    "offset": [0, "0px - 72px"]
+  },
+  "cell_grid_46@cell_grid_1": {
+    "offset": [0, "0px - 90px"]
+  },
+  "cell_grid_47@cell_grid_1": {
+    "offset": [0, "0px - 108px"]
+  },
+  "cell_grid_48@cell_grid_1": {
+    "offset": [0, "0px - 126px"]
+  },
+  "cell_grid_49@cell_grid_1": {
+    "offset": [0, "0px - 144px"]
+  },
+
+  "cell_grid_51@cell_grid_1": {
+    "offset": [0, "-954px"]
+  },
+  "cell_grid_52@cell_grid_1": {
+    "offset": [0, "-954px - 18px"]
+  },
+  "cell_grid_53@cell_grid_1": {
+    "offset": [0, "-954px - 36px"]
+  },
+  "cell_grid_54@cell_grid_1": {
+    "offset": [0, "-954px - 54px"]
+  },
+  "cell_grid_55@cell_grid_1": {
+    "offset": [0, "-954px - 72px"]
+  },
+  "cell_grid_56@cell_grid_1": {
+    "offset": [0, "-2916px"]
+  },
+  "cell_grid_57@cell_grid_1": {
+    "offset": [0, "-2916px - 18px"]
+  },
+  "cell_grid_58@cell_grid_1": {
+    "offset": [0, "-2916px - 36px"]
+  },
+  "cell_grid_59@cell_grid_1": {
+    "offset": [0, "-2916px - 54px"]
+  },
+
+  "120_cell_grid_1@cell_grid_1": {
+    "offset": [0, "-7848px - 180px"]
+  },
+  "120_cell_grid_2@cell_grid_1": {
+    "offset": [0, "-7848px - 180px - 18px"]
+  },
+  "120_cell_grid_3@cell_grid_1": {
+    "offset": [0, "-7848px - 180px - 36px"]
+  },
+  "120_cell_grid_4@cell_grid_1": {
+    "offset": [0, "-7848px - 180px - 54px"]
+  },
+  "120_cell_grid_5@cell_grid_1": {
+    "offset": [0, "-7848px - 180px - 72px"]
+  },
+  "120_cell_grid_6@cell_grid_1": {
+    "offset": [0, "-7848px - 180px - 90px"]
+  },
+  "120_cell_grid_7@cell_grid_1": {
+    "offset": [0, "-7848px - 180px - 108px"]
+  },
+  "120_cell_grid_8@cell_grid_1": {
+    "offset": [0, "-7848px - 180px - 126px"]
+  },
+  "120_cell_grid_9@cell_grid_1": {
+    "offset": [0, "-7848px - 180px - 144px"]
+  },
+
+  "120_cell_grid_11@cell_grid_1": {
+    "offset": [0, "-8010px - 180px"]
+  },
+  "120_cell_grid_12@cell_grid_1": {
+    "offset": [0, "-8010px - 180px - 18px"]
+  },
+  "120_cell_grid_13@cell_grid_1": {
+    "offset": [0, "-8010px - 180px - 36px"]
+  },
+  "120_cell_grid_14@cell_grid_1": {
+    "offset": [0, "-8010px - 180px - 54px"]
+  },
+  "120_cell_grid_15@cell_grid_1": {
+    "offset": [0, "-8010px - 180px - 72px"]
+  },
+  "120_cell_grid_16@cell_grid_1": {
+    "offset": [0, "-8010px - 180px - 90px"]
+  },
+  "120_cell_grid_17@cell_grid_1": {
+    "offset": [0, "-8010px - 180px - 108px"]
+  },
+  "120_cell_grid_18@cell_grid_1": {
+    "offset": [0, "-8010px - 180px - 126px"]
+  },
+  "120_cell_grid_19@cell_grid_1": {
+    "offset": [0, "-8010px - 180px - 144px"]
+  },
+
+  "120_cell_grid_21@cell_grid_1": {
+    "offset": [0, "-8172px - 180px"]
+  },
+  "120_cell_grid_22@cell_grid_1": {
+    "offset": [0, "-8172px - 180px - 18px"]
+  },
+  "120_cell_grid_23@cell_grid_1": {
+    "offset": [0, "-8172px - 180px - 36px"]
+  },
+  "120_cell_grid_24@cell_grid_1": {
+    "offset": [0, "-8172px - 180px - 54px"]
+  },
+  "120_cell_grid_25@cell_grid_1": {
+    "offset": [0, "-8172px - 180px - 72px"]
+  },
+  "120_cell_grid_26@cell_grid_1": {
+    "offset": [0, "-8172px - 180px - 90px"]
+  },
+  "120_cell_grid_27@cell_grid_1": {
+    "offset": [0, "-8172px - 180px - 108px"]
+  },
+  "120_cell_grid_28@cell_grid_1": {
+    "offset": [0, "-8172px - 180px - 126px"]
+  },
+  "120_cell_grid_29@cell_grid_1": {
+    "offset": [0, "-8172px - 180px - 144px"]
+  },
+
+  "120_cell_grid_31@cell_grid_1": {
+    "offset": [0, "-8334px - 180px"]
+  },
+  "120_cell_grid_32@cell_grid_1": {
+    "offset": [0, "-8334px - 180px - 18px"]
+  },
+  "120_cell_grid_33@cell_grid_1": {
+    "offset": [0, "-8334px - 180px - 36px"]
+  },
+  "120_cell_grid_34@cell_grid_1": {
+    "offset": [0, "-8334px - 180px - 54px"]
+  },
+  "120_cell_grid_35@cell_grid_1": {
+    "offset": [0, "-8334px - 180px - 72px"]
+  },
+  "120_cell_grid_36@cell_grid_1": {
+    "offset": [0, "-8334px - 180px - 90px"]
+  },
+  "120_cell_grid_37@cell_grid_1": {
+    "offset": [0, "-8334px - 180px - 108px"]
+  },
+  "120_cell_grid_38@cell_grid_1": {
+    "offset": [0, "-8334px - 180px - 126px"]
+  },
+  "120_cell_grid_39@cell_grid_1": {
+    "offset": [0, "-8334px - 180px - 144px"]
+  },
+  "120_cell_grid_48@cell_grid_1": {
+    "offset": [0, "0px - 126px-36px"]
+  },
+  "120_cell_grid_49@cell_grid_1": {
+    "offset": [0, "0px - 144px-36px"]
+  },
+  "120_cell_grid_51@cell_grid_1": {
+    "offset": [0, "-1026px"]
+  },
+  "120_cell_grid_52@cell_grid_1": {
+    "offset": [0, "-1026px - 18px"]
+  },
+  "120_cell_grid_53@cell_grid_1": {
+    "offset": [0, "-1026px - 36px"]
+  },
+  "120_cell_grid_54@cell_grid_1": {
+    "offset": [0, "-1026px - 54px"]
+  },
+  "120_cell_grid_55@cell_grid_1": {
+    "offset": [0, "-1026px - 72px"]
+  },
+  "120_cell_grid_56@cell_grid_1": {
+    "offset": [0, "-1026px - 90px"]
+  },
+  "120_cell_grid_57@cell_grid_1": {
+    "offset": [0, "-1026px - 108px"]
+  },
+  "120_cell_grid_58@cell_grid_1": {
+    "offset": [0, "-3060px"]
+  },
+  "120_cell_grid_59@cell_grid_1": {
+    "offset": [0, "-3060px - 18px"]
+  },
+  "grid_item_for_recipe_book@crafting.inventory_container_item": {
+    "$stack_count_required": true,
+    "$durability_bar_required": false,
+    "$item_renderer_binding_condition": "visible",
+    "$button_ref": "crafting.creative_no_coalesce_container_slot_button",
+    //"$background_images": "common.empty_panel",
+    "$background_images": "crafting.container_cell_images",
+
+    "$slot_selected_binding_name": "#is_creative_selected_slot",
+
+    "$stack_count_binding_name": "#recipe_craftable_count",
+    "$item_collection_name": "recipe_book",
+    "$scrolling_grid_item_size|default": [18, 18],
+    "$hover_text_binding_name": "#recipe_hover_text",
+    "size": "$scrolling_grid_item_size"
+  },
+  "top_tabs": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 7,
+    "offset": [8, -56],
+    "bindings": [
+      {
+        "binding_name": "#is_creative_mode",
+        "binding_name_override": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "back@settings_common.option_generic": {
+          "$control_name": "inventory_uikit.default_back_toggle",
+          "layer": 8,
+          "size": [22, 20]
+        }
+      },
+      {
+        "0@inventory_uikit.common_panel_un": {
+          "$toggle_target": "inventory_uikit.default_next_toggle",
+          "size": [154, 0]
+        }
+      },
+      {
+        "1@inventory_uikit.common_panel": {
+          "$toggle_target": "inventory_uikit.default_next_toggle",
+          "size": [-42, 0]
+        }
+      },
+      {
+        "next@settings_common.option_generic": {
+          "$control_name": "inventory_uikit.default_next_toggle",
+          "layer": 8,
+          "size": [20, 20]
+        }
+      },
+      {
+        "2@inventory_uikit.common_panel": {
+          "$toggle_target": "inventory_uikit.default_next_toggle",
+          "size": [156, 0]
+        }
+      },
+      {
+        "next_2@settings_common.option_generic": {
+          "$control_name": "inventory_uikit.next_toggle",
+          "layer": 7,
+          "size": [20, 20]
+        }
+      }
+    ]
+  }
+}

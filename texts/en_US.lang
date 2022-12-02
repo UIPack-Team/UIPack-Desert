@@ -1,0 +1,42 @@
+Designed by UIPack TEAM. Copyright © 2018 UIPack Team. All rights reserved.=Designed by $lUIPack Team © 2018 - 2019 UIPack Team. All rights reserved.
+
+subpack.light.name=Light
+subpack.dark.name=Dark
+
+add_server_tips.text=Enter the name, address or IP of the external server to choose to join the game immediately or save it to a list of more servers!
+edit_server_tips.text=In addition to editing the name, address or IP of the external server, you can even choose to delete or re-save it to more server lists!
+
+patch_notes.title=Welcome to Minecraft
+pause.player_list.text=Player List
+permissions.playermanager.title=Player Manager
+
+tips_sides.not_text=No Content.
+
+start.for_you.title=For You
+start.game_news.title=News
+start.skins_preview.title=Skin Preview
+
+settings.account_tips.subtitle=Manage Account, Marketplace, Realms and Multiplayer
+
+login_tips.text=Sign in to your game account now! You can play Realms and multiplayer games, and you can get more different and novelty kits in the Marketplace!
+
+large_title.title=Large Title
+right_side_title.title=Title
+
+achievement.me.title=Me
+achievement.games.title=Games
+achievement.title=My Achievements
+achievement.completed.text=Completed:
+achievement.schedule.text=Schedule
+achievement.gamerscore.text=Gamer Score
+achievement.timeplayed.text=Time Played
+
+ui.back_button=Back
+ui.cancel_button=Cancel
+ui.confirm_button=Confirm
+ui.done_button=Done
+ui.exit_button=Exit
+ui_exit_button.tips=Press to exit
+
+manifestvalidation.info_title=Pack Info
+manifestvalidation.debug_title=Pack Debug
