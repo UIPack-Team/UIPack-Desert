@@ -47,7 +47,7 @@
       {
         "选中第二个": {
           "type": "stack_panel",
-          "offset": [66, 4],
+          "offset": [46, 4],
           "orientation": "horizontal",
           "size": [50, "100%"],
           "controls": [
@@ -159,9 +159,259 @@
             }
           ]
         }
+      },
+      {
+        "bottom": {
+          "type": "stack_panel",
+          "offset": [46, 184],
+          "orientation": "horizontal",
+          "size": [50, "100%"],
+          "controls": [
+            {
+              "123@top_tab": {
+                "$tab_view_binding_name": "tab_11",
+                "$toggle_group_forced_index": 121,
+                "$tab_icon": "common.empty_panel"
+              }
+            },
+            {
+              "space_0": {
+                "type": "panel",
+                "size": [1.5, 0]
+              }
+            },
+            {
+              "自然方块@top_tab": {
+                "$tab_view_binding_name": "tab_12",
+                "$toggle_group_forced_index": 122,
+                "$tab_icon": "common.empty_panel"
+              }
+            },
+            {
+              "space_1": {
+                "type": "panel",
+                "size": [1.5, 0]
+              }
+            },
+            {
+              "Colored Blocked@top_tab": {
+                "$tab_view_binding_name": "tab_13",
+                "$toggle_group_forced_index": 123,
+                "$tab_icon": "common.empty_panel"
+              }
+            },
+            {
+              "space_2": {
+                "type": "panel",
+                "size": [1.5, 0]
+              }
+            },
+            {
+              "功能方块2@top_tab": {
+                "$tab_icon": "common.empty_panel",
+                "$tab_view_binding_name": "tab_14",
+                "$toggle_group_forced_index": 124
+              }
+            },
+            {
+              "space_22": {
+                "type": "panel",
+                "size": [1.5, 0]
+              }
+            },
+            {
+              "功能方4块2@top_tab": {
+                "$tab_icon": "common.empty_panel",
+                "$tab_view_binding_name": "tab_15",
+                "$toggle_group_forced_index": 125
+              }
+            },
+            {
+              "spa5ce_2": {
+                "type": "panel",
+                "size": [1.5, 0]
+              }
+            },
+            {
+              "功能456方块@top_tab": {
+                "$tab_icon": "common.empty_panel",
+                "$tab_view_binding_name": "tab_16",
+                "$toggle_group_forced_index": 126
+              }
+            },
+            {
+              "spa475ce_2": {
+                "type": "panel",
+                "size": [1.5, 0]
+              }
+            },
+            {
+              "功45能方块@top_tab": {
+                "$tab_icon": "common.empty_panel",
+                "$tab_view_binding_name": "tab_17",
+                "$toggle_group_forced_index": 127
+              }
+            },
+            {
+              "spa465ce_2": {
+                "type": "panel",
+                "size": [1.5, 0]
+              }
+            },
+            {
+              "功能方75块@top_tab": {
+                "$tab_icon": "common.empty_panel",
+                "$tab_view_binding_name": "tab_18",
+                "$toggle_group_forced_index": 128
+              }
+            }
+          ]
+        }
       }
     ]
   },
+  "41@test": {
+    "$toggle_target": "inventory_controlsinventory_controls.construction",
+    "$test_01": [0, -1098],
+    "$test_02": [0, -1602],
+    "$test_03": [0, -306],
+    "$test_04": [0, -486],
+    "$test_05": [0, -702],
+    "$test_06": [0, -288]
+  },
+  "42@test": {
+    "$toggle_target": "inventory_controlsinventory_controls.tools",
+    "$test_01":[0,-954],
+    "$test_02":[0,-630],
+    "$test_03":[0,-1476],
+    "$test_04":[0,-1152],
+    "$test_05":[0,-738],
+    "$test_06":[0,-1368]
+  },"43@test": {
+    "$toggle_target": "inventory_controlsinventory_controls.4",
+
+    "$test_01":[0,-1674],
+    "$test_02":[0,-918],
+    "$test_03":[0,-1638],
+    "$test_04":[0,-522],
+    "$test_05":[0,-1116],
+    "$test_06":[0,-1008]
+  },"44@test": {
+    "$toggle_target": "inventory_controlsinventory_controls.5",
+    "$test_01":[0,-1152],
+    "$test_02":[0,-864],
+    "$test_03":[0,-990],
+    "$test_04":[0,-1224],
+    "$test_05":[0,-882],
+    "$test_06":[0,-630]
+  },"45@test": {
+    "$toggle_target": "inventory_controlsinventory_controls.6",
+    "$test_01":[0,-972],
+    "$test_02":[0,-972],
+    "$test_03":[0,-954],
+    "$test_04":[0,-630],
+    "$test_05":[0,-1476],
+    "$test_06":[0,-1152]
+  },"46@test": {
+    "$toggle_target": "inventory_controlsinventory_controls.7",
+    "$test_01":[0,-738],
+    "$test_02":[0,-1368],
+    "$test_03":[0,-1674],
+    "$test_04":[0,-918],
+    "$test_05":[0,-1638],
+    "$test_06":[0,-522]
+  },"47@test": {
+    "$toggle_target": "inventory_controlsinventory_controls.8",
+    "$test_01":[0,-1116],
+    "$test_02":[0,-1008],
+    "$test_03":[0,-1152],
+    "$test_04":[0,-864],
+    "$test_05":[0,-990],
+    "$test_06":[0,-1224]
+  },"48@test": {
+    "$toggle_target": "inventory_controlsinventory_controls.9",
+    "$test_01":[0,-882],
+    "$test_02":[0,-630],
+    "$test_03":[0,-972],
+    "$test_04":[0,-972],
+    "$test_05":[0,-702],
+    "$test_06":[0,-1566]
+  },"49@test": {
+    "$toggle_target": "inventory_controlsinventory_controls.12",
+    "$test_01":[0,-1548],
+    "$test_02":[0,-1404],
+    "$test_03":[0,-774],
+    "$test_04":[0,-720],
+    "$test_05":[0,-594],
+    "$test_06":[0,-414]
+  },"50@test": {
+    "$toggle_target": "inventory_controlsinventory_controls.13",
+
+    "$test_01":[0,-1224],
+    "$test_02":[0,-1278],
+    "$test_03":[0,-1170],
+    "$test_04":[0,-1350],
+    "$test_05":[0,-1440],
+    "$test_06":[0,-1188]
+  },"51@test": {
+    "$toggle_target": "inventory_controlsinventory_controls.14",
+
+    "$test_01":[0,-972],
+    "$test_02":[0,-1584],
+    "$test_03":[0,-252],
+    "$test_04":[0,-666],
+    "$test_05":[0,-1476],
+    "$test_06":[0,-1350]
+  },"52@test": {
+    "$toggle_target": "inventory_controlsinventory_controls.15",
+    "$test_01":[0,-954],
+    "$test_02":[0,-630],
+    "$test_03":[0,-1476],
+    "$test_04":[0,-1152],
+    "$test_05":[0,-738],
+    "$test_06":[0,-1368]
+  },"53@test": {
+    "$toggle_target": "inventory_controlsinventory_controls.16",
+    "$test_01":[0,-1674],
+    "$test_02":[0,-918],
+    "$test_03":[0,-1638],
+    "$test_04":[0,-522],
+    "$test_05":[0,-1116],
+    "$test_06":[0,-1008]
+  },"54@test": {
+    "$toggle_target": "inventory_controlsinventory_controls.17",
+    "$test_01":[0,-1152],
+    "$test_02":[0,-864],
+    "$test_03":[0,-990],
+    "$test_04":[0,-1224],
+    "$test_05":[0,-882],
+    "$test_06":[0,-630]
+  },"55@test": {
+    "$toggle_target": "inventory_controlsinventory_controls.18",
+    "$test_01":[0,-972],
+    "$test_02":[0,-972],
+    "$test_03":[0,-702],
+    "$test_04":[0,-1566],
+    "$test_05":[0,-1548],
+    "$test_06":[0,-1404]
+  },"56@test": {
+    "$toggle_target": "inventory_controlsinventory_controls.19",
+    "$test_01":[0,-774],
+    "$test_02":[0,-720],
+    "$test_03":[0,-594],
+    "$test_04":[0,-414],
+    "$test_05":[0,-1224],
+    "$test_06":[0,-1278]
+  },
+
+
+
+
+
+
+
+
+
   "118panel": {
     "type": "panel",
     "bindings": [
@@ -203,8 +453,9 @@
                 ]
               }
             },
+
             {
-              "修改过的scrolling@screen_uikit.standard_scrolling": {
+              "修改过的scrolling@inventory_uikit.standard_scrolling": {
                 "size": [196, 117],
                 "anchor_from": "center",
                 "anchor_to": "center",
@@ -213,7 +464,7 @@
               }
             },
             {
-              "修改过的scrolling2@screen_uikit.standard_scrolling": {
+              "修改过的scrolling2@inventory_uikit.standard_scrolling": {
                 "size": [196, 117],
                 "anchor_from": "center",
                 "anchor_to": "center",
@@ -222,7 +473,7 @@
               }
             },
             {
-              "修改过4的scrolling2@screen_uikit.standard_scrolling": {
+              "修改过4的scrolling2@inventory_uikit.standard_scrolling": {
                 "size": [196, 117],
                 "anchor_from": "center",
                 "anchor_to": "center",
@@ -231,7 +482,7 @@
               }
             },
             {
-              "修改5过的scrolling2@screen_uikit.standard_scrolling": {
+              "修改5过的scrolling2@inventory_uikit.standard_scrolling": {
                 "size": [196, 117],
                 "anchor_from": "center",
                 "anchor_to": "center",
@@ -240,7 +491,7 @@
               }
             },
             {
-              "6@screen_uikit.standard_scrolling": {
+              "6@inventory_uikit.standard_scrolling": {
                 "size": [196, 117],
                 "anchor_from": "center",
                 "anchor_to": "center",
@@ -249,7 +500,7 @@
               }
             },
             {
-              "修改7过的scrolling2@screen_uikit.standard_scrolling": {
+              "修改7过的scrolling2@inventory_uikit.standard_scrolling": {
                 "size": [196, 117],
                 "anchor_from": "center",
                 "anchor_to": "center",
@@ -258,7 +509,7 @@
               }
             },
             {
-              "修改8过的scrolling2@screen_uikit.standard_scrolling": {
+              "修改8过的scrolling2@inventory_uikit.standard_scrolling": {
                 "size": [196, 117],
                 "anchor_from": "center",
                 "anchor_to": "center",
@@ -267,12 +518,249 @@
               }
             },
             {
-              "修改过9的scrolling2@screen_uikit.standard_scrolling": {
+              "修改过9的scrolling2@inventory_uikit.standard_scrolling": {
                 "size": [196, 117],
                 "anchor_from": "center",
                 "anchor_to": "center",
                 "offset": [1, -5],
                 "$scrolling_content": "inventory_controls.9"
+              }
+            },
+            {
+              "botom": {
+                "type": "panel",
+                "controls": [
+                  {
+                    "修改过的scrolling@inventory_uikit.standard_scrolling": {
+                      "size": [196, 117],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [1, -5],
+                      "$scrolling_content": "inventory_controls.12"
+                    }
+                  },
+                  {
+                    "修改过的scrolling2@inventory_uikit.standard_scrolling": {
+                      "size": [196, 117],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [1, -5],
+                      "$scrolling_content": "inventory_controls.13"
+                    }
+                  },
+                  {
+                    "修改过4的scrolling2@inventory_uikit.standard_scrolling": {
+                      "size": [196, 117],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [1, -5],
+                      "$scrolling_content": "inventory_controls.14"
+                    }
+                  },
+                  {
+                    "修改5过的scrolling2@inventory_uikit.standard_scrolling": {
+                      "size": [196, 117],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [1, -5],
+                      "$scrolling_content": "inventory_controls.15"
+                    }
+                  },
+                  {
+                    "6@inventory_uikit.standard_scrolling": {
+                      "size": [196, 117],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [1, -5],
+                      "$scrolling_content": "inventory_controls.16"
+                    }
+                  },
+                  {
+                    "修改7过的scrolling2@inventory_uikit.standard_scrolling": {
+                      "size": [196, 117],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [1, -5],
+                      "$scrolling_content": "inventory_controls.17"
+                    }
+                  },
+                  {
+                    "修改8过的scrolling2@inventory_uikit.standard_scrolling": {
+                      "size": [196, 117],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [1, -5],
+                      "$scrolling_content": "inventory_controls.18"
+                    }
+                  },
+                  {
+                    "修改过9的scrolling2@inventory_uikit.standard_scrolling": {
+                      "size": [196, 117],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [1, -5],
+                      "$scrolling_content": "inventory_controls.19"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "page_2": {
+                "type": "panel",
+                "controls": [
+                  {
+                    "修改过的s132crolling@inventory_uikit.standard_scrolling": {
+                      "size": [196, 117],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset":[-1,-5],
+                      "$scrolling_content": "inventory_controls.41"
+                    }
+                  },
+                  {
+                    "修改过的scrolling2@inventory_uikit.standard_scrolling": {
+                      "size": [196, 117],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [1, -5],
+                      "$scrolling_content": "inventory_controls.42"
+                    }
+                  },
+                  {
+                    "修改过4的scrolling2@inventory_uikit.standard_scrolling": {
+                      "size": [196, 117],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [1, -5],
+                      "$scrolling_content": "inventory_controls.43"
+                    }
+                  },
+                  {
+                    "修改5过的scrolling2@inventory_uikit.standard_scrolling": {
+                      "size": [196, 117],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [1, -5],
+                      "$scrolling_content": "inventory_controls.44"
+                    }
+                  },
+                  {
+                    "6@inventory_uikit.standard_scrolling": {
+                      "size": [196, 117],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [1, -5],
+                      "$scrolling_content": "inventory_controls.45"
+                    }
+                  },
+                  {
+                    "修改7过的scrolling2@inventory_uikit.standard_scrolling": {
+                      "size": [196, 117],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [1, -5],
+                      "$scrolling_content": "inventory_controls.46"
+                    }
+                  },
+                  {
+                    "修改8过的scrolling2@inventory_uikit.standard_scrolling": {
+                      "size": [196, 117],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [1, -5],
+                      "$scrolling_content": "inventory_controls.47"
+                    }
+                  },
+                  {
+                    "修改过9的scrolling2@inventory_uikit.standard_scrolling": {
+                      "size": [196, 117],
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [1, -5],
+                      "$scrolling_content": "inventory_controls.48"
+                    }
+                  },
+                  {
+                    "botom": {
+                      "type": "panel",
+                      "controls": [
+                        {
+                          "修改过的scrolling@inventory_uikit.standard_scrolling": {
+                            "size": [196, 117],
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "offset": [1, -5],
+                            "$scrolling_content": "inventory_controls.49"
+                          }
+                        },
+                        {
+                          "修改过的scrolling2@inventory_uikit.standard_scrolling": {
+                            "size": [196, 117],
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "offset": [1, -5],
+                            "$scrolling_content": "inventory_controls.50"
+                          }
+                        },
+                        {
+                          "修改过4的scrolling2@inventory_uikit.standard_scrolling": {
+                            "size": [196, 117],
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "offset": [1, -5],
+                            "$scrolling_content": "inventory_controls.51"
+                          }
+                        },
+                        {
+                          "修改5过的scrolling2@inventory_uikit.standard_scrolling": {
+                            "size": [196, 117],
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "offset": [1, -5],
+                            "$scrolling_content": "inventory_controls.52"
+                          }
+                        },
+                        {
+                          "6@inventory_uikit.standard_scrolling": {
+                            "size": [196, 117],
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "offset": [1, -5],
+                            "$scrolling_content": "inventory_controls.53"
+                          }
+                        },
+                        {
+                          "修改7过的scrolling2@inventory_uikit.standard_scrolling": {
+                            "size": [196, 117],
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "offset": [1, -5],
+                            "$scrolling_content": "inventory_controls.54"
+                          }
+                        },
+                        {
+                          "修改8过的scrolling2@inventory_uikit.standard_scrolling": {
+                            "size": [196, 117],
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "offset": [1, -5],
+                            "$scrolling_content": "inventory_controls.55"
+                          }
+                        },
+                        {
+                          "修改过9的scrolling2@inventory_uikit.standard_scrolling": {
+                            "size": [196, 117],
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "offset": [1, -5],
+                            "$scrolling_content": "inventory_controls.56"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             },
             {
@@ -335,6 +823,29 @@
     "size": [195, 360],
     "$toggle_target": "tab_1",
     "controls": [
+      {
+        "padding": { "type": "panel", "size": [0, -4] }
+      },
+      {
+        "page_tab@common_tabs.tab_top": {
+          "size": [14, 14],
+          "layer": 30,
+          "$tab_content": "crafting.empty_tab_panel",
+          "$radio_toggle_group": true,
+          "$toggle_name": "second_tab",
+          "$tab_icon": "common.empty_panel",
+          "$tab_view_binding_name": "('inventory_controls'+$scrolling_content)",
+          "$toggle_default_state": false,
+          "$unchecked_default_image": "textures/ui/arrow_left",
+          "$unchecked_hover_image": "textures/ui/arrow_left",
+          "$unchecked_locked_image": "textures/ui/arrow_left",
+          "$unchecked_locked_hover_image": "textures/ui/arrow_left",
+          "$checked_default_image": "textures/ui/arrow_right",
+          "$checked_hover_image": "textures/ui/arrow_right",
+          "$checked_locked_image": "textures/ui/arrow_right",
+          "$checked_locked_hover_image": "textures/ui/arrow_right"
+        }
+      },
       {
         "one_grid_content_stack_panel": {
           "type": "stack_panel",
@@ -475,6 +986,28 @@
     "$toggle_target": "tab_2",
     "controls": [
       {
+        "padding": { "type": "panel", "size": [0, -4] }
+      },
+      {
+        "page_tab@common_tabs.tab_top": {
+          "size": [14, 14],
+          "layer": 30,
+          "$tab_content": "crafting.empty_tab_panel",
+          "$radio_toggle_group": true,
+          "$toggle_name": "second_tab",
+          "$tab_icon": "common.empty_panel",
+          "$tab_view_binding_name": "('inventory_controls'+$scrolling_content)",
+          "$toggle_default_state": false,
+          "$unchecked_default_image": "textures/ui/arrow_left",
+          "$unchecked_hover_image": "textures/ui/arrow_left",
+          "$unchecked_locked_image": "textures/ui/arrow_left",
+          "$unchecked_locked_hover_image": "textures/ui/arrow_left",
+          "$checked_default_image": "textures/ui/arrow_right",
+          "$checked_hover_image": "textures/ui/arrow_right",
+          "$checked_locked_image": "textures/ui/arrow_right",
+          "$checked_locked_hover_image": "textures/ui/arrow_right"
+        }
+      },{
         "one_grid_content_stack_panel": {
           "type": "stack_panel",
           "size": ["100%", 18],
@@ -594,6 +1127,28 @@
     "size": [195, 360],
     "controls": [
       {
+        "padding": { "type": "panel", "size": [0, -4] }
+      },
+      {
+        "page_tab@common_tabs.tab_top": {
+          "size": [14, 14],
+          "layer": 30,
+          "$tab_content": "crafting.empty_tab_panel",
+          "$radio_toggle_group": true,
+          "$toggle_name": "second_tab",
+          "$tab_icon": "common.empty_panel",
+          "$tab_view_binding_name": "('inventory_controls'+$scrolling_content)",
+          "$toggle_default_state": false,
+          "$unchecked_default_image": "textures/ui/arrow_left",
+          "$unchecked_hover_image": "textures/ui/arrow_left",
+          "$unchecked_locked_image": "textures/ui/arrow_left",
+          "$unchecked_locked_hover_image": "textures/ui/arrow_left",
+          "$checked_default_image": "textures/ui/arrow_right",
+          "$checked_hover_image": "textures/ui/arrow_right",
+          "$checked_locked_image": "textures/ui/arrow_right",
+          "$checked_locked_hover_image": "textures/ui/arrow_right"
+        }
+      },   {
         "one_grid_content_stack_panel": {
           "type": "stack_panel",
           "size": ["100%", 18],
@@ -740,6 +1295,81 @@
     "$test_04": [0, -1224],
     "$test_05": [0, -882],
     "$test_06": [0, -630]
+  },
+
+  "12@test": {
+    "$toggle_target": "tab_11",
+    "$test_01": [0, -954],
+    "$test_02": [0, -630],
+    "$test_03": [0, -1476],
+    "$test_04": [0, -1152],
+    "$test_05": [0, -738],
+    "$test_06": [0, -1368]
+  },
+  "13@test": {
+    "$toggle_target": "tab_12",
+
+    "$test_01": [0, -1674],
+    "$test_02": [0, -918],
+    "$test_03": [0, -1638],
+    "$test_04": [0, -522],
+    "$test_05": [0, -1116],
+    "$test_06": [0, -1008]
+  },
+
+  "14@test": {
+    "$toggle_target": "tab_13",
+    "$test_01": [0, -1152],
+    "$test_02": [0, -864],
+    "$test_03": [0, -990],
+    "$test_04": [0, -1224],
+    "$test_05": [0, -882],
+    "$test_06": [0, -630]
+  },
+  "15@test": {
+    "$toggle_target": "tab_14",
+    "$test_01": [0, -972],
+    "$test_02": [0, -972],
+    "$test_03": [0, -702],
+    "$test_04": [0, -1566],
+    "$test_05": [0, -1548],
+    "$test_06": [0, -1404]
+  },
+  "16@test": {
+    "$toggle_target": "tab_15",
+    "$test_01": [0, -774],
+    "$test_02": [0, -720],
+    "$test_03": [0, -594],
+    "$test_04": [0, -414],
+    "$test_05": [0, -1224],
+    "$test_06": [0, -1278]
+  },
+  "17@test": {
+    "$toggle_target": "tab_16",
+    "$test_01": [0, -1170],
+    "$test_02": [0, -1350],
+    "$test_03": [0, -1440],
+    "$test_04": [0, -1188],
+    "$test_05": [0, -972],
+    "$test_06": [0, -1584]
+  },
+  "18@test": {
+    "$toggle_target": "tab_17",
+    "$test_01": [0, -252],
+    "$test_02": [0, -666],
+    "$test_03": [0, -1476],
+    "$test_04": [0, -1350],
+    "$test_05": [0, -1656],
+    "$test_06": [0, -1296]
+  },
+  "19@test": {
+    "$toggle_target": "tab_18",
+    "$test_01": [0, -252],
+    "$test_02": [0, -1242],
+    "$test_03": [0, -432],
+    "$test_04": [0, -1170],
+    "$test_05": [0, -270],
+    "$test_06": [0, -1206]
   },
 
   //////
