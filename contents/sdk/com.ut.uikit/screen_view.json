@@ -513,7 +513,7 @@
                       "anchor_from": "top_left",
                       "anchor_to": "top_left",
                       "offset": [2, 19],
-                      "color": "$menu_title_color",
+                      "color": "2",
                       "$title_text|default": "",
                       "text": "$title_text",
                       "size": ["default", "default"],
