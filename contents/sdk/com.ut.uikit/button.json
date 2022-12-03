@@ -419,7 +419,7 @@
 
     // text color
     "$default_text_color|default": "$light_button_default_text_color",
-    "$hover_text_color|default": "$light_button_hover_text_color",
+    "$hover_text_color|default": [ 0.064, 0.428, 1.0 ],
     "$pressed_text_color|default": "$light_button_pressed_text_color",
 
     // For text bindings
@@ -447,53 +447,33 @@
         "default@$button_state_panel": {
           "$new_ui_button_texture": "$default_button_texture",
           "$text_color": "$default_text_color",
-          "$secondary_text_color": "$light_button_secondary_default_text_color",
-          "$glyph_color": "$light_glyph_default_color",
-          "$button_image_visible": false,
-          "$content_alpha": 1,
-          "$border_color": "$light_border_default_color",
-          "$border_layer": 2,
+          "$exit_button_color":[0,0,0],
           "$default_state": true,
           "layer": 1
         }
       },
       {
         "hover@$button_state_panel": {
+          "$new_ui_button_texture": "$default_button_texture",
           "$text_color": "$hover_text_color",
-          "$secondary_text_color": "$light_button_secondary_hover_text_color",
-          "$glyph_color": "$light_glyph_hover_color",
-          "$content_alpha": 1,
-          "$button_image": "common_buttons.background_button_image",
-          "$border_color": "$light_border_hover_color",
-          "$border_layer": 3,
+          "$exit_button_color":[0,0,0],
           "$hover_state": true,
           "layer": 2
         }
       },
       {
         "pressed@$button_state_panel": {
-          "$text_color": "$pressed_text_color",
-          "$secondary_text_color": "$light_button_secondary_pressed_text_color",
-          "$glyph_color": "$light_glyph_pressed_color",
-          "$content_alpha": "$pressed_alpha",
-          "$button_image": "common_buttons.background_button_image",
-          "$button_offset": "$pressed_button_offset",
-          "$border_color": "$light_border_pressed_color",
-          "$border_layer": 3,
+          "$new_ui_button_texture": "$default_button_texture",
+          "$text_color": "$hover_text_color",
+          "$exit_button_color":[0,0,0],
           "$pressed_state": true,
           "layer": 3
         }
       },
       {
         "locked@$button_state_panel": {
-          "$new_ui_button_texture": "$locked_button_texture",
-          "$text_color": "$light_button_locked_text_color",
-          "$secondary_text_color": "$light_button_secondary_locked_text_color",
-          "$glyph_color": "$light_glyph_locked_color",
-          "$content_alpha": "$locked_alpha",
-          "$button_image": "common_buttons.locked_button_image",
-          "$border_color": "$light_border_locked_color",
-          "$border_layer": 1,
+          "$new_ui_button_texture": "$default_button_texture",
+          "$text_color": "$default_text_color",
           "$locked_state": true,
           "layer": 1
         }

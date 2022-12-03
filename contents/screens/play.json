@@ -1,7 +1,7 @@
 {
   "namespace": "play_uikit",
   "play_screen_content": {
-    "$screencontents": "play_uikit.play_contents",
+    "$with_tab_contents": "play_uikit.play_contents",
     "type": "panel",
     "controls": [
       {

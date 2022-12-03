@@ -768,9 +768,6 @@
           "$left_screen": "modern_settings.selector_area",
           "$right_screen": "modern_settings.contents_area"
         }
-      },
-      {
-        "back@screen_uikit.bgback": {}
       }
     ]
   },

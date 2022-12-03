@@ -31,7 +31,7 @@
           ],
           "$modern_tab_with_tabs": "custom_templates_uikit.tabs_panel",
           "$screen_type": "screen_uikit.include_tabs_screen",
-          "$screencontents": "custom_templates_uikit.world_templates_picker_panel",
+          "$with_tab_contents": "custom_templates_uikit.world_templates_picker_panel",
           "$modern_screen_size": [434, 210],
           "$shadow_offset": [0, 1],
           "$bg_2_alpha": 1,

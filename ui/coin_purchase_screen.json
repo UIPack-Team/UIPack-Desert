@@ -18,7 +18,6 @@
           "controls": [
             {
               "label@common_buttons.new_ui_binding_button_label": {
-                "offset": [0, -2]
               }
             }
           ]

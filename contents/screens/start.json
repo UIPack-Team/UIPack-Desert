@@ -1,5 +1,203 @@
 {
   "namespace": "start_kit",
+
+  "menu_bar_exit_animation_push_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": "$transition_time_push",
+    "from": [0, 0], //8
+    "to": [0, -21], //-44
+    "play_event": "screen.exit_push",
+    "end_event": "screen.exit_end"
+  },
+
+  "menu_bar_exit_animation_pop_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": "$transition_time_pop",
+    "from": [0, 0], //8
+    "to": [0, -21], //-44
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end"
+  },
+
+  "menu_bar_entrance_animation_push_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": "$transition_time_push",
+    "from": [0, -21], //8
+    "to": [0, 0], //8
+    "play_event": "screen.entrance_push",
+    "end_event": "screen.entrance_end"
+  },
+
+  "menu_bar_entrance_animation_pop_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": "$transition_time_pop",
+    "from": [0, -21], //8
+    "to": [0, 0], //8
+    "play_event": "screen.entrance_pop",
+    "end_event": "screen.entrance_end"
+  },
+
+  "dock_exit_animation_push_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.25,
+    "from": [0, -2],
+    "to": [0, 42],
+    "play_event": "screen.exit_push",
+    "end_event": "screen.exit_end"
+  },
+
+  "dock_exit_animation_pop_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.25,
+    "from": [0, -2],
+    "to": [0, 42],
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end"
+  },
+
+  "dock_entrance_animation_push_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.5,
+    "from": [0, 42],
+    "to": [0, -2],
+    "play_event": "screen.entrance_push",
+    "end_event": "screen.entrance_end"
+  },
+
+  "dock_entrance_animation_pop_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.5,
+    "from": [0, 42],
+    "to": [0, -2],
+    "play_event": "screen.entrance_pop",
+    "end_event": "screen.entrance_end"
+  },
+
+  "anim_A": {
+    "anim_type": "offset",
+    "duration": 0.4,
+    "from": [0, 0],
+    "to": [0, -3],
+    "next": "@start_kit.anim_B"
+  },
+
+  "anim_B": {
+    "anim_type": "offset",
+    "duration": 0.2,
+    "from": [0, -3],
+    "to": [0, 0],
+    "next": "@start_kit.anim_A"
+  },
+
+  "menu_bar_panel": {
+    "type": "panel",
+    "layer": 100,
+    "size": ["100%", "16px"],
+    "controls": [
+      {
+        "bar_bg@screen_uikit.all_bg": {
+          "$all_bg_color": [0.85, 0.85, 0.85],
+          "$all_bg_alpha": 0.85
+        }
+      },
+      {
+        "content": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": ["100% - 4px", "100%"],
+          "controls": [
+            {
+              "menu_bar_object@menu_bar_object": {}
+            }
+          ]
+        }
+      },
+      {
+        "shadow_texture": {
+          "type": "image",
+          "layer": 2,
+          "nineslice_size": 20,
+          "base_size": [100, 100],
+          "texture": "textures/ui/window_shadow",
+          "size": ["100% + 20px", "100% + 20px"]
+        }
+      }
+    ]
+  },
+
+  "dockbar_button@common.button": {
+    "controls": [
+      { "default@start_kit.dockbar_button_panel": {} },
+      {
+        "hover@start_kit.dockbar_button_panel": {
+          "offset": "@start_kit.anim_A"
+        }
+      },
+      {
+        "pressed@start_kit.dockbar_button_panel": {
+          "offset": "@start_kit.anim_A"
+        }
+      }
+    ]
+  },
+
+  "dockbar_button_panel": {
+    "type": "image",
+    "texture": "$glyph_texture",
+    "size": ["100%", "100%"]
+  },
+
+  "start_screen_content": {
+    "type": "panel",
+    "controls": [
+      {
+        "menu_bar_panel_content@menu_bar_panel": {
+          "animation_reset_name": "screen_animation_reset",
+          "anims": [
+            "@start_kit.menu_bar_exit_animation_push_offset",
+            "@start_kit.menu_bar_exit_animation_pop_offset",
+            "@start_kit.menu_bar_entrance_animation_push_offset",
+            "@start_kit.menu_bar_entrance_animation_pop_offset"
+          ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle"
+        }
+      },
+      {
+        "dock_bar": {
+          "type": "panel",
+          "layer": 100,
+          "offset": [0, -2],
+          "animation_reset_name": "screen_animation_reset",
+          "anims": [
+            "@start_kit.dock_exit_animation_push_offset",
+            "@start_kit.dock_exit_animation_pop_offset",
+            "@start_kit.dock_entrance_animation_push_offset",
+            "@start_kit.dock_entrance_animation_pop_offset"
+          ],
+          "controls": [
+            {
+              "contents@dock_bar_panel": {}
+            }
+          ]
+        }
+      },
+      {
+        "slide_view@slide.slide_view": {
+          "size": ["100%", "50%"],
+          "offset": [0, -12.5]
+        }
+      }
+    ]
+  },
   "menu_bar_object": {
     "type": "stack_panel",
     "orientation": "horizontal",
@@ -101,6 +299,52 @@
         }
       },
       {
+        "padding_3": {
+          "type": "panel",
+          "size": [2, 0],
+          "bindings": [
+            {
+              "binding_name": "#feedback_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "player_name_panel": {
+          "type": "panel",
+          "size": ["100%c", "100%"],
+          "controls": [
+            {
+              "player_name": {
+                "type": "label",
+                "layer": 2,
+                "text": "#playername",
+                "color": "$title_color",
+                "size": ["default", 10],
+                "bindings": [
+                  {
+                    "binding_name": "#playername"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding_login_panel": {
+          "type": "panel",
+          "size": [1, "100%"],
+          "bindings": [
+            {
+              "binding_name": "#sign_in_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
         "login_panel": {
           "type": "panel",
           "size": ["100%c", "100%"],
@@ -108,6 +352,7 @@
             {
               "login_button@coin_purchase.cancel_button": {
                 "$button_text": "gui.login",
+                "offset": [0, 0],
                 "$default_text_color": "$title_color",
                 "$pressed_button_name": "button.signin",
                 "$focus_id": "menu_xbox_signin_button",
@@ -149,30 +394,22 @@
                   }
                 ],
                 "controls": [
-                  /*                  {
-                                        "gamerpic_frame": {
-                                            "type": "image",
-                                            "texture": "textures/ui/Frame",
-                                            "size": [ "100%", "100%" ]
-                                        }
-                                    },*/
                   {
                     "gamerpic_img": {
                       "type": "image",
-                      "size": [10, 9],
+                      "size": [10, 10],
                       "texture": "textures/ui/signing_icon",
-                      "color": "$title_color",
-                      "layer": 2 /*,
-                                            "bindings": [
-                                                {
-                                                    "binding_name": "#gamerpic_texture_path",
-                                                    "binding_name_override": "#texture"
-                                                },
-                                                {
-                                                    "binding_name": "#gamerpic_texture_location_type",
-                                                    "binding_name_override": "#texture_file_system"
-                                                }
-                                            ]*/
+                      "layer": 2,
+                      "bindings": [
+                        {
+                          "binding_name": "#gamerpic_texture_path",
+                          "binding_name_override": "#texture"
+                        },
+                        {
+                          "binding_name": "#gamerpic_texture_location_type",
+                          "binding_name_override": "#texture_file_system"
+                        }
+                      ]
                     }
                   }
                 ]
@@ -180,41 +417,8 @@
             }
           ]
         }
-      } /*
-            {
-                "padding_3": {
-                    "type": "panel",
-                    "size": [ 2, 0 ],
-                    "bindings": [
-                        {
-                            "binding_name": "#feedback_visible",
-                            "binding_name_override": "#visible"
-                        }
-                    ]
-                }
-            },
-            {
-                "player_name_panel": {
-                    "type": "panel",
-                    "size": [ "100%c", "100%" ],
-                    "controls": [
-                        {
-                            "player_name": {
-                                "type": "label",
-                                "layer": 2,
-                                "text": "#playername",
-                                "color": "$title_color",
-                                "size": [ "default", 10 ],
-                                "bindings": [
-                                    {
-                                        "binding_name": "#playername"
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }
-            },*/,
+      },
+
       {
         "padding_4": {
           "type": "panel",
@@ -368,296 +572,108 @@
       }
     ]
   },
-
-  "dock_exit_animation_push_offset": {
-    "anim_type": "offset",
-    "easing": "out_cubic",
-    "duration": 0.25,
-    "from": [0, -5],
-    "to": [0, 42],
-    "play_event": "screen.exit_push",
-    "end_event": "screen.exit_end"
-  },
-
-  "dock_exit_animation_pop_offset": {
-    "anim_type": "offset",
-    "easing": "out_cubic",
-    "duration": 0.25,
-    "from": [0, -5],
-    "to": [0, 42],
-    "play_event": "screen.exit_pop",
-    "end_event": "screen.exit_end"
-  },
-
-  "dock_entrance_animation_push_offset": {
-    "anim_type": "offset",
-    "easing": "out_cubic",
-    "duration": 0.5,
-    "from": [0, 42],
-    "to": [0, -5],
-    "play_event": "screen.entrance_push",
-    "end_event": "screen.entrance_end"
-  },
-
-  "dock_entrance_animation_pop_offset": {
-    "anim_type": "offset",
-    "easing": "out_cubic",
-    "duration": 0.5,
-    "from": [0, 42],
-    "to": [0, -5],
-    "play_event": "screen.entrance_pop",
-    "end_event": "screen.entrance_end"
-  },
-  "dockbar_button@common.button": {
-    "controls": [
-      { "default@start_kit.dockbar_button_panel": {} },
-      {
-        "hover@start_kit.dockbar_button_panel": {
-          "offset": "@start_kit.anim_A"
-        }
-      },
-      {
-        "pressed@start_kit.dockbar_button_panel": {
-          "offset": "@start_kit.anim_A"
-        }
-      }
-    ]
-  },
-  "anim_A": {
-    "anim_type": "offset",
-    "duration": 0.4,
-    "from": [0, 0],
-    "to": [0, -3],
-    "next": "@start_kit.anim_B"
-  },
-
-  "anim_B": {
-    "anim_type": "offset",
-    "duration": 0.2,
-    "from": [0, -3],
-    "to": [0, 0],
-    "next": "@start_kit.anim_A"
-  },
-  "dockbar_button_panel": {
+  "dock_bar_panel": {
     "type": "image",
-    "texture": "$glyph_texture",
-    "size": ["100%", "100%"]
-  },
-
-  "menu_bar_panel": {
-    "type": "panel",
-    "layer": 100,
-    "size": ["100%", "16px"],
-    "animation_reset_name": "screen_animation_reset",
-    "anims": [
-      "@start.menu_bar_exit_animation_push_offset",
-      "@start.menu_bar_exit_animation_pop_offset",
-      "@start.menu_bar_entrance_animation_push_offset",
-      "@start.menu_bar_entrance_animation_pop_offset"
-    ],
+    "layer": 2,
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "texture": "textures/ui/window_shadow",
+    "size": ["100%c + 20px", "100%c + 20px"],
     "controls": [
       {
-        "bar_bg@screen_uikit.all_bg": {
-          "$all_bg_color": [0.85, 0.85, 0.85],
-          "$all_bg_alpha": 0.85
-        }
-      },
-      {
-        "content": {
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "size": ["100% - 4px", "100%"],
-          "controls": [
-            {
-              "menu_bar_object@menu_bar_object": {}
-            }
-          ]
-        }
-      },
-      {
-        "shadow_texture": {
+        "frame": {
           "type": "image",
-          "layer": 2,
-          "nineslice_size": 20,
-          "base_size": [100, 100],
-          "texture": "textures/ui/window_shadow",
-          "size": ["100% + 20px", "100% + 20px"]
-        }
-      }
-    ]
-  },
-
-  "menu_bar_exit_animation_push_offset": {
-    "anim_type": "offset",
-    "easing": "out_cubic",
-    "duration": "$transition_time_push",
-    "from": [0, 0], //8
-    "to": [0, -21], //-44
-    "play_event": "screen.exit_push",
-    "end_event": "screen.exit_end"
-  },
-
-  "menu_bar_exit_animation_pop_offset": {
-    "anim_type": "offset",
-    "easing": "out_cubic",
-    "duration": "$transition_time_pop",
-    "from": [0, 0], //8
-    "to": [0, -21], //-44
-    "play_event": "screen.exit_pop",
-    "end_event": "screen.exit_end"
-  },
-
-  "menu_bar_entrance_animation_push_offset": {
-    "anim_type": "offset",
-    "easing": "out_cubic",
-    "duration": "$transition_time_push",
-    "from": [0, -21], //8
-    "to": [0, 0], //8
-    "play_event": "screen.entrance_push",
-    "end_event": "screen.entrance_end"
-  },
-
-  "menu_bar_entrance_animation_pop_offset": {
-    "anim_type": "offset",
-    "easing": "out_cubic",
-    "duration": "$transition_time_pop",
-    "from": [0, -21], //8
-    "to": [0, 0], //8
-    "play_event": "screen.entrance_pop",
-    "end_event": "screen.entrance_end"
-  },
-  "start_screen_content": {
-    "type": "panel",
-
-    "controls": [
-      {
-        "menu_bar_panel_content@menu_bar_panel": {
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle"
-        }
-      },
-      {
-        "dock_bar": {
-          "type": "panel",
-          "layer": 100,
-          "offset": [0, -2],
-          "animation_reset_name": "screen_animation_reset",
-          "anims": [
-            "@dock_exit_animation_push_offset",
-            "@dock_exit_animation_pop_offset",
-            "@dock_entrance_animation_push_offset",
-            "@dock_entrance_animation_pop_offset"
-          ],
+          "texture": "textures/ui/Frame",
+          "size": ["100%c + 2px", "100%c + 2px"],
           "controls": [
             {
-              "shadow_texture": {
+              "dock_background": {
                 "type": "image",
-                "layer": 2,
-                "anchor_from": "bottom_middle",
-                "anchor_to": "bottom_middle",
-                "texture": "textures/ui/window_shadow",
-                "size": ["100%c + 20px", "100%c + 20px"],
+                "texture": "textures/ui/bg",
+                "color": [0.6, 0.6, 0.6],
+                "alpha": 0.9,
+                "size": [161, 37],
                 "controls": [
                   {
-                    "frame": {
-                      "type": "image",
-                      "texture": "textures/ui/Frame",
-                      "size": ["100%c + 2px", "100%c + 2px"],
+                    "stacked_row": {
+                      "type": "stack_panel",
+                      "orientation": "horizontal",
+                      "size": ["100%", 25],
                       "controls": [
                         {
-                          "dock_background": {
-                            "type": "image",
-                            "texture": "textures/ui/bg",
-                            "color": [0.6, 0.6, 0.6],
-                            "alpha": 0.9,
-                            "size": [161, 37],
-                            "controls": [
-                              {
-                                "stacked_row": {
-                                  "type": "stack_panel",
-                                  "orientation": "horizontal",
-                                  "size": ["100%", 25],
-                                  "controls": [
-                                    {
-                                      "action_button_spacer_0": {
-                                        "type": "panel",
-                                        "size": [6, 0]
-                                      }
-                                    },
-                                    {
-                                      "settings_button@start_kit.dockbar_button": {
-                                        "$pressed_button_name": "button.menu_settings",
-                                        "$button_name": "menu.settings",
-                                        "size": [25, 25],
-                                        "$glyph_texture": "textures/dock_icon/settings_icon"
-                                      }
-                                    },
-                                    {
-                                      "action_button_spacer_1": {
-                                        "type": "panel",
-                                        "size": [6, 0]
-                                      }
-                                    },
-                                    {
-                                      "achievements_button@start_kit.dockbar_button": {
-                                        "$pressed_button_name": "button.menu_achievements",
-                                        "$button_name": "menu.settings",
-                                        "size": [25, 25],
-                                        "$glyph_texture": "textures/dock_icon/achievements_icon"
-                                      }
-                                    },
-                                    {
-                                      "action_button_spacer_2": {
-                                        "type": "panel",
-                                        "size": [6, 0]
-                                      }
-                                    },
-                                    {
-                                      "play_button@start_kit.dockbar_button": {
-                                        "$pressed_button_name": "button.menu_play",
-                                        "$button_name": "menu.settings",
-                                        "size": [25, 25],
-                                        "$glyph_texture": "textures/dock_icon/play_icon"
-                                      }
-                                    },
-                                    {
-                                      "action_button_spacer_3": {
-                                        "type": "panel",
-                                        "size": [6, 0]
-                                      }
-                                    },
-                                    {
-                                      "skin_button@start_kit.dockbar_button": {
-                                        "$pressed_button_name": "button.menu_skins",
-                                        "$button_name": "menu.settings",
-                                        "size": [25, 25],
-                                        "$glyph_texture": "textures/dock_icon/skin_icon"
-                                      }
-                                    },
-                                    {
-                                      "action_button_spacer_4": {
-                                        "type": "panel",
-                                        "size": [6, 0]
-                                      }
-                                    },
-                                    {
-                                      "store_button@start_kit.dockbar_button": {
-                                        "$pressed_button_name": "button.menu_store",
-                                        "$button_name": "menu.settings",
-                                        "size": [25, 25],
-                                        "$glyph_texture": "textures/dock_icon/store_icon"
-                                      }
-                                    },
-                                    {
-                                      "action_button_spacer_9": {
-                                        "type": "panel",
-                                        "size": [6, 0]
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            ]
+                          "action_button_spacer_0": {
+                            "type": "panel",
+                            "size": [6, 0]
+                          }
+                        },
+                        {
+                          "settings_button@start_kit.dockbar_button": {
+                            "$pressed_button_name": "button.menu_settings",
+                            "$button_name": "menu.settings",
+                            "size": [25, 25],
+                            "$glyph_texture": "textures/dock_icon/settings_icon"
+                          }
+                        },
+                        {
+                          "action_button_spacer_1": {
+                            "type": "panel",
+                            "size": [6, 0]
+                          }
+                        },
+                        {
+                          "achievements_button@start_kit.dockbar_button": {
+                            "$pressed_button_name": "button.menu_achievements",
+                            "$button_name": "menu.settings",
+                            "size": [25, 25],
+                            "$glyph_texture": "textures/dock_icon/achievements_icon"
+                          }
+                        },
+                        {
+                          "action_button_spacer_2": {
+                            "type": "panel",
+                            "size": [6, 0]
+                          }
+                        },
+                        {
+                          "play_button@start_kit.dockbar_button": {
+                            "$pressed_button_name": "button.menu_play",
+                            "$button_name": "menu.settings",
+                            "size": [25, 25],
+                            "$glyph_texture": "textures/dock_icon/play_icon"
+                          }
+                        },
+                        {
+                          "action_button_spacer_3": {
+                            "type": "panel",
+                            "size": [6, 0]
+                          }
+                        },
+                        {
+                          "skin_button@start_kit.dockbar_button": {
+                            "$pressed_button_name": "button.menu_skins",
+                            "$button_name": "menu.settings",
+                            "size": [25, 25],
+                            "$glyph_texture": "textures/dock_icon/skin_icon"
+                          }
+                        },
+                        {
+                          "action_button_spacer_4": {
+                            "type": "panel",
+                            "size": [6, 0]
+                          }
+                        },
+                        {
+                          "store_button@start_kit.dockbar_button": {
+                            "$pressed_button_name": "button.menu_store",
+                            "$button_name": "menu.settings",
+                            "size": [25, 25],
+                            "$glyph_texture": "textures/dock_icon/store_icon"
+                          }
+                        },
+                        {
+                          "action_button_spacer_9": {
+                            "type": "panel",
+                            "size": [6, 0]
                           }
                         }
                       ]
@@ -667,12 +683,6 @@
               }
             }
           ]
-        }
-      },
-      {
-        "slide_view@slide.slide_view": {
-          "size": ["100%", "50%"],
-          "offset": [0, -12.5]
         }
       }
     ]

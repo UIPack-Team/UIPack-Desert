@@ -22,6 +22,7 @@
       {
         "common_panel@screen_uikit.uikit_screen": {
           "anims": ["@worldtemplates_uikit.anim_0"],
+          "animation_reset_name": "screen_animation_reset",
           "$screen_type": "screen_uikit.include_cards_screen",
           "$card_screen": "worldtemplates_uikit.world_templates_picker_panel",
           "$modern_screen_size": [424, 192],
@@ -33,6 +34,7 @@
       {
         "all_bg": {
           "type": "image",
+          "animation_reset_name": "screen_animation_reset",
           "anims": [
             "@common.screen_exit_animation_push_alpha",
             "@common.screen_exit_animation_pop_alpha",
