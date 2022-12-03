@@ -23,11 +23,11 @@
     "$text_box_enabled_binding_name|default": "#text_box_enabled",
     "$text_edit_box_enabled_binding_type|default": "global",
     "$text_edit_box_grid_collection_name|default": "",
-    "$text_edit_clipping_panel_size|default": [ "100%", "100%" ],
-    "$text_edit_box_label_size|default": [ "default", "default" ],
+    "$text_edit_clipping_panel_size|default": ["100%", "100%"],
+    "$text_edit_box_label_size|default": ["default", "default"],
     "$text_edit_box_label_anchor_point|default": "right_middle",
-    "$text_edit_box_label_min_size|default": [ "100%", 0 ],
-    "$text_edit_box_label_offset|default": [ 0, 0 ],
+    "$text_edit_box_label_min_size|default": ["100%", 0],
+    "$text_edit_box_label_offset|default": [0, 0],
 
     "text_box_name": "$text_box_name",
     "text_edit_box_grid_collection_name": "$text_edit_box_grid_collection_name",
@@ -82,10 +82,8 @@
     "max_length": 14,
     "$text_edit_box_text_type|default": "ExtendedASCII",
     "text_type": "$text_edit_box_text_type",
-    "$edit_box_default|default":
-"common.edit_box_default",
-    "$edit_box_hover|default":
-"common.edit_box_hover",
+    "$edit_box_default|default": "common.edit_box_default",
+    "$edit_box_hover|default": "common.edit_box_hover",
     "$text_edit_text_control|default": "display_text",
     "text_control": "$text_edit_text_control",
     "place_holder_control": "place_holder_control",
@@ -152,16 +150,16 @@
 
     "$shadow": false,
     "$font_size": "normal",
-    "$color|default": [ 1, 1, 1, 1 ],
+    "$color|default": [1, 1, 1, 1],
     "$alpha|default": 1.0,
     "$disabled_alpha|default": 0.5,
-    "$text_offset|default": [ 0, 0 ],
+    "$text_offset|default": [0, 0],
 
     "controls": [
       {
         "centering_panel": {
           "type": "panel",
-          "size": [ "100% - 6px", "100% - 4px" ],
+          "size": ["100% - 6px", "100% - 4px"],
           "controls": [
             {
               "clipper_panel": {
@@ -246,7 +244,7 @@
   "edit_box_default@common.edit_box_indent": {
     "texture": "textures/ui/buttons/textbox_default"
   },
-  
+
   "edit_box_hover@common.edit_box_indent": {
     "texture": "textures/ui/buttons/textbox_hover"
   },
@@ -330,5 +328,8 @@
     "to": [0, 0],
     "play_event": "screen.entrance_pop",
     "end_event": "screen.entrance_end"
+  },
+  "dropdown/$dropdown_name": {
+    "dropdown_area": ""
   }
 }

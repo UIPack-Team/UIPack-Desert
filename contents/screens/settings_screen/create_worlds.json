@@ -33,12 +33,110 @@
     }
   },
   "create_random_worlds_contents@modern_settings.default_settings_screen": {
+    "$left_title": "modern_create_worlds.create_title",
     "$uipack_is_world_edit": true,
     "$screen_type": "screen_uikit.include_menu_screen"
   },
   "create_worlds_from_templates_contents@modern_settings.default_settings_screen": {
     "$uipack_is_world_edit": true,
     "$screen_type": "screen_uikit.include_menu_screen"
+  },
+
+  "create_title": {
+    "type": "stack_panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [200, 20],
+    "offset": [2, 6],
+    "controls": [
+      {
+        "button": {
+          "type": "panel",
+          "size": [16, 10],
+          "controls": [
+            {
+              "button": {
+                "type": "image",
+                "offset": [-2, -4],
+                "size": [8, 8],
+                "texture": "textures/ui/ui_exit_button"
+              }
+            },
+            {
+              "border": {
+                "type": "image",
+                "offset": [-2, -4],
+                "size": [8, 8],
+                "texture": "textures/ui/ui_exit_focus_border",
+                "color": [0, 0, 0]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "line_two": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [127, 12],
+          "controls": [
+            {
+              "padding": { "type": "panel", "size": [2, 0] }
+            },
+            {
+              "create_title": {
+                "type": "label",
+                "layer": 2,
+                "font_scale_factor": 1.4,
+                "color": "white",
+                "text": "ui_kit.NewWorld",
+                "size": ["default", 12]
+              }
+            },
+            {
+              "padding2": {
+                "type": "panel",
+                "size": ["fill", 0]
+              }
+            },
+            {
+              "panel_1": {
+                "type": "panel",
+                "size": [32, 40],
+                "controls": [
+                  {
+                    "level_texture_pack_button@ui.Snowfirewolf_toggle_button": {
+                      "offset": [0, -15],
+                      "size": [30, 30],
+                      "$button_content": "modern_settings.re_icon",
+                      "$toggle_view_binding_name": "level_texture_pack_button_toggle",
+                      "$toggle_group_forced_index": "$level_texture_pack_toggle_index"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "panel_2": {
+                "type": "panel",
+                "size": [32, 40],
+                "controls": [
+                  {
+                    "addon_button@ui.Snowfirewolf_toggle_button": {
+                      "offset": [0, -15],
+                      "size": [30, 30],
+                      "$button_content": "modern_settings.be_icon",
+                      "$toggle_view_binding_name": "addon_button_toggle",
+                      "$toggle_group_forced_index": "$addon_toggle_index"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
 
   "两栏文本": {
@@ -645,56 +743,6 @@
         }
       },
       {
-        "selector_group_label_2@settings_common.selector_group_label": {
-          "text": "options.category.addons"
-        }
-      },
-      {
-        "addons_textures": {
-          "type": "stack_panel",
-          "size": ["100%", 32],
-          "orientation": "horizontal",
-          "controls": [
-            {
-              "1": {
-                "type": "panel",
-                "size": ["50%", 30],
-                "controls": [
-                  {
-                    "level_texture_pack_button@ui.Snowfirewolf_toggle_button": {
-                      "$toggle_view_binding_name": "level_texture_pack_button_toggle",
-                      "$button_text": "Resources Pack",
-                      "$toggle_group_forced_index": "$level_texture_pack_toggle_index"
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "padding": {
-                "type": "panel",
-                "size": [2, 0]
-              }
-            },
-            {
-              "2": {
-                "type": "panel",
-                "size": ["50%", 30],
-                "controls": [
-                  {
-                    "addon_button@ui.Snowfirewolf_toggle_button": {
-                      "$toggle_view_binding_name": "addon_button_toggle",
-                      "$button_text": "Behaviors Pack",
-                      "$toggle_group_forced_index": "$addon_toggle_index"
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
         "editLocal": {
           "type": "label",
           "ignored": "(not $is_world_edit)",
@@ -1052,47 +1100,6 @@
             {
               "binding_name": "#experimental_toggle_count",
               "binding_name_override": "#collection_length"
-            }
-          ]
-        }
-      },
-      {
-        "flat_nether_toggle@screen_uikit.option_toggle": {
-          "$option_label": "下界超平坦",
-          "$option_binding_name": "#flat_nether",
-          "$option_enabled_binding_name": "#flat_nether_enabled",
-          "$toggle_name": "flat_nether"
-        }
-      },
-      {
-        "spawn_dimension_dropdown": {
-          "type": "stack_panel",
-          "ignored": "$is_world_edit",
-          "size": ["100%", 44],
-          "orientation": "horizontal",
-          "controls": [
-            {
-              "1": {
-                "type": "panel",
-                "size": ["100%-2px", 30],
-                "$option_label": "出生点维度",
-                "controls": [
-                  {
-                    "创造@screen_uikit.inside_dropdown": {
-                      "$toggle_name": "#debug_spawn_in_overworld",
-                      "$button_text": "Nether",
-                      "$toggle_required": "#debug_spawn_in_nether"
-                    }
-                  },
-                  {
-                    "生存@screen_uikit.inside_dropdown": {
-                      "$toggle_name": "#debug_spawn_in_nether",
-                      "$button_text": "Overworld",
-                      "$toggle_required": "#debug_spawn_in_overworld"
-                    }
-                  }
-                ]
-              }
             }
           ]
         }

@@ -36,9 +36,12 @@ ui.done_button=§l完成
 ui.exit_button=§l離開
 ui_exit_button.tips=按下離開
 
-options.turnOffAchievements=关闭成就？	#
-options.activateExperimentalGameplay=开启实验性玩法？	#
-options.unlockTemplateWorldOptions=解锁作者的设置？	#
-createWorldScreen.delete.confirm=永久删除世界？	#
-createWorldScreen.clearPlayerData.title=从世界清除玩家数据？	#
-resourcePack.warning.title=这很危险！	#
+options.turnOffAchievements=关闭成就？
+options.activateExperimentalGameplay=开启实验性玩法？
+options.unlockTemplateWorldOptions=解锁作者的设置？
+createWorldScreen.delete.confirm=永久删除世界？
+createWorldScreen.clearPlayerData.title=从世界清除玩家数据？
+resourcePack.warning.title=这很危险！
+
+ui_kit.NewWorld=创建世界
+/可加入的玩家来源/=/可加入的玩家来源/

@@ -669,8 +669,8 @@
     "controls": [
       {
         "game_button@modern_edit_worlds.test": {
-          "anchor_from":"bottom_middle",
-          "anchor_to":"bottom_middle"
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle"
         }
       }
     ]
@@ -723,14 +723,14 @@
   "default_settings_screen": {
     "type": "panel",
     "$back_content": "screen_uikit.menu_back_button_content",
-    "$screen_type|default":"screen_uikit.include_small_tabs_screen",
+    "$screen_type|default": "screen_uikit.include_small_tabs_screen",
     "controls": [
       {
         "common_panel": {
           "type": "panel",
           "$modern_screen_size": [370, 260],
           //Colors
-          "$right_side_title": "World Settings",
+
           "$title_bar_color1": [0.9, 0.9, 0.9, 1],
           "$title_bar_color2": [0.8, 0.8, 0.8, 1],
           "$title_color": [0.3, 0.3, 0.3],
@@ -742,7 +742,6 @@
             {
               "screen_5@$screen_type": {
                 "layer": 1,
-
                 "size": "$modern_screen_size"
               }
             },
@@ -765,9 +764,12 @@
             }
           ],
           // "offset": [0, -30],
-          "$left_screen": "modern_settings.selector_area",
-          "$right_screen": "modern_settings.contents_area"
+          "$left_screen|default": "modern_settings.selector_area",
+          "$right_screen|default": "modern_settings.contents_area"
         }
+      },
+      {
+        "back@screen_uikit.bgback": {}
       }
     ]
   },
@@ -797,6 +799,56 @@
           "$scroll_size": ["5px", "100%"],
           "$scroll_bar_left_padding_size": [1, 0]
         }
+      }
+    ]
+  },
+
+  "re_icon": {
+    "type": "image",
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "$icon_collection_name": "none",
+    "layer": 3,
+    "bindings": [
+      {
+        "binding_name": "#cycling_icon_path_level",
+        "binding_name_override": "#texture",
+        "binding_condition": "always"
+      },
+      {
+        "binding_name": "#cycling_icon_zip_level",
+        "binding_name_override": "#zip_folder",
+        "binding_condition": "always"
+      },
+      {
+        "binding_name": "#cycling_icon_file_system_level",
+        "binding_name_override": "#texture_file_system",
+        "binding_condition": "always"
+      }
+    ]
+  },
+
+  "be_icon": {
+    "type": "image",
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "$icon_collection_name": "none",
+    "layer": 3,
+    "bindings": [
+      {
+        "binding_name": "#cycling_icon_path_addon",
+        "binding_name_override": "#texture",
+        "binding_condition": "always"
+      },
+      {
+        "binding_name": "#cycling_icon_zip_addon",
+        "binding_name_override": "#zip_folder",
+        "binding_condition": "always"
+      },
+      {
+        "binding_name": "#cycling_icon_file_system_addon",
+        "binding_name_override": "#texture_file_system",
+        "binding_condition": "always"
       }
     ]
   },

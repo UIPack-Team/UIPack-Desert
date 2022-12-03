@@ -1,8 +1,27 @@
 {
   "namespace": "modern_edit_worlds",
   "edit_worlds_contents@modern_settings.default_settings_screen": {
+    "$left_title":"modern_edit_worlds.edit_title",
     "$uipack_is_world_edit": false,
     "$screen_type": "screen_uikit.include_menu_screen"
+  },
+
+  "edit_title": {
+    "type": "label",
+    "layer": 2,
+    "font_scale_factor": 1.5,
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [2, 19],
+    "color": "white",
+    "text": "#world_name",
+    "size": ["default", "default"],
+    "max_size": ["100% - 4px", 15],
+    "bindings": [
+      {
+        "binding_name": "#world_name"
+      }
+    ]
   },
 
   "test": {
