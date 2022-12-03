@@ -272,6 +272,7 @@
     "$text_background_locked": "common.empty_panel"
   },
   "standard_scrolling@common.scrolling_panel": {
+    "$show_background":false,
     "controls": [
       {
         "$scroll_view_name": {

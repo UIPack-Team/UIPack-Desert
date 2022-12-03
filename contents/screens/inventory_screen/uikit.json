@@ -127,74 +127,60 @@
       }
     ]
   },
-  "one_grid_content_stack_panel": {
-    "type": "stack_panel",
-    "size": [180, 18],
-    "orientation": "horizontal",
-    "$content_tab_content_2|default": "inventory_uikit.one_grid_tab_content",
-    "controls": [
-      {
-        "0@$content_tab_content_2": {
-          "layer": 3,
-          "size": [36, 18],
-          "$scrolling_pane_control": "$grid_1"
-        }
-      },
-      {
-        "empty": {
-          "type": "panel",
-          "size": [-5, 0]
-        }
-      },
-      {
-        "1@a_grid": { "$content_recipe_book_scroll_panel": "$grid_2" }
-      },
-      {
-        "2@a_grid": { "$content_recipe_book_scroll_panel": "$grid_3" }
-      },
-      {
-        "3@a_grid": { "$content_recipe_book_scroll_panel": "$grid_4" }
-      },
-      {
-        "4@a_grid": { "$content_recipe_book_scroll_panel": "$grid_5" }
-      },
-      {
-        "5@a_grid": { "$content_recipe_book_scroll_panel": "$grid_6" }
-      },
-      {
-        "6@a_grid": { "$content_recipe_book_scroll_panel": "$grid_7" }
-      },
-      {
-        "7@a_grid": { "$content_recipe_book_scroll_panel": "$grid_8" }
-      },
-      {
-        "8@a_grid": { "$content_recipe_book_scroll_panel": "$grid_9" }
-      }
-    ]
+
+  "grid_padding": {
+    "type": "panel",
+    "size": "$padding_size"
   },
-  "a_grid": {
-    "type": "stack_panel",
-    "orientation": "horizontal",
-    "size": [18, 18],
+  "一行@screen_uikit.standard_scrolling": {
+    "type": "input_panel",
+    "size": ["100%", "100%"],
+    "$scrolling_content": "$line_contents",
+    "$collection_name": "recipe_book"
+  },
+  "一格的grid@十格的grid": {
+    "size": [18, "100%c"]
+  },
+  "两格的grid@十格的grid": {
+    "size": [36, "100%c"]
+  },
+  "五格的grid@十格的grid": {
+    "size": [90, "100%c"]
+  },
+  "六格的grid@十格的grid": {
+    "size": [108, "100%c"]
+  },
+  "十格的grid@world_templates.common_scroll_pane": {
+    "offset": "$magic_offset",
+    "size": [180, "100%c"],
     "controls": [
       {
-        "empty": {
-          "type": "panel",
-          "size": [-13, 0]
-        }
-      },
-      {
-        "2@$content_tab_content_2": {
-          "layer": 2,
-          "size": [36, 18],
-          "$scrolling_pane_control": "$content_recipe_book_scroll_panel"
+        "grid@crafting.scroll_grid": {
+          "$grid_item_template|default": "inventory_controls.grid_item_for_recipe_book"
         }
       }
     ]
   },
-  "one_grid_tab_content": {
+  "一格标准@inventory_uikit.标准的标准": {
+    "$line_contents": "inventory_uikit.一格的grid"
+  },
+  "两格标准@inventory_uikit.标准的标准": {
+    "$line_contents": "inventory_uikit.两格的grid"
+  },
+  "五格标准@inventory_uikit.标准的标准": {
+    "$line_contents": "inventory_uikit.五格的grid"
+  },
+  "六格标准@inventory_uikit.标准的标准": {
+    "$line_contents": "inventory_uikit.六格的grid"
+  },
+  "十格标准@inventory_uikit.标准的标准": {
+    "$line_contents": "inventory_uikit.十格的grid"
+  },
+  "标准的标准": {
     "type": "panel",
     "layer": 1,
+    "$scrolling_pane_control": "inventory_uikit.一行",
+    "$magic_offset|default": [-108, -774],
     "controls": [
       {
         "tab_content_search_bar_panel": {
@@ -205,172 +191,7 @@
           "controls": [
             {
               "scroll_pane@$scrolling_pane_control": {
-                "size": ["100%", 20] //决定网格大小
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-  "scroll_track": {
-    "type": "image",
-    "layer": 0,
-    "offset": [0, -3.5],
-    "size": ["100%", "100%-9px"],
-    "texture": "textures/ui/cell_image"
-  },
-  "scroll_box": {
-    "type": "image",
-    "size": ["100%", "100% - 10px"],
-    "texture": "textures/ui/ScrollBox"
-  },
-
-  "grids_scrolling_panel@common.scrolling_panel": {
-    "controls": [
-      {
-        "$scroll_view_name@common.scroll_view_control": {
-          "type": "scroll_view",
-          "scroll_speed": 15,
-          "scrollbar_track_button": "button.scrollbar_skip_track",
-          "scrollbar_touch_button": "button.scrollbar_touch",
-          "touch_mode": "$use_touch_mode",
-          "always_listen_to_input": true,
-          "always_handle_pointer": true,
-          "$always_handle_scrolling|default": false,
-          "always_handle_scrolling": "$always_handle_scrolling",
-          "scrollbar_track": "track",
-          "scrollbar_box": "box",
-          "scroll_content": "scrolling_content",
-          "scroll_view_port": "scrolling_view_port",
-          "scroll_box_and_track_panel": "bar_and_track",
-          "$jump_to_bottom_on_update|default": false,
-          "jump_to_bottom_on_update": "$jump_to_bottom_on_update",
-          "$scroll_background_image_control|default": "common.scroll_indent_image",
-          "$scroll_track_image_control|default": "common.scroll_indent_image",
-          "button_mappings": []
-        }
-      }
-    ]
-  },
-
-  "inventory_scrolling_panel@common.scrolling_panel": {
-    "layer": 1,
-    "$show_background": false,
-    "$scroll_size": [14, "100%"],
-    "$scroll_track_image_control": "inventory_uikit.scroll_track",
-    "$scroll_box_mouse_image_control": "inventory_uikit.scroll_box",
-    "$scroll_view_port_size|default": ["100% - 8px", "100% -2px"],
-    "$scroll_view_port_size_touch|default": ["100% - 4px", "100% - 2px"],
-    "controls": [
-      {
-        "$scroll_view_name@common.scroll_view_control": {
-          "type": "scroll_view",
-          "scroll_speed": 15,
-          "scrollbar_track_button": "button.scrollbar_skip_track",
-          "scrollbar_touch_button": "button.scrollbar_touch",
-          "touch_mode": "$use_touch_mode",
-          "always_listen_to_input": true,
-          "always_handle_pointer": true,
-          "$always_handle_scrolling|default": false,
-          "always_handle_scrolling": "$always_handle_scrolling",
-          "scrollbar_track": "track",
-          "scrollbar_box": "box",
-          "scroll_content": "scrolling_content",
-          "scroll_view_port": "scrolling_view_port",
-          "scroll_box_and_track_panel": "bar_and_track",
-          "$jump_to_bottom_on_update|default": false,
-          "jump_to_bottom_on_update": "$jump_to_bottom_on_update",
-          "$scroll_background_image_control|default": "common.scroll_indent_image",
-          "$scroll_track_image_control|default": "common.scroll_indent_image",
-          "button_mappings": []
-        }
-      }
-    ]
-  },
-  "scroll_bar_and_track": {
-    "type": "panel",
-    "size": ["100%c", "100%"],
-    "clips_children": true,
-    "anchor_from": "right_middle",
-    "anchor_to": "right_middle",
-
-    "controls": [
-      {
-        "stack_panel": {
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "size": ["default", "100%"],
-          "controls": [
-            {
-              "panel": {
-                "type": "panel",
-                "size": ["100%c", "100%"],
-
-                "controls": [
-                  {
-                    "centered_panel": {
-                      "type": "panel",
-                      "size": "$scroll_size",
-                      "$scroll_track_anchor|default": "center",
-                      "anchor_from": "$scroll_track_anchor",
-                      "anchor_to": "$scroll_track_anchor",
-                      "$scroll_track_offset|default": [0, 0],
-                      "offset": "$scroll_track_offset",
-                      "controls": [
-                        {
-                          "track@common.scrollbar_track": {
-                            "layer": 2,
-                            "anchor_from": "center",
-                            "anchor_to": "center"
-                          }
-                        },
-                        {
-                          "scroll_box": {
-                            "layer": 5,
-                            "anchor_from": "center",
-                            "anchor_to": "center",
-                            "type": "panel",
-                            "controls": [
-                              {
-                                "box": {
-                                  "type": "scrollbar_box",
-                                  "anchor_to": "top_left",
-                                  "anchor_from": "top_left",
-                                  "layer": 1,
-                                  "visible": "$scroll_box_visible",
-                                  "contained": true,
-                                  "draggable": "vertical",
-
-                                  "$scroll_box_mouse_image_control|default": "common.scrollbar_box_image",
-                                  "$scroll_box_touch_image_control|default": "common.touch_scrollbar_box_image",
-
-                                  "button_mappings": [
-                                    {
-                                      "from_button_id": "button.menu_select",
-                                      "to_button_id": "button.menu_select",
-                                      "mapping_type": "pressed",
-                                      "button_up_right_of_first_refusal": true
-                                    }
-                                  ],
-                                  "controls": [
-                                    {
-                                      "mouse_box@$scroll_box_mouse_image_control": {
-                                        //"ignored": "$touch"
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
+                "size": ["100%", 18] //决定网格大小
               }
             }
           ]

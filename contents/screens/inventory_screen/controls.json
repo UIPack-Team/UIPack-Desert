@@ -99,10 +99,62 @@
               }
             },
             {
-              "功能方块@top_tab": {
+              "功能方块2@top_tab": {
                 "$tab_icon": "common.empty_panel",
                 "$tab_view_binding_name": "tab_4",
                 "$toggle_group_forced_index": 24
+              }
+            },
+            {
+              "space_22": {
+                "type": "panel",
+                "size": [1.5, 0]
+              }
+            },
+            {
+              "功能方4块2@top_tab": {
+                "$tab_icon": "common.empty_panel",
+                "$tab_view_binding_name": "tab_5",
+                "$toggle_group_forced_index": 25
+              }
+            },
+            {
+              "spa5ce_2": {
+                "type": "panel",
+                "size": [1.5, 0]
+              }
+            },
+            {
+              "功能456方块@top_tab": {
+                "$tab_icon": "common.empty_panel",
+                "$tab_view_binding_name": "tab_6",
+                "$toggle_group_forced_index": 26
+              }
+            },
+            {
+              "spa475ce_2": {
+                "type": "panel",
+                "size": [1.5, 0]
+              }
+            },
+            {
+              "功45能方块@top_tab": {
+                "$tab_icon": "common.empty_panel",
+                "$tab_view_binding_name": "tab_7",
+                "$toggle_group_forced_index": 27
+              }
+            },
+            {
+              "spa465ce_2": {
+                "type": "panel",
+                "size": [1.5, 0]
+              }
+            },
+            {
+              "功能方75块@top_tab": {
+                "$tab_icon": "common.empty_panel",
+                "$tab_view_binding_name": "tab_8",
+                "$toggle_group_forced_index": 28
               }
             }
           ]
@@ -152,12 +204,75 @@
               }
             },
             {
-              "修改过的scrolling@inventory_uikit.inventory_scrolling_panel": {
-                "size": [190, 117],
+              "修改过的scrolling@screen_uikit.standard_scrolling": {
+                "size": [196, 117],
                 "anchor_from": "center",
                 "anchor_to": "center",
-                "offset": [-3, -7],
+                "offset": [1, -5],
                 "$scrolling_content": "inventory_controls.construction"
+              }
+            },
+            {
+              "修改过的scrolling2@screen_uikit.standard_scrolling": {
+                "size": [196, 117],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "offset": [1, -5],
+                "$scrolling_content": "inventory_controls.tools"
+              }
+            },
+            {
+              "修改过4的scrolling2@screen_uikit.standard_scrolling": {
+                "size": [196, 117],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "offset": [1, -5],
+                "$scrolling_content": "inventory_controls.4"
+              }
+            },
+            {
+              "修改5过的scrolling2@screen_uikit.standard_scrolling": {
+                "size": [196, 117],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "offset": [1, -5],
+                "$scrolling_content": "inventory_controls.5"
+              }
+            },
+            {
+              "6@screen_uikit.standard_scrolling": {
+                "size": [196, 117],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "offset": [1, -5],
+                "$scrolling_content": "inventory_controls.6"
+              }
+            },
+            {
+              "修改7过的scrolling2@screen_uikit.standard_scrolling": {
+                "size": [196, 117],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "offset": [1, -5],
+                "$scrolling_content": "inventory_controls.7"
+              }
+            },
+            {
+              "修改8过的scrolling2@screen_uikit.standard_scrolling": {
+                "size": [196, 117],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "offset": [1, -5],
+                "$scrolling_content": "inventory_controls.8"
+              }
+            },
+            {
+              "修改过9的scrolling2@screen_uikit.standard_scrolling": {
+                "size": [196, 117],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "offset": [1, -5],
+                "$scrolling_content": "inventory_controls.9"
               }
             },
             {
@@ -167,11 +282,43 @@
                 "controls": [
                   {
                     "hotbar_grid@common.hotbar_grid_template": {
-                      "offset": [-9, 62.5],
+                      "offset": [-10, 62.5],
                       "anchor_from": "center",
                       "anchor_to": "center",
 
                       "$button_ref": "crafting.creative_hotbar_container_slot_button"
+                    }
+                  },
+                  {
+                    "delete@common.button": {
+                      "size": [18, 18],
+                      "offset": [80, 62.5],
+                      "layer": 10,
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "default_control": "a",
+                      "hover_control": "a",
+                      "pressed_control": "a",
+                      "$pressed_button_name": "button.destroy_selection",
+                      "controls": [
+                        { "a@common.empty_panel": {} },
+                        {
+                          "x": {
+                            "type": "image",
+                            "texture": "textures/ui/trash_light",
+                            "color": "white",
+                            "layer": 2,
+                            "size": ["default", 12]
+                          }
+                        },
+                        {
+                          "bg": {
+                            "type": "image",
+                            "texture": "textures/ui/cell_image",
+                            "size": ["100%", "100%"]
+                          }
+                        }
+                      ]
                     }
                   }
                 ]
@@ -182,775 +329,420 @@
       }
     ]
   },
+
   "construction@inventory_uikit.common_panel": {
     "type": "stack_panel",
-    "size": [185.5, 360],
+    "size": [195, 360],
     "$toggle_target": "tab_1",
     "controls": [
       {
-        "line_1@inventory_uikit.one_grid_content_stack_panel": {
-          "$grid_1": "inventory_controls.cell_grid_1_panel",
-          "$grid_2": "inventory_controls.cell_grid_2_panel",
-          "$grid_3": "inventory_controls.cell_grid_3_panel",
-          "$grid_4": "inventory_controls.cell_grid_4_panel",
-          "$grid_5": "inventory_controls.cell_grid_5_panel",
-          "$grid_6": "inventory_controls.cell_grid_6_panel",
-          "$grid_7": "inventory_controls.cell_grid_7_panel",
-          "$grid_8": "inventory_controls.cell_grid_8_panel",
-          "$grid_9": "inventory_controls.cell_grid_9_panel"
-        }
-      },
-      {
-        "line_2@inventory_uikit.one_grid_content_stack_panel": {
-          "$grid_1": "inventory_controls.cell_grid_11_panel",
-          "$grid_2": "inventory_controls.cell_grid_12_panel",
-          "$grid_3": "inventory_controls.cell_grid_13_panel",
-          "$grid_4": "inventory_controls.cell_grid_14_panel",
-          "$grid_5": "inventory_controls.cell_grid_15_panel",
-          "$grid_6": "inventory_controls.cell_grid_16_panel",
-          "$grid_7": "inventory_controls.cell_grid_17_panel",
-          "$grid_8": "inventory_controls.cell_grid_18_panel",
-          "$grid_9": "inventory_controls.cell_grid_19_panel"
-        }
-      },
-      {
-        "line_3@inventory_uikit.one_grid_content_stack_panel": {
-          "$grid_1": "inventory_controls.cell_grid_21_panel",
-          "$grid_2": "inventory_controls.cell_grid_22_panel",
-          "$grid_3": "inventory_controls.cell_grid_23_panel",
-          "$grid_4": "inventory_controls.cell_grid_24_panel",
-          "$grid_5": "inventory_controls.cell_grid_25_panel",
-          "$grid_6": "inventory_controls.cell_grid_26_panel",
-          "$grid_7": "inventory_controls.cell_grid_27_panel",
-          "$grid_8": "inventory_controls.cell_grid_28_panel",
-          "$grid_9": "inventory_controls.cell_grid_29_panel"
-        }
-      },
-      {
-        "line_4@inventory_uikit.one_grid_content_stack_panel": {
-          "$grid_1": "inventory_controls.cell_grid_31_panel",
-          "$grid_2": "inventory_controls.cell_grid_32_panel",
-          "$grid_3": "inventory_controls.cell_grid_33_panel",
-          "$grid_4": "inventory_controls.cell_grid_34_panel",
-          "$grid_5": "inventory_controls.cell_grid_35_panel",
-          "$grid_6": "inventory_controls.cell_grid_36_panel",
-          "$grid_7": "inventory_controls.cell_grid_37_panel",
-          "$grid_8": "inventory_controls.cell_grid_38_panel",
-          "$grid_9": "inventory_controls.cell_grid_39_panel"
-        }
-      },
-
-      {
-        "line_5@inventory_uikit.one_grid_content_stack_panel": {
-          //木板
-          "$grid_1": "inventory_controls.cell_grid_41_panel",
-          "$grid_2": "inventory_controls.cell_grid_42_panel",
-          "$grid_3": "inventory_controls.cell_grid_43_panel",
-          "$grid_4": "inventory_controls.cell_grid_44_panel",
-          "$grid_5": "inventory_controls.cell_grid_45_panel",
-          "$grid_6": "inventory_controls.cell_grid_46_panel",
-          "$grid_7": "inventory_controls.cell_grid_47_panel",
-          "$grid_8": "inventory_controls.cell_grid_48_panel",
-          "$grid_9": "inventory_controls.cell_grid_49_panel"
-        }
-      },
-      {
-        "line_6@inventory_uikit.one_grid_content_stack_panel": {
-          //木楼梯
-          "$grid_1": "inventory_controls.cell_grid_51_panel",
-          "$grid_2": "inventory_controls.cell_grid_52_panel",
-          "$grid_3": "inventory_controls.cell_grid_53_panel",
-          "$grid_4": "inventory_controls.cell_grid_54_panel",
-          "$grid_5": "inventory_controls.cell_grid_55_panel",
-          "$grid_6": "inventory_controls.cell_grid_56_panel",
-          "$grid_7": "inventory_controls.cell_grid_57_panel",
-          "$grid_8": "inventory_controls.cell_grid_58_panel",
-          "$grid_9": "inventory_controls.cell_grid_59_panel"
-        }
-      },
-      {
-        "line_7@inventory_uikit.one_grid_content_stack_panel": {
-          //木楼梯
-          "$grid_1": "inventory_controls.120_cell_grid_51_panel",
-          "$grid_2": "inventory_controls.120_cell_grid_52_panel",
-          "$grid_3": "inventory_controls.120_cell_grid_53_panel",
-          "$grid_4": "inventory_controls.120_cell_grid_54_panel",
-          "$grid_5": "inventory_controls.120_cell_grid_55_panel",
-          "$grid_6": "inventory_controls.120_cell_grid_56_panel",
-          "$grid_7": "inventory_controls.120_cell_grid_57_panel",
-          "$grid_8": "inventory_controls.120_cell_grid_58_panel",
-          "$grid_9": "inventory_controls.120_cell_grid_59_panel"
-        }
-      },{
-        "line_8@inventory_uikit.one_grid_content_stack_panel": {
-          //木楼梯
-          "$grid_1": "inventory_controls.120_cell_grid_1_panel",
-          "$grid_2": "inventory_controls.120_cell_grid_2_panel",
-          "$grid_3": "inventory_controls.120_cell_grid_3_panel",
-          "$grid_4": "inventory_controls.120_cell_grid_4_panel",
-          "$grid_5": "inventory_controls.120_cell_grid_5_panel",
-          "$grid_6": "inventory_controls.120_cell_grid_6_panel",
-          "$grid_7": "inventory_controls.120_cell_grid_7_panel",
-          "$grid_8": "inventory_controls.120_cell_grid_8_panel",
-          "$grid_9": "inventory_controls.120_cell_grid_9_panel"
-        }
-      },{
-        "line_9@inventory_uikit.one_grid_content_stack_panel": {
-          //木楼梯
-          "$grid_1": "inventory_controls.120_cell_grid_21_panel",
-          "$grid_2": "inventory_controls.120_cell_grid_22_panel",
-          "$grid_3": "inventory_controls.120_cell_grid_23_panel",
-          "$grid_4": "inventory_controls.120_cell_grid_24_panel",
-          "$grid_5": "inventory_controls.120_cell_grid_25_panel",
-          "$grid_6": "inventory_controls.120_cell_grid_26_panel",
-          "$grid_7": "inventory_controls.120_cell_grid_27_panel",
-          "$grid_8": "inventory_controls.120_cell_grid_28_panel",
-          "$grid_9": "inventory_controls.120_cell_grid_29_panel"
-        }
-      },
-      {
-        "line_10@inventory_uikit.one_grid_content_stack_panel": {
-          //木楼梯
-          "$grid_1": "inventory_controls.120_cell_grid_31_panel",
-          "$grid_2": "inventory_controls.120_cell_grid_32_panel",
-          "$grid_3": "inventory_controls.120_cell_grid_33_panel",
-          "$grid_4": "inventory_controls.120_cell_grid_34_panel",
-          "$grid_5": "inventory_controls.120_cell_grid_35_panel",
-          "$grid_6": "inventory_controls.120_cell_grid_36_panel",
-          "$grid_7": "inventory_controls.120_cell_grid_37_panel",
-          "$grid_8": "inventory_controls.120_cell_grid_38_panel",
-          "$grid_9": "inventory_controls.120_cell_grid_39_panel"
+        "one_grid_content_stack_panel": {
+          "type": "stack_panel",
+          "size": ["100%", 18],
+          "controls": [
+            {
+              "第一行": {
+                "type": "stack_panel",
+                "size": [180, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": [-108, -774]
+                    }
+                  },
+                  {
+                    "-0@inventory_uikit.grid_padding": {
+                      "$padding_size": [-108, 0]
+                    }
+                  },
+                  {
+                    "1@inventory_uikit.六格标准": {
+                      "$magic_offset": [-36, -1314]
+                    }
+                  },
+                  {
+                    "-1@inventory_uikit.grid_padding": {
+                      "$padding_size": [-108, 0]
+                    }
+                  },
+                  {
+                    "2@inventory_uikit.两格标准": {
+                      "$magic_offset": [0, -3996]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "第二行": {
+                "type": "stack_panel",
+                "size": [180, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": [-108, -792]
+                    }
+                  },
+                  {
+                    "-0@inventory_uikit.grid_padding": {
+                      "$padding_size": [-108, 0]
+                    }
+                  },
+                  {
+                    "1@inventory_uikit.五格标准": {
+                      "$magic_offset": [0, -1620]
+                    }
+                  },
+                  {
+                    "-1@inventory_uikit.grid_padding": {
+                      "$padding_size": [-90, 0]
+                    }
+                  },
+                  {
+                    "2@inventory_uikit.一格标准": {
+                      "$magic_offset": [0, "-8172px-18px"]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "第三行": {
+                "type": "stack_panel",
+                "size": [198, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": [0, -1548]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "第四行": {
+                "type": "stack_panel",
+                "size": [198, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": [0, -936]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "2第一行": {
+                "type": "stack_panel",
+                "size": [198, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": [0, -576]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "2第二行": {
+                "type": "stack_panel",
+                "size": [198, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": [0, -540]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
         }
       }
     ]
   },
-  "cell_grid_1_panel@inventory_uikit.grids_scrolling_panel": {
-    "type": "input_panel",
-    "$scrolling_content": "inventory_controls.cell_grid_1",
-    "$collection_name": "recipe_book"
-  },
-  "cell_grid_11_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_11"
-  },
-  "cell_grid_12_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_12"
-  },
-  "cell_grid_13_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_13"
-  },
-  "cell_grid_14_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_14"
-  },
-  "cell_grid_15_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_15"
-  },
-  "cell_grid_16_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_16"
-  },
-  "cell_grid_17_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_17"
-  },
-  "cell_grid_18_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_18"
-  },
-  "cell_grid_19_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_19"
-  },
-  "cell_grid_21_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_21"
-  },
-  "cell_grid_22_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_22"
-  },
-  "cell_grid_23_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_23"
-  },
-  "cell_grid_24_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_24"
-  },
-  "cell_grid_25_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_25"
-  },
-  "cell_grid_26_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_26"
-  },
-  "cell_grid_27_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_27"
-  },
-  "cell_grid_28_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_28"
-  },
-  "cell_grid_29_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_29"
-  },
-  "cell_grid_31_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_31"
-  },
-  "cell_grid_32_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_32"
-  },
-  "cell_grid_33_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_33"
-  },
-  "cell_grid_34_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_34"
-  },
-  "cell_grid_35_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_35"
-  },
-  "cell_grid_36_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_36"
-  },
-  "cell_grid_37_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_37"
-  },
-  "cell_grid_38_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_38"
-  },
-  "cell_grid_39_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_39"
-  },
-  "cell_grid_41_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_41"
-  },
-  "cell_grid_42_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_42"
-  },
-  "cell_grid_43_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_43"
-  },
-  "cell_grid_44_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_44"
-  },
-  "cell_grid_45_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_45"
-  },
-  "cell_grid_46_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_46"
-  },
-  "cell_grid_47_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_47"
-  },
-  "cell_grid_48_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_48"
-  },
-  "cell_grid_49_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_49"
-  },
-  "cell_grid_51_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_51"
-  },
-  "cell_grid_52_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_52"
-  },
-  "cell_grid_53_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_53"
-  },
-  "cell_grid_54_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_54"
-  },
-  "cell_grid_55_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_55"
-  },
-  "cell_grid_56_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_56"
-  },
-  "cell_grid_57_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_57"
-  },
-  "cell_grid_58_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_58"
-  },
-  "cell_grid_59_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_59"
-  },
-  "cell_grid_2_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_2"
-  },
-  "cell_grid_3_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_3"
-  },
-  "cell_grid_4_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_4"
-  },
-  "cell_grid_5_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_5"
-  },
-  "cell_grid_6_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_6"
-  },
-  "cell_grid_7_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_7"
-  },
-  "cell_grid_8_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_8"
-  },
-  "cell_grid_9_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.cell_grid_9"
-  },
-
-  "120_cell_grid_1_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_1"
-  },
-  "120_cell_grid_2_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_2"
-  },
-  "120_cell_grid_3_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_3"
-  },
-  "120_cell_grid_4_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_4"
-  },
-  "120_cell_grid_5_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_5"
-  },
-  "120_cell_grid_6_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_6"
-  },
-  "120_cell_grid_7_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_7"
-  },
-  "120_cell_grid_8_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_8"
-  },
-  "120_cell_grid_9_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_9"
-  },
-  "120_cell_grid_11_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_11"
-  },
-  "120_cell_grid_12_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_12"
-  },
-  "120_cell_grid_13_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_13"
-  },
-  "120_cell_grid_14_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_14"
-  },
-  "120_cell_grid_15_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_15"
-  },
-  "120_cell_grid_16_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_16"
-  },
-  "120_cell_grid_17_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_17"
-  },
-  "120_cell_grid_18_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_18"
-  },
-  "120_cell_grid_19_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_19"
-  },
-  "120_cell_grid_21_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_21"
-  },
-  "120_cell_grid_22_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_22"
-  },
-  "120_cell_grid_23_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_23"
-  },
-  "120_cell_grid_24_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_24"
-  },
-  "120_cell_grid_25_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_25"
-  },
-  "120_cell_grid_26_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_26"
-  },
-  "120_cell_grid_27_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_27"
-  },
-  "120_cell_grid_28_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_28"
-  },
-  "120_cell_grid_29_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_29"
-  },
-  "120_cell_grid_31_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_31"
-  },
-  "120_cell_grid_32_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_32"
-  },
-  "120_cell_grid_33_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_33"
-  },
-  "120_cell_grid_34_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_34"
-  },
-  "120_cell_grid_35_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_35"
-  },
-  "120_cell_grid_36_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_36"
-  },
-  "120_cell_grid_37_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_37"
-  },
-  "120_cell_grid_38_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_38"
-  },
-  "120_cell_grid_39_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_39"
-  },
-  "120_cell_grid_48_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_48"
-  },
-  "120_cell_grid_49_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_49"
-  },
-  "120_cell_grid_51_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_51"
-  },
-  "120_cell_grid_52_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_52"
-  },
-  "120_cell_grid_53_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_53"
-  },
-  "120_cell_grid_54_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_54"
-  },
-  "120_cell_grid_55_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_55"
-  },
-  "120_cell_grid_56_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_56"
-  },
-  "120_cell_grid_57_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_57"
-  },
-  "120_cell_grid_58_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_58"
-  },
-  "120_cell_grid_59_panel@cell_grid_1_panel": {
-    "$scrolling_content": "inventory_controls.120_cell_grid_59"
-  },
-  "cell_grid_1@crafting.crafting_root_panel": {
-    "type": "input_panel",
-    "offset": [0, "-7848px"],
-    "size": [20, 18],
+  "tools@inventory_uikit.common_panel": {
+    "type": "stack_panel",
+    "size": [195, 360],
+    "$toggle_target": "tab_2",
     "controls": [
       {
-        "grid@crafting.scroll_grid": {
-          "$grid_item_template|default": "inventory_controls.grid_item_for_recipe_book"
+        "one_grid_content_stack_panel": {
+          "type": "stack_panel",
+          "size": ["100%", 18],
+          "controls": [
+            {
+              "第一行": {
+                "type": "stack_panel",
+                "size": [180, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": [-108, -1386]
+                    }
+                  },
+                  {
+                    "-0@inventory_uikit.grid_padding": {
+                      "$padding_size": [-108, 0]
+                    }
+                  },
+                  {
+                    "1@inventory_uikit.六格标准": {
+                      "$magic_offset": [-36, -594]
+                    }
+                  },
+                  {
+                    "-1@inventory_uikit.grid_padding": {
+                      "$padding_size": [-108, 0]
+                    }
+                  },
+                  {
+                    "2@inventory_uikit.两格标准": {
+                      "$magic_offset": [0, -1998]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "第二行": {
+                "type": "stack_panel",
+                "size": [198, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": [0, -1584]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "第三行": {
+                "type": "stack_panel",
+                "size": [198, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": [0, -1548]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "第四行": {
+                "type": "stack_panel",
+                "size": [198, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": [0, -18]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "2第一行": {
+                "type": "stack_panel",
+                "size": [198, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": [0, -180]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "2第二行": {
+                "type": "stack_panel",
+                "size": [198, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": [0, -36]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
         }
       }
     ]
   },
-  "cell_grid_2@cell_grid_1": {
-    "offset": [0, "-7848px - 18px"]
+  /////
+  "test@inventory_uikit.common_panel": {
+    "type": "stack_panel",
+    "size": [195, 360],
+    "controls": [
+      {
+        "one_grid_content_stack_panel": {
+          "type": "stack_panel",
+          "size": ["100%", 18],
+          "controls": [
+            {
+              "第一行": {
+                "type": "stack_panel",
+                "size": [198, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": "$test_01"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "第二行": {
+                "type": "stack_panel",
+                "size": [198, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": "$test_02"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "第三行": {
+                "type": "stack_panel",
+                "size": [198, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": "$test_03"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "第四行": {
+                "type": "stack_panel",
+                "size": [198, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": "$test_04"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "2第一行": {
+                "type": "stack_panel",
+                "size": [198, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": "$test_05"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "2第二行": {
+                "type": "stack_panel",
+                "size": [198, 18],
+                "orientation": "horizontal",
+                "controls": [
+                  {
+                    "0@inventory_uikit.十格标准": {
+                      "$magic_offset": "$test_06"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
-  "cell_grid_3@cell_grid_1": {
-    "offset": [0, "-7848px - 36px"]
+  "4@test": {
+    "$toggle_target": "tab_3",
+    "$test_01": [0, -954],
+    "$test_02": [0, -630],
+    "$test_03": [0, -1476],
+    "$test_04": [0, -1152],
+    "$test_05": [0, -738],
+    "$test_06": [0, -1368]
   },
-  "cell_grid_4@cell_grid_1": {
-    "offset": [0, "-7848px - 54px"]
+  "5@test": {
+    "$toggle_target": "tab_4",
+    "$test_01": [0, -1674],
+    "$test_02": [0, -918],
+    "$test_03": [0, -1638],
+    "$test_04": [0, -522],
+    "$test_05": [0, -1116],
+    "$test_06": [0, -1008]
   },
-  "cell_grid_5@cell_grid_1": {
-    "offset": [0, "-7848px - 72px"]
+  "6@test": {
+    "$toggle_target": "tab_5",
+    "$test_01": [0, -1152],
+    "$test_02": [0, -864],
+    "$test_03": [0, -990],
+    "$test_04": [0, -1224],
+    "$test_05": [0, -882],
+    "$test_06": [0, -630]
   },
-  "cell_grid_6@cell_grid_1": {
-    "offset": [0, "-7848px - 90px"]
+  "7@test": {
+    "$toggle_target": "tab_6",
+    "$test_01": [0, -954],
+    "$test_02": [0, -630],
+    "$test_03": [0, -1476],
+    "$test_04": [0, -1152],
+    "$test_05": [0, -738],
+    "$test_06": [0, -1368]
   },
-  "cell_grid_7@cell_grid_1": {
-    "offset": [0, "-7848px - 108px"]
+  "8@test": {
+    "$toggle_target": "tab_7",
+    "$test_01": [0, -1674],
+    "$test_02": [0, -918],
+    "$test_03": [0, -1638],
+    "$test_04": [0, -522],
+    "$test_05": [0, -1116],
+    "$test_06": [0, -1008]
   },
-  "cell_grid_8@cell_grid_1": {
-    "offset": [0, "-7848px - 126px"]
-  },
-  "cell_grid_9@cell_grid_1": {
-    "offset": [0, "-7848px - 144px"]
-  },
-
-  "cell_grid_11@cell_grid_1": {
-    "offset": [0, "-8010px"]
-  },
-  "cell_grid_12@cell_grid_1": {
-    "offset": [0, "-8010px - 18px"]
-  },
-  "cell_grid_13@cell_grid_1": {
-    "offset": [0, "-8010px - 36px"]
-  },
-  "cell_grid_14@cell_grid_1": {
-    "offset": [0, "-8010px - 54px"]
-  },
-  "cell_grid_15@cell_grid_1": {
-    "offset": [0, "-8010px - 72px"]
-  },
-  "cell_grid_16@cell_grid_1": {
-    "offset": [0, "-8010px - 90px"]
-  },
-  "cell_grid_17@cell_grid_1": {
-    "offset": [0, "-8010px - 108px"]
-  },
-  "cell_grid_18@cell_grid_1": {
-    "offset": [0, "-8010px - 126px"]
-  },
-  "cell_grid_19@cell_grid_1": {
-    "offset": [0, "-8010px - 144px"]
-  },
-
-  "cell_grid_21@cell_grid_1": {
-    "offset": [0, "-8172px"]
-  },
-  "cell_grid_22@cell_grid_1": {
-    "offset": [0, "-8172px - 18px"]
-  },
-  "cell_grid_23@cell_grid_1": {
-    "offset": [0, "-8172px - 36px"]
-  },
-  "cell_grid_24@cell_grid_1": {
-    "offset": [0, "-8172px - 54px"]
-  },
-  "cell_grid_25@cell_grid_1": {
-    "offset": [0, "-8172px - 72px"]
-  },
-  "cell_grid_26@cell_grid_1": {
-    "offset": [0, "-8172px - 90px"]
-  },
-  "cell_grid_27@cell_grid_1": {
-    "offset": [0, "-8172px - 108px"]
-  },
-  "cell_grid_28@cell_grid_1": {
-    "offset": [0, "-8172px - 126px"]
-  },
-  "cell_grid_29@cell_grid_1": {
-    "offset": [0, "-8172px - 144px"]
-  },
-
-  "cell_grid_31@cell_grid_1": {
-    "offset": [0, "-8334px"]
-  },
-  "cell_grid_32@cell_grid_1": {
-    "offset": [0, "-8334px - 18px"]
-  },
-  "cell_grid_33@cell_grid_1": {
-    "offset": [0, "-8334px - 36px"]
-  },
-  "cell_grid_34@cell_grid_1": {
-    "offset": [0, "-8334px - 54px"]
-  },
-  "cell_grid_35@cell_grid_1": {
-    "offset": [0, "-8334px - 72px"]
-  },
-  "cell_grid_36@cell_grid_1": {
-    "offset": [0, "-8334px - 90px"]
-  },
-  "cell_grid_37@cell_grid_1": {
-    "offset": [0, "-8334px - 108px"]
-  },
-  "cell_grid_38@cell_grid_1": {
-    "offset": [0, "-8334px - 126px"]
-  },
-  "cell_grid_39@cell_grid_1": {
-    "offset": [0, "-8334px - 144px"]
-  },
-
-  "cell_grid_41@cell_grid_1": {
-    "offset": [0, "0px"]
-  },
-  "cell_grid_42@cell_grid_1": {
-    "offset": [0, "0px - 18px"]
-  },
-  "cell_grid_43@cell_grid_1": {
-    "offset": [0, "0px - 36px"]
-  },
-  "cell_grid_44@cell_grid_1": {
-    "offset": [0, "0px - 54px"]
-  },
-  "cell_grid_45@cell_grid_1": {
-    "offset": [0, "0px - 72px"]
-  },
-  "cell_grid_46@cell_grid_1": {
-    "offset": [0, "0px - 90px"]
-  },
-  "cell_grid_47@cell_grid_1": {
-    "offset": [0, "0px - 108px"]
-  },
-  "cell_grid_48@cell_grid_1": {
-    "offset": [0, "0px - 126px"]
-  },
-  "cell_grid_49@cell_grid_1": {
-    "offset": [0, "0px - 144px"]
-  },
-
-  "cell_grid_51@cell_grid_1": {
-    "offset": [0, "-954px"]
-  },
-  "cell_grid_52@cell_grid_1": {
-    "offset": [0, "-954px - 18px"]
-  },
-  "cell_grid_53@cell_grid_1": {
-    "offset": [0, "-954px - 36px"]
-  },
-  "cell_grid_54@cell_grid_1": {
-    "offset": [0, "-954px - 54px"]
-  },
-  "cell_grid_55@cell_grid_1": {
-    "offset": [0, "-954px - 72px"]
-  },
-  "cell_grid_56@cell_grid_1": {
-    "offset": [0, "-2916px"]
-  },
-  "cell_grid_57@cell_grid_1": {
-    "offset": [0, "-2916px - 18px"]
-  },
-  "cell_grid_58@cell_grid_1": {
-    "offset": [0, "-2916px - 36px"]
-  },
-  "cell_grid_59@cell_grid_1": {
-    "offset": [0, "-2916px - 54px"]
+  "9@test": {
+    "$toggle_target": "tab_8",
+    "$test_01": [0, -1152],
+    "$test_02": [0, -864],
+    "$test_03": [0, -990],
+    "$test_04": [0, -1224],
+    "$test_05": [0, -882],
+    "$test_06": [0, -630]
   },
 
-  "120_cell_grid_1@cell_grid_1": {
-    "offset": [0, "-7848px - 180px"]
-  },
-  "120_cell_grid_2@cell_grid_1": {
-    "offset": [0, "-7848px - 180px - 18px"]
-  },
-  "120_cell_grid_3@cell_grid_1": {
-    "offset": [0, "-7848px - 180px - 36px"]
-  },
-  "120_cell_grid_4@cell_grid_1": {
-    "offset": [0, "-7848px - 180px - 54px"]
-  },
-  "120_cell_grid_5@cell_grid_1": {
-    "offset": [0, "-7848px - 180px - 72px"]
-  },
-  "120_cell_grid_6@cell_grid_1": {
-    "offset": [0, "-7848px - 180px - 90px"]
-  },
-  "120_cell_grid_7@cell_grid_1": {
-    "offset": [0, "-7848px - 180px - 108px"]
-  },
-  "120_cell_grid_8@cell_grid_1": {
-    "offset": [0, "-7848px - 180px - 126px"]
-  },
-  "120_cell_grid_9@cell_grid_1": {
-    "offset": [0, "-7848px - 180px - 144px"]
-  },
-
-  "120_cell_grid_11@cell_grid_1": {
-    "offset": [0, "-8010px - 180px"]
-  },
-  "120_cell_grid_12@cell_grid_1": {
-    "offset": [0, "-8010px - 180px - 18px"]
-  },
-  "120_cell_grid_13@cell_grid_1": {
-    "offset": [0, "-8010px - 180px - 36px"]
-  },
-  "120_cell_grid_14@cell_grid_1": {
-    "offset": [0, "-8010px - 180px - 54px"]
-  },
-  "120_cell_grid_15@cell_grid_1": {
-    "offset": [0, "-8010px - 180px - 72px"]
-  },
-  "120_cell_grid_16@cell_grid_1": {
-    "offset": [0, "-8010px - 180px - 90px"]
-  },
-  "120_cell_grid_17@cell_grid_1": {
-    "offset": [0, "-8010px - 180px - 108px"]
-  },
-  "120_cell_grid_18@cell_grid_1": {
-    "offset": [0, "-8010px - 180px - 126px"]
-  },
-  "120_cell_grid_19@cell_grid_1": {
-    "offset": [0, "-8010px - 180px - 144px"]
-  },
-
-  "120_cell_grid_21@cell_grid_1": {
-    "offset": [0, "-8172px - 180px"]
-  },
-  "120_cell_grid_22@cell_grid_1": {
-    "offset": [0, "-8172px - 180px - 18px"]
-  },
-  "120_cell_grid_23@cell_grid_1": {
-    "offset": [0, "-8172px - 180px - 36px"]
-  },
-  "120_cell_grid_24@cell_grid_1": {
-    "offset": [0, "-8172px - 180px - 54px"]
-  },
-  "120_cell_grid_25@cell_grid_1": {
-    "offset": [0, "-8172px - 180px - 72px"]
-  },
-  "120_cell_grid_26@cell_grid_1": {
-    "offset": [0, "-8172px - 180px - 90px"]
-  },
-  "120_cell_grid_27@cell_grid_1": {
-    "offset": [0, "-8172px - 180px - 108px"]
-  },
-  "120_cell_grid_28@cell_grid_1": {
-    "offset": [0, "-8172px - 180px - 126px"]
-  },
-  "120_cell_grid_29@cell_grid_1": {
-    "offset": [0, "-8172px - 180px - 144px"]
-  },
-
-  "120_cell_grid_31@cell_grid_1": {
-    "offset": [0, "-8334px - 180px"]
-  },
-  "120_cell_grid_32@cell_grid_1": {
-    "offset": [0, "-8334px - 180px - 18px"]
-  },
-  "120_cell_grid_33@cell_grid_1": {
-    "offset": [0, "-8334px - 180px - 36px"]
-  },
-  "120_cell_grid_34@cell_grid_1": {
-    "offset": [0, "-8334px - 180px - 54px"]
-  },
-  "120_cell_grid_35@cell_grid_1": {
-    "offset": [0, "-8334px - 180px - 72px"]
-  },
-  "120_cell_grid_36@cell_grid_1": {
-    "offset": [0, "-8334px - 180px - 90px"]
-  },
-  "120_cell_grid_37@cell_grid_1": {
-    "offset": [0, "-8334px - 180px - 108px"]
-  },
-  "120_cell_grid_38@cell_grid_1": {
-    "offset": [0, "-8334px - 180px - 126px"]
-  },
-  "120_cell_grid_39@cell_grid_1": {
-    "offset": [0, "-8334px - 180px - 144px"]
-  },
-  "120_cell_grid_48@cell_grid_1": {
-    "offset": [0, "0px - 126px-36px"]
-  },
-  "120_cell_grid_49@cell_grid_1": {
-    "offset": [0, "0px - 144px-36px"]
-  },
-  "120_cell_grid_51@cell_grid_1": {
-    "offset": [0, "-1026px"]
-  },
-  "120_cell_grid_52@cell_grid_1": {
-    "offset": [0, "-1026px - 18px"]
-  },
-  "120_cell_grid_53@cell_grid_1": {
-    "offset": [0, "-1026px - 36px"]
-  },
-  "120_cell_grid_54@cell_grid_1": {
-    "offset": [0, "-1026px - 54px"]
-  },
-  "120_cell_grid_55@cell_grid_1": {
-    "offset": [0, "-1026px - 72px"]
-  },
-  "120_cell_grid_56@cell_grid_1": {
-    "offset": [0, "-1026px - 90px"]
-  },
-  "120_cell_grid_57@cell_grid_1": {
-    "offset": [0, "-1026px - 108px"]
-  },
-  "120_cell_grid_58@cell_grid_1": {
-    "offset": [0, "-3060px"]
-  },
-  "120_cell_grid_59@cell_grid_1": {
-    "offset": [0, "-3060px - 18px"]
-  },
+  //////
   "grid_item_for_recipe_book@crafting.inventory_container_item": {
     "$stack_count_required": true,
     "$durability_bar_required": false,
