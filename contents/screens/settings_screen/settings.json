@@ -1,6 +1,94 @@
 {
   "namespace": "modern_settings",
 
+  "re_and_be": {
+    "type": "panel",
+    "controls": [
+      {
+        "level_texture_pack_button@ui.empty_toggle_button": {
+          "size": ["150%", "150%"],
+          "$toggle_view_binding_name": "default_button_toggle",
+          "$toggle_group_forced_index": 1000,
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "level_texture_pack_button_toggle",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "all_bg": {
+          "type": "image",
+          "layer": 2998,
+          "size": ["150%", "150%"],
+          "color": [0.8, 0.8, 0.8],
+          "texture": "textures/ui/bg",
+          "alpha": 0.7,
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "level_texture_pack_button_toggle",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ],
+          "controls": [
+            {
+              "re_and_be": {
+                "type": "image",
+                "texture": "textures/ui/Frame",
+                "layer": 2999,
+                "size": [336, 232],
+
+                "controls": [
+                  {
+                    "bg_3": {
+                      "type": "custom",
+                      "renderer": "gradient_renderer",
+                      "color1": "$title_bar_color1",
+                      "color2": "$title_bar_color2",
+                      "layer": 3000,
+                      "size": [334, 230],
+                      "controls": [
+                        {
+                          "level_texture_pack_section@common.scrolling_panel": {
+                            "$scrolling_content": "modern_settings.level_texture_pack_section",
+                            "$show_background": false,
+                            "anchor_from": "left_middle",
+                            "anchor_to": "left_middle",
+                            "offset": [12, 0],
+                            "size": [140, 180],
+                            "$scroll_size": ["5px", "100%"],
+                            "$scroll_bar_left_padding_size": [1, 0]
+                          }
+                        },
+                        {
+                          "addon_pack_section@common.scrolling_panel": {
+                            "$scrolling_content": "modern_settings.addon_pack_section",
+                            "$show_background": false,
+                            "anchor_from": "right_middle",
+                            "anchor_to": "right_middle",
+                            "offset": [-12, 0],
+                            "size": [140, 180],
+                            "$scroll_size": ["5px", "100%"],
+                            "$scroll_bar_left_padding_size": [1, 0]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
   "modal_dialog_popup@popup_dialog.modal_dialog_popup": {
     "controls": [
       {
@@ -724,6 +812,7 @@
     "type": "panel",
     "$back_content": "screen_uikit.menu_back_button_content",
     "$screen_type|default": "screen_uikit.include_small_tabs_screen",
+    "$extra_panel|default": "common.empty_panel",
     "controls": [
       {
         "common_panel": {
@@ -770,6 +859,22 @@
       },
       {
         "back@screen_uikit.bgback": {}
+      },
+      {
+        "extra_contents@$extra_panel": {}
+      }
+    ]
+  },
+
+  "level_texture_pack_section@world_section.level_texture_pack_section": {},
+
+  "addon_pack_section@world_section.addon_section": {
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "level_texture_pack_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
       }
     ]
   },
@@ -1041,19 +1146,24 @@
                   },
                   {
                     "exp_section@modern_create_worlds.experience_section": {}
-                  }
-                ]
-              }
-            },
-            {
-              "packs_sections": {
-                "type": "stack_panel",
-                "ignored": "(not $include_world_section and (not $include_realm_section or not $realms_pack_feature_enabled))",
-                "controls": [
-                  {
-                    "level_texture_pack_section@world_section.level_texture_pack_section": {}
                   },
-                  { "addon_section@world_section.addon_section": {} }
+                  {
+                    "information_section": {
+                      "type": "stack_panel",
+                      "size": ["100%", "100%c"],
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "default_button_toggle",
+                          "source_property_name": "#toggle_state",
+                          "target_property_name": "#visible"
+                        }
+                      ],
+                      "controls": []
+                    }
+                  }
                 ]
               }
             }

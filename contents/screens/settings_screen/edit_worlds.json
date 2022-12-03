@@ -2,6 +2,7 @@
   "namespace": "modern_edit_worlds",
   "edit_worlds_contents@modern_settings.default_settings_screen": {
     "$left_title":"modern_edit_worlds.edit_title",
+    "$extra_panel":"modern_settings.re_and_be",
     "$uipack_is_world_edit": false,
     "$screen_type": "screen_uikit.include_menu_screen"
   },

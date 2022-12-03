@@ -191,12 +191,14 @@
     "$checked_locked_hover_control": "common.empty_panel",
     "$locked_texture": "",
     "$border_visible": false,
-    "$radio_toggle_group": true,
-    "$toggle_state_binding_name": "#toggle_state",
-    "$toggle_on_hover_binding_name": "none",
-    "$toggle_tab_focus_binding_type": "global",
-    "$toggle_tab_focus_binding_name": "#navigation_tab_focus_precedence",
-    "$toggle_group_forced_index": 0
+    "$radio_toggle_group": true
+  },
+
+  "empty_toggle_button@Snowfirewolf_toggle_button": {
+    "$unchecked_control": "common.empty_panel",
+    "$checked_control": "common.empty_panel",
+    "$unchecked_hover_control": "common.empty_panel",
+    "$checked_hover_control": "common.empty_panel"
   },
 
   "button_label": {

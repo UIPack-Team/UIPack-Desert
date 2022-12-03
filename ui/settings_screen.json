@@ -64,7 +64,11 @@
                       "$left_title": "settings.outgame_title_text",
                       "$left_screen": "settings.outgame_selector_area",
                       "$right_side_title": "#section_title",
-                      "$binding_right_side_title": "#section_title",
+                      "$binding_right_side_title": [
+                        {
+                          "binding_name": "#section_title"
+                        }
+                      ],
                       "$right_screen": "settings.content_area"
                     }
                   },

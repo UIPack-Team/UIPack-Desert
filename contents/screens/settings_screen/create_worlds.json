@@ -34,11 +34,13 @@
   },
   "create_random_worlds_contents@modern_settings.default_settings_screen": {
     "$left_title": "modern_create_worlds.create_title",
+    "$extra_panel":"modern_settings.re_and_be",
     "$uipack_is_world_edit": true,
     "$screen_type": "screen_uikit.include_menu_screen"
   },
   "create_worlds_from_templates_contents@modern_settings.default_settings_screen": {
     "$uipack_is_world_edit": true,
+    "$extra_panel":"modern_settings.re_and_be",
     "$screen_type": "screen_uikit.include_menu_screen"
   },
 
@@ -91,46 +93,6 @@
                 "color": "white",
                 "text": "ui_kit.NewWorld",
                 "size": ["default", 12]
-              }
-            },
-            {
-              "padding2": {
-                "type": "panel",
-                "size": ["fill", 0]
-              }
-            },
-            {
-              "panel_1": {
-                "type": "panel",
-                "size": [32, 40],
-                "controls": [
-                  {
-                    "level_texture_pack_button@ui.Snowfirewolf_toggle_button": {
-                      "offset": [0, -15],
-                      "size": [30, 30],
-                      "$button_content": "modern_settings.re_icon",
-                      "$toggle_view_binding_name": "level_texture_pack_button_toggle",
-                      "$toggle_group_forced_index": "$level_texture_pack_toggle_index"
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "panel_2": {
-                "type": "panel",
-                "size": [32, 40],
-                "controls": [
-                  {
-                    "addon_button@ui.Snowfirewolf_toggle_button": {
-                      "offset": [0, -15],
-                      "size": [30, 30],
-                      "$button_content": "modern_settings.be_icon",
-                      "$toggle_view_binding_name": "addon_button_toggle",
-                      "$toggle_group_forced_index": "$addon_toggle_index"
-                    }
-                  }
-                ]
               }
             }
           ]
@@ -270,18 +232,53 @@
           "$show_option_label": false
         }
       },
+
       {
-        // for world create
-        "option_text_edit_0@screen_uikit.text_edit_box": {
+        "stack": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
           "size": ["100%", 26],
-          "ignored": "(not $is_world_create)",
-          "$place_holder_text": "createWorldScreen.defaultName",
-          "$option_label": "selectWorld.enterName",
-          "$text_edit_box_content_binding_name": "#world_name",
-          "$option_enabled_binding_name": "#world_name_enabled",
-          "$text_box_name": "world_name_text_box",
-          "$focus_override_right": "FOCUS_OVERRIDE_STOP",
-          "$allow_data_binding": false
+          "controls": [
+            {
+              // for world create
+              "option_text_edit_0@screen_uikit.text_edit_box": {
+                "size": ["100%-26px", 26],
+                "ignored": "(not $is_world_create)",
+                "$place_holder_text": "createWorldScreen.defaultName",
+                "$option_label": "selectWorld.enterName",
+                "$text_edit_box_content_binding_name": "#world_name",
+                "$option_enabled_binding_name": "#world_name_enabled",
+                "$text_box_name": "world_name_text_box",
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+                "$allow_data_binding": false
+              }
+            },
+            {
+              "padding_box": {
+                "type": "panel",
+                "size": [2, 0]
+              }
+            },
+            {
+              "level_texture_pack_button": {
+                "size": [26, 26],
+                "texture": "textures/main_button_default",
+                "layer": 2,
+                "type": "image",
+                "controls": [
+                  {
+                    "level_texture_pack_button@ui.Snowfirewolf_toggle_button": {
+                      "offset":[1,1],
+                      "size": [24, 24],
+                      "$button_content": "modern_settings.re_icon",
+                      "$toggle_view_binding_name": "level_texture_pack_button_toggle",
+                      "$toggle_group_forced_index": "$level_texture_pack_toggle_index"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
         }
       },
       {

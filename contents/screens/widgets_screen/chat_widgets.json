@@ -143,7 +143,7 @@
                       "size": ["fill", "100%"]
                     }
                   },
-                  
+
                   {
                     "05@colorful.button": {
                       "size": [30, 24],
@@ -183,6 +183,23 @@
                       "$border_button_image_size": ["100% +6px", "100% + 6px"],
                       "$button_icon_textures": "textures/chat_keyboard",
                       "$pressed_button_name": "button.keyboard_toggle",
+                      "$focus_id": "keyboard_button_focus_id",
+                      "$focus_override_up": "coordinate_dropdown_focus_id",
+                      "$button_tts_header": "accessibility.chat.tts.keyboard",
+                      "bindings": [
+                        {
+                          "binding_name": "#keyboard_button_focus_override_up",
+                          "binding_name_override": "#focus_change_up"
+                        },
+                        {
+                          "binding_name": "#keyboard_button_focus_override_down",
+                          "binding_name_override": "#focus_change_down"
+                        },
+                        {
+                          "binding_name": "#keyboard_button_visible",
+                          "binding_name_override": "#visible"
+                        }
+                      ],
                       "$button_icon_hover_color": [0.0, 0.46, 0.92]
                     }
                   },

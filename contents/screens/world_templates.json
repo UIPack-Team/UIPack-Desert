@@ -61,7 +61,7 @@
       {
         "root_panel@screen_uikit.standard_scrolling": {
           "$scrolling_pane_size": ["100%+2px", "100%"],
-          "$show_background":false,
+          "$show_background": false,
           "size": ["100%", "100%"],
           "anchor_from": "bottom_middle",
           "anchor_to": "bottom_middle",
@@ -106,6 +106,8 @@
                   {
                     "0@ui.Snowfirewolf_button": {
                       "size": [362, 30],
+                      "focus_change_left": "FOCUS_OVERRIDE_STOP",
+                      "focus_change_right": "FOCUS_OVERRIDE_STOP",
                       "$pressed_button_name": "button.generate_random",
                       "$button_text": "Create A Custom ADD-ON World"
                     }
@@ -119,6 +121,8 @@
                   {
                     "1@ui.modern_white_content_button": {
                       "size": [30, 30],
+                      "focus_change_left": "FOCUS_OVERRIDE_STOP",
+                      "focus_change_right": "FOCUS_OVERRIDE_STOP",
                       "$pressed_button_name": "button.more_custom_templates",
                       "$button_text": "selectTemplate.seeMore",
                       "$button_content": "worldtemplates_uikit.1_icon"
@@ -133,6 +137,8 @@
                   {
                     "2@ui.modern_white_content_button": {
                       "size": [30, 30],
+                      "focus_change_left": "FOCUS_OVERRIDE_STOP",
+                      "focus_change_right": "FOCUS_OVERRIDE_STOP",
                       "$pressed_button_name": "button.inventory",
                       "$button_content": "worldtemplates_uikit.2_icon"
                     }
@@ -187,7 +193,7 @@
   },
   "world_template_item_grid": {
     "type": "grid",
-    "offset":[0,152],
+    "offset": [0, 152],
     "size": ["100%", "default"],
     "layer": 1,
     "anchor_to": "bottom_left",

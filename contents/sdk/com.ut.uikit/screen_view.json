@@ -471,6 +471,7 @@
   "include_menu_screen": {
     "type": "panel",
     "$left_title|default": "common.empty_panel",
+    "$binding_right_side_title|default": [],
     "controls": [
       {
         "bg": {
@@ -558,13 +559,8 @@
                             "layer": 2,
                             "color": "$title_color",
                             "text": "$right_side_title",
-                            "$binding_right_side_title|default": "",
                             "$right_side_title|default": "",
-                            "bindings": [
-                              {
-                                "binding_name": "$binding_right_side_title"
-                              }
-                            ]
+                            "bindings": "$binding_right_side_title"
                           }
                         }
                       ]
