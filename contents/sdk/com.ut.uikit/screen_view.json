@@ -1,5 +1,5 @@
 {
-  "namespace": "ui",
+  "namespace": "screen_uikit",
 
   "all_bg": {
     "type": "image",
@@ -10,415 +10,625 @@
     "$all_bg_alpha|default": 1.0
   },
 
-  //---------------------------------------------------------------------------------------------------------
-  //
-  //  螢幕母件
-  //
-  //---------------------------------------------------------------------------------------------------------
+  "main_button_default@button_panel": {
+    "$text_color": [0.075, 0.075, 0.075],
+    "layer": 1,
+    "$default_glyph_color|default": [1.0, 1.0, 1.0],
+    "$glyph_color": "$default_glyph_color",
+    "$button_texture": "textures/main_button_default"
+  },
+  "main_button_hover@button_panel": {
+    "layer": 2,
+    "$text_color": [1.0, 1.0, 1.0],
+    "$glyph_color": [1.0, 1.0, 1.0],
+    "$button_texture": "textures/main_button_hover"
+  },
+  "main_button_pressed@button_panel": {
+    "layer": 3,
+    "$text_color": [1.0, 1.0, 1.0],
+    "$glyph_color": [1.0, 1.0, 1.0],
+    "$button_texture": "textures/main_button_pressed"
+  },
+  "main_button_locked@button_panel": {
+    "$button_texture_size": ["100%-2px", "100%-2px"],
+    "$text_color": [1.0, 1.0, 1.0],
+    "$button_texture": "textures/ui/disabledButtonNoBorder",
+    "$border_visible": true
+  },
+  "button_panel": {
+    "type": "panel",
+    "size": ["100%", "100%"],
+    "$button_texture_size|default": ["100%", "100%"],
+    "$button_content|default": "screen_uikit.button_label",
+    "controls": [
+      {
+        "button_texture": {
+          "type": "image",
+          "$border_visible|default": false,
+          "size": "$button_texture_size",
+          "texture": "$button_texture",
+          "$buttonimg|default": ["default", "default"],
+          "controls": [
+            {
+              "button_content@$button_content": {
+                "size": "$buttonimg",
+                "layer": 2
+              }
+            },
+            {
+              "border": {
+                "layer": -1,
+                "$focus_border_size|default": ["100%+2px", "100%+2px"],
+                "size": "$focus_border_size",
+                "color": "$light_border_locked_color",
+                "type": "image",
+                "visible": "$border_visible",
+                "texture": "textures/ui/focus_border_white"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "button_label": {
+    "type": "label",
+    "locked_alpha": 0.5,
+    "shadow": "$button_shadow",
+    "$button_shadow|default":false,
+    "size": ["default", "default"],
+    "color": "$text_color",
+    "$button_text|default": "",
+    "text": "$button_text"
+  },
+  "button_toggle_default": {
+    "type": "image",
+    "size": ["100%", "100%"],
+    "$text_color": [0.075, 0.075, 0.075],
+    "texture": "textures/main_button_default",
+    "controls": [
+      {
+        "button_content@screen_uikit.button_label": {
+          "$button_shadow": false,
+          "layer": 2
+        }
+      }
+    ]
+  },
+  "button_toggle_hover@button_toggle_default": {
+    "$text_color": [1.0, 1.0, 1.0],
+    "texture": "textures/main_button_hover"
+  },
+  "button_toggle_pressed@button_toggle_default": {
+    "$text_color": [1.0, 1.0, 1.0],
+    "texture": "textures/main_button_pressed"
+  },
+  
+  "option_toggle_on@settings_common.option_toggle_state_template": {
+    "texture": "textures/gui/newgui/settings/toggle_on"
+  },
 
-  "view_controller": {
-    "type": "screen",
+  "option_toggle_off@settings_common.option_toggle_state_template": {
+    "texture": "textures/gui/newgui/settings/toggle_off"
+  },
 
-    "$screen_anim|default": [
-      "@common.screen_exit_animation_push_offset",
-      "@common.screen_exit_animation_pop_offset",
-      "@common.screen_entrance_animation_push_offset",
-      "@common.screen_entrance_animation_pop_offset",
-      "@common.screen_exit_animation_push_fade",
-      "@common.screen_exit_animation_pop_fade",
-      "@common.screen_entrance_animation_push_fade",
-      "@common.screen_entrance_animation_pop_fade"
-    ],
+  "option_toggle_on_hover@settings_common.option_toggle_state_template": {
+    "texture": "textures/gui/newgui/settings/toggle_on_hover"
+  },
 
-    "$custom_screen_anim|default": [
-      "@common.screen_exit_animation_push_offset",
-      "@common.screen_exit_animation_pop_offset",
-      "@common.screen_entrance_animation_push_offset",
-      "@common.screen_entrance_animation_pop_offset",
-      "@common.screen_exit_animation_push_fade",
-      "@common.screen_exit_animation_pop_fade",
-      "@common.screen_entrance_animation_push_fade",
-      "@common.screen_entrance_animation_pop_fade"
-    ],
+  "option_toggle_off_hover@settings_common.option_toggle_state_template": {
+    "texture": "textures/gui/newgui/settings/toggle_off_hover"
+  },
 
-    "$card_screen_anim|default": [
-      "@common.screen_exit_animation_push_offset",
-      "@common.screen_exit_animation_pop_offset",
-      "@common.screen_entrance_animation_push_offset",
-      "@common.screen_entrance_animation_pop_offset",
-      "@common.screen_exit_animation_push_fade",
-      "@common.screen_exit_animation_pop_fade",
-      "@common.screen_entrance_animation_push_fade",
-      "@common.screen_entrance_animation_pop_fade"
-    ],
+  "option_toggle_on_locked@screen_uikit.option_toggle_on": {
+    "alpha": 0.5
+  },
 
-    "$screen_bg|default": false,
-    "$screen_bg_anim|default": [
-      "@common.screen_exit_animation_push_alpha",
-      "@common.screen_exit_animation_pop_alpha",
-      "@common.screen_entrance_animation_push_alpha",
-      "@common.screen_entrance_animation_pop_alpha"
-    ],
+  "option_toggle_off_locked@screen_uikit.option_toggle_off": {
+    "alpha": 0.5
+  },
+  "option_toggle@settings_common.option_generic": {
+    "$option_label|default": "",
+    "$control_name": "screen_uikit.option_toggle_control",
+    "$toggle_tts_header": "$option_label",
+    "$one_line_layout": true
+  },
 
-    //Screen Type
-    "$is_sidebar_title_screen|default": false,
-    "$is_title_screen|default": false,
-    "$is_tabs_screen|default": false,
-    "$is_menu_screen|default": false,
-    "$is_custom_screen|default": false,
-    "$is_card_screen|default": false,
-    "$quickback|default": false,
+  "option_toggle_control@common.toggle": {
+    "layer": 2,
+    "$toggle_state_binding_name|default": "$option_binding_name",
+    "$toggle_enabled_binding_name|default": "$option_enabled_binding_name",
+    "$toggle_enabled_binding_type|default": "global",
+    "size": ["100%", "100%c"],
+    "$binding_type": "global",
+    "$binding_condition": "once",
+    "$unchecked_control": "screen_uikit.option_toggle_off",
+    "$checked_control": "screen_uikit.option_toggle_on",
+    "$unchecked_hover_control": "screen_uikit.option_toggle_off_hover",
+    "$checked_hover_control": "screen_uikit.option_toggle_on_hover",
+    "$unchecked_locked_control": "screen_uikit.option_toggle_off_locked",
+    "$unchecked_locked_hover_control": "screen_uikit.option_toggle_off_locked",
+    "$checked_locked_control": "screen_uikit.option_toggle_on_locked",
+    "$checked_locked_hover_control": "screen_uikit.option_toggle_on_locked",
 
-    "$left_safezone_control|default": "common.empty_panel",
-    "$right_safezone_control|default": "common.empty_panel",
-    "$top_safezone_control|default": "common.empty_panel",
-    "$bottom_safezone_control|default": "common.empty_panel",
+    "$enable_directional_toggling": false,
 
+    "enabled": "$enabled",
     "variables": [
       {
-        "requires": "$is_sidebar_title_screen",
-        "$screen_type": "ui.sidebar_title_screen",
-        "$screen_type_anim": "$screen_anim",
+        "requires": "(not $option_enabled_binding_name or not $enabled)",
+        "$toggle_enabled_binding_name": "#not_data_bound",
+        "$toggle_enabled_binding_type": "none"
+      }
+    ]
+  },
 
-        "$window_size": ["100%", "100%"],
-
-        "$left_safezone_control": "common.empty_panel",
-        "$right_safezone_control": "common.empty_panel",
-        "$top_safezone_control": "common.empty_panel",
-        "$bottom_safezone_control": "common.empty_panel"
-      },
+  "option_dropdown": {
+    "type": "panel",
+    "$option_generic_panel_size|default": ["100%", "100%c"],
+    "size": "$option_generic_panel_size",
+    "$option_enabled_binding_type|default": "global",
+    "bindings": [
       {
-        "requires": "$is_title_screen",
-        "$screen_type": "ui.title_screen",
-        "$screen_type_anim": "$screen_anim",
-
-        "$window_size": [282, "100% - 50px"],
-
-        "$left_safezone_control": "ui.title_safezone_stack",
-        "$right_safezone_control": "ui.title_safezone_stack",
-        "$top_safezone_control": "ui.top_tabs_safezone_stack",
-        "$bottom_safezone_control": "ui.bottom_tabs_safezone_stack"
-      },
-      {
-        "requires": "$is_tabs_screen",
-        "$screen_type": "ui.tabs_screen",
-        "$screen_type_anim": "$screen_anim",
-
-        "$window_size": [282, "100% - 50px"],
-
-        "$left_safezone_control": "ui.tabs_safezone_stack",
-        "$right_safezone_control": "ui.tabs_safezone_stack",
-        "$top_safezone_control": "ui.top_tabs_safezone_stack",
-        "$bottom_safezone_control": "ui.bottom_tabs_safezone_stack"
-      },
-      {
-        "requires": "$is_menu_screen",
-        "$screen_type": "ui.menu_screen",
-        "$screen_type_anim": "$screen_anim",
-
-        "$window_size": [370, "100% - 50px"],
-
-        "$left_safezone_control": "ui.left_menu_safezone_stack",
-        "$right_safezone_control": "ui.right_menu_safezone_stack",
-        "$top_safezone_control": "ui.top_menu_safezone_stack",
-        "$bottom_safezone_control": "ui.bottom_menu_safezone_stack"
-      },
-      {
-        "requires": "$is_one_screen",
-        "$screen_type": "ui.one_screen",
-        "$screen_type_anim": "$screen_anim",
-
-        "$window_size": [290, "100% - 50px"],
-
-        "$left_safezone_control": "ui.left_menu_safezone_stack",
-        "$right_safezone_control": "ui.right_menu_safezone_stack",
-        "$top_safezone_control": "ui.top_menu_safezone_stack",
-        "$bottom_safezone_control": "ui.bottom_menu_safezone_stack"
-      },
-      {
-        "requires": "$is_custom_screen",
-        "$screen_type": "$custom_screen",
-        "$screen_type_anim": "$custom_screen_anim",
-
-        "$window_size": ["100%", "100%"],
-
-        "$left_safezone_control": "$left_safezone_control",
-        "$right_safezone_control": "$right_safezone_control",
-        "$top_safezone_control": "$top_safezone_control",
-        "$bottom_safezone_control": "$bottom_safezone_control"
-      },
-      {
-        "requires": "$is_card_screen",
-        "$screen_type": "ui.card_screen",
-        "$screen_type_anim": "$card_screen_anim",
-
-        "$window_size": ["100%", "100%"],
-        "$not_window_style": true,
-
-        "$left_safezone_control": "common.empty_panel",
-        "$right_safezone_control": "common.empty_panel",
-        "$top_safezone_control": "common.empty_panel",
-        "$bottom_safezone_control": "common.empty_panel"
+        "binding_type": "$option_enabled_binding_type",
+        "binding_name": "$option_enabled_binding_name",
+        "binding_name_override": "#enabled"
       }
     ],
-
     "controls": [
       {
-        "screen_controls": {
-          "type": "input_panel",
-          "hover_enabled": false,
-          "prevent_touch_input": false,
-          "button_mappings": [
-            {
-              "from_button_id": "button.menu_up",
-              "to_button_id": "button.menu_up",
-              "mapping_type": "global",
-              "scope": "view"
-            },
-            {
-              "from_button_id": "button.menu_down",
-              "to_button_id": "button.menu_down",
-              "mapping_type": "global",
-              "scope": "view"
-            },
-            {
-              "from_button_id": "button.menu_left",
-              "to_button_id": "button.menu_left",
-              "mapping_type": "global",
-              "scope": "view"
-            },
-            {
-              "from_button_id": "button.menu_right",
-              "to_button_id": "button.menu_right",
-              "mapping_type": "global",
-              "scope": "view"
-            }
-          ],
-          "variables": [
-            {
-              "requires": "$desktop_screen",
-              "$screen_mode": "ui.desktop_mode"
-            },
-            {
-              "requires": "($pocket_screen or $is_holographic)",
-              "$screen_mode": "ui.mobile_mode"
-            }
-          ],
+        "two_line_layout": {
+          "$带文字描述|default": true,
+          "$label_bindings|default": [],
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": ["100%", 34],
           "controls": [
             {
-              "screen_bg@ui.all_bg": {
-                "$all_bg_color": "$screen_bg_color",
-                "$all_bg_alpha": 0.9,
-                "visible": "$screen_bg",
-                "anims": "$screen_bg_anim",
-                "animation_reset_name": "screen_animation_reset",
-                "propagate_alpha": true,
-                "disable_anim_fast_forward": true,
-                "layer": 1
+              "spacer_0": {
+                "type": "panel",
+                "visible": "$带文字描述",
+                "size": [0, 2]
               }
             },
             {
-              "screen@$screen_mode": {}
+              "option_label_panel": {
+                "type": "panel",
+                "$option_label_content|default": "screen_uikit.option_label_default",
+                "visible": "$带文字描述",
+                "size": ["100%", "100%c"],
+                "controls": [{ "labels@$option_label_content": {} }]
+              }
+            },
+            {
+              "spacer_1": {
+                "type": "panel",
+                "visible": "$带文字描述",
+                "size": [0, 1]
+              }
+            },
+            {
+              "contents@screen_uikit.togglecontents": {}
             }
           ]
         }
       }
     ]
   },
-
-  "desktop_mode": {
-    "type": "panel",
-    "$not_window_style|default": false,
+  "option_label_default": {
+    "type": "label",
+    "$option_label|default": "",
+    "color": "$main_header_text_color",
+    "size": ["100%", "default"],
+    "offset": "$label_offset",
+    "layer": 1,
+    "text": "$option_label",
+    "visible": "$带文字描述",
+    "bindings": "$label_bindings",
+    "locked_alpha": 0.5
+  },
+  "togglecontents@common.toggle": {
+    "$toggle_required|default": "",
+    "layer": 2,
+    "size": ["100%", 30],
+    "$toggle_enabled_binding_type": "global",
+    "$binding_type": "global",
+    "$binding_condition": "once",
+    "$button_content": "screen_uikit.button_label",
+    "$unchecked_control": "screen_uikit.main_button_default",
+    "$checked_control": "screen_uikit.main_button_default",
+    "$unchecked_hover_control": "screen_uikit.main_button_hover",
+    "$checked_hover_control": "screen_uikit.main_button_hover",
+    "$unchecked_locked_control": "screen_uikit.main_button_locked",
+    "$unchecked_locked_hover_control": "screen_uikit.main_button_locked",
+    "$checked_locked_control": "screen_uikit.main_button_locked",
+    "$checked_locked_hover_control": "screen_uikit.main_button_locked",
+    "$enabled|default": false,
+    "enabled": "$enabled"
+  },
+  "inside_dropdown@screen_uikit.option_dropdown": {
+    "bindings": [
+      {
+        "binding_name": "$toggle_required",
+        "binding_name_override": "#visible"
+      }
+    ]
+  },
+  "textbox_default": {
+    "type": "image",
+    "texture": "textures/ui/textbox_default",
+    "size": ["100%", "100%"]
+  },
+  "textbox_hover": {
+    "type": "image",
+    "texture": "textures/ui/textbox_hover",
+    "size": ["100%", "100%"]
+  },
+  "text_edit_box@common.text_edit_box": {
+    "$text_edit_box_label_offset": [1, 0],
+    "$place_holder_text_color": [0.5, 0.5, 0.5],
+    "$text_background_default": "screen_uikit.textbox_default",
+    "$text_background_hover": "screen_uikit.textbox_hover",
+    "$text_background_locked": "common.empty_panel"
+  },
+  "standard_scrolling@common.scrolling_panel": {
     "controls": [
       {
-        "safezone_screen_matrix": {
+        "$scroll_view_name": {
+          "type": "scroll_view",
+          "scroll_speed": 15,
+          "scrollbar_track_button": "",
+          "scrollbar_touch_button": "",
+          "touch_mode": false,
+          "always_listen_to_input": false,
+          "always_handle_pointer": false,
+          "always_handle_scrolling": false,
+          "scrollbar_track": "",
+          "scrollbar_box": "",
+          "scroll_content": "scrolling_content",
+          "scroll_view_port": "scrolling_view_port",
+          "scroll_box_and_track_panel": "bar_and_track",
+          "$jump_to_bottom_on_update|default": false,
+          "jump_to_bottom_on_update": "$jump_to_bottom_on_update",
+          "$scroll_background_image_control|default": "common.scroll_indent_image",
+          "$scroll_track_image_control|default": "common.scroll_indent_image",
+          "button_mappings": [],
+          "controls": [
+            {
+              "stack_panel": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "anchor_to": "top_left",
+                "anchor_from": "top_left",
+                "size": ["100%", "100%"],
+                "controls": [
+                  {
+                    "background_and_viewport@common.scroll_background_and_viewport": {}
+                  },
+                  {
+                    "bar_and_track@common.empty_panel": {
+                      "size": [1, "100%"],
+                      "button_mappings": []
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "bgback": {
+    "type": "input_panel",
+    "layer": 0,
+    "size": ["100%", "100%"],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "pressed"
+      }
+    ]
+  },
+  "back_content_panel": {
+    "type": "panel",
+    "$back_button_text|default": "Back",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [2, 6],
+    "size": ["100%c", "100%c"],
+    "controls": [
+      {
+        "back_button@common.back_button": {
+          "$back_content|default":"screen_uikit.back_button_content",
+          "$button_content": "$back_content",
+          "$button_text": "$back_button_text",
+          "layer": 200 //This should always be on top, let's ensure that
+        }
+      }
+    ]
+  },
+  "back_button_content": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%c", 16 ],
+    "offset": [ 0, 2 ],
+    "controls": [
+      {
+        "chevron_panel": {
+          "type": "panel",
+          "size": [ "100%c", "100%c" ],
+          "controls": [
+            {
+              "left_chevron@common.chevron_image": {
+                "texture": "textures/ui/chevron_left",
+                "offset": [ 0, -1 ],
+                "color": "$text_color"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding1": {
+          "type": "panel",
+          "size": [ 4, "100%" ]
+        }
+      },
+      {
+        "label_panel": {
+          "type": "panel",
+          "size": [ "100%c", "100%c" ],
+          "controls": [
+            {
+              "label@common_buttons.new_ui_binding_button_label": {
+                "offset": [ 0, -2 ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "menu_back_button_content": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%c", 16 ],
+    "$text_color":"white",
+    "offset": [ 0, 2 ],
+    "controls": [
+      {
+        "chevron_panel": {
+          "type": "panel",
+          "size": [ "100%c", "100%c" ],
+          "controls": [
+            {
+              "left_chevron@common.chevron_image": {
+                "texture": "textures/ui/chevron_left",
+                "offset": [ 0, -1 ],
+                "color": "$text_color"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding1": {
+          "type": "panel",
+          "size": [ 4, "100%" ]
+        }
+      },
+      {
+        "label_panel": {
+          "type": "panel",
+          "size": [ "100%c", "100%c" ],
+          "controls": [
+            {
+              "label@common_buttons.new_ui_binding_button_label": {
+                "offset": [ 0, -2 ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "uikit_screen": {
+    "type": "panel",
+    "$shadow_anchor|default": "center",
+    "$shadow_offset|default": [0, 0],
+    //Colors
+    "$title_bar_color1": [0.9, 0.9, 0.9, 1],
+    "$title_bar_color2": [0.8, 0.8, 0.8, 1],
+    "$title_color": [0.3, 0.3, 0.3],
+    "$menu_title_color": [0.3, 0.3, 0.3],
+    "$divider_color": [0.3, 0.3, 0.3],
+    "$sidebar_color": [0.9, 0.9, 0.9],
+    "$content_color": [0.5, 0.5, 0.5],
+    "$modern_screen_size|default": [370, 260],
+    "$screen_type|default": "screen_uikit.include_tabs_screen",
+    "controls": [
+      {
+        "screen_5@$screen_type": {
+          "layer": 1,
+          "size": "$modern_screen_size"
+        }
+      },
+      {
+        "screen_shadow_5": {
+          "type": "panel",
+          "anchor_from": "$shadow_anchor",
+          "anchor_to": "$shadow_anchor",
+          "offset": "$shadow_offset",
+          "layer": 1,
+          "size": "$modern_screen_size",
+          "controls": [
+            {
+              "shadow_TEXTURE": {
+                "type": "image",
+                "layer": 2,
+                "texture": "textures/ui/window_shadow",
+                "size": ["100% + 22px", "100% + 22px"]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "include_menu_screen": {
+    "type": "panel",
+    "controls": [
+      {
+        "bg": {
+          "type": "image",
+          "texture": "textures/ui/Frame",
+          "size": ["100% + 2px", "100% + 2px"]
+        }
+      },
+      {
+        "content_screen": {
           "type": "stack_panel",
           "orientation": "horizontal",
           "size": ["100%", "100%"],
-          "anims": "$screen_type_anim",
-          "animation_reset_name": "screen_animation_reset",
-          "propagate_alpha": true,
-          "disable_anim_fast_forward": true,
-          "layer": 2,
           "controls": [
             {
-              "outer_left@common.left_safezone_horizontal_buffer": {
-                "$safezone_binding_name": "#safezone_outer_left",
+              "menu_panel": {
+                "type": "panel",
+                "size": ["35%", "100%"],
+                "$left_screen|default": "common.empty_panel",
                 "controls": [
                   {
-                    "outer_left_safe_zone_stack@$left_safezone_control": {
-                      "visible": "$not_window_style"
+                    "bg_4": {
+                      "type": "image",
+                      "texture": "textures/ui/bg",
+                      "alpha": 0.7,
+                      "size": ["100%", "100%"],
+                      "color": "$sidebar_color"
+                    }
+                  },
+                  {
+                    "back_button_panel_4@screen_uikit.back_content_panel": {
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left"
+                    }
+                  },
+                  {
+                    "screen_title_4": {
+                      "type": "label",
+                      "layer": 2,
+                      "font_scale_factor": 1.5,
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "offset": [2, 19],
+                      "color": "$menu_title_color",
+                      "$title_text|default": "",
+                      "text": "$title_text",
+                      "size": ["default", "default"],
+                      "max_size": ["100% - 4px", 15]
+                    }
+                  },
+                  {
+                    "left_screen_4@$left_screen": {
+                      "anchor_from": "bottom_middle",
+                      "anchor_to": "bottom_middle",
+                      "size": ["100%", "100% - 34px"]
                     }
                   }
                 ]
               }
             },
             {
-              "inner_left@common.left_safezone_horizontal_buffer": {
-                "$safezone_binding_name": "#safezone_inner_left",
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
+              "divider_panel": {
+                "type": "panel",
+                "size": ["1px", "100%"],
                 "controls": [
                   {
-                    "inner_left_safe_zone_stack@$left_safezone_control": {
-                      "visible": "$not_window_style"
+                    "divider": {
+                      "type": "image",
+                      "size": ["100%", "100%"],
+                      "texture": "textures/ui/bg",
+                      "color": "$divider_color"
                     }
                   }
                 ]
               }
             },
             {
-              "safezone_inner_matrix": {
+              "content_panel": {
                 "type": "stack_panel",
                 "size": ["fill", "100%"],
-                "orientation": "vertical",
                 "controls": [
                   {
-                    "outer_top@common.top_safezone_vertical_buffer": {
-                      "$safezone_binding_name": "#safezone_outer_top",
-                      "controls": [
-                        {
-                          "top_side_control@$top_safezone_control": {
-                            "size": ["100%", "100%"],
-                            "visible": "$not_window_style"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "inner_top@common.top_safezone_vertical_buffer": {
-                      "$safezone_binding_name": "#safezone_inner_top",
-                      "controls": [
-                        {
-                          "top_side_control@$top_safezone_control": {
-                            "size": ["100%", "100%"],
-                            "visible": "$not_window_style"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "screen_panel": {
+                    "content_panel_controls": {
                       "type": "panel",
-                      "size": ["100%", "fill"],
+                      "size": ["100%", "16px"],
                       "controls": [
                         {
-                          "screen_type": {
-                            "type": "panel",
-
-                            //Colors
-                            "$title_bar_color1|default": "$title_bar_color1",
-                            "$title_bar_color2|default": "$title_bar_color2",
-                            "$title_color|default": "$title_color",
-                            "$menu_title_color|default": "$menu_title_color",
-                            "$divider_color|default": "$divider_color",
-                            "$divider_color_l|default": "$divider_color_l",
-                            "$sidebar_color|default": "$sidebar_color",
-                            "$content_color|default": "$content_color",
-
-                            "controls": [
-                              {
-                                "window_panel": {
-                                  "type": "panel",
-                                  "layer": 1,
-                                  "$window_size|default": ["100%", "100%"],
-                                  "size": "$window_size",
-                                  "controls": [
-                                    {
-                                      "shadow": {
-                                        "type": "image",
-                                        "layer": 1,
-                                        "visible": "(not $not_window_style)",
-                                        "nineslice_size": 20,
-                                        "base_size": [100, 100],
-                                        "texture": "textures/ui/window_shadow",
-                                        "size": ["100% + 22px", "100% + 22px"]
-                                      }
-                                    },
-                                    {
-                                      "frame": {
-                                        "type": "image",
-                                        "layer": 2,
-                                        "visible": "(not $not_window_style)",
-                                        "texture": "textures/ui/Frame",
-                                        "size": ["100% + 2px", "100% + 2px"]
-                                      }
-                                    },
-                                    {
-                                      "window@$screen_type": {
-                                        "layer": 3,
-                                        "size": ["100%", "100%"]
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            ]
+                          "bg_3": {
+                            "type": "custom",
+                            "renderer": "gradient_renderer",
+                            "color1": "$title_bar_color1",
+                            "color2": "$title_bar_color2",
+                            "size": ["100%", "100%"]
                           }
                         },
                         {
-                          "popup_dialog_factory": {
-                            "type": "factory",
-                            "control_ids": {
-                              "modal_dialog_popup": "@popup_dialog.modal_dialog_popup",
-                              "storage_dependency_popup": "@storage_management_popup.storage_dependency_modal",
-                              "storage_sharing_popup": "@storage_management_popup.sharing_popup_content"
-                            }
+                          "right_side_title_3": {
+                            "type": "label",
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "layer": 2,
+                            "color": "$title_color",
+                            "text": "$right_side_title",
+                            "$right_side_title|default": ""
                           }
                         }
                       ]
                     }
                   },
                   {
-                    "inner_bottom@common.bottom_safezone_vertical_buffer": {
-                      "$safezone_binding_name": "#safezone_inner_bottom",
+                    "divider_panel": {
+                      "type": "panel",
+                      "size": ["100%", "1px"],
                       "controls": [
                         {
-                          "bottom_side_control@$bottom_safezone_control": {
+                          "divider": {
+                            "type": "image",
                             "size": ["100%", "100%"],
-                            "visible": "$not_window_style"
+                            "texture": "textures/ui/bg",
+                            "color": "$divider_color"
                           }
                         }
                       ]
                     }
                   },
                   {
-                    "outer_bottom@common.bottom_safezone_vertical_buffer": {
-                      "$safezone_binding_name": "#safezone_outer_bottom",
+                    "content_panel": {
+                      "type": "panel",
+                      "size": ["100%", "fill"],
+                      "$right_screen|default": "common.empty_panel",
                       "controls": [
                         {
-                          "bottom_side_control@$bottom_safezone_control": {
-                            "size": ["100%", "100%"],
-                            "visible": "$not_window_style"
+                          "bg_2": {
+                            "type": "image",
+                            "texture": "textures/ui/bg",
+                            "color": "$content_color",
+                            "alpha": 0.9,
+                            "size": ["100%", "100%"]
+                          }
+                        },
+                        {
+                          "right_screen_2@$right_screen": {
+                            "anchor_from": "bottom_middle",
+                            "anchor_to": "bottom_middle",
+                            "size": ["100%", "100%"]
                           }
                         }
                       ]
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "inner_right@common.right_safezone_horizontal_buffer": {
-                "$safezone_binding_name": "#safezone_inner_right",
-                "controls": [
-                  {
-                    "inner_right_safe_zone_stack@$right_safezone_control": {
-                      "visible": "$not_window_style"
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "outer_right@common.right_safezone_horizontal_buffer": {
-                "$safezone_binding_name": "#safezone_outer_right",
-                "controls": [
-                  {
-                    "outer_right_safe_zone_stack@$right_safezone_control": {
-                      "visible": "$not_window_style"
                     }
                   }
                 ]
@@ -430,157 +640,162 @@
     ]
   },
 
-  "mobile_mode": {
+  "tabs_panel": {
     "type": "panel",
+    "$tab_navigation|default": "common.empty_panel",
+    "size": ["100%", "32px"],
     "controls": [
       {
-        "safezone_screen_matrix": {
+        "bg": {
+          "type": "custom",
+          "renderer": "gradient_renderer",
+          "color1": "$title_bar_color1",
+          "color2": "$title_bar_color2",
+          "size": ["100%", "100%"]
+        }
+      },
+      {
+        "back_button_panel@screen_uikit.back_content_panel": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left"
+        }
+      },
+      {
+        "tab_navigation_panel@$tab_navigation": {
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 2
+        }
+      }
+    ]
+  },
+
+  "include_tabs_screen": {
+    "type": "panel",
+    "anchor_from": "$shadow_anchor",
+    "anchor_to": "$shadow_anchor",
+    "offset": "$tabs_screen_offset",
+    "$modern_tab_with_tabs|default": "screen_uikit.tabs_panel",
+    "controls": [
+      {
+        "frame": {
+          "type": "image",
+          "texture": "textures/ui/Frame",
+          "size": ["100% + 2px", "100% + 2px"]
+        }
+      },
+      {
+        "content_screen": {
+          "type": "stack_panel",
+          "$bg_2_alpha|default": 0.9,
+          "size": ["100%", "100%"],
+          "$screen_content_size": ["100%", "100%"],
+          "controls": [
+            {
+              "content_panel": {
+                "type": "stack_panel",
+                "size": ["100%", "100%"],
+                "controls": [
+                  {
+                    "tabs_panel@$modern_tab_with_tabs": {}
+                  },
+                  {
+                    "divider_panel": {
+                      "type": "panel",
+                      "size": ["100%", "1px"],
+                      "controls": [
+                        {
+                          "divider": {
+                            "type": "image",
+                            "size": ["100%", "100%"],
+                            "texture": "textures/ui/bg",
+                            "color": "$divider_color"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "content_panel": {
+                      "type": "panel",
+                      "size": ["100%", "fill"],
+                      "$screencontents|default": "common.empty_panel",
+                      "controls": [
+                        {
+                          "bg_2": {
+                            "type": "image",
+                            "texture": "textures/ui/bg",
+                            "color": "$content_color",
+                            "alpha": "$bg_2_alpha",
+                            "size": ["100%", "100%"]
+                          }
+                        },
+                        {
+                          "screen_content_2@$screencontents": {
+                            "anchor_from": "bottom_middle",
+                            "anchor_to": "bottom_middle"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "include_cards_screen": {
+    "type": "panel",
+    "$cards_offset|default": [0, 0],
+    "anchor_from": "$shadow_anchor",
+    "anchor_to": "$shadow_anchor",
+    "offset": "$cards_offset",
+    "controls": [
+      {
+        "bg": {
+          "type": "image",
+          "texture": "textures/ui/Frame",
+          "size": ["100% + 2px", "100% + 2px"]
+        }
+      },
+      {
+        "content_screen": {
           "type": "stack_panel",
           "orientation": "horizontal",
           "size": ["100%", "100%"],
-          "anims": "$screen_type_anim",
-          "animation_reset_name": "screen_animation_reset",
-          "propagate_alpha": true,
-          "disable_anim_fast_forward": true,
-          "layer": 2,
           "controls": [
             {
-              "outer_left@common.left_safezone_horizontal_buffer": {
-                "$safezone_binding_name": "#safezone_outer_left",
-                "controls": [
-                  {
-                    "outer_left_safe_zone_stack@$left_safezone_control": {}
-                  }
-                ]
-              }
-            },
-            {
-              "inner_left@common.left_safezone_horizontal_buffer": {
-                "$safezone_binding_name": "#safezone_inner_left",
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "controls": [
-                  {
-                    "inner_left_safe_zone_stack@$left_safezone_control": {}
-                  }
-                ]
-              }
-            },
-            {
-              "safezone_inner_matrix": {
+              "content_panel": {
                 "type": "stack_panel",
                 "size": ["fill", "100%"],
-                "orientation": "vertical",
                 "controls": [
                   {
-                    "outer_top@common.top_safezone_vertical_buffer": {
-                      "$safezone_binding_name": "#safezone_outer_top",
-                      "controls": [
-                        {
-                          "top_side_control@$top_safezone_control": {
-                            "size": ["100%", "100%"]
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "inner_top@common.top_safezone_vertical_buffer": {
-                      "$safezone_binding_name": "#safezone_inner_top",
-                      "controls": [
-                        {
-                          "top_side_control@$top_safezone_control": {
-                            "size": ["100%", "100%"]
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "screen_panel": {
+                    "content_panel": {
                       "type": "panel",
                       "size": ["100%", "fill"],
+                      "$card_screen|default": "common.empty_panel",
                       "controls": [
                         {
-                          "screen_type": {
-                            "type": "panel",
-
-                            //Colors
-                            "$title_bar_color1|default": "$title_bar_color1",
-                            "$title_bar_color2|default": "$title_bar_color2",
-                            "$title_color|default": "$title_color",
-                            "$menu_title_color|default": "$menu_title_color",
-                            "$divider_color|default": "$divider_color",
-                            "$divider_color_l|default": "$divider_color_l",
-                            "$sidebar_color|default": "$sidebar_color",
-                            "$content_color|default": "$content_color",
-
-                            "controls": [
-                              {
-                                "screen@$screen_type": {
-                                  "layer": 1,
-                                  "size": ["100%", "100%"]
-                                }
-                              }
-                            ]
+                          "bg_3": {
+                            "type": "custom",
+                            "renderer": "gradient_renderer",
+                            "color1": "$title_bar_color1",
+                            "color2": "$title_bar_color2",
+                            "size": ["100%", "100%"]
                           }
                         },
                         {
-                          "popup_dialog_factory": {
-                            "type": "factory",
-                            "control_ids": {
-                              "modal_dialog_popup": "@popup_dialog.modal_dialog_popup",
-                              "storage_dependency_popup": "@storage_management_popup.storage_dependency_modal",
-                              "storage_sharing_popup": "@storage_management_popup.sharing_popup_content"
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "inner_bottom@common.bottom_safezone_vertical_buffer": {
-                      "$safezone_binding_name": "#safezone_inner_bottom",
-                      "controls": [
-                        {
-                          "bottom_side_control@$bottom_safezone_control": {
+                          "right_screen_2@$card_screen": {
+                            "anchor_from": "bottom_middle",
+                            "anchor_to": "bottom_middle",
                             "size": ["100%", "100%"]
                           }
                         }
                       ]
                     }
-                  },
-                  {
-                    "outer_bottom@common.bottom_safezone_vertical_buffer": {
-                      "$safezone_binding_name": "#safezone_outer_bottom",
-                      "controls": [
-                        {
-                          "bottom_side_control@$bottom_safezone_control": {
-                            "size": ["100%", "100%"]
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "inner_right@common.right_safezone_horizontal_buffer": {
-                "$safezone_binding_name": "#safezone_inner_right",
-                "controls": [
-                  {
-                    "inner_right_safe_zone_stack@$right_safezone_control": {}
-                  }
-                ]
-              }
-            },
-            {
-              "outer_right@common.right_safezone_horizontal_buffer": {
-                "$safezone_binding_name": "#safezone_outer_right",
-                "controls": [
-                  {
-                    "outer_right_safe_zone_stack@$right_safezone_control": {}
                   }
                 ]
               }
@@ -590,15 +805,10 @@
       }
     ]
   },
-
-  //---------------------------------------------------------------------------------------------------------
-  //
-  //  含側欄的標題介面
-  //
-  //---------------------------------------------------------------------------------------------------------
-
-  "sidebar_title_screen": {
+  "include_small_tabs_screen": {
     "type": "panel",
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
     "controls": [
       {
         "frame": {
@@ -611,720 +821,28 @@
         "content_screen": {
           "type": "stack_panel",
           "size": ["100%", "100%"],
-
-          "$item_size|default": ["100px", "100%"],
-          "$screen_sidebar_size|default": ["100%", "100%"],
-          "$screen_content_size|default": ["100%", "100%"],
-
-          "controls": [
-            {
-              "content_panel": {
-                "type": "stack_panel",
-                "size": ["100%", "100%"],
-                "controls": [
-                  {
-                    "title_panel": {
-                      "type": "panel",
-                      "size": ["100%", "16px"],
-                      "controls": [
-                        /*{
-                                                    "bg": {
-                                                        "type": "custom",
-                                                        "renderer": "gradient_renderer",
-                                                        "color1": "$title_bar_color1",
-                                                        "color2": "$title_bar_color2",
-                                                        "size": [ "100%", "100%" ]
-                                                    }
-                                                },*/
-                        {
-                          "bar_bg@ui.all_bg": {
-                            "$all_bg_color": "$content_title_bar_color",
-                            "$all_bg_alpha": 1.0
-                          }
-                        },
-                        {
-                          "back_button_panel@ui.no_background_back_button": {
-                            "anchor_from": "top_left",
-                            "anchor_to": "top_left"
-                          }
-                        },
-                        {
-                          "title": {
-                            "type": "label",
-                            "anchor_from": "center",
-                            "anchor_to": "center",
-                            "layer": 2,
-                            "color": "$title_color",
-                            "text": "$title",
-                            "bindings": [
-                              {
-                                "binding_type": "$title_binding_type",
-                                "binding_condition": "$title_binding_condition",
-                                "binding_name_override": "$title",
-                                "binding_name": "$title"
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "item_panel@$item": {
-                            "size": "$item_size",
-                            "offset": "$item_offset",
-                            "anchor_from": "top_right",
-                            "anchor_to": "top_right"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "divider_panel": {
-                      "type": "panel",
-                      "size": ["100%", "1px"],
-                      "controls": [
-                        {
-                          "divider": {
-                            "type": "image",
-                            "size": ["100%", "100%"],
-                            "texture": "textures/ui/bg",
-                            "color": "$divider_color_l"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "content_panel": {
-                      "type": "stack_panel",
-                      "orientation": "horizontal",
-                      "size": ["100%", "fill"],
-                      "controls": [
-                        {
-                          "sidebar_panel": {
-                            "type": "panel",
-                            "size": ["35%", "100%"],
-                            "controls": [
-                              {
-                                "bg@ui.all_bg": {
-                                  "$all_bg_color": "$sidebar_color",
-                                  "$all_bg_alpha": 0.7
-                                }
-                              },
-                              {
-                                "sidebar_content@$sidebar_content": {
-                                  "anchor_from": "bottom_middle",
-                                  "anchor_to": "bottom_middle",
-                                  "offset": "$screen_sidebar_offset",
-                                  "size": "$screen_sidebar_size"
-                                }
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "divider_panel": {
-                            "type": "panel",
-                            "size": ["1px", "100%"],
-                            "controls": [
-                              {
-                                "divider": {
-                                  "type": "image",
-                                  "size": ["100%", "100%"],
-                                  "texture": "textures/ui/bg",
-                                  "color": "$divider_color"
-                                }
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "content_panel": {
-                            "type": "panel",
-                            "size": ["fill", "100%"],
-                            "controls": [
-                              {
-                                "bg@ui.all_bg": {
-                                  "$all_bg_color": "$content_color",
-                                  "$all_bg_alpha": 0.9
-                                }
-                              },
-                              {
-                                "screen_content@$screen_content": {
-                                  "anchor_from": "bottom_middle",
-                                  "anchor_to": "bottom_middle",
-                                  "offset": "$screen_content_offset",
-                                  "size": "$screen_content_size"
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  //---------------------------------------------------------------------------------------------------------
-  //
-  //  含標題的介面
-  //
-  //---------------------------------------------------------------------------------------------------------
-
-  "title_safezone_stack": {
-    "type": "stack_panel",
-    "size": ["100%", "100%"],
-    "controls": [
-      {
-        "top_outer_control@ui.all_bg": {
-          "size": "$top_vertical_safezone_size",
-          "$all_bg_color": "$content_title_bar_color",
-          "bindings": [
-            {
-              "binding_name": "#safezone_outer_top",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "top_inner_control@ui.all_bg": {
-          "size": "$top_vertical_safezone_size",
-          "$all_bg_color": "$content_title_bar_color",
-          "bindings": [
-            {
-              "binding_name": "#safezone_inner_top",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "bar_control@ui.all_bg": {
-          "size": ["100%", "16px"],
-          "$all_bg_color": "$content_title_bar_color"
-        }
-      },
-      {
-        "divider_panel": {
-          "type": "panel",
-          "size": ["100%", "1px"],
-          "controls": [
-            {
-              "divider": {
-                "type": "image",
-                "size": ["100%", "100%"],
-                "texture": "textures/ui/bg",
-                "color": "$divider_color"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "middle_control@ui.all_bg": {
-          "size": ["100%", "fill"],
-          "$all_bg_color": "$content_color",
-          "$all_bg_alpha": 0.9
-        }
-      }
-    ]
-  },
-
-  "title_screen": {
-    "type": "panel",
-    "controls": [
-      {
-        "content_screen": {
-          "type": "stack_panel",
-          "size": ["100%", "100%"],
-
-          "$item_size|default": ["100px", "100%"],
-          "$screen_content_size|default": ["100%", "100%"],
-
-          "controls": [
-            {
-              "content_panel": {
-                "type": "stack_panel",
-                "size": ["100%", "100%"],
-                "controls": [
-                  {
-                    "title_panel": {
-                      "type": "panel",
-                      "size": ["100%", "16px"],
-                      "controls": [
-                        {
-                          "bar_bg@ui.all_bg": {
-                            "$all_bg_color": "$content_title_bar_color",
-                            "$all_bg_alpha": 1.0
-                          }
-                        },
-                        {
-                          "back_button_panel@ui.no_background_back_button": {
-                            "anchor_from": "top_left",
-                            "anchor_to": "top_left"
-                          }
-                        },
-                        {
-                          "title": {
-                            "type": "label",
-                            "anchor_from": "center",
-                            "anchor_to": "center",
-                            "layer": 2,
-                            "color": "$title_color",
-                            "text": "$title",
-                            "bindings": [
-                              {
-                                "binding_type": "$title_binding_type",
-                                "binding_condition": "$title_binding_condition",
-                                "binding_name_override": "$title",
-                                "binding_name": "$title"
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "item_panel@$item": {
-                            "size": "$item_size",
-                            "offset": "$item_offset",
-                            "anchor_from": "top_right",
-                            "anchor_to": "top_right"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "divider_panel": {
-                      "type": "panel",
-                      "size": ["100%", "1px"],
-                      "controls": [
-                        {
-                          "divider": {
-                            "type": "image",
-                            "size": ["100%", "100%"],
-                            "texture": "textures/ui/bg",
-                            "color": "$divider_color"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "content_panel": {
-                      "type": "panel",
-                      "size": ["100%", "fill"],
-                      "controls": [
-                        {
-                          "bg@ui.all_bg": {
-                            "$all_bg_color": "$content_color",
-                            "$all_bg_alpha": 0.9
-                          }
-                        },
-                        {
-                          "screen_content@$screen_content": {
-                            "anchor_from": "bottom_middle",
-                            "anchor_to": "bottom_middle",
-                            "offset": "$screen_content_offset",
-                            "size": "$screen_content_size"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  //---------------------------------------------------------------------------------------------------------
-  //
-  //  含標籤的介面
-  //
-  //---------------------------------------------------------------------------------------------------------
-
-  "tabs_safezone_stack": {
-    "type": "stack_panel",
-    "size": ["100%", "100%"],
-    "controls": [
-      {
-        "top_outer_control@ui.all_bg": {
-          "size": "$top_vertical_safezone_size",
-          "$all_bg_color": "$content_title_bar_color",
-          "bindings": [
-            {
-              "binding_name": "#safezone_outer_top",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "top_inner_control@ui.all_bg": {
-          "size": "$top_vertical_safezone_size",
-          "$all_bg_color": "$content_title_bar_color",
-          "bindings": [
-            {
-              "binding_name": "#safezone_inner_top",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "bar_control@ui.all_bg": {
-          "size": ["100%", "30px"],
-          "$all_bg_color": "$content_title_bar_color"
-        }
-      },
-      {
-        "divider_panel": {
-          "type": "panel",
-          "size": ["100%", "1px"],
-          "controls": [
-            {
-              "divider": {
-                "type": "image",
-                "size": ["100%", "100%"],
-                "texture": "textures/ui/bg",
-                "color": "$divider_color"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "middle_control@ui.all_bg": {
-          "size": ["100%", "fill"],
-          "$all_bg_color": "$content_color",
-          "$all_bg_alpha": 0.9
-        }
-      }
-    ]
-  },
-
-  "top_tabs_safezone_stack@ui.all_bg": {
-    "$all_bg_color": "$content_title_bar_color"
-  },
-
-  "bottom_tabs_safezone_stack@ui.all_bg": {
-    "$all_bg_color": "$content_color",
-    "$all_bg_alpha": 0.9
-  },
-
-  "tabs_screen": {
-    "type": "panel",
-    "controls": [
-      {
-        "content_screen": {
-          "type": "stack_panel",
-          "size": ["100%", "100%"],
-
           "$screen_content_size": ["100%", "100%"],
-
           "controls": [
             {
-              "content_panel": {
-                "type": "stack_panel",
-                "size": ["100%", "100%"],
-                "controls": [
-                  {
-                    "tabs_panel": {
-                      "type": "panel",
-                      "size": ["100%", "30px"],
-                      "controls": [
-                        {
-                          "bar_bg@ui.all_bg": {
-                            "$all_bg_color": "$content_title_bar_color",
-                            "$all_bg_alpha": 1.0
-                          }
-                        },
-                        {
-                          "back_button_panel@ui.no_background_back_button": {
-                            "anchor_from": "left_middle",
-                            "anchor_to": "left_middle"
-                          }
-                        },
-                        {
-                          "tab_navigation_panel@$tab_navigation": {
-                            "anchor_from": "center",
-                            "anchor_to": "center",
-                            "layer": 2
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "divider_panel": {
-                      "type": "panel",
-                      "size": ["100%", "1px"],
-                      "controls": [
-                        {
-                          "divider": {
-                            "type": "image",
-                            "size": ["100%", "100%"],
-                            "texture": "textures/ui/bg",
-                            "color": "$divider_color"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "content_panel": {
-                      "type": "panel",
-                      "size": ["100%", "fill"],
-                      "controls": [
-                        {
-                          "bg@ui.all_bg": {
-                            "$all_bg_color": "$content_color",
-                            "$all_bg_alpha": 0.9
-                          }
-                        },
-                        {
-                          "screen_content@$screen_content": {
-                            "anchor_from": "bottom_middle",
-                            "anchor_to": "bottom_middle",
-                            "offset": "$screen_content_offset",
-                            "size": "$screen_content_size"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  //---------------------------------------------------------------------------------------------------------
-  //
-  //  含選單的介面
-  //
-  //---------------------------------------------------------------------------------------------------------
-
-  "left_menu_safezone_stack@ui.all_bg": {
-    "$all_bg_color": "$sidebar_color",
-    "$all_bg_alpha": 0.7
-  },
-
-  "right_menu_safezone_stack": {
-    "type": "stack_panel",
-    "size": ["100%", "100%"],
-    "controls": [
-      {
-        "top_outer_control@ui.all_bg": {
-          "size": "$top_vertical_safezone_size",
-          "$all_bg_color": "$content_title_bar_color",
-          "bindings": [
-            {
-              "binding_name": "#safezone_outer_top",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "top_inner_control@ui.all_bg": {
-          "size": "$top_vertical_safezone_size",
-          "$all_bg_color": "$content_title_bar_color",
-          "bindings": [
-            {
-              "binding_name": "#safezone_inner_top",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "bar_control@ui.all_bg": {
-          "size": ["100%", "16px"],
-          "$all_bg_color": "$content_title_bar_color"
-        }
-      },
-      {
-        "divider_panel": {
-          "type": "panel",
-          "size": ["100%", "1px"],
-          "controls": [
-            {
-              "divider": {
-                "type": "image",
-                "size": ["100%", "100%"],
-                "texture": "textures/ui/bg",
-                "color": "$divider_color"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "middle_control@ui.all_bg": {
-          "size": ["100%", "fill"],
-          "$all_bg_color": "$content_color",
-          "$all_bg_alpha": 0.9
-        }
-      }
-    ]
-  },
-
-  "top_menu_safezone_stack": {
-    "type": "stack_panel",
-    "orientation": "horizontal",
-    "size": ["100%", "100%"],
-    "controls": [
-      {
-        "sidebar_control@ui.all_bg": {
-          "size": ["35%", "100%"],
-          "$all_bg_color": "$sidebar_color",
-          "$all_bg_alpha": 0.7
-        }
-      },
-      {
-        "divider_panel": {
-          "type": "panel",
-          "size": ["1px", "100%"],
-          "controls": [
-            {
-              "divider": {
-                "type": "image",
-                "size": ["100%", "100%"],
-                "texture": "textures/ui/bg",
-                "color": "$divider_color_l"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "bar_control@ui.all_bg": {
-          "size": ["fill", "100%"],
-          "$all_bg_color": "$content_title_bar_color"
-        }
-      }
-    ]
-  },
-
-  "bottom_menu_safezone_stack": {
-    "type": "stack_panel",
-    "orientation": "horizontal",
-    "size": ["100%", "100%"],
-    "controls": [
-      {
-        "sidebar_control@ui.all_bg": {
-          "size": ["35%", "100%"],
-          "$all_bg_color": "$sidebar_color",
-          "$all_bg_alpha": 0.7
-        }
-      },
-      {
-        "divider_panel": {
-          "type": "panel",
-          "size": ["1px", "100%"],
-          "controls": [
-            {
-              "divider": {
-                "type": "image",
-                "size": ["100%", "100%"],
-                "texture": "textures/ui/bg",
-                "color": "$divider_color_l"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "bar_control@ui.all_bg": {
-          "size": ["fill", "100%"],
-          "$all_bg_color": "$content_color",
-          "$all_bg_alpha": 0.9
-        }
-      }
-    ]
-  },
-
-  "menu_screen": {
-    "type": "panel",
-    "controls": [
-      {
-        "content_screen": {
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "size": ["100%", "100%"],
-
-          "$left_screen_size": ["100%", "100% - 36px"],
-          "$right_screen_size": ["100%", "100%"],
-
-          "controls": [
-            {
-              "menu_panel": {
+              "tabs_panel": {
                 "type": "panel",
-                "size": ["35%", "100%"],
+                "$tab_navigation|default": "common.empty_panel",
+                "size": ["100%", "32px"],
                 "controls": [
                   {
-                    "bg@ui.all_bg": {
-                      "$all_bg_color": "$sidebar_color",
-                      "$all_bg_alpha": 0.7
+                    "bg": {
+                      "type": "custom",
+                      "renderer": "gradient_renderer",
+                      "color1": "$title_bar_color1",
+                      "color2": "$title_bar_color2",
+                      "size": ["100%", "100%"]
                     }
                   },
                   {
-                    "back_button_panel@ui.no_background_back_button": {
-                      "anchor_from": "top_left",
-                      "anchor_to": "top_left"
-                    }
-                  },
-                  {
-                    "screen_title": {
-                      "type": "label",
-                      "layer": 2,
-                      "font_scale_factor": 1.5,
-                      "anchor_from": "top_left",
-                      "anchor_to": "top_left",
-                      "offset": [8, 19],
-                      "color": "$menu_title_color",
-                      "text": "$title_text",
-                      "size": ["default", "default"],
-                      "max_size": ["100% - 4px", 15],
-                      "bindings": [
-                        {
-                          "binding_name": "$binding_screen_title"
-                        }
-                      ]
-                    }
-                  } /*
-                                    {
-                                        "top_bar_one": {
-                                            "type": "image",
-                                            "anchor_from": "top_left",
-                                            "anchor_to": "top_left",
-                                            "layer":17,
-                                            "offset": [ 2, 36 ],
-                                            "size": [ "100%-4px" , 1 ],
-                                            "texture": "textures/ui/bg",
-                                            "color": "$divider_color"
-                                        }
-                                    },*/,
-                  {
-                    "left_screen@$left_screen": {
-                      "anchor_from": "bottom_middle",
-                      "anchor_to": "bottom_middle",
-                      "offset": "$left_screen_offset",
-                      "size": "$left_screen_size"
+                    "tab_navigation_panel@$tab_navigation": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "layer": 2
                     }
                   }
                 ]
@@ -1333,157 +851,12 @@
             {
               "divider_panel": {
                 "type": "panel",
-                "size": ["1px", "100%"],
+                "size": ["100%", "1px"],
                 "controls": [
                   {
                     "divider": {
                       "type": "image",
                       "size": ["100%", "100%"],
-                      "texture": "textures/ui/bg",
-                      "color": "$divider_color_l"
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "content_panel": {
-                "type": "stack_panel",
-                "size": ["fill", "100%"],
-                "controls": [
-                  {
-                    "content_panel_1": {
-                      "type": "panel",
-                      "size": ["100%", "16px"],
-                      "controls": [
-                        {
-                          "bar_bg@ui.all_bg": {
-                            "$all_bg_color": "$content_title_bar_color",
-                            "$all_bg_alpha": 1.0
-                          }
-                        },
-                        {
-                          "right_side_title": {
-                            "type": "label",
-                            "anchor_from": "center",
-                            "anchor_to": "center",
-                            "layer": 2,
-                            "color": "$title_color",
-                            "text": "$right_side_title",
-                            "bindings": [
-                              {
-                                "binding_name": "$binding_right_side_title"
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "divider_panel": {
-                      "type": "panel",
-                      "size": ["100%", "1px"],
-                      "controls": [
-                        {
-                          "divider": {
-                            "type": "image",
-                            "size": ["100%", "100%"],
-                            "texture": "textures/ui/bg",
-                            "color": "$divider_color"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "content_panel_2": {
-                      "type": "panel",
-                      "size": ["100%", "fill"],
-                      "controls": [
-                        {
-                          "bg@ui.all_bg": {
-                            "$all_bg_color": "$content_color",
-                            "$all_bg_alpha": 0.9
-                          }
-                        },
-                        {
-                          "right_screen@$right_screen": {
-                            "anchor_from": "bottom_middle",
-                            "anchor_to": "bottom_middle",
-                            "offset": "$right_screen_offset",
-                            "size": "$right_screen_size"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  "one_screen": {
-    "type": "panel",
-    "controls": [
-      {
-        "content_screen": {
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "size": ["100%", "100%"],
-
-          "$left_screen_size": ["100%", "100% - 36px"],
-          "$right_screen_size": ["100%", "100%"],
-
-          "controls": [
-            {
-              "menu_panel": {
-                "type": "panel",
-                "size": ["35%", "100%"],
-                "controls": [
-                  {
-                    "bg@ui.all_bg": {
-                      "$all_bg_color": "$sidebar_color",
-                      "$all_bg_alpha": 0.7
-                    }
-                  },
-                  {
-                    "back_button_panel@ui.no_background_back_button": {
-                      "anchor_from": "top_left",
-                      "anchor_to": "top_left"
-                    }
-                  },
-                  {
-                    "screen_title": {
-                      "type": "label",
-                      "layer": 2,
-                      "font_scale_factor": 1.5,
-                      "anchor_from": "top_left",
-                      "anchor_to": "top_left",
-                      "offset": [8, 19],
-                      "color": "$menu_title_color",
-                      "text": "$title_text",
-                      "size": ["default", "default"],
-                      "max_size": ["100% - 4px", 15],
-                      "bindings": [
-                        {
-                          "binding_name": "$binding_screen_title"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "top_bar_one": {
-                      "type": "image",
-                      "anchor_from": "top_left",
-                      "anchor_to": "top_left",
-                      "layer": 17,
-                      "offset": [2, 36],
-                      "size": ["100%-4px", 1],
                       "texture": "textures/ui/bg",
                       "color": "$divider_color"
                     }
@@ -1492,698 +865,64 @@
               }
             },
             {
-              "divider_panel": {
+              "content_panel": {
                 "type": "panel",
-                "size": ["1px", "100%"],
+                "size": ["100%", "fill"],
+                "$screencontents|default": "common.empty_panel",
                 "controls": [
                   {
-                    "divider": {
+                    "bg_2": {
                       "type": "image",
-                      "size": ["100%", "100%"],
                       "texture": "textures/ui/bg",
-                      "color": "$divider_color_l"
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "content_panel": {
-                "type": "stack_panel",
-                "size": ["fill", "100%"],
-                "controls": [
-                  {
-                    "content_panel_1": {
-                      "type": "panel",
-                      "size": ["100%", "16px"],
-                      "controls": [
-                        {
-                          "bar_bg@ui.all_bg": {
-                            "$all_bg_color": "$content_title_bar_color",
-                            "$all_bg_alpha": 1.0
-                          }
-                        },
-                        {
-                          "right_side_title": {
-                            "type": "label",
-                            "anchor_from": "center",
-                            "anchor_to": "center",
-                            "layer": 2,
-                            "color": "$title_color",
-                            "text": "$right_side_title",
-                            "bindings": [
-                              {
-                                "binding_name": "$binding_right_side_title"
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "divider_panel": {
-                      "type": "panel",
-                      "size": ["100%", "1px"],
-                      "controls": [
-                        {
-                          "divider": {
-                            "type": "image",
-                            "size": ["100%", "100%"],
-                            "texture": "textures/ui/bg",
-                            "color": "$divider_color"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "content_panel_2": {
-                      "type": "panel",
-                      "size": ["100%", "fill"],
-                      "controls": [
-                        {
-                          "bg@ui.all_bg": {
-                            "$all_bg_color": "$content_color",
-                            "$all_bg_alpha": 0.9
-                          }
-                        },
-                        {
-                          "right_screen@$right_screen": {
-                            "anchor_from": "bottom_middle",
-                            "anchor_to": "bottom_middle",
-                            "offset": "$right_screen_offset",
-                            "size": "$right_screen_size"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  //---------------------------------------------------------------------------------------------------------
-  //
-  //  卡片式介面
-  //
-  //---------------------------------------------------------------------------------------------------------
-
-  "cancel_button@ui.no_background_label_button": {
-    "visible": "$is_cancel_button",
-    "$button_text": "ui.cancel_button",
-    "$pressed_button_name": "button.menu_exit",
-    "anchor_from": "top_right",
-    "anchor_to": "top_right"
-  },
-
-  "confirm_button@ui.no_background_label_button": {
-    "visible": "$is_confirm_button",
-    "$button_text": "ui.confirm_button",
-    "$pressed_button_name": "button.confirm_button",
-    "anchor_from": "top_right",
-    "anchor_to": "top_right"
-  },
-
-  "done_button@ui.no_background_label_button": {
-    "visible": "$is_done_button",
-    "$button_text": "ui.done_button",
-    "$pressed_button_name": "button.menu_exit",
-    "anchor_from": "top_right",
-    "anchor_to": "top_right"
-  },
-
-  "card_screen": {
-    "type": "panel",
-    "$card_screen_size|default": [250, "100%c"],
-    "$screen_button|default": "ui.done_button",
-    "$screen_content|default": "$screen_content",
-    "controls": [
-      {
-        "shadow_texture": {
-          "type": "image",
-          "nineslice_size": 20,
-          "base_size": [100, 100],
-          "texture": "textures/ui/window_shadow",
-          "size": ["100%c + 20px", "100%c + 20px"],
-          "controls": [
-            {
-              "root_panel": {
-                "type": "image",
-                "size": ["100%c + 2px", "100%c + 2px"],
-                "texture": "textures/ui/Frame",
-                "controls": [
-                  {
-                    "content_panel@ui.all_bg": {
-                      "size": "$card_screen_size",
-                      "$all_bg_color": "$content_title_bar_color",
-                      "controls": [
-                        {
-                          "screen_content": {
-                            "type": "stack_panel",
-                            "size": ["100%", "100%c"],
-                            "controls": [
-                              {
-                                "title_bar_panel": {
-                                  "type": "panel",
-                                  "size": ["100%", "16px"],
-                                  "controls": [
-                                    {
-                                      "button@$screen_button": {}
-                                    }
-                                  ]
-                                }
-                              },
-                              {
-                                "content_panel": {
-                                  "type": "panel",
-                                  "size": ["100%", "100%c"],
-                                  "controls": [
-                                    {
-                                      "screen_content@$screen_content": {
-                                        "size": ["100% - 4px", "100%c"]
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  //---------------------------------------------------------------------------------------------------------
-  //
-  //  通用螢幕介面
-  //
-  //---------------------------------------------------------------------------------------------------------
-
-  "container_screen_exit_animation_push": {
-    "anim_type": "offset",
-    "easing": "out_cubic",
-    "duration": "$container_transition_time_push",
-    "from": [0, 0],
-    "to": [0, "100%"],
-    "play_event": "screen.exit_push",
-    "end_event": "screen.exit_end"
-  },
-
-  "container_screen_exit_animation_pop": {
-    "anim_type": "offset",
-    "easing": "out_cubic",
-    "duration": "$container_transition_time_push",
-    "from": [0, 0],
-    "to": [0, "100%"],
-    "play_event": "screen.exit_pop",
-    "end_event": "screen.exit_end"
-  },
-
-  "container_screen_entrance_animation_push": {
-    "anim_type": "offset",
-    "easing": "out_cubic",
-    "duration": "$container_transition_time_push",
-    "from": [0, "100%"],
-    "to": [0, 0],
-    "play_event": "screen.entrance_push",
-    "end_event": "screen.entrance_end"
-  },
-
-  "container_screen_entrance_animation_pop": {
-    "anim_type": "offset",
-    "easing": "out_cubic",
-    "duration": "$container_transition_time_push",
-    "from": [0, "100%"],
-    "to": [0, 0],
-    "play_event": "screen.entrance_pop",
-    "end_event": "screen.entrance_end"
-  },
-
-  "screen_background": {
-    "type": "image",
-    "size": ["100%", "100%"],
-    "alpha": 0.8,
-    "color": "$0_color_format",
-    "texture": "textures/ui/bg"
-  },
-
-  "screen_fade_in_alpha_anim": {
-    "anim_type": "alpha",
-    "easing": "out_expo",
-    "duration": 0.9,
-    "from": 0.3,
-    "to": 1
-  },
-
-  "icon_with_title": {
-    "type": "stack_panel",
-    "orientation": "horizontal",
-
-    "$icon_texture|default": "textures/ui/buttons/icons/bug_icon",
-    "$title_text|default": "Title",
-
-    "size": ["100%c", "100%c"],
-    "controls": [
-      {
-        "icon_panel": {
-          "type": "panel",
-          "size": ["11px", "11px"],
-          "controls": [
-            {
-              "icon0": {
-                "type": "image",
-                "texture": "textures/ui/buttons/icons/focus_border_fill",
-                "color": "$0_color_format",
-                "layer": 1
-              }
-            },
-            {
-              "icon1": {
-                "type": "image",
-                "size": ["9.8px", "9.8px"],
-                "texture": "$icon_texture",
-                "layer": 2
-              }
-            }
-          ]
-        }
-      },
-      {
-        "padding1": {
-          "type": "panel",
-          "size": [2, "100%"]
-        }
-      },
-      {
-        "label_panel": {
-          "type": "panel",
-          "size": ["100%c", "11px"],
-          "controls": [
-            {
-              "title": {
-                "type": "label",
-                "layer": 2,
-                "color": "$title_text_color",
-                "text": "$title_text"
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  //---------------------------------------------------------------------------------------------------------
-  //
-  //  更新資訊介面
-  //
-  //---------------------------------------------------------------------------------------------------------
-
-  "flat_screen": {
-    "type": "panel",
-    "size": ["100%", "100%"],
-
-    "$screen_title_offset|default": "$screen_title_offset",
-    "$title_text|default": "large_title.title",
-    "$binding_screen_title|default": "",
-
-    "$screen_subtitle_offset|default": "$screen_subtitle_offset",
-    "$subtitle_text|default": "large_title.title",
-    "$binding_screen_subtitle|default": "",
-
-    "$content_panel|default": "$content_panel",
-
-    "controls": [
-      {
-        "screen": {
-          "type": "stack_panel",
-          "orientation": "vertical",
-          "size": ["100%", "100%"],
-          "controls": [
-            {
-              "top_panel": {
-                "type": "panel",
-                "size": ["100%", "40px"],
-                "controls": [
-                  {
-                    "top_bg": {
-                      "type": "image",
-                      "alpha": 0.8,
-                      "size": ["100%", "100%"],
-                      "color": [0.0, 0.0, 0.0],
-                      "texture": "textures/ui/bg"
-                    }
-                  },
-                  {
-                    "screen_title": {
-                      "type": "label",
-                      "layer": 2,
-                      "offset": "$screen_title_offset",
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "text": "$title_text",
-                      "size": ["default", "default"],
-                      "max_size": "$screen_max_size",
-                      "shadow": false,
-                      "font_size": "large",
-                      "bindings": [
-                        {
-                          "binding_name": "$binding_screen_title"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "screen_subtitle": {
-                      "type": "label",
-                      "layer": 2,
-                      "offset": "$screen_subtitle_offset",
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "text": "$subtitle_text",
-                      "size": ["default", "default"],
-                      "max_size": "$screen_max_size",
-                      "shadow": false,
-                      "bindings": [
-                        {
-                          "binding_name": "$binding_screen_subtitle"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "content_panel": {
-                "type": "panel",
-                "size": ["100%", "100% - 80px"],
-                "controls": [
-                  {
-                    "bg": {
-                      "type": "image",
-                      "alpha": 0.7,
-                      "size": ["100%", "100%"],
                       "color": "$content_color",
-                      "texture": "textures/ui/bg"
+                      "alpha": 0.9,
+                      "size": ["100%", "100%"]
                     }
                   },
                   {
-                    "content@$content_panel": {
-                      "type": "panel",
-                      "size": ["300px", "100%"]
+                    "screen_content_2@$screencontents": {
+                      "anchor_from": "bottom_middle",
+                      "anchor_to": "bottom_middle"
                     }
                   }
                 ]
               }
-            },
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "include_sidebar_title_screen": {
+    "type": "panel",
+    "$kit_size": ["100% - 8px", "100%"],
+    "controls": [
+      {
+        "content_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": ["75%", "98%"],
+          "controls": [
             {
-              "bottom_panel": {
+              "space0": {
                 "type": "panel",
-                "size": ["100%", "40px"],
-                "controls": [
-                  {
-                    "bottom_bg": {
-                      "type": "image",
-                      "alpha": 0.8,
-                      "size": ["100%", "100%"],
-                      "color": [0.0, 0.0, 0.0],
-                      "texture": "textures/ui/bg"
-                    }
-                  },
-                  {
-                    "continue_button@common_buttons.light_text_button": {
-                      "size": ["150px", "30px"],
-                      "$button_text": "xbox.signin.letsPlay", //progressScreen.message.letsGo
-                      "$pressed_button_name": "button.menu_exit"
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  //---------------------------------------------------------------------------------------------------------
-  //
-  //  商店介面
-  //
-  //---------------------------------------------------------------------------------------------------------
-
-  "store_back_icon": {
-    "type": "image",
-    "texture": "textures/ui/store/back_icon",
-    "layer": 3,
-    "size": [14, 11]
-  },
-
-  "store_back_button@common_buttons.light_glyph_button": {
-    "$pressed_button_name": "button.menu_exit",
-    "size": [19, 19],
-    "$button_content": "ui.store_back_icon",
-    "$pressed_alpha": 0.65
-  },
-
-  "back_button@buttons_ui.no_background_content_button": {
-    "$button_text": "$back_button_text",
-
-    "$default_text_color": "$light_button_hover_text_color",
-
-    "$button_content": "common.back_button_content",
-    "$button_type_panel": "common_buttons.form_fitting_button_content_panel",
-    "$button_text_binding_type|default": "none",
-    "$button_binding_condition|default": "none",
-    "$button_text_grid_collection_name|default": "",
-    "bindings": [
-      {
-        "binding_name": "(not #gamepad_helper_visible)",
-        "binding_name_override": "#visible"
-      }
-    ],
-    "button_mappings": [
-      {
-        "from_button_id": "button.menu_select",
-        "to_button_id": "button.menu_exit",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_ok",
-        "to_button_id": "button.menu_exit",
-        "mapping_type": "focused"
-      }
-    ]
-  },
-
-  "back_content_panel": {
-    "type": "panel",
-    "$back_button_text|default": "gui.back",
-    "size": ["100%c", "100%c"],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "controls": [
-      {
-        "back_button@ui.back_button": {
-          "$button_text": "$back_button_text",
-          "layer": 200 //This should always be on top, let's ensure that
-        }
-      }
-    ]
-  },
-
-  "search_button_content": {
-    "type": "stack_panel",
-    "orientation": "horizontal",
-    "size": ["100%c", 16],
-    "offset": [0, 2],
-    "controls": [
-      {
-        "padding1": {
-          "type": "panel",
-          "size": [1, "100%"]
-        }
-      },
-      {
-        "search_icon_panel": {
-          "type": "panel",
-          "size": ["100%c", "100%"],
-          "controls": [
-            {
-              "search_icon": {
-                "type": "image",
-                "anchor_from": "top_middle",
-                "anchor_to": "top_middle",
-                "size": [10, 10],
-                "texture": "textures/ui/search_icon",
-                "offset": [0, -2],
-                "color": "$text_color"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "padding2": {
-          "type": "panel",
-          "size": [2, "100%"]
-        }
-      },
-      {
-        "label_panel": {
-          "type": "panel",
-          "size": ["100%c", "100%c"],
-          "controls": [
-            {
-              "label@common_buttons.new_ui_binding_button_label": {
-                "offset": [0, -2]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  "search_button@buttons_ui.no_background_content_button": {
-    "$button_text": "store.search.title",
-
-    "$default_text_color": "$light_button_hover_text_color",
-
-    "$button_content": "ui.search_button_content",
-    "$button_type_panel": "common_buttons.form_fitting_button_content_panel",
-    "$button_text_binding_type|default": "none",
-    "$button_binding_condition|default": "none",
-    "$button_text_grid_collection_name|default": "",
-    "bindings": [
-      {
-        "binding_name": "(not #gamepad_helper_visible)",
-        "binding_name_override": "#visible"
-      }
-    ],
-    "button_mappings": [
-      {
-        "from_button_id": "button.menu_select",
-        "to_button_id": "button.search",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_ok",
-        "to_button_id": "button.search",
-        "mapping_type": "focused"
-      }
-    ]
-  },
-
-  "store_title_panel": {
-    "type": "panel",
-    "size": ["100%", "100%"],
-    "$font_scale_factor": 1.5,
-    "$font_size": ["default", 13.5],
-    "controls": [
-      {
-        "title": {
-          "type": "label",
-          "anchor_from": "left_middle",
-          "anchor_to": "left_middle",
-          "font_scale_factor": "$font_scale_factor",
-          "text": "$store_title",
-          "size": "$font_size"
-        }
-      },
-      {
-        "search_button@ui.search_button": {
-          "anchor_from": "right_middle",
-          "anchor_to": "right_middle"
-        }
-      }
-    ]
-  },
-
-  "store_product_page": {
-    "type": "panel",
-    "size": ["100%", "100%"],
-    "$title_text|default": "",
-    "$hide_status_with_coins|default": false,
-    "$content_panel|default": "$content_panel",
-    "controls": [
-      {
-        "button_bg": {
-          "type": "custom",
-          "renderer": "gradient_renderer",
-          "color1": [0.8, 0.8, 0.8, 1],
-          "color2": [0.6, 0.6, 0.6, 1],
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
-          "size": ["100%", "16px"]
-        }
-      },
-      {
-        "content1@$content_panel": {
-          "type": "panel",
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
-          "size": ["100%", "16px"],
-          "layer": 20001,
-          "controls": [
-            {
-              "store_back_button@ui.back_content_panel": {}
-            },
-            {
-              "section_title_label": {
-                "type": "label",
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "text": "$title_text"
+                "size": [12, 0]
               }
             },
             {
-              "title@common_store.status_with_coins": {
-                "anchor_from": "top_right",
-                "anchor_to": "top_right"
+              "sidebar_content@$sidebar_content": {}
+            },
+            {
+              "space": {
+                "type": "panel",
+                "size": [4, 0]
               }
+            },
+            {
+              "item_panel@$item": {}
             }
           ]
         }
-      },
-      {
-        "content2@$content_panel": {
-          "type": "panel",
-          "layer": 1,
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "size": ["100%", "100%"]
-        }
-      }
-    ]
-  },
-
-  "bgback": {
-    "type": "input_panel",
-    "layer": 0,
-    "size": ["100%", "100%"],
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "button_mappings": [
-      {
-        "from_button_id": "button.menu_select",
-        "to_button_id": "button.menu_exit",
-        "mapping_type": "pressed"
       }
     ]
   }

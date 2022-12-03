@@ -359,7 +359,7 @@
           "type": "label",
           "color": "$dark_button_default_text_color",
           "offset": [4, 2],
-          "size": ["100%","default"],
+          "size": ["100%", "default"],
           "anchor_from": "top_left",
           "anchor_to": "top_left",
           "layer": 1,
@@ -381,11 +381,11 @@
       {
         "bg_3": {
           "type": "image",
-          "layer":0,
+          "layer": 0,
           "anchor_from": "top_right",
-          "anchor_to": "top_right", 
-          "keep_ratio":false,
-          "texture":"textures/ui/Black",
+          "anchor_to": "top_right",
+          "keep_ratio": false,
+          "texture": "textures/ui/Black",
           "size": ["50%+2px", "100%"]
         }
       },
@@ -453,7 +453,6 @@
                         }
                       ],
                       "$button_text": "Creat a New World",
-                      "$button_focus_precedence": 10,
                       "size": ["fill", "100%"],
                       "anchor_from": "top_left",
                       "anchor_to": "top_left",
@@ -718,7 +717,6 @@
                                       "add_friend_button@ui.Snowfirewolf_button": {
                                         "$pressed_button_name": "button.menu_network_add_friend",
                                         "$button_text": "Add a XBL Friend",
-                                        "$button_focus_precedence": 10,
                                         "size": ["100% + 1px", "100%"],
                                         "anchor_from": "top_left",
                                         "anchor_to": "top_left",
@@ -743,7 +741,6 @@
                                       "add_friend_button@ui.Snowfirewolf_button": {
                                         "$pressed_button_name": "button.menu_network_join_by_code",
                                         "$button_text": "Code a Relam",
-                                        "$button_focus_precedence": 10,
                                         "size": ["100% + 1px", "100%"],
                                         "anchor_from": "top_left",
                                         "anchor_to": "top_left",

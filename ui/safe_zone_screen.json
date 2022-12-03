@@ -1,128 +1,128 @@
 {
-    "namespace": "safe_zone",
-    
-    "safe_zone_panel": {
-        "type": "stack_panel",
-        "controls": [
+  "namespace": "safe_zone",//待修改
+
+  "safe_zone_panel": {
+    "type": "stack_panel",
+    "controls": [
+      {
+        "title_panel": {
+          "type": "panel",
+          "size": ["100%", "100%c"],
+          "controls": [
             {
-                "title_panel": {
-                    "type": "panel",
-                    "size": [ "100%", "100%c" ],
-                    "controls": [
-                        {
-                            "title": {
-                                "type": "label",
-                                "anchor_from": "center",
-                                "anchor_to": "center",
-                                "text_alignment" : "center",
-                                "font_scale_factor": 1.5,
-                                "color": "$title_color",
-                                "text": "options.safeZone.title",
-                                "size": [ "default", "default" ],
-                                "max_size": [ "100% - 10px", "30px" ]
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "panel_0": {
-                    "type": "panel",
-                    "size": [ "100%", "2px" ]
-                }
-            },
-            {
-                "tips_panel": {
-                    "type": "panel",
-                    "size": [ "100%", "100%c" ],
-                    "controls": [
-                        {
-                            "text": {
-                                "type": "label",
-                                "anchor_from": "center",
-                                "anchor_to": "center",
-                                "visible": "(not $edit_mode)",
-                                "text_alignment" : "center",
-                                "color": "$title_color",
-                                "text": "options.safeZone.description",
-                                "size": [ "default", "default" ],
-                                "max_size": [ "100% - 10px", "30px" ]
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "safe_zone_slider_all@settings_common.option_slider": {
-                    "$slider_name": "safe_zone_all",
-                    "$slider_value_binding_name": "#safe_zone_all",
-                    "$option_enabled_binding_name": "#safe_zone_all_enabled",
-                    "$default_focus_precedence": 1,
-                    "$slider_select_on_hover": true
-                }
-            },
-            {
-                "panel_3": {
-                    "type": "panel",
-                    "size": [ "100%", "-2px" ]
-                }
+              "title": {
+                "type": "label",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "text_alignment": "center",
+                "font_scale_factor": 1.5,
+                "color": "$title_color",
+                "text": "options.safeZone.title",
+                "size": ["default", "default"],
+                "max_size": ["100% - 10px", "30px"]
+              }
             }
-        ]
-    },
-    
-    // Screen //
-    
-    "safe_zone_screen@ui.view_controller": {
-        "controls": [
+          ]
+        }
+      },
+      {
+        "panel_0": {
+          "type": "panel",
+          "size": ["100%", "2px"]
+        }
+      },
+      {
+        "tips_panel": {
+          "type": "panel",
+          "size": ["100%", "100%c"],
+          "controls": [
             {
-                "safe_zone_bounds_markers": {
-                    "type": "panel",
-                    "controls": [
-                        { "top_left_marker@corner_tl": {} },
-                        { "top_right_marker@corner_tr": {} },
-                        { "bottom_left_marker@corner_bl": {} },
-                        { "bottom_right_marker@corner_br": {} }
-                    ]
-                }
-            },
-            {
-                "root@ui.card_screen": {
-                    "$card_screen_size": [ 225, "100%c" ],
-                    "$screen_content": "safe_zone.safe_zone_panel",
-                    "$screen_button": "ui.confirm_button"
-                }
+              "text": {
+                "type": "label",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "visible": "(not $edit_mode)",
+                "text_alignment": "center",
+                "color": "$title_color",
+                "text": "options.safeZone.description",
+                "size": ["default", "default"],
+                "max_size": ["100% - 10px", "30px"]
+              }
             }
-        ],
-        "button_mappings": [
-            {
-                "from_button_id": "button.menu_up",
-                "to_button_id": "button.menu_up",
-                "mapping_type": "global",
-                "scope": "view"
-            },
-            {
-                "from_button_id": "button.menu_down",
-                "to_button_id": "button.menu_down",
-                "mapping_type": "global",
-                "scope": "view"
-            },
-            {
-                "from_button_id": "button.menu_left",
-                "to_button_id": "button.menu_left",
-                "mapping_type": "global",
-                "scope": "view"
-            },
-            {
-                "from_button_id": "button.menu_right",
-                "to_button_id": "button.menu_right",
-                "mapping_type": "global",
-                "scope": "view"
-            },
-            {
-                "from_button_id": "button.menu_cancel",
-                "to_button_id": "button.menu_exit",
-                "mapping_type": "global"
-            }
-        ]
-    }
+          ]
+        }
+      },
+      {
+        "safe_zone_slider_all@settings_common.option_slider": {
+          "$slider_name": "safe_zone_all",
+          "$slider_value_binding_name": "#safe_zone_all",
+          "$option_enabled_binding_name": "#safe_zone_all_enabled",
+          "$default_focus_precedence": 1,
+          "$slider_select_on_hover": true
+        }
+      },
+      {
+        "panel_3": {
+          "type": "panel",
+          "size": ["100%", "-2px"]
+        }
+      }
+    ]
+  },
+
+  // Screen //
+
+  "safe_zone_screen@common.base_screen": {
+    "controls": [
+      /*{
+        "safe_zone_bounds_markers": {
+          "type": "panel",
+          "controls": [
+            { "top_left_marker@corner_tl": {} },
+            { "top_right_marker@corner_tr": {} },
+            { "bottom_left_marker@corner_bl": {} },
+            { "bottom_right_marker@corner_br": {} }
+          ]
+        }
+      },
+      {
+        "root@ui.card_screen": {
+          "$card_screen_size": [225, "100%c"],
+          "$screen_content": "safe_zone.safe_zone_panel",
+          "$screen_button": "ui.confirm_button"
+        }
+      }*/
+    ],
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_up",
+        "to_button_id": "button.menu_up",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_down",
+        "to_button_id": "button.menu_down",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_left",
+        "to_button_id": "button.menu_left",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_right",
+        "to_button_id": "button.menu_right",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ]
+  }
 }

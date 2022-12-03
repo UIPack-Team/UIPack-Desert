@@ -1,79 +1,30 @@
 {
- /*Designed by UIPack Team, Copyright © 2022 UIPack Team. All rights reserved.*/
+  /*Designed by UIPack Team, Copyright © 2022 UIPack Team. All rights reserved.*/
   "ui_defs": [
+    "contents/screens/inventory_screen/controls.json",
+    "contents/screens/inventory_screen/uikit.json",
     "contents/screens/settings_screen/create_worlds.json",
     "contents/screens/settings_screen/edit_worlds.json",
     "contents/screens/settings_screen/settings.json",
-    "contents/screens/pause_screen/pause_button.json",
-   
-   
+    "contents/screens/widgets_screen/chat_widgets.json",
+    "contents/screens/widgets_screen/color.json",
+    "contents/screens/widgets_screen/pause_button.json",
+    "contents/screens/widgets_screen/pause_widgets.json",
+
+    "contents/screens/custom_templates.json",
+    "contents/screens/edit_worlds.json",
+    "contents/screens/play.json",
+    "contents/screens/settings.json",
     "contents/screens/start.json",
     "contents/screens/world_templates.json",
-    "contents/screens/settings.json",
-    "contents/screens/play.json",
-    "contents/screens/edit_worlds.json",
-    "contents/screens/custom_templates.json",
-    "contents/screens/chat.json",
-    "contents/screens/add_server.json",
-
-    "contents/screens/inventory_screen/uikit.json",
-    "contents/screens/inventory_screen/controls.json",
 
     "contents/sdk/com.ut.slidekit/slide_view.json",
-    "contents/sdk/com.ut.uikit/screen.json",
-
     "contents/sdk/com.ut.uikit/button.json",
-    "contents/sdk/com.ut.uikit/buttons_ui_kit.json",
-    "contents/sdk/com.ut.uikit/dock.json",
     "contents/sdk/com.ut.uikit/icon_button.json",
     "contents/sdk/com.ut.uikit/label.json",
     "contents/sdk/com.ut.uikit/screen_view.json",
     "contents/sdk/com.ut.uikit/show_toggle.json",
-    "contents/sdk/com.ut.uikit/text_button_with_icon.json",
-
-    "ui/achievement_screen.json",
-    "ui/add_external_server_screen.json",
-    "ui/chat_screen.json",
-    "ui/coin_purchase_screen.json",
-    "ui/color.json",
-    "ui/command_block_kit.json",
-    "ui/command_block_screen.json",
-    "ui/create_world_upsell_screen.json",
-    "ui/death_screen.json",
-    "ui/disconnect_screen.json",
-    "ui/how_to_play_common.json",
-    "ui/how_to_play_screen.json",
-    "ui/in_bed_screen.json",
-    "ui/inventory_kit.json",
-    "ui/invite_screen.json",
-    "ui/manifest_validation_screen.json",
-    "ui/pack_settings_screen.json",
-    "ui/patch_notes_screen.json",
-    "ui/pause_screen.json",
-    "ui/permissions_screen.json",
-    "ui/play_screen.json",
-    "ui/popup_dialog.json",
-    "ui/progress_screen.json",
-    "ui/realms_settings_screen.json",
-    "ui/resource_packs_screen.json",
-    "ui/safe_zone_screen.json",
-    "ui/settings_screen.json",
-    "ui/start_screen.json",
-    "ui/textbox.json",
-    "ui/toast_screen.json",
-    "ui/ugc_viewer_screen.json",
-    "ui/ui_common.json",
-    "ui/world_templates_screen.json",
-    "ui/xbl_first_launch.json",
-    "ui/xbl_optional_signin.json",
-
-    "ui/pause_screen/pause_widgets.json",
-
-    "ui/settings_sections/controls_section.json",
-    "ui/settings_sections/general_section.json",
-    "ui/settings_sections/settings_common.json",
-    "ui/settings_sections/world_section.json",
-
-    "ui/start_screen/dock_panel.json"
+    "contents/sdk/com.ut.uikit/store_view.json",
+    "contents/sdk/com.ut.uikit/text_button_with_icon.json"
   ]
 }

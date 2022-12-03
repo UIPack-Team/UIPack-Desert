@@ -27,7 +27,7 @@
     ]
   },
 
-  "cancel_button@buttons_ui.no_background_content_button": {
+  "cancel_button@ui.no_background_content_button": {
     "$button_text|default": "gui.cancel",
     "$pressed_button_name|default": "button.menu_exit",
     "$default_text_color": "$light_button_hover_text_color",
@@ -101,7 +101,7 @@
     ]
   },
 
-  "no_background_label_button@buttons_ui.no_background_content_button": {
+  "no_background_label_button@ui.no_background_content_button": {
     "$button_text|default": "gui.cancel",
     "$pressed_button_name|default": "button.menu_exit",
     "$default_text_color": "$light_button_hover_text_color",
@@ -136,7 +136,7 @@
     "propagate_alpha": true,
     "controls": [
       {
-        "便捷返回@ui.bgback": {}
+        "便捷返回@screen_uikit.bgback": {}
       },
       {
         "main_content@coin_purchase.main_content": {

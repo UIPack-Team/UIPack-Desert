@@ -329,7 +329,7 @@
           "size": ["100%c", "100%"],
           "controls": [
             {
-              "padding_img@ui.all_bg": {
+              "padding_img@screen_uikit.all_bg": {
                 "layer": 2,
                 "color": "$title_color",
                 "size": [1, 12]
@@ -457,7 +457,7 @@
     ],
     "controls": [
       {
-        "bar_bg@ui.all_bg": {
+        "bar_bg@screen_uikit.all_bg": {
           "$all_bg_color": [0.85, 0.85, 0.85],
           "$all_bg_alpha": 0.85
         }

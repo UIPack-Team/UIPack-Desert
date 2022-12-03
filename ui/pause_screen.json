@@ -76,7 +76,7 @@
     "layer": 1,
     "controls": [
       {
-        "back@ui.bgback": {
+        "back@screen_uikit.bgback": {
           "layer": 2
         }
       },

@@ -507,7 +507,7 @@ WeiTzeng制作
               "ignored": "$store_notice",
               "controls": [
                   {
-                      "new_offers_icon@ui.all_bg":{
+                      "new_offers_icon@screen_uikit.all_bg":{
                           "$all_bg_color": [ 0.667, 0.0, 0.0 ],
                           "$all_bg_alpha": 0.95,
                           "bindings": [
@@ -630,7 +630,7 @@ WeiTzeng制作
                   "ignored": "$store_notice",
                   "controls": [
                       {
-                          "new_offers_icon@ui.all_bg":{
+                          "new_offers_icon@screen_uikit.all_bg":{
                               "$all_bg_color": [ 0.667, 0.0, 0.0 ],
                               "$all_bg_alpha": 1.0,
                               "bindings": [

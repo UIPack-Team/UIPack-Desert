@@ -201,7 +201,7 @@
     "type": "panel",
     "controls": [
       {
-        "bg@ui.all_bg": {
+        "bg@screen_uikit.all_bg": {
           "$all_bg_color": [0, 0, 0],
           "$all_bg_alpha": 0.26
         }
@@ -227,7 +227,7 @@
       },
       {
         "commands_panel@chat_uikit.commands_scrolling_panel": {}
-      },
+      }/*,
       {
         "chat_header_content_area": {
           "type": "stack_panel",
@@ -306,7 +306,7 @@
             }
           ]
         }
-      }
+      }*///待升到新版本修改
     ]
   },
   "chat_settings_popup@popup_dialog.form_fit_modal_dialog_popup": {

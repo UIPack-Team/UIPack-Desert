@@ -495,18 +495,6 @@
                 "bindings": [
                   {
                     "binding_name": "#paper_doll_skin"
-                  },
-                  {
-                    "binding_type": "view",
-                    "source_control_name": "viewer_panel",
-                    "source_property_name": "#gesture_delta_source",
-                    "target_property_name": "#gesture_delta_source"
-                  },
-                  {
-                    "binding_type": "view",
-                    "source_control_name": "viewer_panel",
-                    "source_property_name": "#gesture_mouse_delta_x",
-                    "target_property_name": "#gesture_mouse_delta_x"
                   }
                 ]
               }

@@ -57,7 +57,7 @@
           "type": "panel",
           "size": ["100%", "26px"],
           "controls": [
-            { "back@ui.bgback": {} },
+            { "back@screen_uikit.bgback": {} },
             {
               "border": {
                 "type": "image",

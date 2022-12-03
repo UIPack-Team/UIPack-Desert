@@ -1,13 +1,13 @@
 {
   "namespace": "ui",
   "modern_white_content_button@common.button": {
-    "$new_ui_button_panel|default": "ui.new_ui_button_panel2",
+    "$new_ui_button_panel|default": "ui.button_uikit_panel",
     "$button_content|default": "common.empty_panel",
     "controls": [
       {
         "default@$new_ui_button_panel": {
           "$new_ui_button_texture": "textures/main_button_default",
-          "$img_color":  [1, 1, 1],
+          "$img_color": [1, 1, 1],
           "$text_color": [0.3, 0.3, 0.3],
           "$secondary_text_color": [0.3, 0.3, 0.3],
           "$default_state": true,
@@ -27,7 +27,7 @@
       {
         "pressed@$new_ui_button_panel": {
           "$new_ui_button_texture": "textures/main_button_pressed",
-          "$img_color":[1, 1, 1],
+          "$img_color": [1, 1, 1],
           "$text_color": [1, 1, 1],
           "$secondary_text_color": [1, 1, 1],
           "$pressed_state": true,
@@ -37,13 +37,13 @@
     ]
   },
   "modern_content_button@common.button": {
-    "$new_ui_button_panel|default": "ui.new_ui_button_panel2",
+    "$new_ui_button_panel|default": "ui.button_uikit_panel",
     "$button_content|default": "common.empty_panel",
     "controls": [
       {
         "default@$new_ui_button_panel": {
           "$new_ui_button_texture": "textures/main_button_default",
-          "$img_color":  [0.3, 0.3, 0.3],
+          "$img_color": [0.3, 0.3, 0.3],
           "$text_color": [0.3, 0.3, 0.3],
           "$secondary_text_color": [0.3, 0.3, 0.3],
           "$default_state": true,
@@ -63,44 +63,11 @@
       {
         "pressed@$new_ui_button_panel": {
           "$new_ui_button_texture": "textures/main_button_pressed",
-          "$img_color":[1, 1, 1],
+          "$img_color": [1, 1, 1],
           "$text_color": [1, 1, 1],
           "$secondary_text_color": [1, 1, 1],
           "$pressed_state": true,
           "layer": 3
-        }
-      }
-    ]
-  },
-  "new_ui_button_panel": {
-    "type": "panel",
-    "layer": 1,
-    "size": ["100%", "100%"],
-    "$img_color|default": [0.3, 0.3, 0.3],
-    "controls": [
-      {
-        "button_texture": {
-          "type": "image",
-          "texture": "$new_ui_button_texture",
-          "size": ["100%-4px", "100%-4px"],
-          "anchor_from": "top_left",
-          "anchor_to": "top_left",
-          "layer": 1
-        }
-      },
-      {
-        "button_content": {
-          "type": "panel",
-          "$button_content_size|default": ["100% - 6px", "100% - 6px"],
-          "size": "$button_content_size",
-          "controls": [
-            {
-              "button_type_panel@$button_content": {
-                "color": "$img_color",
-                "layer": 3
-              }
-            }
-          ]
         }
       }
     ]
@@ -243,7 +210,7 @@
     "text": "$button_text"
   },
 
-  "new_ui_button_panel2": {
+  "button_uikit_panel": {
     "type": "panel",
     "layer": 1,
     "size": ["100%", "100%"],
@@ -352,323 +319,6 @@
     ]
   },
 
-  "no_background_label_button@buttons_ui.no_background_content_button": {
-    "size": ["100%c", "16px"],
-    "$button_offset": [0, 0],
-    "$pressed_button_offset": [0, 0],
-    "$button_text|default": "ui.cancel_button",
-    "$pressed_button_name|default": "button.menu_exit",
-    "$default_text_color|default": "$accent_color",
-    "$button_content": "ui.no_background_label_button_content",
-    "$button_state_panel": "ui.borderless_form_fitting_button_panel",
-    "$button_type_panel": "common_buttons.form_fitting_button_content_panel",
-    "$button_text_binding_type|default": "none",
-    "$button_binding_condition|default": "none",
-    "$button_text_grid_collection_name|default": "",
-    "bindings": [
-      {
-        "binding_name": "(not #gamepad_helper_visible)",
-        "binding_name_override": "#visible"
-      }
-    ],
-    "button_mappings": [
-      {
-        "from_button_id": "button.menu_select",
-        "to_button_id": "$pressed_button_name",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_ok",
-        "to_button_id": "$pressed_button_name",
-        "mapping_type": "focused"
-      }
-    ]
-  },
-
-  "no_background_back_button_content": {
-    "type": "stack_panel",
-    "orientation": "horizontal",
-    "size": ["100%c", 16],
-    "controls": [
-      {
-        "panel_0": {
-          "type": "panel",
-          "size": ["2px", "100%"]
-        }
-      },
-      {
-        "chevron_panel": {
-          "type": "panel",
-          "size": [4, "100%"],
-          "controls": [
-            {
-              "left_chevron": {
-                "type": "image",
-                "size": [4, 7],
-                "texture": "textures/ui/chevron_left",
-                "color": "$text_color"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "panel_1": {
-          "type": "panel",
-          "size": ["2px", "100%"]
-        }
-      },
-      {
-        "label_panel": {
-          "type": "panel",
-          "size": ["100%c", "100%"],
-          "controls": [
-            {
-              "label": {
-                "type": "label",
-                "text": "$button_text",
-                "color": "$text_color",
-                "size": ["default", "default"],
-                "max_size": ["default", 10], // Per design buttons are single line text only
-                "bindings": [
-                  {
-                    "binding_type": "$button_text_binding_type",
-                    "binding_condition": "$button_binding_condition",
-                    "binding_collection_name": "$button_text_grid_collection_name",
-                    "binding_name": "$button_text",
-                    "binding_name_override": "$button_text"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "panel_2": {
-          "type": "panel",
-          "size": ["1px", "100%"]
-        }
-      }
-    ]
-  },
-
-  "no_background_back_button@buttons_ui.no_background_content_button": {
-    "size": ["100%c", "16px"],
-    "$button_offset": [0, 0],
-    "$pressed_button_offset": [0, 0],
-    "$button_text|default": "ui.back_button",
-    "$default_text_color|default": "$accent_color",
-    "$button_content": "ui.no_background_back_button_content",
-    "$button_state_panel": "ui.borderless_form_fitting_button_panel",
-    "$button_type_panel": "common_buttons.form_fitting_button_content_panel",
-    "$button_text_binding_type|default": "none",
-    "$button_binding_condition|default": "none",
-    "$button_text_grid_collection_name|default": "",
-    "bindings": [
-      {
-        "binding_name": "(not #gamepad_helper_visible)",
-        "binding_name_override": "#visible"
-      }
-    ],
-    "button_mappings": [
-      {
-        "from_button_id": "button.menu_select",
-        "to_button_id": "button.menu_exit",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_ok",
-        "to_button_id": "button.menu_exit",
-        "mapping_type": "focused"
-      }
-    ]
-  },
-
-  "button": {
-    "type": "button",
-
-    "$focus_id|default": "",
-    "$focus_override_down|default": "",
-    "$focus_override_up|default": "",
-    "$focus_override_left|default": "",
-    "$focus_override_right|default": "",
-    "focus_identifier": "$focus_id",
-    "focus_change_down": "$focus_override_down",
-    "focus_change_up": "$focus_override_up",
-    "focus_change_left": "$focus_override_left",
-    "focus_change_right": "$focus_override_right",
-    "focus_enabled": true,
-    "focus_magnet_enabled": true,
-
-    "$button_focus_precedence|default": 0,
-    "default_focus_precedence": "$button_focus_precedence",
-
-    "layer": 1,
-    "sound_name": "random.click",
-    "sound_volume": 1.0,
-    "sound_pitch": 1.0,
-    "locked_control": "",
-    "default_control": "default",
-    "hover_control": "hover",
-    "pressed_control": "pressed",
-    "button_mappings": [
-      {
-        "from_button_id": "button.menu_select",
-        "to_button_id": "$pressed_button_name",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_ok",
-        "to_button_id": "$pressed_button_name",
-        "mapping_type": "focused"
-      }
-    ],
-
-    "$button_bindings|default": [],
-    "bindings": "$button_bindings"
-  },
-
-  "button_content_panel": {
-    "type": "panel",
-    "controls": [
-      {
-        "content@$button_content": {
-          "layer": 10
-        }
-      }
-    ]
-  },
-
-  "default_button_panel": {
-    "type": "panel",
-    "$button_size|default": ["100%", "100%"],
-    "$button_color|default": [0.5, 0.5, 0.5],
-    "$button_alpha|default": 0.8,
-    "$button_type_panel|default": "common.empty_panel",
-    "$shadow_visible|default": false,
-    "controls": [
-      {
-        "botton_controls": {
-          "type": "panel",
-          "size": "$button_size",
-          "controls": [
-            {
-              "button_bg": {
-                "type": "image",
-                "texture": "contents/resource/screen_bg",
-                "color": "$button_color",
-                "alpha": "$button_alpha",
-                "layer": 1
-              }
-            },
-            {
-              "button_content": {
-                "type": "panel",
-                "controls": [
-                  {
-                    "$button_type_panel@$button_type_panel": {
-                      "layer": 3
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "shadow_texture": {
-                "type": "image",
-                "layer": 1,
-                "texture": "contents/resource/screen_shadow",
-                "size": ["100% + 20px", "100% + 20px"],
-                "ignored": "(not $shadow_visible)"
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  "content_button@ui.button": {
-    "layer": 5,
-
-    "locked_control": "locked",
-
-    "$default_font|default": "default",
-    "$font_type": "$default_font",
-    "$locked_alpha": 1,
-
-    "$button_type_panel|default": "ui.button_content_panel",
-    "$button_content|default": "common.empty_panel",
-    "$button_state_panel|default": "ui.default_button_panel",
-
-    "$default_button_color|default": [0.8, 0.8, 0.8],
-    "$default_button_alpha|default": 0.9,
-    "$default_text_color|default": [0, 0, 0],
-
-    "$hover_button_color|default": [1.0, 1.0, 1.0],
-    "$hover_button_alpha|default": 0.9,
-    "$hover_text_color|default": [0, 0, 0],
-
-    "$pressed_button_color|default": [1.0, 1.0, 1.0],
-    "$pressed_button_alpha|default": 0.9,
-    "$pressed_text_color|default": [0, 0, 0],
-
-    "$locked_button_color|default": [0.5, 0.5, 0.5],
-    "$locked_button_alpha|default": 0.8,
-    "$locked_text_color|default": [0.2, 0.2, 0.2],
-
-    // These states are for passing the button state to the button content - do not set these in a parent!
-    "$default_state|default": false,
-    "$hover_state|default": false,
-    "$pressed_state|default": false,
-    "$locked_state|default": false,
-
-    "controls": [
-      {
-        "default@$button_state_panel": {
-          "$button_size": ["100%", "100%"],
-          "$button_color": "$default_button_color",
-          "$button_alpha": "$default_button_alpha",
-          "$text_color": "$default_text_color",
-          "$default_state": true,
-          "layer": 1
-        }
-      },
-      {
-        "hover@$button_state_panel": {
-          "$button_size": ["100%+4%", "100%"],
-          "$button_color": "$hover_button_color",
-          "$button_alpha": "$hover_button_alpha",
-          "$text_color": "$hover_text_color",
-          "$shadow_visible": true,
-          "$hover_state": true,
-          "layer": 2
-        }
-      },
-      {
-        "pressed@$button_state_panel": {
-          "$button_size": ["100%", "100%"],
-          "$button_color": "$pressed_button_color",
-          "$button_alpha": "$pressed_button_alpha",
-          "$text_color": "$pressed_text_color",
-          "$pressed_state": true,
-          "layer": 3
-        }
-      },
-      {
-        "locked@$button_state_panel": {
-          "$button_size": ["100%", "100%"],
-          "$button_color": "$locked_button_color",
-          "$button_alpha": "$locked_button_alpha",
-          "$text_color": "$locked_text_color",
-          "$locked_state": true,
-          "layer": 1
-        }
-      }
-    ]
-  },
-
   "label_button@ui.content_button": {
     "$button_type_panel": "common_buttons.new_ui_binding_button_label",
     "$font_type": "smooth"
@@ -751,6 +401,128 @@
           "$border_color": "$light_border_pressed_color",
           "$border_layer": 3,
           "$pressed_state": true
+        }
+      }
+    ]
+  },
+
+  "no_background_content_button@common.button": {
+    "size": ["100%c", "100%c"],
+    "$button_state_panel": "ui.no_background_content_form_fitting_button_panel",
+    "$anchor": "top_left", // Cannot override this or will cause unsolvable layout!
+    "$button_text_max_size": ["100%c", 10],
+
+    "$button_offset|default": [0, 3],
+    "$pressed_button_offset|default": [0, 4],
+    "$pressed_alpha|default": 0.5,
+    "$locked_alpha": 1,
+
+    // text color
+    "$default_text_color|default": "$light_button_default_text_color",
+    "$hover_text_color|default": "$light_button_hover_text_color",
+    "$pressed_text_color|default": "$light_button_pressed_text_color",
+
+    // For text bindings
+    "$button_text_binding_type|default": "none",
+    "$button_binding_condition|default": "none",
+    "$button_text_grid_collection_name|default": "",
+    "$border_visible": false,
+    "$button_image_visible": false,
+    "$button_content|default": "common.empty_panel",
+    "$button_image|default": "common.empty_panel",
+
+    // These states are for passing the button state to the button content - do not set these in a parent!
+    "$default_state|default": false,
+    "$hover_state|default": false,
+    "$pressed_state|default": false,
+    "$locked_state|default": false,
+
+    "locked_control": "locked",
+
+    "$default_button_texture|default": "",
+    "$locked_button_texture|default": "textures/ui/disabledButtonNoBorder",
+
+    "controls": [
+      {
+        "default@$button_state_panel": {
+          "$new_ui_button_texture": "$default_button_texture",
+          "$text_color": "$default_text_color",
+          "$secondary_text_color": "$light_button_secondary_default_text_color",
+          "$glyph_color": "$light_glyph_default_color",
+          "$button_image_visible": false,
+          "$content_alpha": 1,
+          "$border_color": "$light_border_default_color",
+          "$border_layer": 2,
+          "$default_state": true,
+          "layer": 1
+        }
+      },
+      {
+        "hover@$button_state_panel": {
+          "$text_color": "$hover_text_color",
+          "$secondary_text_color": "$light_button_secondary_hover_text_color",
+          "$glyph_color": "$light_glyph_hover_color",
+          "$content_alpha": 1,
+          "$button_image": "common_buttons.background_button_image",
+          "$border_color": "$light_border_hover_color",
+          "$border_layer": 3,
+          "$hover_state": true,
+          "layer": 2
+        }
+      },
+      {
+        "pressed@$button_state_panel": {
+          "$text_color": "$pressed_text_color",
+          "$secondary_text_color": "$light_button_secondary_pressed_text_color",
+          "$glyph_color": "$light_glyph_pressed_color",
+          "$content_alpha": "$pressed_alpha",
+          "$button_image": "common_buttons.background_button_image",
+          "$button_offset": "$pressed_button_offset",
+          "$border_color": "$light_border_pressed_color",
+          "$border_layer": 3,
+          "$pressed_state": true,
+          "layer": 3
+        }
+      },
+      {
+        "locked@$button_state_panel": {
+          "$new_ui_button_texture": "$locked_button_texture",
+          "$text_color": "$light_button_locked_text_color",
+          "$secondary_text_color": "$light_button_secondary_locked_text_color",
+          "$glyph_color": "$light_glyph_locked_color",
+          "$content_alpha": "$locked_alpha",
+          "$button_image": "common_buttons.locked_button_image",
+          "$border_color": "$light_border_locked_color",
+          "$border_layer": 1,
+          "$locked_state": true,
+          "layer": 1
+        }
+      }
+    ]
+  },
+
+  "no_background_content_form_fitting_button_panel": {
+    "type": "panel",
+    "layer": 1,
+    "$button_content|default": "common.empty_panel",
+    "$button_size_override|default": ["100%c", "100%c"],
+    "$button_image|default": "common_buttons.button_image",
+    "size": "$button_size_override",
+    "$content_alpha|default": 1,
+    "anchor_from": "$anchor",
+    "anchor_to": "$anchor",
+    "controls": [
+      {
+        "$button_image@$button_image": {
+          "size": ["100%c + 4px", "100%c"],
+          "layer": 1,
+          "controls": [
+            {
+              "$button_content@$button_content": {
+                "layer": 3
+              }
+            }
+          ]
         }
       }
     ]
