@@ -7,7 +7,8 @@
     "from": [0, 0],
     "to": [0, 200],
     "next": "@worldtemplates_uikit.anim_1",
-    "play_event": "button.more_custom_templates"
+    "play_event": "screen.exit_push",
+    "reset_event": "screen_animation_reset"
   },
   "anim_1": {
     "anim_type": "offset",
@@ -21,7 +22,9 @@
     "controls": [
       {
         "common_panel@screen_uikit.uikit_screen": {
-          "anims": ["@worldtemplates_uikit.anim_0"],
+          "anims": [
+            "@worldtemplates_uikit.anim_0"
+          ],
           "animation_reset_name": "screen_animation_reset",
           "$screen_type": "screen_uikit.include_cards_screen",
           "$card_screen": "worldtemplates_uikit.world_templates_picker_panel",

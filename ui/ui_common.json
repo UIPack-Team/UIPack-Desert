@@ -178,5 +178,65 @@
   },
   "dropdown/$dropdown_name": {
     "dropdown_area": ""
+  },
+  //test anims
+
+  "uikit_exit_push_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.25,
+    "from": [0, 0],
+    "to": ["100%", 0],
+    "play_event": "screen.exit_push",
+    "end_event": "screen.exit_end"
+  },
+
+  "uikit_exit_pop_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.25,
+    "from": [0, 0],
+    "to": ["-100%", 0],
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end"
+  },
+
+  "uikit_entrance_push_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.25,
+    "from": ["-100%", 0],
+    "to": [0, 0],
+    "play_event": "screen.entrance_push",
+    "end_event": "screen.entrance_end"
+  },
+
+  "uikit_entrance_pop_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.25,
+    "from": ["100%", 0],
+    "to": [0, 0],
+    "play_event": "screen.entrance_pop",
+    "end_event": "screen.entrance_end"
+  },
+  "uikit_from_top_push_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.25,
+    "from": [0, "100%"],
+    "to": [0, 0],
+    "play_event": "screen.entrance_push",
+    "end_event": "screen.entrance_end"
+  },
+
+  "uikit_from_top_pop_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.25,
+    "from": [0, "-100%"],
+    "to": [0, 0],
+    "play_event": "screen.entrance_pop",
+    "end_event": "screen.entrance_end"
   }
 }

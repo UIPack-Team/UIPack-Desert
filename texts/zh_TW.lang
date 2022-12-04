@@ -1,33 +1,8 @@
 UIPack brings exciting new UI to Minecraft.=UIPack 為 Minecraft 帶來了令人驚豔的新介面。
 Designed by UIPack TEAM. Copyright © 2018 UIPack Team. All rights reserved.=由 UIPack TEAM 設計。 Copyright © 2018 -2019  UIPack Team. 保留一切權利。
 
-subpack.light.name=淺色
-subpack.dark.name=深色
-
 add_server_tips.text=輸入外部伺服器的名稱、位址或 IP 後，可選擇立即加入遊戲或儲存至更多伺服器清單當中！
 edit_server_tips.text=除了可以編輯外部伺服器的名稱、位址或 IP 外，甚至可以選擇刪除或重新儲存至更多伺服器清單當中！
-
-patch_notes.title=歡迎來到 Minecraft
-pause.player_list.text=玩家列表
-permissions.playermanager.title=玩家權限管理
-
-tips_sides.not_text=無內容！
-
-start.for_you.title=為您推薦
-start.game_news.title=新聞
-start.skins_preview.title=外觀預覽
-
-settings.account_tips.subtitle=帳號管理、市集、Realms 與多人遊戲
-
-login_tips.text=立即登入至遊戲帳號中！即可遊玩 Realms 與多人遊戲外，更可以在市集當中獲得更多不一樣且新奇套件！
-
-achievement.me.title=我
-achievement.games.title=遊戲
-achievement.title=我的成就
-achievement.completed.text=已完成：
-achievement.schedule.text=進度
-achievement.gamerscore.text=遊戲得分
-achievement.timeplayed.text=遊戲時間
 
 ui.back_button=§l返回
 ui.cancel_button=§l取消
@@ -36,12 +11,14 @@ ui.done_button=§l完成
 ui.exit_button=§l離開
 ui_exit_button.tips=按下離開
 
+gui.warning.exitGameWarning=Do you want to exit Minecraft?
 options.turnOffAchievements=关闭成就？
 options.activateExperimentalGameplay=开启实验性玩法？
 options.unlockTemplateWorldOptions=解锁作者的设置？
 createWorldScreen.delete.confirm=永久删除世界？
 createWorldScreen.clearPlayerData.title=从世界清除玩家数据？
 resourcePack.warning.title=这很危险！
+progressScreen.loading= 
 
 ui_kit.NewWorld=创建世界
 /可加入的玩家来源/=/可加入的玩家来源/

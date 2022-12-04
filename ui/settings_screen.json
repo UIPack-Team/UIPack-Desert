@@ -53,6 +53,12 @@
             {
               "safezone_screen_panel": {
                 "type": "panel",
+                "anims": [
+                  "@common.uikit_exit_push_offset",
+                  "@common.uikit_exit_pop_offset",
+                  "@common.uikit_entrance_push_offset",
+                  "@common.uikit_entrance_pop_offset"
+                ],
                 "controls": [
                   { "back@screen_uikit.bgback": {} },
                   {
@@ -165,9 +171,17 @@
               "scope": "view"
             }
           ],
+
           "controls": [
             {
-              "safezone_screen_panel@safezone_screen_panel": {}
+              "safezone_screen_panel@safezone_screen_panel": {
+                "anims": [
+                  "@common.uikit_exit_push_offset",
+                  "@common.uikit_exit_pop_offset",
+                  "@common.uikit_from_top_push_offset",
+                  "@common.uikit_from_top_pop_offset"
+                ]
+              }
             }
           ]
         }
@@ -212,7 +226,12 @@
                 "controls": [
                   {
                     "root_screen_panel@$screen_content": {
-                      "anims": []
+                      "anims": [
+                        "@common.uikit_exit_push_offset",
+                        "@common.uikit_exit_pop_offset",
+                        "@common.uikit_from_top_push_offset",
+                        "@common.uikit_from_top_pop_offset"
+                      ]
                     }
                   },
                   {
@@ -272,7 +291,12 @@
                 "controls": [
                   {
                     "root_screen_panel@$screen_content": {
-                      "anims": []
+                      "anims": [
+                        "@common.uikit_exit_push_offset",
+                        "@common.uikit_exit_pop_offset",
+                        "@common.uikit_from_top_push_offset",
+                        "@common.uikit_from_top_pop_offset"
+                      ]
                     }
                   },
                   {

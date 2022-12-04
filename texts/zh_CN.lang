@@ -1,33 +1,8 @@
 UIPack brings exciting new UI to Minecraft.=UIPack 为 Minecraft 带来了令人惊叹的新介面。
 Designed by UIPack TEAM. Copyright © 2019 UIPack Team. All rights reserved.=UI和纹理由 UIPack Team 独立制作。 Copyright © 2018 - 2019 UIPack Team. 保留所有权利。
 
-subpack.light.name=明亮
-subpack.dark.name=黑暗
-
 add_server_tips.text=输入外部伺服器的名称、位址或 IP 后，可选择立即加入游戏或储存至更多伺服器清单当中！
 edit_server_tips.text=除了可以编辑外部伺服器的名称、位址或 IP 外，甚至可以选择删除或重新储存至更多伺服器清单当中！
-
-patch_notes.title=欢迎来到《Minecraft》
-pause.player_list.text=玩家列表
-permissions.playermanager.title=玩家权限管理
-
-tips_sides.not_text=无内容！
-
-start.for_you.title=为你推荐
-start.game_news.title=新闻
-start.skins_preview.title=外观预览
-
-settings.account_tips.subtitle=帐号管理，市集，Realms 与多人游戏
-
-login_tips.text=立即登入至游戏帐号中！即可游玩 Realms 与多人游戏外，更可以在市集当中获得更多不一样且新奇套件！
-
-achievement.me.title=我
-achievement.games.title=游戏
-achievement.title=我的成就
-achievement.completed.text=已完成：
-achievement.schedule.text=进度
-achievement.gamerscore.text=游戏得分
-achievement.timeplayed.text=游戏时间
 
 ui.back_button=§l返回
 ui.cancel_button=§l取消
@@ -36,15 +11,14 @@ ui.done_button=§l完成
 ui.exit_button=§l離開
 ui_exit_button.tips=按下离开
 
-manifestvalidation.info_title=资源包资讯
-manifestvalidation.debug_title=资源包侦错
-
+gui.warning.exitGameWarning=Do you want to exit Minecraft?
 options.turnOffAchievements=关闭成就？
 options.activateExperimentalGameplay=开启实验性玩法？
 options.unlockTemplateWorldOptions=解锁作者的设置？
 createWorldScreen.delete.confirm=永久删除世界？
 createWorldScreen.clearPlayerData.title=从世界清除玩家数据？
 resourcePack.warning.title=这很危险！
+progressScreen.loading= 
 
 ui_kit.NewWorld=创建世界
 /可加入的玩家来源/=/可加入的玩家来源/

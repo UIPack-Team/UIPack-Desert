@@ -1,7 +1,7 @@
 {
   "namespace": "progress",
-  
-    "progress_screen@common.base_screen": {
+
+  "progress_screen@common.base_screen": {
     "button_mappings": [
       {
         "from_button_id": "button.menu_cancel",
@@ -10,18 +10,75 @@
       }
     ]
   },
+
+  "modal_progress_contents": {
+    "type": "panel",
+    "controls": [
+      {
+        "content": {
+          "type": "panel",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          // magic offset to make the scroll clipping perfect
+          "size": ["100%-12px", "100%-60px"],
+          "offset": [6, 20],
+          "controls": [
+            {
+              "title_panel": {
+                "type": "panel",
+                "size": ["100%", "100%"],
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "controls": [
+                  {
+                    "progress_title_text@progress.progress_title_text": {}
+                  },
+                  {
+                    "progress_bar_text@progress.progress_bar_text": {}
+                  },
+                  {
+                    "progress_bar@progress.progress_bar": {}
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "modal_button_panel@progress.modal_button_panel": {
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "size": ["100%", 40]
+        }
+      }
+    ]
+  },
+
+  "modal_progress_screen": {
+    "type": "screen",
+    "controls": [
+      {
+        "0@modal_progress_contents": {}
+      }
+    ]
+  },
+
+  "screen_from_start": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.01,
+    "from": ["-125%", 0],
+    "to": ["-25%", 0],
+    "play_event": "screen.exit_push",
+    "reset_event": "screen_animation_reset"
+  },
   
   "title_text": {
     "type": "label",
     "layer": 3,
-    "size": [
-      "default",
-      10
-    ],
-    "max_size": [
-      "100% - 14px",
-      10
-    ],
+    "size": ["default", 10],
+    "max_size": ["100% - 14px", 10],
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
     "color": "$title_text_color",
@@ -32,18 +89,12 @@
       }
     ]
   },
-  
+
   "bar_text": {
     "type": "label",
     "layer": 3,
-    "size": [
-      "default",
-      40
-    ],
-    "max_size": [
-      "100% - 8px",
-      40
-    ],
+    "size": ["default", 40],
+    "max_size": ["100% - 8px", 40],
     "text": "#progress_text",
     "bindings": [
       {
@@ -51,14 +102,11 @@
       }
     ]
   },
-  
+
   "bottom_cancel_button@common_buttons.light_text_button": {
     "$pressed_button_name": "button.menu_exit",
     "$button_text": "gui.cancel",
-    "size": [
-      "100%",
-      "100%"
-    ],
+    "size": ["100%", "100%"],
     "bindings": [
       {
         "binding_name": "#cancel_visible",
@@ -66,7 +114,7 @@
       }
     ]
   },
-  
+
   "world_convert_modal_progress_screen_content": {
     "type": "panel",
     "layer": 3,
@@ -79,7 +127,7 @@
       }
     ]
   },
-  
+
   "world_save_modal_progress_screen_content": {
     "type": "panel",
     "controls": [
@@ -88,10 +136,7 @@
       },
       {
         "save_icon@progress.auto_save": {
-          "offset": [
-            0,
-            60
-          ]
+          "offset": [0, 60]
         }
       },
       {
@@ -99,155 +144,121 @@
       }
     ]
   },
-  
+
   "world_modal_progress_panel": {
-      "type": "panel",
-      "size": [
-          "100%",
-          "100%"
-      ],
-      "variables": [
-          {
-              "requires": "$desktop_screen",
-              "$button_state_default_base": "common.button_state_default",
-              "$button_state_hover_base": "common.button_state_hover",
-              "$button_state_pressed_base": "common.button_state_pressed"
-          },
-          {
-              "requires": "$pocket_screen",
-              "$button_state_default_base": "common-classic.button_state_default",
-              "$button_state_hover_base": "common-classic.button_state_hover",
-              "$button_state_pressed_base": "common-classic.button_state_pressed"
-          }
-      ],
-      "controls": [
-          {
+    "type": "panel",
+    "size": ["100%", "100%"],
+    "variables": [
+      {
+        "requires": "$desktop_screen",
+        "$button_state_default_base": "common.button_state_default",
+        "$button_state_hover_base": "common.button_state_hover",
+        "$button_state_pressed_base": "common.button_state_pressed"
+      },
+      {
+        "requires": "$pocket_screen",
+        "$button_state_default_base": "common-classic.button_state_default",
+        "$button_state_hover_base": "common-classic.button_state_hover",
+        "$button_state_pressed_base": "common-classic.button_state_pressed"
+      }
+    ],
+    "controls": [
+      {
         "bg@screen_uikit.all_bg": {
-          "$all_bg_color": [
-            0,
-            0,
-            0
-          ],
+          "$all_bg_color": [0, 0, 0],
           "$all_bg_alpha": 0.5
         }
       },
-          {
-              "main_control": {
-                  "type": "stack_panel",
-                  "size": [
-                      "100%",
-                      "100%c"
-                  ],
-                  "controls": [
-                      {
-                          "screen_title": {
-                              "type": "panel",
-                              "size": [
-                                  "100%",
-                                  "100%c"
-                              ],
-                              "controls": [
-                                  {
-                                      "title": {
-                                          "type": "label",
-                                          "layer": 2,
-                                          "font_scale_factor": 2,
-                                          "text": "#title_text",
-                                          "size": [
-                                              "default",
-                                              "default"
-                                          ],
-                                          "bindings": [
-                                              {
-                                                  "binding_name": "#title_text"
-                                              }
-                                          ]
-                                      }
-                                  }
-                              ]
-                          }
-                      },
-                      {
-                          "screen_message": {
-                              "type": "panel",
-                              "size": [
-                                  "100%",
-                                  "100%c"
-                              ],
-                              "controls": [
-                                  {
-                                      "message": {
-                                          "type": "label",
-                                          "layer": 2,
-                                          "text_alignment": "center",
-                                          "size": [
-                                              "50%",
-                                              "default"
-                                          ],
-                                          "font_type": "smooth",
-                                          "text": "#progress_text",
-                                          "bindings": [
-                                              {
-                                                  "binding_name": "#progress_text"
-                                              }
-                                          ]
-                                      }
-                                  }
-                              ]
-                          }
-                      },
-                      {
-                          "spacer_0": {
-                              "type": "panel",
-                              "size": [
-                                  0,
-                                  5
-                              ]
-                          }
-                      },
-                      {
-                          "spacer_1": {
-                              "type": "panel",
-                              "size": [
-                                  0,
-                                  5
-                              ],
-                              "bindings": [
-                                  {
-                                      "binding_name": "#cancel_visible",
-                                      "binding_name_override": "#visible"
-                                  }
-                              ]
-                          }
-                      },
-                      {
-                          "cancel_button": {
-                              "type": "panel",
-                              "size": [
-                                  "100%",
-                                  "100%c"
-                              ],
-                              "controls": [
-                                  {
-                                      "modal_button_panel@progress.bottom_cancel_button": {
-                                          "size": [
-                                              100,
-                                              30
-                                          ]/*,
+      {
+        "main_control": {
+          "type": "stack_panel",
+          "size": ["100%", "100%c"],
+          "controls": [
+            {
+              "screen_title": {
+                "type": "panel",
+                "size": ["100%", "100%c"],
+                "controls": [
+                  {
+                    "title": {
+                      "type": "label",
+                      "layer": 2,
+                      "font_scale_factor": 2,
+                      "text": "#title_text",
+                      "size": ["default", "default"],
+                      "bindings": [
+                        {
+                          "binding_name": "#title_text"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "screen_message": {
+                "type": "panel",
+                "size": ["100%", "100%c"],
+                "controls": [
+                  {
+                    "message": {
+                      "type": "label",
+                      "layer": 2,
+                      "text_alignment": "center",
+                      "size": ["50%", "default"],
+                      "font_type": "smooth",
+                      "text": "#progress_text",
+                      "bindings": [
+                        {
+                          "binding_name": "#progress_text"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "spacer_0": {
+                "type": "panel",
+                "size": [0, 5]
+              }
+            },
+            {
+              "spacer_1": {
+                "type": "panel",
+                "size": [0, 5],
+                "bindings": [
+                  {
+                    "binding_name": "#cancel_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "cancel_button": {
+                "type": "panel",
+                "size": ["100%", "100%c"],
+                "controls": [
+                  {
+                    "modal_button_panel@progress.bottom_cancel_button": {
+                      "size": [100, 30] /*,
                                           "bindings": [
                                               {
                                                   "binding_name": "#cancel_visible",
                                                   "binding_name_override": "#visible"
                                               }
                                           ]*/
-                                      }
-                                  }
-                              ]
-                          }
-                      }
-                  ]
+                    }
+                  }
+                ]
               }
-          }
-      ]
+            }
+          ]
+        }
+      }
+    ]
   }
 }

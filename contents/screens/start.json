@@ -1,6 +1,6 @@
 {
   "namespace": "start_kit",
-
+  
   "menu_bar_exit_animation_push_offset": {
     "anim_type": "offset",
     "easing": "out_cubic",
@@ -46,7 +46,7 @@
     "easing": "out_cubic",
     "duration": 0.25,
     "from": [0, -2],
-    "to": [0, 42],
+    "to": [0, 52],
     "play_event": "screen.exit_push",
     "end_event": "screen.exit_end"
   },
@@ -56,7 +56,7 @@
     "easing": "out_cubic",
     "duration": 0.25,
     "from": [0, -2],
-    "to": [0, 42],
+    "to": [0, 52],
     "play_event": "screen.exit_pop",
     "end_event": "screen.exit_end"
   },
@@ -95,6 +95,46 @@
     "from": [0, -3],
     "to": [0, 0],
     "next": "@start_kit.anim_A"
+  },
+
+  "view_push_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.25,
+    "from": [0, -8.5],
+    "to": ["150%", -8.5],
+    "play_event": "screen.exit_push",
+    "end_event": "screen.exit_end"
+  },
+
+  "view_pop_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.25,
+    "from": [0, -8.5],
+    "to": ["-150%", -8.5],
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end"
+  },
+
+  "view_pushback_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.25,
+    "from": ["-150%", -8.5],
+    "to": [0, -8.5],
+    "play_event": "screen.entrance_push",
+    "end_event": "screen.entrance_end"
+  },
+
+  "view_popback_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.25,
+    "from": ["150%", -8.5],
+    "to": [0, -8.5],
+    "play_event": "screen.entrance_pop",
+    "end_event": "screen.entrance_end"
   },
 
   "menu_bar_panel": {
@@ -192,6 +232,13 @@
       },
       {
         "slide_view@slide.slide_view": {
+          "animation_reset_name": "screen_animation_reset",
+          "anims": [
+            "@start_kit.view_push_offset",
+            "@start_kit.view_pop_offset",
+            "@start_kit.view_pushback_offset",
+            "@start_kit.view_popback_offset"
+          ],
           "size": ["100%", "50%"],
           "offset": [0, -12.5]
         }
@@ -680,6 +727,117 @@
                     }
                   }
                 ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "modal_dialog_popup@popup_dialog.modal_dialog_popup": {
+    "controls": [
+      {
+        "achievement": {
+          "type": "input_panel",
+          "size": ["100%", "100%"],
+          "controls": [
+            {
+              "all_bg": {
+                "type": "image",
+                "layer": 1001,
+                "size": ["150%", "150%"],
+                "color": [0.8, 0.8, 0.8],
+                "texture": "textures/ui/Black",
+                "alpha": 0.5,
+                "controls": [
+                  {
+                    "a@common.button": {
+                      "size": ["100%", "100%"],
+                      "default_control": "default",
+                      "hover_control": "default",
+                      "pressed_control": "default",
+                      "button_mappings": [
+                        {
+                          "from_button_id": "button.menu_select",
+                          "to_button_id": "popup_dialog.left_button",
+                          "mapping_type": "pressed"
+                        }
+                      ],
+                      "controls": [{ "default@common.empty_panel": {} }]
+                    }
+                  },
+                  {
+                    "label": {
+                      "type": "label",
+                      "offset": [0, -40],
+                      "text_alignment": "center",
+                      "text": "点按屏幕任意位置退出 Minecraft",
+                      "font_scale_factor": 2
+                    }
+                  },
+                  {
+                    "b@ui.Snowfirewolf_button": {
+                      "size": [120, 40],
+                      "layer": 3,
+                      "offset": [0, 30],
+                      "$button_text": "Cancel",
+                      "button_mappings": [
+                        {
+                          "from_button_id": "button.menu_select",
+                          "to_button_id": "popup_dialog.rightcancel_button",
+                          "mapping_type": "pressed"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "modal_bg_buttons",
+              "source_property_name": "#modal_label_text",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#text = 'Do you want to exit Minecraft?')",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "modal_input@popup_dialog.modal_input_panel": {
+          "$show_black_background|default": false,
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "modal_bg_buttons",
+              "source_property_name": "#modal_label_text",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(not (#text = 'Do you want to exit Minecraft?'))",
+              "target_property_name": "#visible"
+            }
+          ],
+          "controls": [
+            {
+              "modal_bg_buttons@popup_dialog.modal_dialog_with_buttons": {
+                "$visibility_source_control_name|default": "modal_bg_buttons",
+                "layer": 2
+              }
+            },
+            {
+              "black_background": {
+                "type": "image",
+                "texture": "textures/ui/realms_text_background",
+                "ignored": "(not $show_black_background)",
+                "layer": 1
               }
             }
           ]

@@ -1,21 +1,50 @@
 {
   "namespace": "start",
 
-  "start_screen@common.base_screen": {
-    "$screen_animations": [
-      "@common.screen_exit_animation_push_alpha",
-      "@common.screen_exit_animation_pop_alpha",
-      "@common.screen_entrance_animation_push_alpha",
-      "@common.screen_entrance_animation_pop_alpha"
-    ],
-    "button_mappings": [
+  "start_screen": {
+    "type": "screen",
+    "controls": [
       {
-        "ignored": "(not $nx_os)",
-        "from_button_id": "button.controller_select",
-        "to_button_id": "button.menu_offline",
-        "mapping_type": "global"
+        "input": {
+          "type": "input_panel",
+          "hover_enabled": false,
+          "prevent_touch_input": false,
+          "button_mappings": [
+            {
+              "ignored": "(not $nx_os)",
+              "from_button_id": "button.controller_select",
+              "to_button_id": "button.menu_offline",
+              "mapping_type": "global"
+            }
+          ],
+          "controls": [
+            {
+              "safezone_screen_panel": {
+                "type": "panel",
+                "anims": [
+                  "@common.screen_exit_animation_push_alpha",
+                  "@common.screen_exit_animation_pop_alpha",
+                  "@common.screen_entrance_animation_push_alpha",
+                  "@common.screen_entrance_animation_pop_alpha"
+                ],
+                "controls": [
+                  { "contents@start_kit.start_screen_content": {} },
+                  {
+                    "popup_dialog_factory": {
+                      "type": "factory",
+                      "control_ids": {
+                        "modal_dialog_popup": "@start_kit.modal_dialog_popup",
+                        "storage_dependency_popup": "@storage_management_popup.storage_dependency_modal",
+                        "storage_sharing_popup": "@storage_management_popup.sharing_popup_content"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
       }
-    ],
-    "$screen_content": "start_kit.start_screen_content"
+    ]
   }
 }

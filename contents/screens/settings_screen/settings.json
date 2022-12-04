@@ -1,6 +1,5 @@
 {
   "namespace": "modern_settings",
-
   "re_and_be": {
     "type": "panel",
     "controls": [
