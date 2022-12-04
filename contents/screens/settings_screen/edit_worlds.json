@@ -1,254 +1,104 @@
 {
   "namespace": "modern_edit_worlds",
   "edit_worlds_contents@modern_settings.default_settings_screen": {
-    "$left_title":"modern_edit_worlds.edit_title",
-    "$extra_panel":"modern_settings.re_and_be",
+    "$left_title": "modern_edit_worlds.edit_title",
+    "$extra_panel": "modern_settings.re_and_be",
     "$uipack_is_world_edit": false,
     "$screen_type": "screen_uikit.include_menu_screen"
   },
 
   "edit_title": {
-    "type": "label",
-    "layer": 2,
-    "font_scale_factor": 1.5,
+    "type": "stack_panel",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "offset": [2, 19],
-    "color": "white",
-    "text": "#world_name",
-    "size": ["default", "default"],
-    "max_size": ["100% - 4px", 15],
-    "bindings": [
-      {
-        "binding_name": "#world_name"
-      }
-    ]
-  },
-
-  "test": {
-    "type": "panel",
-    "controls": [{ "1@test_contents": {} }, { "2@test_tabs": {} }]
-  },
-
-  "test_contents": {
-    "type": "stack_panel",
-    "orientation": "horizontal",
-    "anchor_from": "bottom_middle",
-    "anchor_to": "bottom_middle",
-    "offset": [60, -16],
-    "size": [400, 30],
+    "size": [200, 20],
+    "offset": [2, 6],
     "controls": [
       {
-        "option_toggle_6@settings_common.option_toggle": {
-          "size": [30, 30],
-          "$option_label": "options.dev_showChunkMap",
-          "$option_binding_name": "#dev_show_chunk_map",
-          "$option_enabled_binding_name": "#dev_show_chunk_map_enabled",
-          "$toggle_name": "dev_show_chunk_map"
-        }
-      },
-      {
-        "c@ui.Snowfirewolf_button": {
-          "size": [30, 30],
-          "layer": 3,
-          "$button_text": "Clear All Player Data",
-          "button_mappings": [
-            {
-              "from_button_id": "button.menu_select",
-              "to_button_id": "button.menu_exit",
-              "mapping_type": "pressed"
-            }
-          ]
-        }
-      },
-      {
-        "1": {
+        "button": {
           "type": "panel",
-          "size": [30, 30],
-          "$option_label": "",
+          "size": [16, 10],
           "controls": [
             {
-              "1@screen_uikit.inside_dropdown": {
-                "$toggle_name": "#world_difficulty_radio_peaceful",
-                "$button_text": "H",
-                "$toggle_required": "#world_difficulty_radio_hard"
+              "button": {
+                "type": "image",
+                "offset": [-2, -4],
+                "size": [8, 8],
+                "texture": "textures/ui/ui_exit_button"
               }
             },
             {
-              "2@screen_uikit.inside_dropdown": {
-                "$toggle_name": "#world_difficulty_radio_easy",
-                "$button_text": "P",
-                "$toggle_required": "#world_difficulty_radio_peaceful"
+              "border": {
+                "type": "image",
+                "offset": [-2, -4],
+                "size": [8, 8],
+                "texture": "textures/ui/ui_exit_focus_border",
+                "color": [0, 0, 0]
               }
             },
             {
-              "3@screen_uikit.inside_dropdown": {
-                "$toggle_name": "#world_difficulty_radio_normal",
-                "$button_text": "E",
-                "$toggle_required": "#world_difficulty_radio_easy"
-              }
-            },
-            {
-              "4@screen_uikit.inside_dropdown": {
-                "$toggle_name": "#world_difficulty_radio_hard",
-                "$button_text": "N",
-                "$toggle_required": "#world_difficulty_radio_normal"
+              "seed": {
+                "type": "stack_panel",
+                "offset": [6, -2],
+                "orientation": "horizontal",
+                "size": ["fill", 12],
+                "controls": [
+                  {
+                    "1": {
+                      "type": "label",
+                      "layer": 2,
+                      "font_scale_factor": 1,
+                      "color": "white",
+                      "text": "Seed : ",
+                      "size": ["default", 12]
+                    }
+                  },
+                  {
+                    "seed": {
+                      "type": "label",
+                      "layer": 2,
+                      "font_scale_factor": 1,
+                      "color": "white",
+                      "text": "#world_seed",
+                      "size": ["default", 12],
+                      "bindings": [
+                        {
+                          "binding_name": "#world_seed"
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             }
           ]
         }
       },
       {
-        "2": {
-          "type": "panel",
-          "size": [30, 30],
-          "$option_label": "",
+        "line_two": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [127, 12],
           "controls": [
             {
-              "1@screen_uikit.inside_dropdown": {
-                "$toggle_name": "#player_game_mode_radio_creative",
-                "$button_text": "A",
-                "$toggle_required": "#player_game_mode_radio_adventure"
-              }
+              "padding": { "type": "panel", "size": [2, 0] }
             },
             {
-              "2@screen_uikit.inside_dropdown": {
-                "$toggle_name": "#player_game_mode_radio_survival",
-                "$button_text": "C",
-                "$toggle_required": "#player_game_mode_radio_creative"
-              }
-            },
-            {
-              "3@screen_uikit.inside_dropdown": {
-                "$toggle_name": "#player_game_mode_radio_adventure",
-                "$button_text": "S",
-                "$toggle_required": "#player_game_mode_radio_survival"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "3": {
-          "type": "panel",
-          "size": [30, 30],
-          "$option_label": "",
-          "controls": [
-            {
-              "1@screen_uikit.inside_dropdown": {
-                "$toggle_name": "#thirdperson_radio_third_front",
-                "$button_text": "B",
-                "$toggle_required": "#thirdperson_radio_third_back"
-              }
-            },
-            {
-              "2@screen_uikit.inside_dropdown": {
-                "$toggle_name": "#thirdperson_radio_first",
-                "$button_text": "TF",
-                "$toggle_required": "#thirdperson_radio_third_front"
-              }
-            },
-            {
-              "3@screen_uikit.inside_dropdown": {
-                "$toggle_name": "#thirdperson_radio_third_back",
-                "$button_text": "F",
-                "$toggle_required": "#thirdperson_radio_first"
+              "create_title": {
+                "type": "label",
+                "layer": 2,
+                "font_scale_factor": 1.4,
+                "color": "white",
+                "text": "#world_name",
+                "size": ["default", 12],
+                "bindings": [
+                  {
+                    "binding_name": "#world_name"
+                  }
+                ]
               }
             }
           ]
-        }
-      },
-      {
-        "allow_cheats_toggle@screen_uikit.option_toggle": {
-          "size": [30, 30],
-          "$tts_section_header": "createWorldScreen.cheatSettings",
-          "$option_label": "selectWorld.cheats",
-          "$option_binding_name": "#allow_cheats",
-          "$option_enabled_binding_name": "#allow_cheats_enabled",
-          "$toggle_name": "allow_cheats",
-          "$focus_override_right": "FOCUS_OVERRIDE_STOP",
-          "$toggle_binding_condition": "always_when_visible",
-          "bindings": [
-            {
-              "binding_type": "global",
-              "binding_name": "(not #random_tick_speed_enabled)",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "option_slider_0@settings_common.option_slider": {
-          "size": [100, 50],
-          "$option_label": "#touch_sensitivity_slider_label",
-          "$slider_name": "touch_sensitivity",
-          "$slider_value_binding_name": "#touch_sensitivity",
-          "$slider_tts_text_value": "#touch_sensitivity_text_value",
-          "$option_enabled_binding_name": "#touch_sensitivity_enabled",
-          "$label_bindings": [
-            {
-              "binding_name": "$option_label"
-            }
-          ]
-        }
-      },
-      {
-        "fov_slider@settings_common.option_slider": {
-          "$option_label": "#field_of_view_slider_label",
-          "size": [100, 50],
-          "$slider_tts_text_value": "#field_of_view_text_value",
-          "$slider_name": "field_of_view",
-          "$slider_value_binding_name": "#field_of_view",
-          "$option_enabled_binding_name": "#field_of_view_enabled",
-          "$label_bindings": [
-            {
-              "binding_name": "$option_label"
-            }
-          ]
-        }
-      },
-      {
-        "rendering_profile_option_slider@settings_common.option_slider": {
-          "size": [100, 50],
-          "$option_label": "#rendering_profile_slider_label",
-          "$slider_name": "rendering_profile",
-          "$slider_value_binding_name": "#rendering_profile",
-          "$slider_tts_text_value": "#rendering_profile_text_value",
-          "$option_enabled_binding_name": "#rendering_profile_slider_enabled",
-          "$slider_steps_binding_name": "#rendering_profile_steps",
-          "$label_bindings": [
-            {
-              "binding_name": "$option_label"
-            }
-          ]
-        }
-      },
-      {
-        "option_slider_1@settings_common.option_slider": {
-          "size": [100, 50],
-          "$option_label": "#button_size_slider_label",
-          "$slider_name": "button_size",
-          "$slider_value_binding_name": "#button_size",
-          "$slider_tts_text_value": "#button_size_text_value",
-          "$option_enabled_binding_name": "#button_size_enabled",
-          "$label_bindings": [
-            {
-              "binding_name": "$option_label"
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  "test_tabs": {
-    "type": "stack_panel",
-    "offset": [-60, 0],
-    "size": [20, 200],
-    "controls": [
-      {
-        "game_button@modern_create_worlds.game_button": {
-          "$toggle_group_forced_index": "$game_forced_index"
         }
       }
     ]

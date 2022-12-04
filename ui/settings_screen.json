@@ -176,10 +176,10 @@
             {
               "safezone_screen_panel@safezone_screen_panel": {
                 "anims": [
-                  "@common.uikit_exit_push_offset",
-                  "@common.uikit_exit_pop_offset",
                   "@common.uikit_from_top_push_offset",
-                  "@common.uikit_from_top_pop_offset"
+                  "@common.uikit_from_top_pop_offset",
+                  "@common.uikit_to_bottom_push_offset",
+                  "@common.uikit_to_bottom_pop_offset"
                 ]
               }
             }
@@ -227,10 +227,10 @@
                   {
                     "root_screen_panel@$screen_content": {
                       "anims": [
-                        "@common.uikit_exit_push_offset",
-                        "@common.uikit_exit_pop_offset",
                         "@common.uikit_from_top_push_offset",
-                        "@common.uikit_from_top_pop_offset"
+                        "@common.uikit_from_top_pop_offset",
+                        "@common.uikit_to_bottom_push_offset",
+                        "@common.uikit_to_bottom_pop_offset"
                       ]
                     }
                   },
@@ -292,10 +292,10 @@
                   {
                     "root_screen_panel@$screen_content": {
                       "anims": [
-                        "@common.uikit_exit_push_offset",
-                        "@common.uikit_exit_pop_offset",
                         "@common.uikit_from_top_push_offset",
-                        "@common.uikit_from_top_pop_offset"
+                        "@common.uikit_from_top_pop_offset",
+                        "@common.uikit_to_bottom_push_offset",
+                        "@common.uikit_to_bottom_pop_offset"
                       ]
                     }
                   },

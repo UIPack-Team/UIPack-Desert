@@ -7,7 +7,7 @@
         "level_texture_pack_button@ui.empty_toggle_button": {
           "size": ["150%", "150%"],
           "$toggle_view_binding_name": "default_button_toggle",
-          "$toggle_group_forced_index": 1000,
+          "$toggle_group_forced_index": 1,
           "bindings": [
             {
               "binding_type": "view",
@@ -1160,7 +1160,13 @@
                           "target_property_name": "#visible"
                         }
                       ],
-                      "controls": []
+                      "controls": [
+                        {
+                          "0@modern_create_worlds.game_section": {
+                            "bindings": []
+                          }
+                        }
+                      ]
                     }
                   }
                 ]

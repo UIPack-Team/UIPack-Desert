@@ -238,5 +238,43 @@
     "to": [0, 0],
     "play_event": "screen.entrance_pop",
     "end_event": "screen.entrance_end"
+  },
+  "uikit_to_left_push_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.25,
+    "from": [0, 0],
+    "to": ["-100%", 0],
+    "play_event": "screen.exit_push",
+    "end_event": "screen.exit_end"
+  },
+
+  "uikit_to_left_pop_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.25,
+    "from": [0, 0],
+    "to": ["100%", 0],
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end"
+  },
+  "uikit_to_bottom_push_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.25,
+    "from": [0, 0],
+    "to": [0, "100%"],
+    "play_event": "screen.exit_push",
+    "end_event": "screen.exit_end"
+  },
+
+  "uikit_to_bottom_pop_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.25,
+    "from": [0, 0],
+    "to": [0, "100%"],
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end"
   }
 }

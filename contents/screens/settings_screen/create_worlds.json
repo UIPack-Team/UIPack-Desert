@@ -2,7 +2,8 @@
   "namespace": "modern_create_worlds",
   "game_button@ui.Snowfirewolf_toggle_button": {
     "$toggle_view_binding_name": "game_button_toggle",
-    "$glyph_texture": "textures/ui/controller_glyph_color",
+    "$default_glyph_color": [0.075, 0.075, 0.075],
+    "$glyph_texture": "textures/ui/glyph_world_template",
     "$button_content": "modern_settings.toggle_button_control",
     "$glyph_size": [21, 14],
     "$button_text": "World Edit",
@@ -34,13 +35,13 @@
   },
   "create_random_worlds_contents@modern_settings.default_settings_screen": {
     "$left_title": "modern_create_worlds.create_title",
-    "$extra_panel":"modern_settings.re_and_be",
+    "$extra_panel": "modern_settings.re_and_be",
     "$uipack_is_world_edit": true,
     "$screen_type": "screen_uikit.include_menu_screen"
   },
   "create_worlds_from_templates_contents@modern_settings.default_settings_screen": {
     "$uipack_is_world_edit": true,
-    "$extra_panel":"modern_settings.re_and_be",
+    "$extra_panel": "modern_settings.re_and_be",
     "$screen_type": "screen_uikit.include_menu_screen"
   },
 
@@ -236,14 +237,14 @@
       {
         "stack": {
           "type": "stack_panel",
+          "ignored": "(not $is_world_create)",
           "orientation": "horizontal",
           "size": ["100%", 26],
           "controls": [
             {
               // for world create
               "option_text_edit_0@screen_uikit.text_edit_box": {
-                "size": ["100%-26px", 26],
-                "ignored": "(not $is_world_create)",
+                "size": ["fill", 26],
                 "$place_holder_text": "createWorldScreen.defaultName",
                 "$option_label": "selectWorld.enterName",
                 "$text_edit_box_content_binding_name": "#world_name",
@@ -256,7 +257,15 @@
             {
               "padding_box": {
                 "type": "panel",
-                "size": [2, 0]
+                "size": [2, 0],
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "default_button_toggle",
+                    "source_property_name": "(not #toggle_state)",
+                    "target_property_name": "#visible"
+                  }
+                ]
               }
             },
             {
@@ -265,11 +274,19 @@
                 "texture": "textures/main_button_default",
                 "layer": 2,
                 "type": "image",
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "default_button_toggle",
+                    "source_property_name": "(not #toggle_state)",
+                    "target_property_name": "#visible"
+                  }
+                ],
                 "controls": [
                   {
-                    "level_texture_pack_button@ui.Snowfirewolf_toggle_button": {
-                      "offset":[1,1],
-                      "size": [24, 24],
+                    "0@ui.Snowfirewolf_toggle_button": {
+                      "offset": [0.5, 1],
+                      "size": ["100%-1px", 24],
                       "$button_content": "modern_settings.re_icon",
                       "$toggle_view_binding_name": "level_texture_pack_button_toggle",
                       "$toggle_group_forced_index": "$level_texture_pack_toggle_index"
@@ -282,18 +299,67 @@
         }
       },
       {
-        // for world edit/show (databound)
-        // edit is 'enabled', show is 'not enabled'
-        "option_text_edit_1@screen_uikit.text_edit_box": {
-          "size": ["100%", 26],
+        "stack2": {
+          "type": "stack_panel",
           "ignored": "$is_world_create",
-          "$place_holder_text": "createWorldScreen.defaultName",
-          "$option_label": "selectWorld.enterName",
-          "$text_edit_box_content_binding_name": "#world_name",
-          "$option_enabled_binding_name": "#world_name_enabled",
-          "$text_box_name": "world_name_text_box",
-          "$focus_override_right": "FOCUS_OVERRIDE_STOP",
-          "$tts_override_control_value": " "
+          "orientation": "horizontal",
+          "size": ["100%", 26],
+          "controls": [
+            {
+              // for world create
+              "option_text_edit_0@screen_uikit.text_edit_box": {
+                "size": ["fill", 26],
+                "$place_holder_text": "createWorldScreen.defaultName",
+                "$option_label": "selectWorld.enterName",
+                "$text_edit_box_content_binding_name": "#world_name",
+                "$option_enabled_binding_name": "#world_name_enabled",
+                "$text_box_name": "world_name_text_box",
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+                "$tts_override_control_value": " "
+              }
+            },
+            {
+              "padding_box": {
+                "type": "panel",
+                "size": [2, 0],
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "default_button_toggle",
+                    "source_property_name": "(not #toggle_state)",
+                    "target_property_name": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "level_texture_pack_button": {
+                "size": [26, 26],
+                "texture": "textures/main_button_default",
+                "layer": 2,
+                "type": "image",
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "default_button_toggle",
+                    "source_property_name": "(not #toggle_state)",
+                    "target_property_name": "#visible"
+                  }
+                ],
+                "controls": [
+                  {
+                    "0@ui.Snowfirewolf_toggle_button": {
+                      "offset": [0.5, 1],
+                      "size": ["100%-1px", 24],
+                      "$button_content": "modern_settings.re_icon",
+                      "$toggle_view_binding_name": "level_texture_pack_button_toggle",
+                      "$toggle_group_forced_index": "$level_texture_pack_toggle_index"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
         }
       },
       {
