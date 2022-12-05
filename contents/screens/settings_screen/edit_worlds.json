@@ -2,11 +2,152 @@
   "namespace": "modern_edit_worlds",
   "edit_worlds_contents@modern_settings.default_settings_screen": {
     "$left_title": "modern_edit_worlds.edit_title",
+    "$right_main_title": "Edit a World",
     "$extra_panel": "modern_settings.re_and_be",
     "$uipack_is_world_edit": false,
-    "$screen_type": "screen_uikit.include_menu_screen"
+    "$left_scrolling_size": ["100%-3px", "100% - 34px"],
+    "$right_scrolling_size": ["100%-4px", "100%"],
+    "$screen_type": "screen_uikit.include_menu_screen",
+    "$right_title": "modern_edit_worlds.right_title_contents"
   },
-
+  "right_title_contents": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "buttons@right_title_panel": {}
+      },
+      {
+        "main_title": {
+          "type": "label",
+          "layer": 2,
+          "offset":[0,2],
+          "font_scale_factor": 1,
+          "color": "black",
+          "text": "$right_main_title",
+          "size": ["default", 12]
+        }
+      }
+    ]
+  },
+  "right_title_panel": {
+    "type": "stack_panel",
+    "ignored": "$is_world_create",
+    "offset": [5, 3],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "orientation": "horizontal",
+    "size": [229, 20],
+    "controls": [
+      {
+        "relam@ui.no_background_content_button": {
+          "$default_text_color": "black",
+          "$pressed_button_name": "play_world_on_realm_button",
+          "$button_content": "modern_edit_worlds.right_top_button_label_contents_0",
+          "layer": 20,
+          "size": [8, 16]
+        }
+      },
+      {
+        "padding_0": { "type": "panel", "size": ["fill", 0] }
+      },
+      {
+        "copy_world@ui.no_background_content_button": {
+          "$default_text_color": "black",
+          "$pressed_button_name": "copy_world_button",
+          "$button_content": "modern_edit_worlds.right_top_button_label_contents_1",
+          "layer": 20,
+          "size": [8, 16]
+        }
+      },
+      {
+        "padding_1": { "type": "panel", "size": [5, 0] }
+      },
+      {
+        "delete_world@ui.no_background_content_button": {
+          "$default_text_color": "black",
+          "$pressed_button_name": "delete_world_button",
+          "$hover_text_color": [0.796875, 0.1953125, 0.1953125],
+          "$button_content": "modern_edit_worlds.right_top_button_label_contents_2",
+          "layer": 20,
+          "size": [8, 16]
+        }
+      }
+    ]
+  },
+  "right_top_button_label_contents_0": {
+    "type": "panel",
+    "size": [8, 16],
+    "controls": [
+      {
+        "label@common_buttons.new_ui_binding_button_label": {
+          "text": "R",
+          "size": [6, 10],
+          "color": "$text_color",
+          "offset": [0, 0]
+        }
+      },
+      {
+        "_": {
+          "type": "image",
+          "keep_ratio": false,
+          "size": [8, 1],
+          "texture": "textures/ui/bg",
+          "color": "$text_color",
+          "offset": [-2, 2.5]
+        }
+      }
+    ]
+  },
+  "right_top_button_label_contents_1": {
+    "type": "panel",
+    "size": [8, 16],
+    "controls": [
+      {
+        "label@common_buttons.new_ui_binding_button_label": {
+          "text": "C",
+          "size": [6, 10],
+          "color": "$text_color",
+          "offset": [0, 0]
+        }
+      },
+      {
+        "_": {
+          "type": "image",
+          "keep_ratio": false,
+          "size": [8, 1],
+          "texture": "textures/ui/bg",
+          "color": "$text_color",
+          "offset": [-2, 2.5]
+        }
+      }
+    ]
+  },
+  "right_top_button_label_contents_2": {
+    "type": "panel",
+    "size": [8, 16],
+    "controls": [
+      {
+        "label@common_buttons.new_ui_binding_button_label": {
+          "text": "D",
+          "size": [6, 10],
+          "color": "$text_color",
+          "offset": [0, 0]
+        }
+      },
+      {
+        "_": {
+          "type": "image",
+          "keep_ratio": false,
+          "size": [8, 1],
+          "texture": "textures/ui/bg",
+          "color": "$text_color",
+          "offset": [-2, 2.5]
+        }
+      }
+    ]
+  },
   "edit_title": {
     "type": "stack_panel",
     "anchor_from": "top_left",
@@ -39,7 +180,7 @@
             {
               "seed": {
                 "type": "stack_panel",
-                "offset": [6, -2],
+                "offset": [8, -2],
                 "orientation": "horizontal",
                 "size": ["fill", 12],
                 "controls": [
@@ -60,7 +201,7 @@
                       "font_scale_factor": 1,
                       "color": "white",
                       "text": "#world_seed",
-                      "size": ["default", 12],
+                      "size": [70, 12],
                       "bindings": [
                         {
                           "binding_name": "#world_seed"

@@ -53,6 +53,18 @@
             }
           ]
         }
+      },
+      {
+        "back_button@ui.no_background_content_button": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset":[0,-12],
+          "$pressed_button_name": "button.menu_exit",
+          "$back_content": "screen_uikit.hided_button",
+          "$button_content": "$back_content",
+          "$button_text": "$back_button_text",
+          "layer": 200 //This should always be on top, let's ensure that
+        }
       }
     ]
   },
@@ -68,18 +80,6 @@
           "anchor_to": "bottom_middle",
           "layer": 1,
           "$scrolling_content": "worldtemplates_uikit.world_templates_panel"
-        }
-      },
-      {
-        "back_button@ui.no_background_content_button": {
-          "anchor_from": "top_left",
-          "anchor_to": "top_left",
-          "offset":[0,-12],
-          "$pressed_button_name": "button.menu_exit",
-          "$back_content|default": "common.empty_panel",
-          "$button_content": "$back_content",
-          "$button_text": "$back_button_text",
-          "layer": 200 //This should always be on top, let's ensure that
         }
       }
     ]

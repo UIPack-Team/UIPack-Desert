@@ -1,188 +1,36 @@
 {
   "namespace": "settings",
 
-  "safezone_screen_panel": {
-    "type": "panel",
-    "controls": [
-      {
-        "root_screen_panel@$screen_content": {
-          "anims": []
-        }
-      },
-      {
-        "popup_dialog_factory": {
-          "type": "factory",
-          "control_ids": {
-            "modal_dialog_popup": "@modern_settings.modal_dialog_popup",
-            "storage_dependency_popup": "@storage_management_popup.storage_dependency_modal",
-            "storage_sharing_popup": "@storage_management_popup.sharing_popup_content"
-          }
-        }
-      }
-    ]
-  },
-
   "screen_controls_and_settings": {
     "type": "screen",
+    "$settings_root": "modern_settings.outgame_screen_panel",
     "controls": [
       {
-        "input": {
-          "type": "input_panel",
-          "hover_enabled": false,
-          "prevent_touch_input": false,
-          "button_mappings": [
-            {
-              "from_button_id": "button.menu_cancel",
-              "to_button_id": "button.menu_exit",
-              "mapping_type": "global"
-            },
-            {
-              "from_button_id": "button.menu_tab_left",
-              "to_button_id": "button.menu_tab_left",
-              "mapping_type": "global",
-              "scope": "view"
-            },
-            {
-              "from_button_id": "button.menu_tab_right",
-              "to_button_id": "button.menu_tab_right",
-              "mapping_type": "global",
-              "scope": "view"
-            }
-          ],
-          "controls": [
-            {
-              "safezone_screen_panel": {
-                "type": "panel",
-                "anims": [
-                  "@common.uikit_exit_push_offset",
-                  "@common.uikit_exit_pop_offset",
-                  "@common.uikit_entrance_push_offset",
-                  "@common.uikit_entrance_pop_offset"
-                ],
-                "controls": [
-                  { "back@screen_uikit.bgback": {} },
-                  {
-                    "root_screen_panel@modern_settings.default_settings_screen": {
-                      "$screen_type": "screen_uikit.include_menu_screen",
-                      //"$icon_texture": "textures/ui/top_bar/settings",
-                      "$left_scrolling_size": ["100%-5px", "100% - 27px"],
-                      "$right_scrolling_size": ["100%", "100%-2px"],
-                      "$left_title": "settings.outgame_title_text",
-                      "$left_screen": "settings.outgame_selector_area",
-                      "$right_side_title": "#section_title",
-                      "$binding_right_side_title": [
-                        {
-                          "binding_name": "#section_title"
-                        }
-                      ],
-                      "$right_screen": "settings.content_area"
-                    }
-                  },
-                  {
-                    "popup_dialog_factory": {
-                      "type": "factory",
-                      "control_ids": {
-                        "purchase_failed": "@realms_create.popup_dialog__purchase_failed",
-                        "purchase_in_progress": "@realms_create.popup_dialog__purchase_in_progress",
-                        "share_by_link": "@realms_whitelist.popup_dialog__share_by_link"
-                      }
-                    }
-                  }
-                ]
-              }
-            }
+        "input@modern_settings.settings_input_panel": {
+          "$settings_anim": [
+            "@common.uikit_exit_push_offset",
+            "@common.uikit_exit_pop_offset",
+            "@common.uikit_entrance_push_offset",
+            "@common.uikit_entrance_pop_offset"
           ]
         }
       }
     ]
   },
 
-  "outgame_title_text": {
-    "type": "label",
-    "layer": 2,
-    "font_scale_factor": 1.5,
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "offset": [4, 6],
-    "color": "white",
-    "text": "#dialog_title",
-    "size": ["default", "default"],
-    "max_size": ["100% - 4px", 15],
-    "bindings": [
-      {
-        "binding_name": "#dialog_title"
-      }
-    ]
-  },
-
-  "outgame_selector_area@settings_common.selector_area": {
-    "offset": [2, -1],
-    "size": ["40% - 3px", "100%"],
-    "controls": [
-      {
-        "scrolling_panel@common.scrolling_panel": {
-          "$scrolling_content": "settings.scrollable_selector_area_content",
-          "$show_background": false,
-          "$scroll_size": ["5px", "100%"],
-          "$scroll_bar_left_padding_size": [0, 0]
-        }
-      }
-    ]
-  },
-
-  "content_area@settings_common.content_area": {
-    "type": "panel",
-    "offset": [0, 0]
-  },
-
-  "scrollable_selector_area_content": {
-    "type": "panel",
-    "size": ["100% - 4px", "100%c + 4px"],
-    "controls": [{ "$selector_stack_panel@$selector_stack_panel": {} }]
-  },
-
   "screen_world_create": {
     "type": "screen",
     "$left_screen": "modern_settings.selector_area",
     "$right_screen": "modern_settings.contents_area",
-    "$screen_content": "modern_create_worlds.create_random_worlds_contents",
+    "$settings_root": "modern_create_worlds.create_random_worlds_contents",
     "controls": [
       {
-        "input": {
-          "type": "input_panel",
-          "hover_enabled": false,
-          "prevent_touch_input": false,
-          "button_mappings": [
-            {
-              "from_button_id": "button.menu_cancel",
-              "to_button_id": "button.menu_exit",
-              "mapping_type": "global"
-            },
-            {
-              "from_button_id": "button.menu_tab_left",
-              "to_button_id": "button.menu_tab_left",
-              "mapping_type": "global",
-              "scope": "view"
-            },
-            {
-              "from_button_id": "button.menu_tab_right",
-              "to_button_id": "button.menu_tab_right",
-              "mapping_type": "global",
-              "scope": "view"
-            }
-          ],
-
-          "controls": [
-            {
-              "safezone_screen_panel@safezone_screen_panel": {
-                "anims": [
-                  "@common.uikit_from_top_push_offset",
-                  "@common.uikit_from_top_pop_offset",
-                  "@common.uikit_to_bottom_push_offset",
-                  "@common.uikit_to_bottom_pop_offset"
-                ]
-              }
-            }
+        "input@modern_settings.settings_input_panel": {
+          "$settings_anim": [
+            "@common.uikit_from_top_push_offset",
+            "@common.uikit_from_top_pop_offset",
+            "@common.uikit_to_bottom_push_offset",
+            "@common.uikit_to_bottom_pop_offset"
           ]
         }
       }
@@ -193,60 +41,15 @@
     "type": "screen",
     "$left_screen": "modern_settings.selector_area",
     "$right_screen": "modern_settings.contents_area",
-    "$screen_content": "modern_create_worlds.create_worlds_from_templates_contents",
+    "$settings_root": "modern_create_worlds.create_worlds_from_templates_contents",
     "controls": [
       {
-        "input": {
-          "type": "input_panel",
-          "hover_enabled": false,
-          "prevent_touch_input": false,
-          "button_mappings": [
-            {
-              "from_button_id": "button.menu_cancel",
-              "to_button_id": "button.menu_exit",
-              "mapping_type": "global"
-            },
-            {
-              "from_button_id": "button.menu_tab_left",
-              "to_button_id": "button.menu_tab_left",
-              "mapping_type": "global",
-              "scope": "view"
-            },
-            {
-              "from_button_id": "button.menu_tab_right",
-              "to_button_id": "button.menu_tab_right",
-              "mapping_type": "global",
-              "scope": "view"
-            }
-          ],
-          "controls": [
-            {
-              "safezone_screen_panel": {
-                "type": "panel",
-                "controls": [
-                  {
-                    "root_screen_panel@$screen_content": {
-                      "anims": [
-                        "@common.uikit_from_top_push_offset",
-                        "@common.uikit_from_top_pop_offset",
-                        "@common.uikit_to_bottom_push_offset",
-                        "@common.uikit_to_bottom_pop_offset"
-                      ]
-                    }
-                  },
-                  {
-                    "popup_dialog_factory": {
-                      "type": "factory",
-                      "control_ids": {
-                        "modal_dialog_popup": "@modern_settings.modal_dialog_popup",
-                        "storage_dependency_popup": "@storage_management_popup.storage_dependency_modal",
-                        "storage_sharing_popup": "@storage_management_popup.sharing_popup_content"
-                      }
-                    }
-                  }
-                ]
-              }
-            }
+        "input@modern_settings.settings_input_panel": {
+          "$settings_anim": [
+            "@common.uikit_from_top_push_offset",
+            "@common.uikit_from_top_pop_offset",
+            "@common.uikit_to_bottom_push_offset",
+            "@common.uikit_to_bottom_pop_offset"
           ]
         }
       }
@@ -254,64 +57,18 @@
   },
 
   "screen_world_edit": {
-    //"$screen_content": "modern_edit_worlds.edit_worlds_contents"
     "type": "screen",
     "$left_screen": "modern_settings.selector_area",
     "$right_screen": "modern_settings.contents_area",
-    "$screen_content": "modern_edit_worlds.edit_worlds_contents",
+    "$settings_root": "modern_edit_worlds.edit_worlds_contents",
     "controls": [
       {
-        "input": {
-          "type": "input_panel",
-          "hover_enabled": false,
-          "prevent_touch_input": false,
-          "button_mappings": [
-            {
-              "from_button_id": "button.menu_cancel",
-              "to_button_id": "button.menu_exit",
-              "mapping_type": "global"
-            },
-            {
-              "from_button_id": "button.menu_tab_left",
-              "to_button_id": "button.menu_tab_left",
-              "mapping_type": "global",
-              "scope": "view"
-            },
-            {
-              "from_button_id": "button.menu_tab_right",
-              "to_button_id": "button.menu_tab_right",
-              "mapping_type": "global",
-              "scope": "view"
-            }
-          ],
-          "controls": [
-            {
-              "safezone_screen_panel": {
-                "type": "panel",
-                "controls": [
-                  {
-                    "root_screen_panel@$screen_content": {
-                      "anims": [
-                        "@common.uikit_from_top_push_offset",
-                        "@common.uikit_from_top_pop_offset",
-                        "@common.uikit_to_bottom_push_offset",
-                        "@common.uikit_to_bottom_pop_offset"
-                      ]
-                    }
-                  },
-                  {
-                    "popup_dialog_factory": {
-                      "type": "factory",
-                      "control_ids": {
-                        "modal_dialog_popup": "@modern_settings.modal_dialog_popup",
-                        "storage_dependency_popup": "@storage_management_popup.storage_dependency_modal",
-                        "storage_sharing_popup": "@storage_management_popup.sharing_popup_content"
-                      }
-                    }
-                  }
-                ]
-              }
-            }
+        "input@modern_settings.settings_input_panel": {
+          "$settings_anim": [
+            "@common.uikit_from_top_push_offset",
+            "@common.uikit_from_top_pop_offset",
+            "@common.uikit_to_bottom_push_offset",
+            "@common.uikit_to_bottom_pop_offset"
           ]
         }
       }

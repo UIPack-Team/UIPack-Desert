@@ -1,0 +1,277 @@
+{
+  "namespace": "safe_zone", //待修改
+  "safe_zone_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "safe_zone_panel": {
+          "type": "stack_panel",
+          "size": ["100%-20px", "100%-36px"],
+          "$label_bindings": [
+            {
+              "binding_name": "$option_label"
+            },
+            {
+              "binding_name": "$slider_tts_text_value"
+            }
+          ],
+          "controls": [
+            {
+              "title_panel": {
+                "type": "panel",
+                "size": ["100%", "100%c"],
+                "controls": [
+                  {
+                    "title": {
+                      "type": "label",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "text_alignment": "center",
+                      "font_scale_factor": 1.5,
+                      "color": "$title_color",
+                      "text": "Change Safe Zone",
+                      "size": ["default", "default"],
+                      "max_size": ["100% - 10px", "30px"]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "panel_0": {
+                "type": "panel",
+                "size": ["100%", "2px"]
+              }
+            },
+            {
+              "tips_panel": {
+                "type": "panel",
+                "size": ["100%", "100%c"],
+                "controls": [
+                  {
+                    "text": {
+                      "type": "label",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "visible": "(not $edit_mode)",
+                      "text_alignment": "center",
+                      "color": "$title_color",
+                      "text": "options.safeZone.description",
+                      "size": ["default", "default"],
+                      "max_size": ["100% - 10px", "30px"]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "padding": {
+                "type": "panel",
+                "size": ["100%", 7]
+              }
+            },
+            {
+              "safe_zone_slider_all@option_slider": {
+                "size": ["100%", 30],
+                "$option_label": "#safe_zone_all_slider_label",
+                "$slider_name": "safe_zone_all",
+                "$slider_value_binding_name": "#safe_zone_all",
+                "$option_enabled_binding_name": "#safe_zone_all_enabled",
+                "$default_focus_precedence": 1,
+                "$slider_select_on_hover": true,
+                "$slider_tts_text_value": "#safe_zone_all_text_value"
+              }
+            },
+            {
+              "safe_zone_slider_x@option_slider": {
+                "size": ["100%", 30],
+                "$option_label": "#safe_zone_x_slider_label",
+                "$slider_name": "safe_zone_x",
+                "$slider_value_binding_name": "#safe_zone_x",
+                "$option_enabled_binding_name": "#safe_zone_x_enabled",
+                "$slider_select_on_hover": true,
+                "$slider_tts_text_value": "#safe_zone_x_text_value"
+              }
+            },
+            {
+              "safe_zone_slider_y@option_slider": {
+                "size": ["100%", 30],
+                "$option_label": "#safe_zone_y_slider_label",
+                "$slider_name": "safe_zone_y",
+                "$slider_value_binding_name": "#safe_zone_y",
+                "$option_enabled_binding_name": "#safe_zone_y_enabled",
+                "$slider_select_on_hover": true,
+                "$slider_tts_text_value": "#safe_zone_y_text_value"
+              }
+            },
+            {
+              "panel_3": {
+                "type": "panel",
+                "size": ["100%", "5px"]
+              }
+            },
+            {
+              "confirm": {
+                "type": "stack_panel",
+                "orientation":"horizontal",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "size": ["100%", 32],
+                "controls": [
+                  {
+                    "panel_1": {
+                      "type": "panel",
+                      "size": ["fill",0]
+
+                    }
+                  },
+                  {
+                    "b@ui.Snowfirewolf_button": {
+                      "size": [80, 32],
+                      "$pressed_button_name": "button.menu_exit",
+                      "$button_text": "Cancel"
+                    }
+                  },
+                  {
+                    "padding": {
+                      "type": "panel",
+                      "size": [6,0]
+                    }
+                  },
+                  {
+                    "b@ui.Snowfirewolf_button": {
+                      "size": [80, 32],
+                      "$pressed_button_name": "button.confirm_button",
+                      "$button_text": "Confirm"
+                    }
+                  },
+                  {
+                    "panel_2": {
+                      "type": "panel",
+                      "size": ["fill",0]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "option_generic@settings_common.option_generic_core": {
+    "type": "stack_panel",
+    "$enabled|default": true,
+    "$option_enabled_binding_name|default": "",
+    "size": ["100%", 23],
+    "variables": [
+      {
+        "requires": "(not $enabled or not $option_enabled_binding_name)",
+        "$option_enabled_binding_type": "none",
+        "$option_enabled_binding_name": "#not_data_bound"
+      }
+    ]
+  },
+  "option_slider@option_generic": {
+    "$side_steps_visible|default": false,
+    "controls": [
+      {
+        "option_label_control": {
+          "type": "panel",
+          "size": ["100%", 16],
+          "controls": [
+            {
+              "option_label": {
+                "type": "label",
+                "size": ["100%", "default"],
+                "text_alignment": "center",
+                "color": "black",
+                "text": "$option_label",
+                "bindings": [{ "binding_name": "$option_label" }]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "slider@common.slider": {
+          "size": ["100%", 10],
+          "$slider_box_size": [10, 16],
+          "$option_label|default": "",
+
+          "$slider_tts_header": "$option_label",
+          "$slider_tts_header_binding_type": "global",
+
+          "enabled": "$enabled",
+          "$slider_enabled_binding_name": "$option_enabled_binding_name",
+          "$slider_enabled_binding_type": "global",
+          "variables": [
+            {
+              "requires": "(not $option_enabled_binding_name or not $enabled)",
+              "$slider_enabled_binding_name": "#not_data_bound",
+              "$slider_enabled_binding_type": "none"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  // Screen //
+
+  "safe_zone_screen@common.base_screen": {
+    "controls": [
+      {
+        "safe_zone_bounds_markers": {
+          "type": "panel",
+          "controls": [
+            { "top_left_marker@corner_tl": {} },
+            { "top_right_marker@corner_tr": {} },
+            { "bottom_left_marker@corner_bl": {} },
+            { "bottom_right_marker@corner_br": {} }
+          ]
+        }
+      },
+      {
+        "common_panel@screen_uikit.uikit_screen": {
+          "$screen_type": "screen_uikit.include_cards_screen",
+          "$card_screen": "safe_zone.safe_zone_panel",
+          "$modern_screen_size": [225, 192],
+          "$shadow_anchor": "center"
+        }
+      }
+    ],
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_up",
+        "to_button_id": "button.menu_up",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_down",
+        "to_button_id": "button.menu_down",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_left",
+        "to_button_id": "button.menu_left",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_right",
+        "to_button_id": "button.menu_right",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      }
+    ]
+  }
+}

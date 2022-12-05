@@ -34,17 +34,103 @@
     }
   },
   "create_random_worlds_contents@modern_settings.default_settings_screen": {
+    "$left_scrolling_size": ["100%-3px", "100% - 34px"],
+    "$right_scrolling_size": ["100%-4px", "100%"],
     "$left_title": "modern_create_worlds.create_title",
     "$extra_panel": "modern_settings.re_and_be",
+    "$right_title": "modern_create_worlds.right_title_contents",
+    "$right_main_title": "Create a World",
     "$uipack_is_world_edit": true,
     "$screen_type": "screen_uikit.include_menu_screen"
   },
   "create_worlds_from_templates_contents@modern_settings.default_settings_screen": {
+    "$left_scrolling_size": ["100%-3px", "100% - 34px"],
+    "$right_scrolling_size": ["100%-4px", "100%"],
+    "$left_title": "modern_create_worlds.create_title",
     "$uipack_is_world_edit": true,
+    "$right_title": "modern_create_worlds.right_title_contents",
+    "$right_main_title": "Create From Templates",
     "$extra_panel": "modern_settings.re_and_be",
     "$screen_type": "screen_uikit.include_menu_screen"
   },
 
+  "right_title_contents": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "buttons@right_title_panel": {}
+      },
+      {
+        "main_title": {
+          "type": "label",
+          "layer": 2,
+          "offset": [0, 2],
+          "font_scale_factor": 1,
+          "color": "black",
+          "text": "$right_main_title",
+          "size": ["default", 12]
+        }
+      }
+    ]
+  },
+  "right_title_panel": {
+    "type": "stack_panel",
+    "offset": [5, 3],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "orientation": "horizontal",
+    "size":  [229, 20],
+    "controls": [
+      {
+        "relam@ui.no_background_content_button": {
+          "$default_text_color": "black",
+          "$pressed_button_name": "create_world_on_realm_button",
+          "$button_content": "modern_edit_worlds.right_top_button_label_contents_0",
+          "layer": 20,
+          "size": [8, 16]
+        }
+      },
+      {
+        "padding_0": { "type": "panel", "size": ["fill", 0] }
+      },
+      {
+        "pick_seed@ui.no_background_content_button": {
+          "$default_text_color": "black",
+          "$hover_text_color": [0.76, 0.9, 0.54],
+          "$pressed_button_name": "choose_ugc_level_seed",
+          "$button_content": "modern_create_worlds.right_top_button_label_contents_1",
+          "layer": 20,
+          "size": [8, 16]
+        }
+      }
+    ]
+  },
+  "right_top_button_label_contents_1": {
+    "type": "panel",
+    "size": [8, 16],
+    "controls": [
+      {
+        "label@common_buttons.new_ui_binding_button_label": {
+          "text": "P",
+          "size": [6, 10],
+          "color": "$text_color",
+          "offset": [0, 0]
+        }
+      },
+      {
+        "_": {
+          "type": "image",
+          "keep_ratio": false,
+          "size": [8, 1],
+          "texture": "textures/ui/bg",
+          "color": "$text_color",
+          "offset": [-2, 2.5]
+        }
+      }
+    ]
+  },
   "create_title": {
     "type": "stack_panel",
     "anchor_from": "top_left",
@@ -473,7 +559,7 @@
                 "$option_label_content": "modern_create_worlds.两栏文本",
                 "$option_label_1": "options.difficulty",
                 "$option_label_2": "/可加入的玩家来源/",
-                "$option_label_3": "permissions.title.settings",
+                "$option_label_3": "permissions.title",
                 "controls": [
                   {
                     "1@screen_uikit.inside_dropdown": {
@@ -846,38 +932,11 @@
         }
       },
       {
-        "convert_to_infinite_button@ui.Snowfirewolf_button": {
-          "ignored": "(not $is_pregame or not $is_world_edit)",
-          "size": ["100%", 30],
-          "$pressed_button_name": "convert_to_infinite_button",
-          "$button_text": "Convert to Infinite World",
-          "bindings": [
-            {
-              "binding_name": "#show_convert_to_infinite_button",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "padding22": {
-          "type": "panel",
-          "ignored": "(not $is_pregame or not $is_world_edit)",
-          "bindings": [
-            {
-              "binding_name": "#show_convert_to_infinite_button",
-              "binding_name_override": "#visible"
-            }
-          ],
-          "size": [0, 2]
-        }
-      },
-      {
         "button_panel": {
           "ignored": "(not $is_world_edit)",
           "type": "stack_panel",
           "orientation": "horizontal",
-          "size": ["100%-2px", 32],
+          "size": ["100%-2px", 30],
           "controls": [
             {
               "export_button@ui.Snowfirewolf_button": {
@@ -903,32 +962,36 @@
         }
       },
       {
-        "copy_world_button@ui.Snowfirewolf_button": {
-          "ignored": "(not $is_world_edit)",
-          "size": ["100%", 30],
-          "$button_text": "Copy this World",
-          "$pressed_button_name": "copy_world_button"
-        }
-      },
-      {
-        "padding21": {
+        "padding_box13": {
           "type": "panel",
-          "ignored": "(not $is_world_edit)",
-          "size": [0, 2]
+          "size": [0, 2],
+          "ignored": "(not $is_pregame or not $is_world_edit)",
+          "bindings": [
+            {
+              "binding_name": "#show_convert_to_infinite_button",
+              "binding_name_override": "#visible"
+            }
+          ]
         }
       },
       {
-        "delete_button@ui.Snowfirewolf_button": {
+        "convert_to_infinite_button@ui.Snowfirewolf_button": {
+          "ignored": "(not $is_pregame or not $is_world_edit)",
           "size": ["100%", 30],
-          "ignored": "(not $is_world_edit)",
-          "$button_text": "Delete this World",
-          "$pressed_button_name": "delete_world_button"
+          "$pressed_button_name": "convert_to_infinite_button",
+          "$button_text": "Convert to Infinite World",
+          "bindings": [
+            {
+              "binding_name": "#show_convert_to_infinite_button",
+              "binding_name_override": "#visible"
+            }
+          ]
         }
       },
       {
         "padding2122": {
           "type": "panel",
-          "size": [0, 3]
+          "size": [0, 2]
         }
       }
     ]

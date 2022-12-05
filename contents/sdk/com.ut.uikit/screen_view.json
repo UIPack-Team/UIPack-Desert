@@ -272,7 +272,7 @@
     "$text_background_locked": "common.empty_panel"
   },
   "standard_scrolling@common.scrolling_panel": {
-    "$show_background":false,
+    "$show_background": false,
     "controls": [
       {
         "$scroll_view_name": {
@@ -331,6 +331,27 @@
         "from_button_id": "button.menu_select",
         "to_button_id": "button.menu_exit",
         "mapping_type": "pressed"
+      }
+    ]
+  },
+  "hided_button": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100%c", 16],
+    "offset": [0, 2],
+    "controls": [
+      {
+        "label_panel": {
+          "type": "panel",
+          "size": ["100%c", "100%c"],
+          "controls": [
+            {
+              "label@common_buttons.new_ui_binding_button_label": {
+                "$button_text": ""
+              }
+            }
+          ]
+        }
       }
     ]
   },
@@ -469,9 +490,20 @@
       }
     ]
   },
+  "right_side_title_default": {
+    "type": "label",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 2,
+    "color": "$title_color",
+    "text": "$right_side_title",
+    "$right_side_title|default": "",
+    "bindings": "$binding_right_side_title"
+  },
   "include_menu_screen": {
     "type": "panel",
     "$left_title|default": "common.empty_panel",
+    "$right_title|default": "screen_uikit.right_side_title_default",
     "$binding_right_side_title|default": [],
     "controls": [
       {
@@ -511,7 +543,7 @@
                     "left_screen_4@$left_screen": {
                       "anchor_from": "bottom_middle",
                       "anchor_to": "bottom_middle",
-                      "size":"$left_scrolling_size"
+                      "size": "$left_scrolling_size"
                     }
                   }
                 ]
@@ -553,16 +585,7 @@
                           }
                         },
                         {
-                          "right_side_title_3": {
-                            "type": "label",
-                            "anchor_from": "center",
-                            "anchor_to": "center",
-                            "layer": 2,
-                            "color": "$title_color",
-                            "text": "$right_side_title",
-                            "$right_side_title|default": "",
-                            "bindings": "$binding_right_side_title"
-                          }
+                          "right_side_title@$right_title": {}
                         }
                       ]
                     }
@@ -602,7 +625,7 @@
                           "right_screen_2@$right_screen": {
                             "anchor_from": "bottom_middle",
                             "anchor_to": "bottom_middle",
-                            "size":"$right_scrolling_size"
+                            "size": "$right_scrolling_size"
                           }
                         }
                       ]

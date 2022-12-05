@@ -1,5 +1,108 @@
 {
   "namespace": "modern_settings",
+  "settings_input_panel": {
+    "type": "input_panel",
+    "hover_enabled": false,
+    "prevent_touch_input": false,
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_tab_left",
+        "to_button_id": "button.menu_tab_left",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_tab_right",
+        "to_button_id": "button.menu_tab_right",
+        "mapping_type": "global",
+        "scope": "view"
+      }
+    ],
+    "controls": [
+      {
+        "safezone_screen_panel": {
+          "type": "panel",
+          "anims": "$settings_anim",
+          "controls": [
+            { "back@screen_uikit.bgback": {} },
+            { "root@$settings_root": {} },
+            {
+              "popup_dialog_factory": {
+                "type": "factory",
+                "control_ids": {
+                  "modal_dialog_popup": "@modern_settings.modal_dialog_popup",
+                  "storage_dependency_popup": "@storage_management_popup.storage_dependency_modal",
+                  "storage_sharing_popup": "@storage_management_popup.sharing_popup_content"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "outgame_screen_panel@modern_settings.default_settings_screen": {
+    "$screen_type": "screen_uikit.include_menu_screen",
+    "$left_scrolling_size": ["100%-5px", "100% - 27px"],
+    "$right_scrolling_size": ["100%-4px", "100%-2px"],
+    "$left_title": "modern_settings.outgame_title_text",
+    "$left_screen": "modern_settings.outgame_selector_area",
+    "$right_side_title": "#section_title",
+    "$binding_right_side_title": [
+      {
+        "binding_name": "#section_title"
+      }
+    ],
+    "$right_screen": "modern_settings.content_area"
+  },
+  "outgame_title_text": {
+    "type": "label",
+    "layer": 2,
+    "font_scale_factor": 1.5,
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "offset": [4, 6],
+    "color": "white",
+    "text": "#dialog_title",
+    "size": ["default", "default"],
+    "max_size": ["100% - 4px", 15],
+    "bindings": [
+      {
+        "binding_name": "#dialog_title"
+      }
+    ]
+  },
+
+  "outgame_selector_area@settings_common.selector_area": {
+    "offset": [2, -1],
+    "size": ["40% - 3px", "100%"],
+    "controls": [
+      {
+        "scrolling_panel@common.scrolling_panel": {
+          "$scrolling_content": "modern_settings.scrollable_selector_area_content",
+          "$show_background": false,
+          "$scroll_size": ["5px", "100%"],
+          "$scroll_bar_left_padding_size": [0, 0]
+        }
+      }
+    ]
+  },
+
+  "content_area@settings_common.content_area": {
+    "type": "panel",
+    "offset": [0, 0]
+  },
+
+  "scrollable_selector_area_content": {
+    "type": "panel",
+    "size": ["100% - 4px", "100%c + 4px"],
+    "controls": [{ "$selector_stack_panel@$selector_stack_panel": {} }]
+  },
   "re_and_be": {
     "type": "panel",
     "controls": [
@@ -816,9 +919,7 @@
       {
         "common_panel": {
           "type": "panel",
-          "$modern_screen_size": [370, 260],
-          //Colors
-
+          "$modern_screen_size": [370, 236],
           "$title_bar_color1": [0.9, 0.9, 0.9, 1],
           "$title_bar_color2": [0.8, 0.8, 0.8, 1],
           "$title_color": [0.3, 0.3, 0.3],
@@ -1037,40 +1138,20 @@
               }
             },
             {
-              "spacer": {
-                "type": "panel",
-                "size": [0, -1]
-              }
-            },
-            {
-              "relam_button@ui.Snowfirewolf_button": {
-                "size": ["100%-2px", 29],
-                "$pressed_button_name": "play_world_on_realm_button",
-                "$button_text": "Play on Relam",
-                "variables": [
-                  {
-                    "requires": "(not $is_world_edit)",
-                    "$button_text": "Create on Relam",
-                    "$pressed_button_name": "create_world_on_realm_button"
-                  },
-                  {
-                    "requires": "$realms_plus_on",
-                    "$default_button_texture": "textures/ui/realmsContent",
-                    "$hover_button_texture": "textures/ui/realmsContentHover",
-                    "$pressed_button_texture": "textures/ui/realmsContentPressed"
-                  }
-                ]
-              }
-            },
-            {
               "spacer--": {
                 "type": "panel",
-                "size": [0, 1]
+                "size": [0, 4]
               }
             },
             {
               "selector_group_label_1@settings_common.selector_group_label": {
                 "text": "$tts_section_header"
+              }
+            },
+            {
+              "spacer---": {
+                "type": "panel",
+                "size": [0, 1]
               }
             },
             {
