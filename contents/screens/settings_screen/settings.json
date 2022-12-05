@@ -1,5 +1,34 @@
 {
   "namespace": "modern_settings",
+  "entrance_flash": {
+    "type": "image",
+    "texture": "textures/ui/Black",
+    "size": ["150%", "150%"],
+    "layer": 100,
+    "anims": [
+      "@modern_settings.settings_push_fade",
+      "@modern_settings.settings_pop_fade"
+    ]
+  },
+  "settings_push_fade": {
+    "anim_type": "alpha",
+    "easing": "out_cubic",
+    "duration": 0.4,
+    "from": 0.85,
+    "to": 0.0,
+    "play_event": "screen.entrance_push",
+    "end_event": "screen.entrance_end"
+  },
+
+  "settings_pop_fade": {
+    "anim_type": "alpha",
+    "easing": "out_cubic",
+    "duration": 0.4,
+    "from": 0.85,
+    "to": 0.0,
+    "play_event": "screen.entrance_pop",
+    "end_event": "screen.entrance_end"
+  },
   "settings_input_panel": {
     "type": "input_panel",
     "hover_enabled": false,
@@ -23,7 +52,11 @@
         "scope": "view"
       }
     ],
+    "$entrance_flash|default": "common.empty_panel",
     "controls": [
+      {
+        "entrance_flash@$entrance_flash": {}
+      },
       {
         "safezone_screen_panel": {
           "type": "panel",
@@ -39,6 +72,74 @@
                   "storage_dependency_popup": "@storage_management_popup.storage_dependency_modal",
                   "storage_sharing_popup": "@storage_management_popup.sharing_popup_content"
                 }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "dock_exit_animation_push_offset": {
+    "anim_type": "offset",
+    "easing": "in_back",
+    "duration": 0.25,
+    "from": [0, -2],
+    "to": ["-40%", 120],
+    "play_event": "screen.exit_push",
+    "end_event": "screen.exit_end"
+  },
+
+  "dock_exit_animation_pop_offset": {
+    "anim_type": "offset",
+    "easing": "in_back",
+    "duration": 0.25,
+    "from": [0, -2],
+    "to": ["-40%", 120],
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end"
+  },
+  "outgame_dockpanel": {
+    "type": "panel",
+    "layer": 100,
+    "offset": [0, -2],
+    "animation_reset_name": "screen_animation_reset",
+    "anims": [
+      "@modern_settings.dock_exit_animation_push_offset",
+      "@modern_settings.dock_exit_animation_pop_offset",
+      "@start_kit.dock_entrance_animation_push_offset",
+      "@start_kit.dock_entrance_animation_pop_offset"
+    ],
+    "controls": [
+      {
+        "contents@start_kit.dock_bar_panel": {
+          "controls": [
+            {
+              "frame": {
+                "type": "image",
+                "texture": "textures/ui/Frame",
+                "size": ["100%c + 2px", "100%c + 2px"],
+                "controls": [
+                  {
+                    "dock_background": {
+                      "type": "image",
+                      "texture": "textures/ui/bg",
+                      "color": [0.6, 0.6, 0.6],
+                      "alpha": 0.9,
+                      "size": [161, 37],
+                      "controls": [
+                        {
+                          "stacked_row": {
+                            "type": "stack_panel",
+                            "orientation": "horizontal",
+                            "size": ["100%", 25],
+                            "controls": [
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             }
           ]

@@ -1,6 +1,7 @@
 {
   "namespace": "start",
 
+
   "start_screen": {
     "type": "screen",
     "controls": [
@@ -18,6 +19,21 @@
             }
           ],
           "controls": [
+            {
+              "to_screens": {
+                "type": "image",
+                "texture": "textures/ui/Black",
+                "size": ["150%", "150%"],
+                "layer": 100,
+                "animation_reset_name": "screen_animation_reset",
+                "anims": [
+                  "@start_kit.push_fade",
+                  "@start_kit.pop_fade",
+                  "@start_kit.epush_fade",
+                  "@start_kit.epop_fade"
+                ]
+              }
+            },
             {
               "safezone_screen_panel": {
                 "type": "panel",

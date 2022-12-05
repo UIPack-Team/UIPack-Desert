@@ -1,6 +1,46 @@
 {
   "namespace": "start_kit",
-  
+
+  "push_fade": {
+    "anim_type": "alpha",
+    "easing": "out_cubic",
+    "duration": 0.6,
+    "from": 0.0,
+    "to": 1.0,
+    "play_event": "screen.exit_push",
+    "end_event": "screen.exit_end"
+  },
+
+  "pop_fade": {
+    "anim_type": "alpha",
+    "easing": "out_cubic",
+    "duration": 0.6,
+    "from": 0.0,
+    "to": 1.0,
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end"
+  },
+
+  "epush_fade": {
+    "anim_type": "alpha",
+    "easing": "out_cubic",
+    "duration": 0.6,
+    "from": 1.0,
+    "to": 0.0,
+    "play_event": "screen.entrance_push",
+    "end_event": "screen.entrance_end"
+  },
+
+  "epop_fade": {
+    "anim_type": "alpha",
+    "easing": "out_cubic",
+    "duration": 0.6,
+    "from": 1.0,
+    "to": 0.0,
+    "play_event": "screen.entrance_pop",
+    "end_event": "screen.entrance_end"
+  },
+
   "menu_bar_exit_animation_push_offset": {
     "anim_type": "offset",
     "easing": "out_cubic",

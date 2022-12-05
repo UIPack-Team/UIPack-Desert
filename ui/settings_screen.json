@@ -4,6 +4,8 @@
   "screen_controls_and_settings": {
     "type": "screen",
     "$settings_root": "modern_settings.outgame_screen_panel",
+    "$entrance_flash": "modern_settings.entrance_flash",
+    "$extra_panel":"modern_settings.outgame_dockpanel",
     "controls": [
       {
         "input@modern_settings.settings_input_panel": {

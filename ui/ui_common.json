@@ -1,4 +1,5 @@
 {
+  
   "text_edit_box": {
     "$edit_box_default|default": "common.edit_box_default",
     "$edit_box_hover|default": "common.edit_box_hover",
@@ -142,7 +143,7 @@
     "easing": "out_cubic",
     "duration": 0.15,
     "from": [0, 0],
-    "to": [0, "100%"],
+    "to": [0, "10%"],
     "play_event": "screen.exit_push",
     "end_event": "screen.exit_end"
   },
@@ -152,7 +153,7 @@
     "easing": "out_cubic",
     "duration": 0.15,
     "from": [0, 0],
-    "to": [0, "100%"],
+    "to": [0, "10%"],
     "play_event": "screen.exit_pop",
     "end_event": "screen.exit_end"
   },
@@ -223,8 +224,8 @@
   "uikit_from_top_push_offset": {
     "anim_type": "offset",
     "easing": "out_cubic",
-    "duration": 0.25,
-    "from": [0, "100%"],
+    "duration": 0.4,
+    "from": [0, "75%"],
     "to": [0, 0],
     "play_event": "screen.entrance_push",
     "end_event": "screen.entrance_end"
@@ -233,8 +234,8 @@
   "uikit_from_top_pop_offset": {
     "anim_type": "offset",
     "easing": "out_cubic",
-    "duration": 0.25,
-    "from": [0, "-100%"],
+    "duration": 0.4,
+    "from": [0, "-75%"],
     "to": [0, 0],
     "play_event": "screen.entrance_pop",
     "end_event": "screen.entrance_end"
@@ -255,6 +256,25 @@
     "duration": 0.25,
     "from": [0, 0],
     "to": ["100%", 0],
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end"
+  },
+  "uikit_to_right_push_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.3,
+    "from": [0, 0],
+    "to": ["-75%", 0],
+    "play_event": "screen.exit_push",
+    "end_event": "screen.exit_end"
+  },
+
+  "uikit_to_right_pop_offset": {
+    "anim_type": "offset",
+    "easing": "out_cubic",
+    "duration": 0.3,
+    "from": [0, 0],
+    "to": ["75%", 0],
     "play_event": "screen.exit_pop",
     "end_event": "screen.exit_end"
   },

@@ -1,31 +1,75 @@
 {
-  "play_screen@common.base_screen": {
-    "button_mappings": [
+  "play_screen": {
+    "type": "screen",
+    "controls": [
       {
-        "from_button_id": "button.menu_cancel",
-        "to_button_id": "button.menu_exit",
-        "mapping_type": "global"
-      },
-      {
-        "from_button_id": "button.menu_tab_left",
-        "to_button_id": "button.menu_tab_left",
-        "mapping_type": "global",
-        "scope": "view"
-      },
-      {
-        "from_button_id": "button.menu_tab_right",
-        "to_button_id": "button.menu_tab_right",
-        "mapping_type": "global",
-        "scope": "view"
+        "input_panel": {
+          "type": "input_panel",
+          "button_mappings": [
+            {
+              "from_button_id": "button.menu_cancel",
+              "to_button_id": "button.menu_exit",
+              "mapping_type": "global"
+            },
+            {
+              "from_button_id": "button.menu_tab_left",
+              "to_button_id": "button.menu_tab_left",
+              "mapping_type": "global",
+              "scope": "view"
+            },
+            {
+              "from_button_id": "button.menu_tab_right",
+              "to_button_id": "button.menu_tab_right",
+              "mapping_type": "global",
+              "scope": "view"
+            }
+          ],
+          "controls": [
+            {
+              "entrance_flash": {
+                "type": "image",
+                "texture": "textures/ui/Black",
+                "animation_reset_name": "",
+                "size": ["150%", "150%"],
+                "anims": ["@play.play_push_fade", "@play.play_pop_fade"],
+                "layer": 100
+              }
+            },
+            {
+              "safezone_screen_matrix@play_uikit.play_screen_content": {
+                "anims": [
+                  "@common.uikit_to_right_push_offset",
+                  "@common.uikit_to_right_pop_offset",
+                  "@common.uikit_from_top_push_offset",
+                  "@common.uikit_from_top_pop_offset"
+                ],
+                "animation_reset_name": "screen_animation_reset"
+              }
+            }
+          ]
+        }
       }
-    ],
-    "$screen_animations": [
-      "@common.uikit_to_left_push_offset",
-      "@common.uikit_to_left_pop_offset",
-      "@common.uikit_from_top_push_offset",
-      "@common.uikit_from_top_pop_offset"
-    ],
-    "$screen_content": "play_uikit.play_screen_content"
+    ]
+  },
+
+  "play_push_fade": {
+    "anim_type": "alpha",
+    "easing": "out_cubic",
+    "duration": 0.6,
+    "from": 1,
+    "to": 0.0,
+    "play_event": "screen.entrance_push",
+    "end_event": "screen.entrance_end"
+  },
+
+  "play_pop_fade": {
+    "anim_type": "alpha",
+    "easing": "out_cubic",
+    "duration": 0.6,
+    "from": 1,
+    "to": 0.0,
+    "play_event": "screen.entrance_pop",
+    "end_event": "screen.entrance_end"
   },
   "third_party_server_info_panel/server_info_stack_panel": {
     "controls": [
