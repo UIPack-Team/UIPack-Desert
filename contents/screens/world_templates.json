@@ -22,9 +22,7 @@
     "controls": [
       {
         "common_panel@screen_uikit.uikit_screen": {
-          "anims": [
-            "@worldtemplates_uikit.anim_0"
-          ],
+          "anims": ["@worldtemplates_uikit.anim_0"],
           "animation_reset_name": "screen_animation_reset",
           "$screen_type": "screen_uikit.include_cards_screen",
           "$card_screen": "worldtemplates_uikit.world_templates_picker_panel",
@@ -70,6 +68,18 @@
           "anchor_to": "bottom_middle",
           "layer": 1,
           "$scrolling_content": "worldtemplates_uikit.world_templates_panel"
+        }
+      },
+      {
+        "back_button@ui.no_background_content_button": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset":[0,-12],
+          "$pressed_button_name": "button.menu_exit",
+          "$back_content|default": "common.empty_panel",
+          "$button_content": "$back_content",
+          "$button_text": "$back_button_text",
+          "layer": 200 //This should always be on top, let's ensure that
         }
       }
     ]

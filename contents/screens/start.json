@@ -101,8 +101,8 @@
     "anim_type": "offset",
     "easing": "out_cubic",
     "duration": 0.25,
-    "from": [0, -8.5],
-    "to": ["150%", -8.5],
+    "from": [0, -12.5],
+    "to": ["150%", -12.5],
     "play_event": "screen.exit_push",
     "end_event": "screen.exit_end"
   },
@@ -111,8 +111,8 @@
     "anim_type": "offset",
     "easing": "out_cubic",
     "duration": 0.25,
-    "from": [0, -8.5],
-    "to": ["-150%", -8.5],
+    "from": [0, -12.5],
+    "to": ["-150%", -12.5],
     "play_event": "screen.exit_pop",
     "end_event": "screen.exit_end"
   },
@@ -121,8 +121,8 @@
     "anim_type": "offset",
     "easing": "out_cubic",
     "duration": 0.25,
-    "from": ["-150%", -8.5],
-    "to": [0, -8.5],
+    "from": ["-150%", -12.5],
+    "to": [0, -12.5],
     "play_event": "screen.entrance_push",
     "end_event": "screen.entrance_end"
   },
@@ -131,8 +131,8 @@
     "anim_type": "offset",
     "easing": "out_cubic",
     "duration": 0.25,
-    "from": ["150%", -8.5],
-    "to": [0, -8.5],
+    "from": ["150%", -12.5],
+    "to": [0, -12.5],
     "play_event": "screen.entrance_pop",
     "end_event": "screen.entrance_end"
   },
