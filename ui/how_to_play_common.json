@@ -1,0 +1,90 @@
+{
+  "topic_category": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100%", "16px" ],
+    "controls": [
+      {
+        "category_text": {
+          "type": "label",
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "size": [ "default", "default" ],
+          "max_size": [ "100%", "100% - 4px" ],
+          "offset": [ "5px", "-3px" ],
+          "text": "('howtoplay.category.' + $category)",
+          "color": "$main_header_text_color"
+        }
+      }
+    ]
+  },
+  "section_toggle_button": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": ["100%-4px", "26px"],
+    "controls": [
+      {
+        "section_toggle_button@common_toggles.light_ui_toggle": {
+          "$blur_button_panel": "how_to_play_common.blur_button_panel",
+          "$unchecked_control": "ui.blur_default",
+          "$checked_control": "ui.blur_hover",
+          "$unchecked_hover_control": "ui.blur_hover",
+          "$checked_hover_control": "ui.blur_hover",
+          "$unchecked_locked_control": "common.empty_panel",
+          "$unchecked_locked_hover_control": "common.empty_panel",
+          "$checked_locked_control": "common.empty_panel",
+          "$checked_locked_hover_control": "common.empty_panel",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": ["100%", "26px"],
+
+          "$button_type_panel": "how_to_play_common.toggle_button_control",
+          "$radio_toggle_group": true,
+          "$toggle_name": "navigation_tab",
+          "$toggle_group_default_selected": "$default_selector_toggle_index",
+
+          "$toggle_tab_focus_binding_type": "global",
+          "$toggle_tab_focus_binding_name": "#navigation_tab_focus_precedence",
+          "$toggle_on_hover_binding_type": "global",
+          "$toggle_on_hover_binding_name": "#toggle_on_hover",
+
+          "$toggle_view_binding_name": "($section_topic + '_button_toggle')",
+          "$toggle_property_bag": {
+            "#panel_title": "('howtoplay.' + $section_topic)"
+          }
+        }
+      }
+    ]
+  },
+  "blur_button_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "offset": [0, 8],
+    "size": ["100%", 28],
+    "controls": [
+      {
+        "padding": {
+          "type": "panel",
+          "size": [12, 0]
+        }
+      },
+      {
+        "button_label": {
+          "type": "label",
+          "shadow": "$shadow",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": ["100% - 38px", "default"],
+          "max_size": ["100% - 38px", "100% - 4px"],
+          "color": "$text_label_color",
+          "$button_text|default": "",
+          "text": "('howtoplay.' + $section_topic)"
+        }
+      }
+    ]
+  }
+}

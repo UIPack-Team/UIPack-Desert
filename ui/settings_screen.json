@@ -1,12 +1,156 @@
 {
   "namespace": "settings",
+  "test_uv": {
+    "anim_type": "uv",
+    "easing": "linear",
+    "duration": 30.4,
+    "from": [0, 0],
+    "to": [609, 0],
+    "next":"@settings.test_uv2"
+  },
+  "test_uv2": {
+    "anim_type": "wait",
+    "duration": 0.2,
+    "next": "@settings.test_uv3"
+  },
+   "test_uv3": {
+    "anim_type": "uv",
+    "easing": "linear",
+    "duration": 30.9,
+    "from": [0, 0],
+    "to": [609, 0],
+    "next":"@settings.test_uv"
+  },
+  "test_blur_uv": {
+    "anim_type": "uv",
+    "easing": "linear",
+    "duration": 64.0,
+    "from": [246, 102],
+    "to": [433, 102]
+  },
+ 
 
+  "push_fade": {
+    "anim_type": "alpha",
+    "easing": "out_cubic",
+    "duration": 0.35,
+    "from": 0.0,
+    "to": 1.0,
+    "play_event": "screen.exit_push",
+    "end_event": "screen.exit_end"
+  },
+
+  "pop_fade": {
+    "anim_type": "alpha",
+    "easing": "out_cubic",
+    "duration": 0.35,
+    "from": 0.0,
+    "to": 1.0,
+    "play_event": "screen.exit_pop",
+    "end_event": "screen.exit_end"
+  },
+
+  "epush_fade": {
+    "anim_type": "alpha",
+    "easing": "out_cubic",
+    "duration": 0.6,
+    "from": 1.0,
+    "to": 0.0,
+    "play_event": "screen.entrance_push",
+    "end_event": "screen.entrance_end"
+  },
+
+  "epop_fade": {
+    "anim_type": "alpha",
+    "easing": "out_cubic",
+    "duration": 0.6,
+    "from": 1.0,
+    "to": 0.0,
+    "play_event": "screen.entrance_pop",
+    "end_event": "screen.entrance_end"
+  },
+
+
+  "reset_pop_fade": {
+    "anim_type": "alpha",
+    "easing": "out_cubic",
+    "duration": 0.35,
+    "from": 0.0,
+    "to": 1.0,
+    "next":"@settings.reset_pop_fade2"
+  },
+  "reset_pop_fade2": {
+    "anim_type": "wait",
+    "duration": 0.2,
+    "next": "@settings.reset_pop_fade3"
+  },
+  "reset_pop_fade3": {
+    "anim_type": "alpha",
+    "easing": "out_cubic",
+    "duration": 0.35,
+    "from": 1.0,
+    "to": 0.0,
+    "next":"@settings.reset_pop_fade_default"
+  },
+  "reset_pop_fade_wait": {
+    "anim_type": "wait",
+    "duration": 30.0,
+    "next": "@settings.reset_pop_fade"
+  },
+  "reset_pop_fade_default": {
+    "anim_type": "alpha",
+    "duration": 0.1,
+    "from": 0,
+    "to": 0,
+    "next": "@settings.reset_pop_fade_wait"
+  },
   "screen_controls_and_settings": {
     "type": "screen",
     "$settings_root": "modern_settings.outgame_screen_panel",
     "$entrance_flash": "modern_settings.entrance_flash",
-    "$extra_panel":"modern_settings.outgame_dockpanel",
     "controls": [
+      {
+        "reset_screen": {
+          "type": "image",
+          "texture": "textures/ui/Black",
+          "size": ["150%", "150%"],
+          "layer": 100,
+          "animation_reset_name": "screen_animation_reset",
+          "anims": [
+            "@settings.reset_pop_fade_default"
+          ]
+        }
+      },
+      {
+        "to_screens": {
+          "type": "image",
+          "texture": "textures/ui/Black",
+          "size": ["150%", "150%"],
+          "layer": 100,
+          "animation_reset_name": "screen_animation_reset",
+          "anims": [
+            "@settings.push_fade",
+            "@settings.pop_fade",
+            "@settings.epush_fade",
+            "@settings.epop_fade"
+          ]
+        }
+      },
+      {
+        "frame": {
+          "type": "image",
+          "texture": "textures/test",
+          "layer": -1000,
+          "animation_reset_name": "screen_animation_reset",
+          "uv": "@settings.test_uv",
+          "uv_size": [1290, 780],
+          "size": ["default", "150%"],
+          "anims": [
+            "@common.uikit_exit_push_offset",
+            "@common.uikit_exit_pop_offset"
+          ]
+        }
+      },
       {
         "input@modern_settings.settings_input_panel": {
           "$settings_anim": [
@@ -76,4 +220,5 @@
       }
     ]
   }
+  //"$extra_panel": "modern_settings.ingame_dockpanel",
 }

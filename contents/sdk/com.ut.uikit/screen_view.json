@@ -500,18 +500,29 @@
     "$right_side_title|default": "",
     "bindings": "$binding_right_side_title"
   },
+  "bg_4": {
+    "type": "image",
+    "texture": "textures/ui/bg",
+    "alpha": 0.7,
+    "size": ["100%", "100%"],
+    "color": "$sidebar_color"
+  },
+  "frame": {
+    "type": "image",
+    "texture": "textures/ui/Frame",
+    "size": ["100% + 2px", "100% + 2px"]
+  },
   "include_menu_screen": {
     "type": "panel",
+    "$menu_size|default":["100%", "100%"],
+    "$frame|default": "screen_uikit.frame",
+    "$bg_4|default": "screen_uikit.bg_4",
     "$left_title|default": "common.empty_panel",
     "$right_title|default": "screen_uikit.right_side_title_default",
     "$binding_right_side_title|default": [],
     "controls": [
       {
-        "bg": {
-          "type": "image",
-          "texture": "textures/ui/Frame",
-          "size": ["100% + 2px", "100% + 2px"]
-        }
+        "bg@$frame": {}
       },
       {
         "content_screen": {
@@ -519,22 +530,16 @@
           "orientation": "horizontal",
           "$left_scrolling_size|default": ["100%", "100% - 34px"],
           "$right_scrolling_size|default": ["100%", "100%"],
-          "size": ["100%", "100%"],
+          "size": "$menu_size",
           "controls": [
             {
               "menu_panel": {
                 "type": "panel",
-                "size": ["35%", "100%"],
+                "size": ["35%-1px", "100%"],
                 "$left_screen|default": "common.empty_panel",
                 "controls": [
                   {
-                    "bg_4": {
-                      "type": "image",
-                      "texture": "textures/ui/bg",
-                      "alpha": 0.7,
-                      "size": ["100%", "100%"],
-                      "color": "$sidebar_color"
-                    }
+                    "bg_4@$bg_4": {}
                   },
                   {
                     "screen_title_4@$left_title": {}

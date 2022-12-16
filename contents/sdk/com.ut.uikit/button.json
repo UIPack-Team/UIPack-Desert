@@ -1,5 +1,84 @@
 {
   "namespace": "ui",
+  "blur_default@blur_button_panel": {
+    "layer": 1,
+    "$text_label_color": [1.0, 1.0, 1.0],
+    "$glyph_color": "$text_label_color",
+    "$shadow": true,
+    "$button_texture": ""
+  },
+  "blur_hover@blur_button_panel": {
+    "layer": 3,
+    "$text_label_color": [0, 0, 0],
+    "$glyph_color": "$text_label_color",
+    "$shadow": false,
+    "$button_texture_alpha": 0.36,
+    "$button_texture": "textures/ui/bg"
+  },
+  "blur_button_panel": {
+    "layer": 3,
+    "type": "image",
+    "$blur_button_panel|default": "ui.default_blur_button_panel",
+    "$button_texture_alpha|default": 1.0,
+    "alpha": "$button_texture_alpha",
+    "size": "$button_texture_size",
+    "$button_texture_size|default": ["100%", "100%"],
+    "texture": "$button_texture",
+    "controls": [
+      {
+        "stack@$blur_button_panel": {}
+      }
+    ]
+  },
+  "default_blur_button_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "offset": [0, 8],
+    "size": ["100%", 28],
+    "controls": [
+      {
+        "padding": {
+          "type": "panel",
+          "size": [5, 0]
+        }
+      },
+      {
+        "glyph": {
+          "type": "image",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "$glyph_texture|default": "",
+          "texture": "$glyph_texture",
+          "size": [21, 14],
+          "layer": 3,
+          "color": "$glyph_color",
+          "$glyph_bindings|default": [],
+          "bindings": "$glyph_bindings"
+        }
+      },
+      {
+        "padding_2": {
+          "type": "panel",
+          "size": [7, 0]
+        }
+      },
+      {
+        "button_label": {
+          "type": "label",
+          "shadow": "$shadow",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": ["100% - 38px", "default"],
+          "max_size": ["100% - 38px", "100% - 4px"],
+          "color": "$text_label_color",
+          "$button_text|default": "",
+          "text": "$button_text"
+        }
+      }
+    ]
+  },
   "modern_white_content_button@common.button": {
     "$new_ui_button_panel|default": "ui.button_uikit_panel",
     "$button_content|default": "common.empty_panel",
@@ -146,6 +225,8 @@
         "button_texture": {
           "type": "image",
           "$border_visible|default": false,
+          "$button_texture_alpha|default": 1.0,
+          "alpha": "$button_texture_alpha",
           "size": "$button_texture_size",
           "texture": "$button_texture",
           "$buttonimg|default": ["default", "default"],
@@ -409,7 +490,7 @@
   },
 
   "no_background_content_button@common.button": {
-    "size": ["100%c", "100%c"],
+    "size": [30, 20],
     "$button_state_panel": "ui.no_background_content_form_fitting_button_panel",
     "$anchor": "top_left", // Cannot override this or will cause unsolvable layout!
     "$button_text_max_size": ["100%c", 10],
@@ -421,7 +502,7 @@
 
     // text color
     "$default_text_color|default": "$light_button_default_text_color",
-    "$hover_text_color|default": [ 0.064, 0.428, 1.0 ],
+    "$hover_text_color|default": [0.064, 0.428, 1.0],
     "$pressed_text_color|default": "$light_button_pressed_text_color",
 
     // For text bindings
@@ -449,7 +530,7 @@
         "default@$button_state_panel": {
           "$new_ui_button_texture": "$default_button_texture",
           "$text_color": "$default_text_color",
-          "$exit_button_color":[0,0,0],
+          "$exit_button_color": [0, 0, 0],
           "$default_state": true,
           "layer": 1
         }
@@ -458,7 +539,7 @@
         "hover@$button_state_panel": {
           "$new_ui_button_texture": "$default_button_texture",
           "$text_color": "$hover_text_color",
-          "$exit_button_color":[0,0,0],
+          "$exit_button_color": [0, 0, 0],
           "$hover_state": true,
           "layer": 2
         }
@@ -467,7 +548,7 @@
         "pressed@$button_state_panel": {
           "$new_ui_button_texture": "$default_button_texture",
           "$text_color": "$hover_text_color",
-          "$exit_button_color":[0,0,0],
+          "$exit_button_color": [0, 0, 0],
           "$pressed_state": true,
           "layer": 3
         }

@@ -1,5 +1,13 @@
 {
   "section_toggle_base@common_toggles.light_ui_toggle": {
+    "$unchecked_control": "ui.blur_default",
+    "$checked_control": "ui.blur_hover",
+    "$unchecked_hover_control": "ui.blur_hover",
+    "$checked_hover_control": "ui.blur_hover",
+    "$unchecked_locked_control": "common.empty_panel",
+    "$unchecked_locked_hover_control": "common.empty_panel",
+    "$checked_locked_control": "common.empty_panel",
+    "$checked_locked_hover_control": "common.empty_panel",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "size": ["100%", "26px"],

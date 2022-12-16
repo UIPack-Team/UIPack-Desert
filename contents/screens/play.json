@@ -16,25 +16,71 @@
       }
     ]
   },
+  "default_back_toggle@common.toggle": {
+    "size": [400, 32],
+    "layer": 20,
+    "$unchecked_control": "play_uikit.img",
+    "$checked_control": "play_uikit.img",
+    "$unchecked_hover_control": "play_uikit.img",
+    "$checked_hover_control": "play_uikit.img",
+    "$unchecked_locked_control": "play_uikit.img",
+    "$unchecked_locked_hover_control": "play_uikit.img",
+    "$checked_locked_control": "play_uikit.img",
+    "$checked_locked_hover_control": "play_uikit.img"
+  },
+  "img": {
+    "type": "image",
+    "texture": "textures/ui/bg",
+    "size": ["100%", "100%"],
+    "alpha": 0.1
+  },
   "play_contents": {
     "type": "panel",
     "controls": [
       {
-        "worlds_tab_content@common_tab_content_panel": {
-          "$visible_bind_toggle_source_control": "world_navigation_tab_toggle",
-          "$scroll_tab_content": "play_uikit.worlds_scroll_content"
+        "6_grids@play_uikit_showing.scroll_panel": {
+          "size": ["100%", "100%-12px"],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "play_uikit.default_back_toggle",
+              "source_property_name": "(not #toggle_state)",
+              "target_property_name": "#visible"
+            }
+          ]
         }
       },
       {
-        "friends_tab_contentl@common_tab_content_panel": {
-          "$visible_bind_toggle_source_control": "friends_navigation_tab_toggle",
-          "$scroll_tab_content": "play_uikit.friends_scroll_content"
-        }
-      },
-      {
-        "server_tab_content_panel@common_tab_content_panel": {
-          "$visible_bind_toggle_source_control": "server_navigation_tab_toggle",
-          "$scroll_tab_content": "play_uikit.server_scroll_content"
+        "tab_contents": {
+          "type": "panel",
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "play_uikit.default_back_toggle",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ],
+          "controls": [
+            {
+              "worlds_tab_content@common_tab_content_panel": {
+                "$visible_bind_toggle_source_control": "world_navigation_tab_toggle",
+                "$scroll_tab_content": "play_uikit.worlds_scroll_content"
+              }
+            },
+            {
+              "friends_tab_contentl@common_tab_content_panel": {
+                "$visible_bind_toggle_source_control": "friends_navigation_tab_toggle",
+                "$scroll_tab_content": "play_uikit.friends_scroll_content"
+              }
+            },
+            {
+              "server_tab_content_panel@common_tab_content_panel": {
+                "$visible_bind_toggle_source_control": "server_navigation_tab_toggle",
+                "$scroll_tab_content": "play_uikit.server_scroll_content"
+              }
+            }
+          ]
         }
       },
       {
@@ -127,6 +173,21 @@
                       "$tab_content": "play_uikit.common_navigation_tab_content",
                       "size": ["32px", "100%"]
                     }
+                  }
+                ]
+              }
+            },
+            {
+              "test@settings_common.option_generic": {
+                "$control_name": "play_uikit.default_back_toggle",
+                "layer": 8,
+                "size": [400, 32],
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "play_uikit.default_back_toggle",
+                    "source_property_name": "(not #toggle_state)",
+                    "target_property_name": "#visible"
                   }
                 ]
               }

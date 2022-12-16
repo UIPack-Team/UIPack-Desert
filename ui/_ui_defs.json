@@ -14,6 +14,7 @@
     "contents/screens/custom_templates.json",
     "contents/screens/edit_worlds.json",
     "contents/screens/play.json",
+    "contents/screens/play_showing.json",
     "contents/screens/settings.json",
     "contents/screens/start.json",
     "contents/screens/world_templates.json",
