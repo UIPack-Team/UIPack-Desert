@@ -35,7 +35,7 @@
               }
             },
             {
-              "safezone_screen_panel": {
+              "no_safezone_screen_panel": {
                 "type": "panel",
                 "anims": [
                   "@common.screen_exit_animation_push_alpha",
