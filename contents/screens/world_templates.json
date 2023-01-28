@@ -1,32 +1,32 @@
 {
-  "namespace": "worldtemplates_uikit",
+  "namespace": "modern_world_templates",
   "anim_0": {
     "anim_type": "offset",
     "easing": "out_cubic",
     "duration": 0.4,
-    "from": [0, 0],
-    "to": [0, 200],
-    "next": "@worldtemplates_uikit.anim_1",
-    "play_event": "screen.exit_push",
-    "reset_event": "screen_animation_reset"
+    "from": [0,0],
+    "to": [0,200],
+    "next":"@modern_world_templates.anim_1",
+    "play_event": "button.more_custom_templates"
   },
   "anim_1": {
     "anim_type": "offset",
     "easing": "out_cubic",
     "duration": 0.4,
-    "from": [0, 0],
-    "to": [0, 0]
+    "from": [0,0],
+    "to": [0,0]
   },
   "world_templates_picker_content": {
     "type": "panel",
     "controls": [
       {
-        "common_panel@screen_uikit.uikit_screen": {
-          "anims": ["@worldtemplates_uikit.anim_0"],
-          "animation_reset_name": "screen_animation_reset",
-          "$screen_type": "screen_uikit.include_cards_screen",
-          "$card_screen": "worldtemplates_uikit.world_templates_picker_panel",
-          "$modern_screen_size": [424, 192],
+        "common_panel@modern_screens.uikit_screen": {
+          "anims":[
+            "@modern_world_templates.anim_0"
+          ],
+          "$screen_type": "modern_screens.include_cards_screen",
+          "$card_screen": "modern_world_templates.world_templates_picker_panel",
+          "$modern_screen_size": [428, 192],
           "$shadow_offset": [0, 1],
           "$cards_offset": [0, 1],
           "$shadow_anchor": "bottom_middle"
@@ -35,7 +35,6 @@
       {
         "all_bg": {
           "type": "image",
-          "animation_reset_name": "screen_animation_reset",
           "anims": [
             "@common.screen_exit_animation_push_alpha",
             "@common.screen_exit_animation_pop_alpha",
@@ -45,25 +44,13 @@
           "layer": -1,
           "size": ["150%", "150%"],
           "color": [0.8, 0.8, 0.8],
-          "texture": "textures/ui/bg",
+          "texture": "textures/modern_ui/bg",
           "alpha": 0.7,
           "controls": [
             {
-              "back@screen_uikit.bgback": {}
+              "back@modern_screens.bgback": {}
             }
           ]
-        }
-      },
-      {
-        "back_button@ui.no_background_content_button": {
-          "anchor_from": "top_left",
-          "anchor_to": "top_left",
-          "offset":[0,-12],
-          "$pressed_button_name": "button.menu_exit",
-          "$back_content": "screen_uikit.hided_button",
-          "$button_content": "$back_content",
-          "$button_text": "$back_button_text",
-          "layer": 200 //This should always be on top, let's ensure that
         }
       }
     ]
@@ -72,14 +59,18 @@
     "type": "panel",
     "controls": [
       {
-        "root_panel@screen_uikit.standard_scrolling": {
-          "$scrolling_pane_size": ["100%+2px", "100%"],
-          "$show_background": false,
-          "size": ["100%", "100%"],
-          "anchor_from": "bottom_middle",
-          "anchor_to": "bottom_middle",
+        "store@modern_screens.common_scrolling_panel": {
+          "$scrolling_pane_size": ["100%+8px", "100%"],     "layer": 1,
+          "offset":[-4,118],
+          "size":[422,280],
+          "$scrolling_content": "modern_world_templates.world_template_item_grid"
+        }
+      },
+      {
+        "local@modern_screens.common_scrolling_panel": {
+          "$scrolling_pane_size": ["100%+2px", "100%"], "size": ["100%", "1000%"],
           "layer": 1,
-          "$scrolling_content": "worldtemplates_uikit.world_templates_panel"
+          "$scrolling_content": "modern_world_templates.world_templates_panel"
         }
       }
     ]
@@ -92,7 +83,7 @@
   "2_icon": {
     "type": "image",
     "texture": "textures/ui/inventory_icon",
-    "size": ["default", 24]
+    "size": ["default",24]
   },
   "world_templates_panel@world_templates.common_scroll_pane": {
     "anchor_from": "top_left",
@@ -117,10 +108,8 @@
                 "orientation": "horizontal",
                 "controls": [
                   {
-                    "0@ui.Snowfirewolf_button": {
+                    "0@modern_buttons.Snowfirewolf_button": {
                       "size": [362, 30],
-                      "focus_change_left": "FOCUS_OVERRIDE_STOP",
-                      "focus_change_right": "FOCUS_OVERRIDE_STOP",
                       "$pressed_button_name": "button.generate_random",
                       "$button_text": "Create A Custom ADD-ON World"
                     }
@@ -132,13 +121,11 @@
                     }
                   },
                   {
-                    "1@ui.modern_white_content_button": {
+                    "1@modern_buttons.modern_content_button": {
                       "size": [30, 30],
-                      "focus_change_left": "FOCUS_OVERRIDE_STOP",
-                      "focus_change_right": "FOCUS_OVERRIDE_STOP",
                       "$pressed_button_name": "button.more_custom_templates",
                       "$button_text": "selectTemplate.seeMore",
-                      "$button_content": "worldtemplates_uikit.1_icon"
+                      "$button_content": "modern_world_templates.1_icon"
                     }
                   },
                   {
@@ -148,12 +135,10 @@
                     }
                   },
                   {
-                    "2@ui.modern_white_content_button": {
+                    "2@modern_buttons.modern_content_button": {
                       "size": [30, 30],
-                      "focus_change_left": "FOCUS_OVERRIDE_STOP",
-                      "focus_change_right": "FOCUS_OVERRIDE_STOP",
                       "$pressed_button_name": "button.inventory",
-                      "$button_content": "worldtemplates_uikit.2_icon"
+                      "$button_content": "modern_world_templates.2_icon"
                     }
                   }
                 ]
@@ -166,29 +151,20 @@
               }
             },
             {
-              "custom_world_template_item_grid@worldtemplates_uikit.custom_world_template_item_grid": {}
-            },
-            {
-              "custom_world_template_padding": {
-                "type": "panel",
-                "size": [0, -151]
-              }
+              "custom_world_template_item_grid@modern_world_templates.custom_world_template_item_grid": {}
             }
           ]
         }
-      },
-      {
-        "world_template_item_grid@worldtemplates_uikit.world_template_item_grid": {}
       }
     ]
   },
   "custom_world_template_item_grid": {
     "type": "grid",
-    "size": ["100%", "default"],
+    "size": [142, "default"],
     "layer": 1,
     "anchor_to": "top_left",
     "anchor_from": "top_left",
-    "grid_item_template": "worldtemplates_uikit.world_template_item_panel",
+    "grid_item_template": "modern_world_templates.local_world_template_item_panel",
     "grid_dimension_binding": "#custom_world_template_item_grid_dimension",
     "collection_name": "custom_world_templates",
     "$collection_name": "custom_world_templates",
@@ -206,12 +182,11 @@
   },
   "world_template_item_grid": {
     "type": "grid",
-    "offset": [0, 152],
-    "size": ["100%", "default"],
+    "size": [142, "default"],
     "layer": 1,
-    "anchor_to": "bottom_left",
-    "anchor_from": "bottom_left",
-    "grid_item_template": "worldtemplates_uikit.world_template_item_panel",
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "grid_item_template": "modern_world_templates.world_template_item_panel",
     "grid_dimension_binding": "#world_template_item_grid_dimension",
     "collection_name": "world_templates",
     "$collection_name": "world_templates",
@@ -228,7 +203,72 @@
       }
     ]
   },
-
+  "local_world_template_item_panel": {
+    "type": "stack_panel",
+    "size": ["33%", 75.5],
+    "$grid_size_0": [139, 74],
+    "orientation": "horizontal",
+    "controls": [
+      {
+        "-": {
+          "type": "panel",
+          "size": [0.5, 0]
+        }
+      },
+      {
+        "local_item_0@modern_buttons.modern_content_button": {
+          "size": "$grid_size_0",
+          "layer":30,
+          "$button_content": "modern_world_templates.world_template_content_panel",
+          "bindings": [
+            {
+              "binding_type": "collection_details",
+              "binding_collection_name": "custom_world_templates",
+              "binding_collection_prefix": ""
+            }
+          ]
+        }
+      },
+      {
+        "padding_0": {
+          "type": "panel",
+          "size": [-500, 0]
+        }
+      },
+      {
+        "local_item_1@modern_buttons.modern_content_button": {
+          "size": "$grid_size_0",
+          "$button_content": "modern_world_templates.world_template_content_panel",
+          "bindings": [
+            {
+              "binding_type": "collection_details",
+              "binding_collection_name": "custom_world_templates",
+              "binding_collection_prefix": ""
+            }
+          ]
+        }
+      },
+      {
+        "padding_1": {
+          "type": "panel",
+          "size": [-420, 0]
+        }
+      },
+      {
+        "local_item_2@modern_buttons.modern_content_button": {
+          "size": "$grid_size_0",
+          "$button_content": "modern_world_templates.world_template_content_panel",
+          "bindings": [
+            {
+              "binding_type": "collection_details",
+              "binding_collection_name": "$collection_name",
+              "binding_collection_prefix": "$collection_prefix"
+            }
+          ]
+        }
+      }
+    ]
+  },
   "world_template_item_panel": {
     "type": "stack_panel",
     "size": ["33%", 75.5],
@@ -242,9 +282,9 @@
         }
       },
       {
-        "local_item_0@ui.modern_white_content_button": {
+        "local_item_0@modern_buttons.modern_content_button": {
           "size": "$grid_size_0",
-          "$button_content": "worldtemplates_uikit.world_template_content_panel",
+          "$button_content": "modern_world_templates.world_template_content_panel",
           "bindings": [
             {
               "binding_type": "collection_details",
@@ -257,13 +297,13 @@
       {
         "padding_0": {
           "type": "panel",
-          "size": [-421, 0]
+          "size": [-563, 0]
         }
       },
       {
-        "local_item_1@ui.modern_white_content_button": {
+        "local_item_1@modern_buttons.modern_content_button": {
           "size": "$grid_size_0",
-          "$button_content": "worldtemplates_uikit.world_template_content_panel",
+          "$button_content": "modern_world_templates.world_template_content_panel",
           "bindings": [
             {
               "binding_type": "collection_details",
@@ -276,13 +316,13 @@
       {
         "padding_1": {
           "type": "panel",
-          "size": [-421, 0]
+          "size": [-563, 0]
         }
       },
       {
-        "local_item_2@ui.modern_white_content_button": {
+        "local_item_2@modern_buttons.modern_content_button": {
           "size": "$grid_size_0",
-          "$button_content": "worldtemplates_uikit.world_template_content_panel",
+          "$button_content": "modern_world_templates.world_template_content_panel",
           "bindings": [
             {
               "binding_type": "collection_details",
