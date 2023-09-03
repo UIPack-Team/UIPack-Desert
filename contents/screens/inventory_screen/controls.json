@@ -45,14 +45,14 @@
     "size": [50, "100%"],
     "controls": [
       {
-        "选中第二个": {
+        "secondary_mapping": {
           "type": "stack_panel",
           "offset": [46, 4],
           "orientation": "horizontal",
           "size": [50, "100%"],
           "controls": [
             {
-              "建筑方块@top_tab": {
+              "items_group_01@top_tab": {
                 "$tab_view_binding_name": "tab_1",
                 "$toggle_group_forced_index": 21,
                 "$tab_icon": "common.empty_panel",
@@ -67,91 +67,91 @@
               }
             },
             {
-              "space_0": {
+              "padding_0": {
                 "type": "panel",
                 "size": [1.5, 0]
               }
             },
             {
-              "自然方块@top_tab": {
+              "items_group_02@top_tab": {
                 "$tab_view_binding_name": "tab_2",
                 "$toggle_group_forced_index": 22,
                 "$tab_icon": "common.empty_panel"
               }
             },
             {
-              "space_1": {
+              "padding_1": {
                 "type": "panel",
                 "size": [1.5, 0]
               }
             },
             {
-              "Colored Blocked@top_tab": {
+              "items_group_03@top_tab": {
                 "$tab_view_binding_name": "tab_3",
                 "$toggle_group_forced_index": 23,
                 "$tab_icon": "common.empty_panel"
               }
             },
             {
-              "space_2": {
+              "padding_2": {
                 "type": "panel",
                 "size": [1.5, 0]
               }
             },
             {
-              "功能方块2@top_tab": {
+              "items_group_04@top_tab": {
                 "$tab_icon": "common.empty_panel",
                 "$tab_view_binding_name": "tab_4",
                 "$toggle_group_forced_index": 24
               }
             },
             {
-              "space_22": {
+              "padding_3": {
                 "type": "panel",
                 "size": [1.5, 0]
               }
             },
             {
-              "功能方4块2@top_tab": {
+              "items_group_05@top_tab": {
                 "$tab_icon": "common.empty_panel",
                 "$tab_view_binding_name": "tab_5",
                 "$toggle_group_forced_index": 25
               }
             },
             {
-              "spa5ce_2": {
+              "padding_4": {
                 "type": "panel",
                 "size": [1.5, 0]
               }
             },
             {
-              "功能456方块@top_tab": {
+              "items_group_06@top_tab": {
                 "$tab_icon": "common.empty_panel",
                 "$tab_view_binding_name": "tab_6",
                 "$toggle_group_forced_index": 26
               }
             },
             {
-              "spa475ce_2": {
+              "padding_5": {
                 "type": "panel",
                 "size": [1.5, 0]
               }
             },
             {
-              "功45能方块@top_tab": {
+              "items_group_07@top_tab": {
                 "$tab_icon": "common.empty_panel",
                 "$tab_view_binding_name": "tab_7",
                 "$toggle_group_forced_index": 27
               }
             },
             {
-              "spa465ce_2": {
+              "padding_6": {
                 "type": "panel",
                 "size": [1.5, 0]
               }
             },
             {
-              "功能方75块@top_tab": {
+              "items_group_08@top_tab": {
                 "$tab_icon": "common.empty_panel",
                 "$tab_view_binding_name": "tab_8",
                 "$toggle_group_forced_index": 28
@@ -168,98 +168,98 @@
           "size": [50, "100%"],
           "controls": [
             {
-              "123@top_tab": {
+              "items_group_09@top_tab": {
                 "$tab_view_binding_name": "tab_11",
                 "$toggle_group_forced_index": 121,
                 "$tab_icon": "common.empty_panel"
               }
             },
             {
-              "space_0": {
+              "padding_0": {
                 "type": "panel",
                 "size": [1.5, 0]
               }
             },
             {
-              "自然方块@top_tab": {
+              "items_group_10@top_tab": {
                 "$tab_view_binding_name": "tab_12",
                 "$toggle_group_forced_index": 122,
                 "$tab_icon": "common.empty_panel"
               }
             },
             {
-              "space_1": {
+              "padding_1": {
                 "type": "panel",
                 "size": [1.5, 0]
               }
             },
             {
-              "Colored Blocked@top_tab": {
+              "items_group_11@top_tab": {
                 "$tab_view_binding_name": "tab_13",
                 "$toggle_group_forced_index": 123,
                 "$tab_icon": "common.empty_panel"
               }
             },
             {
-              "space_2": {
+              "padding_2": {
                 "type": "panel",
                 "size": [1.5, 0]
               }
             },
             {
-              "功能方块2@top_tab": {
+              "items_group_12@top_tab": {
                 "$tab_icon": "common.empty_panel",
                 "$tab_view_binding_name": "tab_14",
                 "$toggle_group_forced_index": 124
               }
             },
             {
-              "space_22": {
+              "padding_3": {
                 "type": "panel",
                 "size": [1.5, 0]
               }
             },
             {
-              "功能方4块2@top_tab": {
+              "items_group_13@top_tab": {
                 "$tab_icon": "common.empty_panel",
                 "$tab_view_binding_name": "tab_15",
                 "$toggle_group_forced_index": 125
               }
             },
             {
-              "spa5ce_2": {
+              "padding_4": {
                 "type": "panel",
                 "size": [1.5, 0]
               }
             },
             {
-              "功能456方块@top_tab": {
+              "items_group_14@top_tab": {
                 "$tab_icon": "common.empty_panel",
                 "$tab_view_binding_name": "tab_16",
                 "$toggle_group_forced_index": 126
               }
             },
             {
-              "spa475ce_2": {
+              "padding_5": {
                 "type": "panel",
                 "size": [1.5, 0]
               }
             },
             {
-              "功45能方块@top_tab": {
+              "items_group_15@top_tab": {
                 "$tab_icon": "common.empty_panel",
                 "$tab_view_binding_name": "tab_17",
                 "$toggle_group_forced_index": 127
               }
             },
             {
-              "spa465ce_2": {
+              "padding_6": {
                 "type": "panel",
                 "size": [1.5, 0]
               }
             },
             {
-              "功能方75块@top_tab": {
+              "items_group_16@top_tab": {
                 "$tab_icon": "common.empty_panel",
                 "$tab_view_binding_name": "tab_18",
                 "$toggle_group_forced_index": 128
@@ -270,6 +270,7 @@
       }
     ]
   },
+  // They are guessed by possible stack factory
   "41@test": {
     "$toggle_target": "inventory_controlsinventory_controls.construction",
     "$test_01": [0, -1098],
@@ -353,16 +354,19 @@
     "$test_04":[0,-1350],
     "$test_05":[0,-1440],
     "$test_06":[0,-1188]
-  },"51@test": {
+  },
+  
+  "51@test": {
     "$toggle_target": "inventory_controlsinventory_controls.14",
-
     "$test_01":[0,-972],
     "$test_02":[0,-1584],
     "$test_03":[0,-252],
     "$test_04":[0,-666],
     "$test_05":[0,-1476],
     "$test_06":[0,-1350]
-  },"52@test": {
+  },
+  
+  "52@test": {
     "$toggle_target": "inventory_controlsinventory_controls.15",
     "$test_01":[0,-954],
     "$test_02":[0,-630],
@@ -370,7 +374,9 @@
     "$test_04":[0,-1152],
     "$test_05":[0,-738],
     "$test_06":[0,-1368]
-  },"53@test": {
+  },
+  
+  "53@test": {
     "$toggle_target": "inventory_controlsinventory_controls.16",
     "$test_01":[0,-1674],
     "$test_02":[0,-918],
@@ -378,7 +384,9 @@
     "$test_04":[0,-522],
     "$test_05":[0,-1116],
     "$test_06":[0,-1008]
-  },"54@test": {
+  },
+  
+  "54@test": {
     "$toggle_target": "inventory_controlsinventory_controls.17",
     "$test_01":[0,-1152],
     "$test_02":[0,-864],
@@ -386,7 +394,9 @@
     "$test_04":[0,-1224],
     "$test_05":[0,-882],
     "$test_06":[0,-630]
-  },"55@test": {
+  },
+  
+  "55@test": {
     "$toggle_target": "inventory_controlsinventory_controls.18",
     "$test_01":[0,-972],
     "$test_02":[0,-972],
@@ -394,7 +404,9 @@
     "$test_04":[0,-1566],
     "$test_05":[0,-1548],
     "$test_06":[0,-1404]
-  },"56@test": {
+  },
+  
+  "56@test": {
     "$toggle_target": "inventory_controlsinventory_controls.19",
     "$test_01":[0,-774],
     "$test_02":[0,-720],
@@ -404,15 +416,7 @@
     "$test_06":[0,-1278]
   },
 
-
-
-
-
-
-
-
-
-  "118panel": {
+  "test_stack_panel_0": {
     "type": "panel",
     "bindings": [
       {
@@ -453,7 +457,6 @@
                 ]
               }
             },
-
             {
               "modacghsscrolling@inventory_uikit.standard_scrolling": {
                 "size": [196, 117],
